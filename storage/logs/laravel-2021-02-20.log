@@ -76,3 +76,47 @@
 #70 C:\\Users\\qsaif\\Downloads\\college-affiliated-system\\college-affiliated-system\\server.php(21): require_once('C:\\\\Users\\\\qsaif\\\\...')
 #71 {main}
 "} 
+[2021-02-20 09:50:58] local.ERROR: Cannot redeclare App\Business::businessImage() {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 64): Cannot redeclare App\\Business::businessImage() at C:\\xampp\\htdocs\\bunkerbook\\app\\Business.php:21)
+[stacktrace]
+#0 {main}
+"} 
+[2021-02-20 09:51:57] local.ERROR: Cannot redeclare App\Business::businessImage() {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 64): Cannot redeclare App\\Business::businessImage() at C:\\xampp\\htdocs\\bunkerbook\\app\\Business.php:21)
+[stacktrace]
+#0 {main}
+"} 
+[2021-02-20 09:52:57] local.ERROR: Cannot redeclare App\Business::businessImage() {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 64): Cannot redeclare App\\Business::businessImage() at C:\\xampp\\htdocs\\bunkerbook\\app\\Business.php:21)
+[stacktrace]
+#0 {main}
+"} 
+[2021-02-20 09:53:57] local.ERROR: Cannot redeclare App\Business::businessImage() {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 64): Cannot redeclare App\\Business::businessImage() at C:\\xampp\\htdocs\\bunkerbook\\app\\Business.php:21)
+[stacktrace]
+#0 {main}
+"} 
+[2021-02-20 09:54:57] local.ERROR: Cannot redeclare App\Business::businessImage() {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 64): Cannot redeclare App\\Business::businessImage() at C:\\xampp\\htdocs\\bunkerbook\\app\\Business.php:21)
+[stacktrace]
+#0 {main}
+"} 
+[2021-02-20 09:55:57] local.ERROR: Cannot redeclare App\Business::businessImage() {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 64): Cannot redeclare App\\Business::businessImage() at C:\\xampp\\htdocs\\bunkerbook\\app\\Business.php:21)
+[stacktrace]
+#0 {main}
+"} 
+[2021-02-20 09:56:57] local.ERROR: Cannot redeclare App\Business::businessImage() {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 64): Cannot redeclare App\\Business::businessImage() at C:\\xampp\\htdocs\\bunkerbook\\app\\Business.php:21)
+[stacktrace]
+#0 {main}
+"} 
+[2021-02-20 09:57:57] local.ERROR: Cannot redeclare App\Business::businessImage() {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 64): Cannot redeclare App\\Business::businessImage() at C:\\xampp\\htdocs\\bunkerbook\\app\\Business.php:21)
+[stacktrace]
+#0 {main}
+"} 
+[2021-02-20 11:14:58] local.ERROR: syntax error, unexpected '}', expecting ';' {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 4): syntax error, unexpected '}', expecting ';' at C:\\xampp\\htdocs\\bunkerbook\\app\\Country.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2021-02-20 11:15:58] local.ERROR: syntax error, unexpected '}', expecting ';' {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 4): syntax error, unexpected '}', expecting ';' at C:\\xampp\\htdocs\\bunkerbook\\app\\Country.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2021-02-20 11:16:58] local.ERROR: syntax error, unexpected '}', expecting ';' {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 4): syntax error, unexpected '}', expecting ';' at C:\\xampp\\htdocs\\bunkerbook\\app\\Country.php:14)
+[stacktrace]
+#0 {main}
+"} 
