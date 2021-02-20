@@ -270,4 +270,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-/*Consultant*/
+/*Business Management*/
+Route::get('add/business', 'Admin\BusinessController@addBusiness')->name('add.business');
+// Route::get('add/business', [
+//     'uses' => 'Admin\BusinessController@addBusiness',
+//     'as' => 'add.business'
+// ]);
