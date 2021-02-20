@@ -61,7 +61,7 @@
 
                 <li class="{{ Request::segment(2) === 'index3' ? 'active open' : null }}"><a href="{{route('dashboard.index3')}}"><i class="icon-map"></i><span>Business Management</span></a>
                     <ul>
-                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('tables.normal')}}">Add Business</a></li>
+                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('add.business')}}">Add Business</a></li>
                     <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('tables.normal')}}">Upcoming Business list</a></li>
                     <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('tables.normal')}}">Active Business list</a></li>
                     <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('tables.normal')}}">Reject Business list</a></li>
