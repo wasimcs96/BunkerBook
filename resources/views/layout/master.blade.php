@@ -91,18 +91,18 @@
                         <div class="d-flex flex-row-reverse">
                             {{-- <a href="https://themeforest.net/user/puffintheme/portfolio" class="btn btn-success ml-1 mr-1" ><i class="icon-basket"></i> Buy Now</a>
                             <a href="javascript:void(0);" class="btn btn-primary" >Go</a> --}}
-                            <select class="custom-select w100 mr-3">
+                            <!-- <select class="custom-select w100 mr-3">
                                 <option selected="">India</option>
                                 <option value="2">USA</option>
                                 <option value="3">Australia</option>
-                            </select>
-                            <select class="custom-select w150 mr-3">
+                            </select> -->
+                            <!-- <select class="custom-select w150 mr-3">
                                 <option value="2">Last 3 Days</option>
                                 <option selected="">Last 7 Days</option>
                                 <option value="2">Last 15 Days</option>
                                 <option value="2">Last 1 Month</option>
                                 <option value="2">Last 1 Year</option>
-                            </select>
+                            </select> -->
                         </div>
                     </div>
                 </div>
