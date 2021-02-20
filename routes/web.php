@@ -41,6 +41,42 @@ Route::group([
 
 Route::get('home', 'UserController@index')->name('home');
 
+// users.....
+Route::get('/user', 'Admin\AdminUserController@index')->name('users.index');
+Route::get('/user/create', 'Admin\AdminUserController@create')->name('users.create');
+Route::post('/user', 'Admin\AdminUserController@store')->name('users.store');
+Route::get('/user/show/{id}', 'Admin\AdminUserController@show')->name('users.show');
+Route::put('/user/{id}', 'Admin\AdminUserController@update')->name('users.update');
+Route::get('/user/edit/{id}', 'Admin\AdminUserController@edit')->name('users.edit');
+Route::get('/user/destroy/{id}', 'Admin\AdminUserController@destroy')->name('users.destroy');
+
+// category.......
+Route::get('/category', 'Admin\AdminCategoryController@index')->name('category.index');
+Route::get('/category/create', 'Admin\AdminCategoryController@create')->name('category.create');
+Route::post('/category', 'Admin\AdminCategoryController@store')->name('category.store');
+Route::get('/category/show/{id}', 'Admin\AdminCategoryController@show')->name('category.show');
+Route::put('/category/{id}', 'Admin\AdminCategoryController@update')->name('category.update');
+Route::get('/category/edit/{id}', 'Admin\AdminCategoryController@edit')->name('category.edit');
+Route::get('/category/destroy/{id}', 'Admin\AdminCategoryController@destroy')->name('category.destroy');
+
+// plan.......
+Route::get('/plan', 'Admin\AdminPlanController@index')->name('plan.index');
+Route::get('/plan/create', 'Admin\AdminPlanController@create')->name('plan.create');
+Route::post('/plan', 'Admin\AdminPlanController@store')->name('plan.store');
+Route::get('/plan/show/{id}', 'Admin\AdminPlanController@show')->name('plan.show');
+Route::put('/plan/{id}', 'Admin\AdminPlanController@update')->name('plan.update');
+Route::get('/plan/edit/{id}', 'Admin\AdminPlanController@edit')->name('plan.edit');
+Route::get('/plan/destroy/{id}', 'Admin\AdminPlanController@destroy')->name('plan.destroy');
+
+// news.......
+Route::get('/news', 'Admin\AdminNewsfeedController@index')->name('news.index');
+Route::get('/news/create', 'Admin\AdminNewsfeedController@create')->name('news.create');
+Route::post('/news', 'Admin\AdminNewsfeedController@store')->name('news.store');
+Route::get('/news/show/{id}', 'Admin\AdminNewsfeedController@show')->name('news.show');
+Route::put('/news/{id}', 'Admin\AdminNewsfeedController@update')->name('news.update');
+Route::get('/news/edit/{id}', 'Admin\AdminNewsfeedController@edit')->name('news.edit');
+Route::get('/news/destroy/{id}', 'Admin\AdminNewsfeedController@destroy')->name('news.destroy');
+
 
 
 Route::get('index', function(){

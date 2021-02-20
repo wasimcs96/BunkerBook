@@ -45,19 +45,19 @@
                     </ul>
                 </li> --}}
                 <li class="{{ Request::segment(2) === 'index2' ? 'active open' : null }}"><a href="{{route('dashboard.index2')}}"><i class="icon-speedometer"></i><span>Dashboard</span></a></li>
-                <li class="{{ Request::segment(2) === 'index3' ? 'active open' : null }}"><a href="{{route('dashboard.index3')}}"><i class="icon-user"></i><span>User Management</span></a>
+                <li class="{{ Request::segment(2) === 'index3' ? 'active open' : null }}"><a href="{{route('users.index')}}"><i class="icon-user"></i><span>User Management</span></a>
                     <ul>
-                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('tables.normal')}}">Users list</a></li>
+                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('users.index')}}">Users list</a></li>
                     </ul>
                 </li>
-                <li class="{{ Request::segment(2) === 'index3' ? 'active open' : null }}"><a href="{{route('dashboard.index3')}}"><i class="icon-basket-loaded"></i><span>Category Management</span></a>
+                <li class="{{ Request::segment(2) === 'index3' ? 'active open' : null }}"><a href="{{route('category.index')}}"><i class="icon-basket-loaded"></i><span>Category Management</span></a>
                     <ul>
-                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('tables.normal')}}">Category list</a></li>
+                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('category.index')}}">Category list</a></li>
                     </ul>
                 </li>
-                <li class="{{ Request::segment(2) === 'index2' ? 'active open' : null }}"><a href="{{route('dashboard.index2')}}"><i class="icon-cursor"></i><span>Plan Management</span></a></li>
+                <li class="{{ Request::segment(2) === 'index2' ? 'active open' : null }}"><a href="{{route('plan.index')}}"><i class="icon-cursor"></i><span>Plan Management</span></a></li>
 
-                <li class="{{ Request::segment(2) === 'index2' ? 'active open' : null }}"><a href="{{route('dashboard.index2')}}"><i class="icon-globe"></i><span>News Feed</span></a></li>
+                <li class="{{ Request::segment(2) === 'index2' ? 'active open' : null }}"><a href="{{route('news.index')}}"><i class="icon-globe"></i><span>News Feed</span></a></li>
 
                 <li class="{{ Request::segment(2) === 'index3' ? 'active open' : null }}"><a href="{{route('dashboard.index3')}}"><i class="icon-map"></i><span>Business Management</span></a>
                     <ul>
