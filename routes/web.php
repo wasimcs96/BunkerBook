@@ -42,11 +42,11 @@ Route::group([
 Route::get('home', 'UserController@index')->name('home');
 
 // users.....
-Route::get('/user', 'admin\adminusercontroller@index')->name('users.index');
+Route::get('/user/index', 'admin\adminusercontroller@index')->name('users.index');
 Route::get('/user/create', 'admin\adminusercontroller@create')->name('users.create');
-Route::post('/user', 'admin\adminusercontroller@store')->name('users.store');
+Route::post('/user/store', 'admin\adminusercontroller@store')->name('users.store');
 Route::get('/user/show/{id}', 'admin\adminusercontroller@show')->name('users.show');
-Route::post('/user/{id}', 'admin\adminusercontroller@update')->name('users.update');
+Route::post('/user/update/{id}', 'admin\adminusercontroller@update')->name('users.update');
 Route::get('/user/edit/{id}', 'admin\adminusercontroller@edit')->name('users.edit');
 Route::get('/user/destroy/{id}', 'admin\adminusercontroller@destroy')->name('users.destroy');
 
