@@ -63,7 +63,7 @@ Route::get('/category/destroy/{id}', 'admin\admincategorycontroller@destroy')->n
 Route::get('/plan', 'admin\adminplancontroller@index')->name('plan.index');
 // Route::get('/plan/create', 'admin\adminplancontroller@create')->name('plan.create');
 // Route::post('/plan', 'admin\adminplancontroller@store')->name('plan.store');
-// Route::get('/plan/show/{id}', 'admin\adminplancontroller@show')->name('plan.show');
+Route::get('/plan/show/{id}', 'admin\adminplancontroller@show')->name('plan.show');
 Route::post('/plan/{id}', 'admin\adminplancontroller@update')->name('plan.update');
 Route::get('/plan/edit/{id}', 'admin\adminplancontroller@edit')->name('plan.edit');
 // Route::get('/plan/destroy/{id}', 'admin\adminplancontroller@destroy')->name('plan.destroy');
@@ -76,6 +76,9 @@ Route::get('/news/show/{id}', 'admin\adminnewsfeedcontroller@show')->name('news.
 Route::put('/news/{id}', 'admin\adminnewsfeedcontroller@update')->name('news.update');
 Route::get('/news/edit/{id}', 'admin\adminnewsfeedcontroller@edit')->name('news.edit');
 Route::get('/news/destroy/{id}', 'admin\adminnewsfeedcontroller@destroy')->name('news.destroy');
+
+// Transaction....
+Route::get('/transaction', 'Admin\AdminTransactioncontroller@index')->name('transaction.index');
 
 
 Route::get('index', function(){
