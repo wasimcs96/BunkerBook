@@ -32,7 +32,7 @@
                         <div class="row clearfix">
                             <div class="col-md-12">
                                 <div class="form-group">
-
+                                <label>Select Plan</label>
                                     <select name="status" class="form-control" required>
                                         <option value="">-- Select Type --</option>
                                         <option value="1">Standerd</option>
@@ -42,20 +42,17 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <label>Name</label>
                                     <input type="text" name="name" placeholder="Name *" class="form-control" required>
                                 </div>
                             </div>
 
-                            <div class="field_wrapper2">
-                                <div class="col-md-12">
-                                   <div class="form-group">
-                                   <label class="control-label">Email</label>
-                                      <input type="text" name="email[]" id="email" value="" class="form-control">
-                                       <span class="msg_alert_class" id="emailMsg"></span>
-
-                                   </div>
+                        <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" name="name" placeholder="Name *" class="form-control" required>
                                 </div>
-                             </div>
+                            </div>
 
                             <div class="col-md-12">
                                 <div class="form-group">

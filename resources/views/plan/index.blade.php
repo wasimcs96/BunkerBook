@@ -30,7 +30,7 @@
                     <table class="table table-striped table-hover dataTable js-exportable">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                {{-- <th>#</th> --}}
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>Price</th>
@@ -76,7 +76,7 @@
                             <div class="form-group">
                                 <label for="">Plan Name</label>
                                 <input type="text" class="form-control" name="name" placeholder="Enter First Name"
-                                    value="{{ $plan->name ?? '' }}">
+                                    value="{{ $plan->plan_name ?? '' }}">
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                         <div class="mb-3 col-lg-12">
                             <div class="form-group">
                                 <label for="">Plan Description</label>
-                                <input type="text" class="form-control" name="desc" value="{{ $plan->desc ?? '' }}">
+                                <input type="text" class="form-control" name="desc" value="{{ $plan->plan_desc ?? '' }}">
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>

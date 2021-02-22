@@ -163,9 +163,9 @@
 .wizard > .content > .body
 {
     float: left;
-    position: absolute;
+    /* position: absolute; */
     width: 95%;
-    height: 95%;
+    /* height: 95%; */
     padding: 2.5%;
 }
 
