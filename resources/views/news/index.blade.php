@@ -95,7 +95,7 @@
           </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">DESCRIPTION:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <textarea class="form-control summernote" id="message-text"></textarea>
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Youtube Link:</label>
