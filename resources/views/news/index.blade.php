@@ -30,48 +30,27 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Profile</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Mobile</th>
-                                <th>Address</th>
-                                <th>Birth Year</th>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Youtube Link</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                      
                         <tbody>
-                           
+                      
+                          @foreach($news as $new)
                             <tr>
-                                <td>Shad Decker</td>
-                                <td>Regional Director</td>
-                                <td>Edinburgh</td>
-                                <td>51</td>
-                                <td>2008/11/13</td>
-                                <td>$183,000</td>
-                                <td>2008/11/13</td>
-                                <td>$183,000</td>
+                                <td></td>
+                                <td>{{$new->image ?? ''}}</td>
+                                <td>{{$new->title ?? ''}}</td>
+                                <td>{{$new->description ?? ''}}</td>
+                                <td>{{$new->youtube_link ?? ''}}</td>
+                                <!-- <td><a class="btn btn-sm btn-warning">Edit</a></td>
+                                <td><a class="btn btn-sm btn-danger">Delete</a></td> -->
                             </tr>
-                            <tr>
-                                <td>Michael Bruce</td>
-                                <td>Javascript Developer</td>
-                                <td>Singapore</td>
-                                <td>29</td>
-                                <td>2011/06/27</td>
-                                <td>$183,000</td>
-                                <td>2008/11/13</td>
-                                <td>$183,000</td>
-                            </tr>
-                            <tr>
-                                <td>Donna Snider</td>
-                                <td>Customer Support</td>
-                                <td>New York</td>
-                                <td>27</td>
-                                <td>2011/01/25</td>
-                                <td>$112,000</td>
-                                <td>2008/11/13</td>
-                                <td>$183,000</td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -88,29 +67,30 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="{{route('news.create')}}" method="post" enctype="multipart/form-data">
+         @csrf
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Title:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="title" name="title" required>
           </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">DESCRIPTION:</label>
-            <textarea class="form-control summernote" id="message-text"></textarea>
+            <textarea class="form-control summernote" id="description" name="description" required></textarea>
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Youtube Link:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="youtube_link" name="youtube_link" required>
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Image:</label>
-            <input type="file" class="form-control" id="recipient-name">
+            <input type="file" class="form-control" id="image" name="image" required>
           </div>
-        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="submit" class="btn btn-primary">Create </button>
       </div>
+        </form>
     </div>
   </div>
 </div>
@@ -132,6 +112,7 @@
         background: url('../assets/images/details_close.png') no-repeat center center;
     }
 </style>
+<link rel="stylesheet" href="{{ asset('assets/vendor/summernote/dist/summernote.css') }}">
 @stop
 
 @section('page-script')
@@ -149,4 +130,6 @@
 
 <script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
 <script src="{{ asset('assets/js/pages/tables/jquery-datatable.js') }}"></script>
+<script src="{{ asset('assets/vendor/summernote/dist/summernote.js') }}"></script>
+
 @stop
