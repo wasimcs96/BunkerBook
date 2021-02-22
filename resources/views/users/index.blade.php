@@ -49,7 +49,7 @@
                             @foreach($users as $user)
                             <tr>
                                 <td>{{ $user->id ?? '' }}</td>
-                                <td>{{ $user->profile ?? '' }}</td>
+                                <td><img src="{{ $user->image ?? '' }}"></td>
                                 <td>{{ $user->first_name ?? '' }}</td>
                                 <td>{{ $user->last_name ?? '' }}</td>
                                 <td>{{ $user->email ?? '' }}</td>
@@ -57,8 +57,8 @@
                                 <td>{{ $user->address ?? '' }}</td>
                                 <td>
                                     <a class="btn btn-secondary btn-sm"
-                                        href="{{ route('users.edit',['id'=>$user->id]) }}" data-bs-toggle="modal"
-                                        data-bs-target="#editModal">
+                                        href="javascript:void(0);" data-bs-toggle="modal"
+                                        data-bs-target="#editModal-{{ $user->id }}">
                                         <span class="btn-label">
                                             <i class="icons-edit"></i>
                                         </span>
@@ -86,6 +86,106 @@
                                     </a>
                                 </td>
                             </tr>
+                            <div class="modal fade" id="editModal-{{ $user->id ?? '' }}" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="" action="{{route('users.update',$user->id)}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+
+                    <div class="row">
+                        <div class="mb-3 col-lg-12">
+                            <div class="form-group">
+                                <label for="">First Name</label>
+                                <input type="text" class="form-control" name="first_name"
+                                    value="{{ $user->first_name}}" required>
+                                <p id="erremail" class="mb-0 text-danger em"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-lg-12">
+                            <div class="form-group">
+                                <label for="">Profile</label>
+                                <input type="file" class="form-control" name="profile" value="{{ $user->profile }}" required>
+                                <p id="erremail" class="mb-0 text-danger em"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-lg-12">
+                            <div class="form-group">
+                                <label for="">Last Name</label>
+                                <input type="text" class="form-control" name="last_name"
+                                    value="{{ $user->last_name }}" required>
+                                <p id="erremail" class="mb-0 text-danger em"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-lg-12">
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                <input type="email" class="form-control" name="email"
+                                    value="{{ $user->email }}" required>
+                                <p id="erremail" class="mb-0 text-danger em"></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- <div class="row">
+                        <div class="mb-3 col-lg-12">
+                            <div class="form-group">
+                                <label for="">Password</label>
+                                <input type="password" class="form-control" name="password"
+                                    value="{{ $user->password }}" required>
+                                <p id="erremail" class="mb-0 text-danger em"></p>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="mb-3 col-lg-12">
+                            <div class="form-group">
+                                <label for="">Mobile</label>
+                                <input type="number" class="form-control" name="mobile"
+                                    value="{{ $user->mobile }}" required>
+                                <p id="erremail" class="mb-0 text-danger em"></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="mb-3 col-lg-12">
+                            <div class="form-group">
+                                <label for="">plan</label>
+                                <!-- <input type="number" class="form-control" name="plan"
+                                    value="{{ $user->plan }}"> -->
+                                <select class="form-control" name="plan_id">
+                                    <option value="1">Annual Plan</option>
+                                    <option value="2">Half Year Plan</option>
+
+                                </select>
+                                <p id="erremail" class="mb-0 text-danger em"></p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
                             @endforeach
                         </tbody>
                     </table>
@@ -116,7 +216,7 @@
                             <div class="form-group">
                                 <label for="">First Name</label>
                                 <input type="text" class="form-control" name="first_name" placeholder="Enter First Name"
-                                    value="">
+                                    value="" required>
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -125,7 +225,7 @@
                         <div class="mb-3 col-lg-12">
                             <div class="form-group">
                                 <label for="">Profile</label>
-                                <input type="file" class="form-control" name="profile" value="">
+                                <input type="file" class="form-control" name="profile" value="" required>
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -136,7 +236,7 @@
                             <div class="form-group">
                                 <label for="">Last Name</label>
                                 <input type="text" class="form-control" name="last_name" placeholder="Enter Last Name"
-                                    value="">
+                                    value="" required>
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -147,7 +247,7 @@
                             <div class="form-group">
                                 <label for="">Email</label>
                                 <input type="email" class="form-control" name="email" placeholder="Enter Email"
-                                    value="">
+                                    value="" required>
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -160,7 +260,7 @@
                             <div class="form-group">
                                 <label for="">Password</label>
                                 <input type="password" class="form-control" name="password"
-                                    placeholder="Enter Password" value="">
+                                    placeholder="Enter Password" value="" required>
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -170,7 +270,7 @@
                             <div class="form-group">
                                 <label for="">Mobile</label>
                                 <input type="number" class="form-control" name="mobile"
-                                    placeholder="Enter Mobile Number" value="">
+                                    placeholder="Enter Mobile Number" value="" required>
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
