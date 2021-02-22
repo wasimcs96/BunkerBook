@@ -12,7 +12,8 @@
             <div class="header">
                 <h2>Table Tools<small>Basic example without any additional modification classes</small></h2>
                 <ul class="header-dropdown dropdown">
-                    
+                    {{-- <li><a href="javascript:void(0)"></li> --}}
+                    <li><a href="javascript:void(0)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Add More</a></li>
                     <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
@@ -30,53 +31,98 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Profile</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Mobile</th>
-                                <th>Address</th>
-                                <th>Birth Year</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                              
                             </tr>
                         </thead>
                      
                         <tbody>
-                           
+                           @foreach($categories as $category)
                             <tr>
-                                <td>Shad Decker</td>
-                                <td>Regional Director</td>
-                                <td>Edinburgh</td>
-                                <td>51</td>
-                                <td>2008/11/13</td>
-                                <td>$183,000</td>
-                                <td>2008/11/13</td>
-                                <td>$183,000</td>
+                                <td></td>
+                                <td>{{ $category->icon ?? '' }}</td>
+                                <td>{{ $category->name ?? '' }}</td>
+                                <td>{{ $category->description ?? '' }}</td>
+                                <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#editModal-{{ $category->id }}" class="btn btn-primary btn-sm">Edit</a>
+                                    <a href="{{ route('category.delete',$category->id) }}" class="btn btn-danger btn-sm">Delete</a></td>
+
                             </tr>
-                            <tr>
-                                <td>Michael Bruce</td>
-                                <td>Javascript Developer</td>
-                                <td>Singapore</td>
-                                <td>29</td>
-                                <td>2011/06/27</td>
-                                <td>$183,000</td>
-                                <td>2008/11/13</td>
-                                <td>$183,000</td>
-                            </tr>
-                            <tr>
-                                <td>Donna Snider</td>
-                                <td>Customer Support</td>
-                                <td>New York</td>
-                                <td>27</td>
-                                <td>2011/01/25</td>
-                                <td>$112,000</td>
-                                <td>2008/11/13</td>
-                                <td>$183,000</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            
+                            <div class="modal fade" id="editModal-{{ $category->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Edit category</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form action="{{ route('category.update',$category->id) }}" method="post" enctype="multipart/form-data">
+                                       @csrf
+                                        <div class="mb-3">
+                                          <label for="recipient-name" class="col-form-label">Name:</label>
+                                          <input type="text" class="form-control" name="name" value="{{ $category->name ?? '' }}" id="recipient-name">
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="message-text" class="col-form-label">Description:</label>
+                                          <textarea class="form-control" name="Description" value="{{ $category->description ?? '' }}" id="message-text"></textarea>
+                                        </div>
+                              
+                                        <div class="mb-3">
+                                          <label for="recipient-name" class="col-form-label">icon image:</label>
+                                          <input type="file" class="form-control" name="image" value="{{ $category->icon ?? '' }}" id="recipient-name">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                                  </div>
+                                </div>
+                            </div>
+                            @endforeach
+                            </tbody>
+                        </table>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add category</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="{{ route('category.create') }}" method="post" enctype="multipart/form-data">
+           @csrf
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Name:</label>
+              <input type="text" class="form-control" name="name" id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Description:</label>
+              <textarea class="form-control" name="Description" id="message-text"></textarea>
+            </div>
+  
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">icon image:</label>
+              <input type="file" class="form-control" name="image" id="recipient-name">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+      </div>
     </div>
 </div>
 
