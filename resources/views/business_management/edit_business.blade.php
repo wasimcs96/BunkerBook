@@ -68,7 +68,7 @@
                             <div class="col-md-12">
                                 <label>Select Category</label>
                                 <div class="multiselect_div">
-                                    <select id="multiselect1" name="multiselect1[]"  class="selectpicker" multiple data-live-search="true">
+                                    <select id="multiselect1" name="multiselect1[]" class="multiselect" multiple="multiple">
                                         <option value="cheese">Cheese</option>
                                         <option value="tomatoes">Tomatoes</option>
                                         <option value="mozarella">Mozzarella</option>
