@@ -47,8 +47,8 @@
                                 <td>{{$new->title ?? ''}}</td>
                                 <td>{{$new->description ?? ''}}</td>
                                 <td>{{$new->youtube_link ?? ''}}</td>
-                                <!-- <td><a class="btn btn-sm btn-warning">Edit</a></td>
-                                <td><a class="btn btn-sm btn-danger">Delete</a></td> -->
+                                <td><a class="btn btn-sm btn-warning">Edit</a>
+                                <a class="btn btn-sm btn-danger">Delete</a></td>
                             </tr>
                             @endforeach
                         </tbody>
