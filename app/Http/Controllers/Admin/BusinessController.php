@@ -60,14 +60,14 @@ class BusinessController extends Controller
         }
         
 
-
+// dd($request->all());
         $business = Business::create([
             'type' => $request->type,
             'name' => $request->name,
             'email' => $request->email,
             'category' =>  collect($request->category)->implode(','),
             'website' => $request->website,
-            'landline' => $request->landline,
+            // 'landline' => $request->landline,
             'address' => $request->address,
             'country' => $request->country,
             'start_time' => $request->start_time,
@@ -102,23 +102,24 @@ class BusinessController extends Controller
             'friday_start_time' => $request->friday_start_time,
             'friday_end_time' => $request->friday_end_time,
 
-            'saturday'  => $request->Saturday,
-            'saturday_start_time' => $request->Saturday_start_time,
-            'saturday_end_time' => $request->Saturday_end_time,
-
+            'saturday'  => $request->saturday,
+            'saturday_start_time' => $request->saturday_start_time,
+            'saturday_end_time' => strtotime($request->saturday_end_time),
+           
         ]);
 
         $business_staff = BusinessStaff::create([
             'staff_name' => $request->name,
-            'staff_job_title' => $request->staff_job_title,
-            'staff_email' => $request->staff_email,
-            'staff_mobile' => $request->staff_mobile,
-            'staff_skype' => $request->staff_skype,
-            'staff_about' => $request->staff_about,
-            'profile' => $staff_profilestore
+            'business_id'=>5,
+            // 'staff_job_title' => $request->staff_job_title,
+            // 'staff_email' => $request->staff_email,
+            // 'staff_mobile' => $request->staff_mobile,
+            // 'staff_skype' => $request->staff_skype,
+            // 'staff_about' => $request->staff_about,
+            // 'profile' => $staff_profilestore
         ]);
 
-  
+  return redirect()->route('business.upcoming')->with('success','Business details added successfully');
     }
 
     public function upcomingBusiness()
