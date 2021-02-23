@@ -116,4 +116,6 @@ class AdminUserController extends Controller
         Session::flash('success', 'Truck updated successfully!');
         return redirect()->route('users.index');
     }
+
+    
 }
