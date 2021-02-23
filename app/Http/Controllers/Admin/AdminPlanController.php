@@ -45,9 +45,7 @@ class AdminPlanController extends Controller
         $plans->price = $request->price;
         $plans->validity = $request->validity;
         $plans->save();
-
-        Session::flash('success', 'Truck updated successfully!');
         $plans = PlanManagment::all();
-        return redirect()->route('plan.index');
+        return redirect()->route('plan.index')->with('info','plan updated successfully');
     }
 }

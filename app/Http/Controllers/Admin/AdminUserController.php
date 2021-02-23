@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Validator;
 use Redirect;
 use Session;
-
+use App\Models\Transaction;
 class AdminUserController extends Controller
 {
     public function index()
@@ -48,9 +48,9 @@ class AdminUserController extends Controller
 
         $featured_new_name = time() . $featured->getclientOriginalName();
 
-        $featured->move('uploads/users',$featured_new_name);
+        $featured->move('uploads/usersProfile',$featured_new_name);
 
-        $prostore = 'uploads/posts/' . $featured_new_name;
+        $prostore = 'uploads/usersProfile/' . $featured_new_name;
         }
         User::create([
             'first_name'=>$request->first_name,
@@ -65,11 +65,8 @@ class AdminUserController extends Controller
 
         ]);
 
-
-
-        Session::flash('success', 'User created successfully!');
         $user = User::all();
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('success','user created successfully');
     }
 
     public function edit($id)
@@ -90,9 +87,9 @@ class AdminUserController extends Controller
 
         $featured_new_name = time() . $featured->getclientOriginalName();
 
-        $featured->move('uploads/users',$featured_new_name);
+        $featured->move('uploads/usersProfile',$featured_new_name);
 
-        $user->image = 'uploads/posts/' . $featured_new_name;
+        $user->image = 'uploads/usersProfile/' . $featured_new_name;
         }
     
 
@@ -104,18 +101,25 @@ class AdminUserController extends Controller
         $user->password = Hash::make($request->newPassword);
         $user->save();
 
-        Session::flash('success', 'user updated successfully!');
         // $user = User::all();
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('info','user updated successfully');
     }
 
     public function destroy($id)
     {
         $user = User::find($id);
         $user->delete();
-        Session::flash('success', 'Truck updated successfully!');
-        return redirect()->route('users.index');
+      
+        return redirect()->route('users.index')->with('danger','user deleted successfully');
     }
 
-    
+    public function tansaction($id)
+    {
+        $transactions = Transaction::where('user_id',$id)->get();
+
+        return view('tansaction.index',compact('transactions'));
+
+    }
+
+
 }
