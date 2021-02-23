@@ -49,7 +49,7 @@
                             @foreach($users as $user)
                             <tr>
                                 <td>@if(isset($user->id)){{ $user->id ?? '' }}@else N/A @endif</td>
-                                <td>@if(isset($user->image))<img src="{{ asset($user->image)}}">@else N/A @endif</td>
+                                <td>@if(isset($user->image))<img src="{{ asset($user->image)}}" style="width: 100px;">@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
                                 <td>@if(isset($user->first_name)){{ $user->first_name ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($user->last_name)){{ $user->last_name ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($user->email)){{ $user->email ?? '' }}@else N/A @endif</td>
@@ -59,37 +59,28 @@
                                     <a class="btn btn-secondary btn-sm" href="javascript:void(0);"
                                         data-bs-toggle="modal" data-bs-target="#editModal-{{ $user->id }}">
                                         <span class="btn-label">
-                                            <i class="icons-edit"></i>
+                                        <i class="fa fa-edit"></i>
                                         </span>
-                                        Edit
                                     </a>
 
                                     <a class="btn btn-success btn-sm" href="javascript:void(0);"
                                         data-bs-toggle="modal" data-bs-target="#planModal-{{ $user->id }}">
                                         <span class="btn-label">
-                                            <i class="icons-edit"></i>
+                                        <i class="fa fa-info-circle"></i>
                                         </span>
-                                        Plan Info
                                     </a>
 
-                                    <!-- <a class="btn btn-success btn-sm" href="{{ route('users.show',['id'=>$user->id]) }}">
-                                        <span class="btn-label">
-                                            <i class="icons-eye"></i>
-                                        </span>
-                                        Plan Info
-                                    </a> -->
+                                   
                                     <a class="btn btn-danger btn-sm"
                                         href="{{ route('users.destroy',['id'=>$user->id]) }}">
                                         <span class="btn-label">
-                                            <i class="icons-trash"></i>
+                                        <i class="fa fa-trash-o"></i>
                                         </span>
-                                        Delete
                                     </a>
-                                    <a class="btn btn-warning btn-sm">
+                                    <a class="btn btn-warning btn-sm" href="{{ route('users.tansaction',['id'=>$user->id]) }}">
                                         <span class="btn-label">
-                                            <i class="icons-eye"></i>
+                                        <i class="fa fa-exchange"></i>
                                         </span>
-                                        Memebership Transaction
                                     </a>
                                 </td>
                             </tr>
@@ -158,18 +149,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="mb-3 col-lg-12">
-                                                        <div class="form-group">
-                                                            <label for="">Profile</label>
-                                                            <input type="file" class="form-control" name="profile"
-                                                                value="{{ $user->profile }}" required>
-                                                            <p id="erremail" class="mb-0 text-danger em"></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
+                                                <div class="row my-2">
                                                     <div class="mb-3 col-lg-12">
                                                         <div class="form-group">
                                                             <label for="">Last Name</label>
@@ -195,7 +175,7 @@
                                                         <div class="form-group">
                                                             <label for="">Mobile</label>
                                                             <input type="number" class="form-control" name="mobile"
-                                                                value="{{ $user->mobile }}" required>
+                                                                value="{{ $user->mobile }}" minlength="10" maxlength="10" required>
                                                             <p id="erremail" class="mb-0 text-danger em"></p>
                                                         </div>
                                                     </div>
@@ -214,6 +194,20 @@
                                                             <p id="erremail" class="mb-0 text-danger em"></p>
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="mb-3 col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="">Profile</label>
+                                                            <input type="file" class="form-control" name="profile"
+                                                                value="{{ $user->profile }}">
+                                                            <p id="erremail" class="mb-0 text-danger em"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row"style="display: flex;justify-content: center;">
+                                                        <img src="{{ asset($user->image)}}" style="width:100px;">
                                                 </div>
                                         </div>
                                         <div class="modal-footer">
@@ -261,16 +255,6 @@
                     <div class="row">
                         <div class="mb-3 col-lg-12">
                             <div class="form-group">
-                                <label for="">Profile</label>
-                                <input type="file" class="form-control" name="profile" value="" required>
-                                <p id="erremail" class="mb-0 text-danger em"></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="mb-3 col-lg-12">
-                            <div class="form-group">
                                 <label for="">Last Name</label>
                                 <input type="text" class="form-control" name="last_name" placeholder="Enter Last Name"
                                     value="" required>
@@ -307,7 +291,7 @@
                             <div class="form-group">
                                 <label for="">Mobile</label>
                                 <input type="number" class="form-control" name="mobile"
-                                    placeholder="Enter Mobile Number" value="" required>
+                                    placeholder="Enter Mobile Number" value="" minlength="10" maxlength="10" required>
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -323,6 +307,15 @@
                                     <option value="2">Half Year Plan</option>
 
                                 </select>
+                                <p id="erremail" class="mb-0 text-danger em"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-lg-12">
+                            <div class="form-group">
+                                <label for="">Profile</label>
+                                <input type="file" class="form-control" name="profile" value="">
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -404,7 +397,7 @@
                         <div class="mb-3 col-lg-12">
                             <div class="form-group">
                                 <label for="">Mobile</label>
-                                <input type="number" class="form-control" name="mobile" value="{{ $user->mobile }}">
+                                <input type="number" class="form-control" name="mobile" minlength="10" maxlength="10" value="{{ $user->mobile }}">
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -452,6 +445,12 @@ td.details-control {
 tr.shown td.details-control {
     background: url('../assets/images/details_close.png') no-repeat center center;
 }
+
+</style>
+<style>
+    .icons-list div {line-height: 40px;white-space: nowrap;cursor: default;position: relative;z-index: 1;padding: 5px;border-right: 1px solid #252a33;}
+    .icons-list div i {display: inline-block;width: 40px;margin: 0;text-align: center;vertical-align: middle;-webkit-transition: font-size 0.2s; -moz-transition: font-size 0.2s; transition: font-size 0.2s;}
+    .icons-list div:hover i {font-size: 26px;}
 </style>
 @stop
 

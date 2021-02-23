@@ -30,11 +30,7 @@
                     <table class="table table-striped table-hover dataTable js-exportable">
                         <thead>
                             <tr>
-<<<<<<< HEAD
                                 {{-- <th>#</th> --}}
-=======
-                                <!-- <th>#</th> -->
->>>>>>> d18ce27423d2f501aac81b1773a354b769ab66cd
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>Price</th>
@@ -56,9 +52,8 @@
                                         href="javascript:void(0);"  data-bs-toggle="modal"
                                         data-bs-target="#editModal-{{ $plan->id }}">
                                         <span class="btn-label">
-                                            <i class="icons-edit"></i>
+                                        <i class="fa fa-edit"></i>
                                         </span>
-                                        Edit
                                     </a>
                                 </td>
                             </tr>
@@ -153,6 +148,11 @@ td.details-control {
 tr.shown td.details-control {
     background: url('../assets/images/details_close.png') no-repeat center center;
 }
+</style>
+<style>
+    .icons-list div {line-height: 40px;white-space: nowrap;cursor: default;position: relative;z-index: 1;padding: 5px;border-right: 1px solid #252a33;}
+    .icons-list div i {display: inline-block;width: 40px;margin: 0;text-align: center;vertical-align: middle;-webkit-transition: font-size 0.2s; -moz-transition: font-size 0.2s; transition: font-size 0.2s;}
+    .icons-list div:hover i {font-size: 26px;}
 </style>
 @stop
 

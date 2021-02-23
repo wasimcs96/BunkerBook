@@ -49,6 +49,7 @@ Route::get('/user/show/{id}', 'admin\adminusercontroller@show')->name('users.sho
 Route::post('/user/update/{id}', 'admin\adminusercontroller@update')->name('users.update');
 Route::get('/user/edit/{id}', 'admin\adminusercontroller@edit')->name('users.edit');
 Route::get('/user/destroy/{id}', 'admin\adminusercontroller@destroy')->name('users.destroy');
+Route::get('/user/tansaction/{id}', 'Admin\AdminUserController@tansaction')->name('users.tansaction');
 
 // category.......
 Route::get('/category', 'admin\admincategorycontroller@index')->name('category.index');

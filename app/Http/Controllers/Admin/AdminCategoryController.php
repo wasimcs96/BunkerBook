@@ -23,14 +23,14 @@ class AdminCategoryController extends Controller
         $category->description =$request->Description;
         $category->save();
         $categories=Category::all();
-        return view('category.index',compact('categories'));
+        return view('category.index',compact('categories'))->with('info','category updated successfully');
     }
     public function destroy($id)
     {
         $delete=Category::find($id);
         $delete->delete($id);
         $categories=Category::all();
-        return view('category.index',compact('categories'));
+        return view('category.index',compact('categories'))->with('danger','category deleted successfully');
     }
 
     public function create(Request $request)
@@ -52,6 +52,6 @@ class AdminCategoryController extends Controller
             'icon'=>$storeimg
                     ]);
                     $categories=Category::all();
-                    return view('category.index',compact('categories'));
+                    return view('category.index',compact('categories'))->with('success','category created successfully');
     }
 }

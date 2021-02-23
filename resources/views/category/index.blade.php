@@ -43,11 +43,11 @@
                            @foreach($categories as $category)
                             <tr>
                                 <td></td>
-                                <td>{{ $category->icon ?? '' }}</td>
-                                <td>{{ $category->name ?? '' }}</td>
-                                <td>{{ $category->description ?? '' }}</td>
-                                <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#editModal-{{ $category->id }}" class="btn btn-primary btn-sm">Edit</a>
-                                    <a href="{{ route('category.delete',$category->id) }}" class="btn btn-danger btn-sm">Delete</a></td>
+                                <td>@if(isset($category->icon)){{ $category->icon ?? '' }}@else N/A @endif</td>
+                                <td>@if(isset($category->name)){{ $category->name ?? '' }}@else N/A @endif</td>
+                                <td>@if(isset($category->description)){{ $category->description ?? '' }}@else N/A @endif</td>
+                                <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#editModal-{{ $category->id }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                                    <a href="{{ route('category.delete',$category->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></a></td>
 
                             </tr>
                             
@@ -160,4 +160,9 @@
 
 <script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
 <script src="{{ asset('assets/js/pages/tables/jquery-datatable.js') }}"></script>
+<style>
+    .icons-list div {line-height: 40px;white-space: nowrap;cursor: default;position: relative;z-index: 1;padding: 5px;border-right: 1px solid #252a33;}
+    .icons-list div i {display: inline-block;width: 40px;margin: 0;text-align: center;vertical-align: middle;-webkit-transition: font-size 0.2s; -moz-transition: font-size 0.2s; transition: font-size 0.2s;}
+    .icons-list div:hover i {font-size: 26px;}
+</style>
 @stop

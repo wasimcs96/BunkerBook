@@ -112,7 +112,7 @@ class BusinessController extends Controller
         ]);
 
         $business->save();
-        $business_staff->save();
+        $business_staff->save()->with('success','business created successfully');
     }
 
     public function upcomingBusiness()
@@ -151,7 +151,7 @@ class BusinessController extends Controller
 
     public function updateBusiness()
     {
-        return view('business_management.active_business');
+        return view('business_management.active_business')->with('info','business updated successfully');
     }
 
     public function viewBusiness($id)
@@ -164,7 +164,7 @@ class BusinessController extends Controller
     public function destroyBusiness($id)
     {
         $delete_business = Business::where('id', $id)->first();
-        $delete_business->delete();
+        $delete_business->delete()->with('danger','business deleted successfully');
     }
 
 }
