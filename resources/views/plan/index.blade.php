@@ -30,11 +30,7 @@
                     <table class="table table-striped table-hover dataTable js-exportable">
                         <thead>
                             <tr>
-<<<<<<< HEAD
                                 {{-- <th>#</th> --}}
-=======
-                                <!-- <th>#</th> -->
->>>>>>> d18ce27423d2f501aac81b1773a354b769ab66cd
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>Price</th>
