@@ -1,9 +1,15 @@
-[2021-02-22 04:15:29] local.ERROR: Call to a member function isAdmin() on null (View: C:\xampp\htdocs\bunkerbook\resources\views\layout\navbar.blade.php) (View: C:\xampp\htdocs\bunkerbook\resources\views\layout\navbar.blade.php) (View: C:\xampp\htdocs\bunkerbook\resources\views\layout\navbar.blade.php) {"exception":"[object] (ErrorException(code: 0): Call to a member function isAdmin() on null (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\layout\
-avbar.blade.php) (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\layout\
-avbar.blade.php) (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\layout\
-avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90ee2e3899c7d1fb35e5ce94ce8ebd8700f56fdb.php:120, ErrorException(code: 0): Call to a member function isAdmin() on null (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\layout\
-avbar.blade.php) (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\layout\
-avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90ee2e3899c7d1fb35e5ce94ce8ebd8700f56fdb.php:120, ErrorException(code: 0): Call to a member function isAdmin() on null (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\layout\
+[2021-02-22 04:15:29] local.ERROR: Call to a member function isAdmin() on null (View: C:\xampp\htdocs\bunkerbook\resources\views\layout\navbar.blade.php) (View: C:\xampp\htdocs\bunkerbook\resources\views\layout\navbar.blade.php) (View: C:\xampp\htdocs\bunkerbook\resources\views\layout\navbar.blade.php) {"exception":"[object] (ErrorException(code: 0): Call to a member function isAdmin() on null (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\layout\
+avbar.blade.php) (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\layout\
+avbar.blade.php) (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\layout\
+avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90ee2e3899c7d1fb35e5ce94ce8ebd8700f56fdb.php:120, ErrorException(code: 0): Call to a member function isAdmin() on null (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\layout\
+avbar.blade.php) (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\layout\
+avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90ee2e3899c7d1fb35e5ce94ce8ebd8700f56fdb.php:120, ErrorException(code: 0): Call to a member function isAdmin() on null (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\layout\
 avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90ee2e3899c7d1fb35e5ce94ce8ebd8700f56fdb.php:120, Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Call to a member function isAdmin() on null at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90ee2e3899c7d1fb35e5ce94ce8ebd8700f56fdb.php:120)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
@@ -66,7 +72,8 @@ avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90
 #57 C:\\xampp\\htdocs\\bunkerbook\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #58 {main}
 "} 
-[2021-02-22 05:07:13] local.ERROR: Route [business.edit] not defined. (View: C:\xampp\htdocs\bunkerbook\resources\views\business_management\active_business.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Route [business.edit] not defined. (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\business_management\\active_business.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:388, InvalidArgumentException(code: 0): Route [business.edit] not defined. at C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:388)
+[2021-02-22 05:07:13] local.ERROR: Route [business.edit] not defined. (View: C:\xampp\htdocs\bunkerbook\resources\views\business_management\active_business.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Route [business.edit] not defined. (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\business_management\\active_business.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:388, InvalidArgumentException(code: 0): Route [business.edit] not defined. at C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:388)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(InvalidArgumentException), 1)
 #1 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\xampp\\\\htdocs...', Array)
@@ -368,7 +375,8 @@ avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90
 #56 C:\\xampp\\htdocs\\bunkerbook\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #57 {main}
 "} 
-[2021-02-22 05:58:55] local.ERROR: Trying to get property 'id' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\users\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:59, ErrorException(code: 0): Trying to get property 'id' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:59)
+[2021-02-22 05:58:55] local.ERROR: Trying to get property 'id' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\users\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:59, ErrorException(code: 0): Trying to get property 'id' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:59)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\xampp\\\\htdocs...', Array)
@@ -431,7 +439,8 @@ avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90
 #58 C:\\xampp\\htdocs\\bunkerbook\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #59 {main}
 "} 
-[2021-02-22 05:59:07] local.ERROR: Undefined variable: users (View: C:\xampp\htdocs\bunkerbook\resources\views\users\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Undefined variable: users (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:48, ErrorException(code: 0): Undefined variable: users at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:48)
+[2021-02-22 05:59:07] local.ERROR: Undefined variable: users (View: C:\xampp\htdocs\bunkerbook\resources\views\users\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Undefined variable: users (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:48, ErrorException(code: 0): Undefined variable: users at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:48)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\xampp\\\\htdocs...', Array)
@@ -494,7 +503,8 @@ avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90
 #58 C:\\xampp\\htdocs\\bunkerbook\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #59 {main}
 "} 
-[2021-02-22 05:59:16] local.ERROR: Trying to get property 'id' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\users\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:59, ErrorException(code: 0): Trying to get property 'id' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:59)
+[2021-02-22 05:59:16] local.ERROR: Trying to get property 'id' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\users\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:59, ErrorException(code: 0): Trying to get property 'id' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:59)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\xampp\\\\htdocs...', Array)
@@ -557,7 +567,8 @@ avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90
 #58 C:\\xampp\\htdocs\\bunkerbook\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #59 {main}
 "} 
-[2021-02-22 05:59:54] local.ERROR: Trying to get property 'id' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\users\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:59, ErrorException(code: 0): Trying to get property 'id' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:59)
+[2021-02-22 05:59:54] local.ERROR: Trying to get property 'id' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\users\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:59, ErrorException(code: 0): Trying to get property 'id' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:59)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\xampp\\\\htdocs...', Array)
@@ -620,7 +631,8 @@ avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90
 #58 C:\\xampp\\htdocs\\bunkerbook\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #59 {main}
 "} 
-[2021-02-22 06:00:13] local.ERROR: Trying to get property 'id' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\users\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:59, ErrorException(code: 0): Trying to get property 'id' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:59)
+[2021-02-22 06:00:13] local.ERROR: Trying to get property 'id' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\users\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:59, ErrorException(code: 0): Trying to get property 'id' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\abf07ff96dc829f2d654f5fa1c4f7dd675f65c2b.php:59)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\xampp\\\\htdocs...', Array)
@@ -683,7 +695,8 @@ avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90
 #58 C:\\xampp\\htdocs\\bunkerbook\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #59 {main}
 "} 
-[2021-02-22 06:02:06] local.ERROR: Property [id] does not exist on this collection instance. (View: C:\xampp\htdocs\bunkerbook\resources\views\users\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Property [id] does not exist on this collection instance. (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php:2160, Exception(code: 0): Property [id] does not exist on this collection instance. at C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php:2160)
+[2021-02-22 06:02:06] local.ERROR: Property [id] does not exist on this collection instance. (View: C:\xampp\htdocs\bunkerbook\resources\views\users\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Property [id] does not exist on this collection instance. (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php:2160, Exception(code: 0): Property [id] does not exist on this collection instance. at C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php:2160)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(Exception), 1)
 #1 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\xampp\\\\htdocs...', Array)
@@ -746,7 +759,8 @@ avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90
 #58 C:\\xampp\\htdocs\\bunkerbook\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #59 {main}
 "} 
-[2021-02-22 06:02:13] local.ERROR: Property [id] does not exist on this collection instance. (View: C:\xampp\htdocs\bunkerbook\resources\views\users\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Property [id] does not exist on this collection instance. (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php:2160, Exception(code: 0): Property [id] does not exist on this collection instance. at C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php:2160)
+[2021-02-22 06:02:13] local.ERROR: Property [id] does not exist on this collection instance. (View: C:\xampp\htdocs\bunkerbook\resources\views\users\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Property [id] does not exist on this collection instance. (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php:2160, Exception(code: 0): Property [id] does not exist on this collection instance. at C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Collection.php:2160)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(Exception), 1)
 #1 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\xampp\\\\htdocs...', Array)
@@ -809,7 +823,8 @@ avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90
 #58 C:\\xampp\\htdocs\\bunkerbook\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #59 {main}
 "} 
-[2021-02-22 06:05:37] local.ERROR: Trying to get property 'id' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\plan\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\plan\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:44, ErrorException(code: 0): Trying to get property 'id' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:44)
+[2021-02-22 06:05:37] local.ERROR: Trying to get property 'id' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\plan\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\plan\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:44, ErrorException(code: 0): Trying to get property 'id' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:44)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\xampp\\\\htdocs...', Array)
@@ -872,7 +887,8 @@ avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90
 #58 C:\\xampp\\htdocs\\bunkerbook\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #59 {main}
 "} 
-[2021-02-22 06:06:51] local.ERROR: Trying to get property 'plan_name' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\plan\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'plan_name' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\plan\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:45, ErrorException(code: 0): Trying to get property 'plan_name' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:45)
+[2021-02-22 06:06:51] local.ERROR: Trying to get property 'plan_name' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\plan\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'plan_name' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\plan\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:45, ErrorException(code: 0): Trying to get property 'plan_name' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:45)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\xampp\\\\htdocs...', Array)
@@ -935,7 +951,8 @@ avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90
 #58 C:\\xampp\\htdocs\\bunkerbook\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #59 {main}
 "} 
-[2021-02-22 06:07:27] local.ERROR: Trying to get property 'id' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\plan\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\plan\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:51, ErrorException(code: 0): Trying to get property 'id' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:51)
+[2021-02-22 06:07:27] local.ERROR: Trying to get property 'id' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\plan\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\plan\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:51, ErrorException(code: 0): Trying to get property 'id' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:51)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\xampp\\\\htdocs...', Array)
@@ -998,7 +1015,8 @@ avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90
 #58 C:\\xampp\\htdocs\\bunkerbook\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #59 {main}
 "} 
-[2021-02-22 06:07:53] local.ERROR: Trying to get property 'id' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\plan\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\plan\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:78, ErrorException(code: 0): Trying to get property 'id' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:78)
+[2021-02-22 06:07:53] local.ERROR: Trying to get property 'id' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\plan\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\plan\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:78, ErrorException(code: 0): Trying to get property 'id' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:78)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\xampp\\\\htdocs...', Array)
@@ -1061,7 +1079,8 @@ avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90
 #58 C:\\xampp\\htdocs\\bunkerbook\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #59 {main}
 "} 
-[2021-02-22 06:08:05] local.ERROR: Trying to get property 'id' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\plan\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\plan\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:78, ErrorException(code: 0): Trying to get property 'id' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:78)
+[2021-02-22 06:08:05] local.ERROR: Trying to get property 'id' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\plan\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\plan\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:78, ErrorException(code: 0): Trying to get property 'id' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:78)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\xampp\\\\htdocs...', Array)
@@ -1124,7 +1143,8 @@ avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90
 #58 C:\\xampp\\htdocs\\bunkerbook\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #59 {main}
 "} 
-[2021-02-22 06:08:28] local.ERROR: Trying to get property 'name' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\plan\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'name' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\plan\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:87, ErrorException(code: 0): Trying to get property 'name' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:87)
+[2021-02-22 06:08:28] local.ERROR: Trying to get property 'name' of non-object (View: C:\xampp\htdocs\bunkerbook\resources\views\plan\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Trying to get property 'name' of non-object (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\plan\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:87, ErrorException(code: 0): Trying to get property 'name' of non-object at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:87)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\xampp\\\\htdocs...', Array)
@@ -1187,7 +1207,8 @@ avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90
 #58 C:\\xampp\\htdocs\\bunkerbook\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #59 {main}
 "} 
-[2021-02-22 06:13:20] local.ERROR: Undefined variable: plans (View: C:\xampp\htdocs\bunkerbook\resources\views\plan\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Undefined variable: plans (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\plan\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:42, ErrorException(code: 0): Undefined variable: plans at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:42)
+[2021-02-22 06:13:20] local.ERROR: Undefined variable: plans (View: C:\xampp\htdocs\bunkerbook\resources\views\plan\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Undefined variable: plans (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\plan\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:42, ErrorException(code: 0): Undefined variable: plans at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:42)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\xampp\\\\htdocs...', Array)
@@ -1250,7 +1271,8 @@ avbar.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\90
 #58 C:\\xampp\\htdocs\\bunkerbook\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #59 {main}
 "} 
-[2021-02-22 06:19:30] local.ERROR: Undefined variable: plans (View: C:\xampp\htdocs\bunkerbook\resources\views\plan\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Undefined variable: plans (View: C:\\xampp\\htdocs\\bunkerbook\esources\\views\\plan\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:42, ErrorException(code: 0): Undefined variable: plans at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:42)
+[2021-02-22 06:19:30] local.ERROR: Undefined variable: plans (View: C:\xampp\htdocs\bunkerbook\resources\views\plan\index.blade.php) {"userId":1,"exception":"[object] (ErrorException(code: 0): Undefined variable: plans (View: C:\\xampp\\htdocs\\bunkerbook\
+esources\\views\\plan\\index.blade.php) at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:42, ErrorException(code: 0): Undefined variable: plans at C:\\xampp\\htdocs\\bunkerbook\\storage\\framework\\views\\e0a1a7cf9d62c21e205d8698c0322d102727f168.php:42)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\xampp\\htdocs\\bunkerbook\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\xampp\\\\htdocs...', Array)

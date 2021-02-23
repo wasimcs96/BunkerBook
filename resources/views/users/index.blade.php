@@ -48,29 +48,36 @@
                         <tbody>
                             @foreach($users as $user)
                             <tr>
-                                <td>{{ $user->id ?? '' }}</td>
-                                <td>{{ $user->profile ?? '' }}</td>
-                                <td>{{ $user->first_name ?? '' }}</td>
-                                <td>{{ $user->last_name ?? '' }}</td>
-                                <td>{{ $user->email ?? '' }}</td>
-                                <td>{{ $user->mobile ?? '' }}</td>
-                                <td>{{ $user->address ?? '' }}</td>
+                                <td>@if(isset($user->id)){{ $user->id ?? '' }}@else N/A @endif</td>
+                                <td>@if(isset($user->image))<img src="{{ asset($user->image)}}">@else N/A @endif</td>
+                                <td>@if(isset($user->first_name)){{ $user->first_name ?? '' }}@else N/A @endif</td>
+                                <td>@if(isset($user->last_name)){{ $user->last_name ?? '' }}@else N/A @endif</td>
+                                <td>@if(isset($user->email)){{ $user->email ?? '' }}@else N/A @endif</td>
+                                <td>@if(isset($user->mobile)){{ $user->mobile ?? '' }}@else N/A @endif</td>
+                                <td>@if(isset($user->address)){{ $user->address ?? '' }}@else N/A @endif</td>
                                 <td>
-                                    <a class="btn btn-secondary btn-sm"
-                                        href="{{ route('users.edit',['id'=>$user->id]) }}" data-bs-toggle="modal"
-                                        data-bs-target="#editModal">
+                                    <a class="btn btn-secondary btn-sm" href="javascript:void(0);"
+                                        data-bs-toggle="modal" data-bs-target="#editModal-{{ $user->id }}">
                                         <span class="btn-label">
                                             <i class="icons-edit"></i>
                                         </span>
                                         Edit
                                     </a>
 
-                                    <a class="btn btn-success btn-sm" href="{{ route('users.show',['id'=>$user->id]) }}">
+                                    <a class="btn btn-success btn-sm" href="javascript:void(0);"
+                                        data-bs-toggle="modal" data-bs-target="#planModal-{{ $user->id }}">
+                                        <span class="btn-label">
+                                            <i class="icons-edit"></i>
+                                        </span>
+                                        Plan Info
+                                    </a>
+
+                                    <!-- <a class="btn btn-success btn-sm" href="{{ route('users.show',['id'=>$user->id]) }}">
                                         <span class="btn-label">
                                             <i class="icons-eye"></i>
                                         </span>
                                         Plan Info
-                                    </a>
+                                    </a> -->
                                     <a class="btn btn-danger btn-sm"
                                         href="{{ route('users.destroy',['id'=>$user->id]) }}">
                                         <span class="btn-label">
@@ -86,6 +93,136 @@
                                     </a>
                                 </td>
                             </tr>
+                            <div class="modal fade" id="planModal-{{ $user->id ?? '' }}" tabindex="-1"
+                                aria-labelledby="ModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="ModalLabel">Plan Info</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                                @csrf
+
+                                                <div class="row">
+                                                    <div class="mb-3 col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="">Plan Name</label>
+                                                            <p id="erremail" class="mb-0 text-danger em">{{$user->planInfo->planManagment->plan_name ?? ''}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="mb-3 col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="">Start date</label>
+                                                            <p id="erremail" class="mb-0 text-danger em">{{$user->planInfo->start_date ?? ''}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="mb-3 col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="">End date</label>
+                                                            <p id="erremail" class="mb-0 text-danger em">{{$user->planInfo->end_date ?? ''}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="editModal-{{ $user->id ?? '' }}" tabindex="-1"
+                                aria-labelledby="ModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="ModalLabel">Edit Modal</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form class="" action="{{route('users.update',$user->id)}}" method="POST"
+                                                enctype="multipart/form-data">
+                                                @csrf
+
+                                                <div class="row">
+                                                    <div class="mb-3 col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="">First Name</label>
+                                                            <input type="text" class="form-control" name="first_name"
+                                                                value="{{ $user->first_name}}" required>
+                                                            <p id="erremail" class="mb-0 text-danger em"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="mb-3 col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="">Profile</label>
+                                                            <input type="file" class="form-control" name="profile"
+                                                                value="{{ $user->profile }}" required>
+                                                            <p id="erremail" class="mb-0 text-danger em"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="mb-3 col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="">Last Name</label>
+                                                            <input type="text" class="form-control" name="last_name"
+                                                                value="{{ $user->last_name }}" required>
+                                                            <p id="erremail" class="mb-0 text-danger em"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="mb-3 col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="">Email</label>
+                                                            <input type="email" class="form-control" name="email"
+                                                                value="{{ $user->email }}" required>
+                                                            <p id="erremail" class="mb-0 text-danger em"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="mb-3 col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="">Mobile</label>
+                                                            <input type="number" class="form-control" name="mobile"
+                                                                value="{{ $user->mobile }}" required>
+                                                            <p id="erremail" class="mb-0 text-danger em"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <div class="mb-3 col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="">plan</label>
+                                                            <select class="form-control" name="plan_id">
+                                                                <option value="1">Annual Plan</option>
+                                                                <option value="2">Half Year Plan</option>
+
+                                                            </select>
+                                                            <p id="erremail" class="mb-0 text-danger em"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary">Update</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                             @endforeach
                         </tbody>
                     </table>
@@ -103,7 +240,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Create Modal</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -116,7 +253,7 @@
                             <div class="form-group">
                                 <label for="">First Name</label>
                                 <input type="text" class="form-control" name="first_name" placeholder="Enter First Name"
-                                    value="">
+                                    value="" required>
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -125,7 +262,7 @@
                         <div class="mb-3 col-lg-12">
                             <div class="form-group">
                                 <label for="">Profile</label>
-                                <input type="file" class="form-control" name="profile" value="">
+                                <input type="file" class="form-control" name="profile" value="" required>
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -136,7 +273,7 @@
                             <div class="form-group">
                                 <label for="">Last Name</label>
                                 <input type="text" class="form-control" name="last_name" placeholder="Enter Last Name"
-                                    value="">
+                                    value="" required>
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -146,8 +283,8 @@
                         <div class="mb-3 col-lg-12">
                             <div class="form-group">
                                 <label for="">Email</label>
-                                <input type="email" class="form-control" name="email" placeholder="Enter Email"
-                                    value="">
+                                <input type="email" class="form-control" name="email" placeholder="Enter Email" value=""
+                                    required>
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -159,8 +296,8 @@
                         <div class="mb-3 col-lg-12">
                             <div class="form-group">
                                 <label for="">Password</label>
-                                <input type="password" class="form-control" name="password"
-                                    placeholder="Enter Password" value="">
+                                <input type="password" class="form-control" name="password" placeholder="Enter Password"
+                                    value="" required>
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -170,7 +307,7 @@
                             <div class="form-group">
                                 <label for="">Mobile</label>
                                 <input type="number" class="form-control" name="mobile"
-                                    placeholder="Enter Mobile Number" value="">
+                                    placeholder="Enter Mobile Number" value="" required>
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -235,8 +372,7 @@
                         <div class="mb-3 col-lg-12">
                             <div class="form-group">
                                 <label for="">Last Name</label>
-                                <input type="text" class="form-control" name="last_name"
-                                    value="{{ $user->last_name }}">
+                                <input type="text" class="form-control" name="last_name" value="{{ $user->last_name }}">
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -246,8 +382,7 @@
                         <div class="mb-3 col-lg-12">
                             <div class="form-group">
                                 <label for="">Email</label>
-                                <input type="email" class="form-control" name="email"
-                                    value="{{ $user->email }}">
+                                <input type="email" class="form-control" name="email" value="{{ $user->email }}">
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -269,8 +404,7 @@
                         <div class="mb-3 col-lg-12">
                             <div class="form-group">
                                 <label for="">Mobile</label>
-                                <input type="number" class="form-control" name="mobile"
-                                    value="{{ $user->mobile }}">
+                                <input type="number" class="form-control" name="mobile" value="{{ $user->mobile }}">
                                 <p id="erremail" class="mb-0 text-danger em"></p>
                             </div>
                         </div>
@@ -281,8 +415,7 @@
                         <div class="mb-3 col-lg-12">
                             <div class="form-group">
                                 <label for="">plan</label>
-                                <input type="number" class="form-control" name="plan"
-                                    value="{{ $user->plan }}">
+                                <input type="number" class="form-control" name="plan" value="{{ $user->plan }}">
                                 <select class="form-control" name="plan_id">
                                     <option value="1">Annual Plan</option>
                                     <option value="2">Half Year Plan</option>
@@ -337,6 +470,10 @@ tr.shown td.details-control {
 
 <script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
 <script src="{{ asset('assets/js/pages/tables/jquery-datatable.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+    integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+    integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous">
+</script>
 @stop

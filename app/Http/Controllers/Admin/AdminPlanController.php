@@ -22,6 +22,12 @@ class AdminPlanController extends Controller
         return view('plan.index',compact('plan'));
     }
 
+    public function show($id)
+    {
+        $plan = PlanManagement::find($id);
+        return view('product.show',compact('plan'));
+    }
+
     public function update(Request $request, $id)
     {
         $this->validate($request,[
