@@ -39,9 +39,8 @@ class AdminPlanController extends Controller
         ]);
 
         $plans = PlanManagment::find($id);
-        $plans->name = $request->truck_number;
-        $plans->company_name = $request->name;
-        $plans->desc = $request->desc;
+        $plans->plan_name = $request->name;
+        $plans->plan_desc = $request->desc;
         $plans->price = $request->price;
         $plans->validity = $request->validity;
         $plans->save();
