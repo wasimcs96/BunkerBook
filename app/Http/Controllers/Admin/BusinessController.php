@@ -27,38 +27,45 @@ class BusinessController extends Controller
 
        if($request->hasFile('business_profile'))
         {
-         $image=$request->business_profile;
-         $name= time().$image->getClientOriginalName();
-         $st= $image->move(Config::get('define.image.business'),$name);
-         $business_profile_image= Config::get('define.image.business').'/'.$name;
+         $businessprofile=$request->business_profile;
+         $businessprofile_name= time().$businessprofile->getClientOriginalName();
+          $businessprofile->move('uploads/businessbannerimage',$businessprofile_name);
+         $business_profile_image= 'uploads/businessbannerimage/'.$businessprofile_name;
         }
 
         $featured_banner_image = '';
 
         if($request->hasFile('featured_banner_image'))
         {
-         $image=$request->featured_banner_image;
-         $name= time().$image->getClientOriginalName();
-         $st= $image->move(Config::get('define.image.business'),$name);
-         $featured_banner_image = Config::get('define.image.business').'/'.$name;
+         $banner=$request->featured_banner_image;
+         $banner_name= time().$banner->getClientOriginalName();
+         $st= $banner->move('uploads/businessbannerimage',$banner_name);
+         $featured_banner_image = 'uploads/businessbannerimage/'.$banner_name;
         }
 
-        $staff_profile = '';
+        $staff_profilestore = '';
 
         if($request->hasFile('profile'))
         {
-         $image=$request->profile;
-         $name= time().$image->getClientOriginalName();
-         $st= $image->move(Config::get('define.image.business'),$name);
-         $staff_profile = Config::get('define.image.business').'/'.$name;
+            $staff_profile=collect($request->profile);
+
+            // $staff_profile = $request->profile;
+            foreach($staff_profile as $staff_pro)
+
+            $staff_profile_new_name = time() . $staff_pro->getclientOriginalName();
+            
+            $staff_pro->move('uploads/business_staffProfile',$staff_profile_new_name);
+            
+            $staff_profilestore = 'uploads/business_staffProfile/' . $staff_profile_new_name;
         }
+        
+
 
         $business = Business::create([
             'type' => $request->type,
             'name' => $request->name,
             'email' => $request->email,
             'category' =>  collect($request->category)->implode(','),
-            //  $request->category,
             'website' => $request->website,
             'landline' => $request->landline,
             'address' => $request->address,
@@ -108,11 +115,10 @@ class BusinessController extends Controller
             'staff_mobile' => $request->staff_mobile,
             'staff_skype' => $request->staff_skype,
             'staff_about' => $request->staff_about,
-            'profile' => $staff_profile
+            'profile' => $staff_profilestore
         ]);
 
-        $business->save();
-        $business_staff->save()->with('success','business created successfully');
+  
     }
 
     public function upcomingBusiness()

@@ -80,7 +80,8 @@ Route::get('/news/destroy/{id}', 'admin\adminnewsfeedcontroller@destroy')->name(
 
 // Transaction....
 Route::get('/transaction', 'Admin\AdminTransactioncontroller@index')->name('transaction.index');
-
+//feedback
+route::get('feedback/all','admin\adminfeedbackcontroller@index')->name('admin.feedback');
 
 Route::get('index', function(){
     return view('frontEnd.index');

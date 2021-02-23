@@ -74,7 +74,7 @@
                     </ul>
                 </li>
 
-                <li class="{{ Request::segment(2) === 'index3' ? 'active open' : null }}"><a href="{{route('dashboard.index3')}}"><i class="icon-list"></i><span>Feedback</span></a>
+                <li class="{{ Request::segment(2) === 'index3' ? 'active open' : null }}"><a href="{{route('admin.feedback')}}"><i class="icon-list"></i><span>Feedback</span></a>
                     <ul>
                     <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('tables.normal')}}">User Feedback History</a></li>
                     </ul>
