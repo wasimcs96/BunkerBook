@@ -16,7 +16,7 @@
 
                     <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
                     <li><a href="#addUserModal" class="btn btn-outline-primary float-right" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"><i class="icon-plus"></i> Add
+                            data-bs-target="#exampleModal"> Add
                             User</a></li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -49,21 +49,21 @@
                             @foreach($users as $user)
                             <tr>
                                 <td>@if(isset($user->id)){{ $user->id ?? '' }}@else N/A @endif</td>
-                                <td>@if(isset($user->image))<img src="{{ asset($user->image)}}" style="width: 100px;">@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
+                                <td>@if(isset($user->image))<a href="{{asset($user->image)}}" target="_blank" ><img src="{{ asset($user->image)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
                                 <td>@if(isset($user->first_name)){{ $user->first_name ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($user->last_name)){{ $user->last_name ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($user->email)){{ $user->email ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($user->mobile)){{ $user->mobile ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($user->address)){{ $user->address ?? '' }}@else N/A @endif</td>
                                 <td>
-                                    <a class="btn btn-secondary btn-sm" href="javascript:void(0);"
+                                    <a class="btn btn-secondary btn-sm" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Edit User"
                                         data-bs-toggle="modal" data-bs-target="#editModal-{{ $user->id }}">
                                         <span class="btn-label">
                                         <i class="fa fa-edit"></i>
                                         </span>
                                     </a>
 
-                                    <a class="btn btn-success btn-sm" href="javascript:void(0);"
+                                    <a class="btn btn-success btn-sm" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Plan Info"
                                         data-bs-toggle="modal" data-bs-target="#planModal-{{ $user->id }}">
                                         <span class="btn-label">
                                         <i class="fa fa-info-circle"></i>
@@ -71,13 +71,13 @@
                                     </a>
 
                                    
-                                    <a class="btn btn-danger btn-sm"
+                                    <a class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Delete User"
                                         href="{{ route('users.destroy',['id'=>$user->id]) }}">
                                         <span class="btn-label">
                                         <i class="fa fa-trash-o"></i>
                                         </span>
                                     </a>
-                                    <a class="btn btn-warning btn-sm" href="{{ route('users.tansaction',['id'=>$user->id]) }}">
+                                    <a class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Memebership Transaction" href="{{ route('users.tansaction',['id'=>$user->id]) }}">
                                         <span class="btn-label">
                                         <i class="fa fa-exchange"></i>
                                         </span>

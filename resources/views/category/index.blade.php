@@ -13,7 +13,7 @@
                 <h2>Table Tools<small>Basic example without any additional modification classes</small></h2>
                 <ul class="header-dropdown dropdown">
                     {{-- <li><a href="javascript:void(0)"></li> --}}
-                    <li><a href="javascript:void(0)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Add More</a></li>
+                    <li><a href="javascript:void(0)" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#createModal">Add More</a></li>
                     <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
@@ -43,7 +43,7 @@
                            @foreach($categories as $category)
                             <tr>
                                 <td></td>
-                                <td>@if(isset($category->icon)){{ $category->icon ?? '' }}@else N/A @endif</td>
+                                <td>@if(isset($category->icon))<a href="{{asset($category->icon)}}" target="_blank" ><img src="{{ asset($category->icon)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
                                 <td>@if(isset($category->name)){{ $category->name ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($category->description)){{ $category->description ?? '' }}@else N/A @endif</td>
                                 <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#editModal-{{ $category->id }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
