@@ -80,9 +80,9 @@
                     </ul>
                 </li>
 
-                <li class="{{ Request::segment(2) === 'index3' ? 'active open' : null }}"><a href="{{route('dashboard.index3')}}"><i class="icon-list"></i><span>tansaction</span></a>
+                <li class="{{ Request::segment(2) === 'index3' ? 'active open' : null }}"><a href="{{route('transaction.index')}}"><i class="icon-list"></i><span>tansaction</span></a>
                     <ul>
-                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('tables.normal')}}">Plan History</a></li>
+                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('transaction.index')}}">Plan History</a></li>
                     </ul>
                 </li>
                 <li class="{{ Request::segment(2) === 'index2' ? 'active open' : null }}"><a href="{{route('dashboard.index2')}}"><i class="icon-paper-clip"></i><span>Upload Pdf</span></a></li>
