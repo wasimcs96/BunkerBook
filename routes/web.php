@@ -70,7 +70,7 @@ Route::get('/plan/edit/{id}', 'admin\adminplancontroller@edit')->name('plan.edit
 
 // news.......
 Route::get('/news', 'admin\adminnewsfeedcontroller@index')->name('news.index');
-Route::get('/news/create', 'admin\adminnewsfeedcontroller@create')->name('news.create');
+Route::post('/news/create', 'admin\adminnewsfeedcontroller@create')->name('news.create');
 Route::post('/news', 'admin\adminnewsfeedcontroller@store')->name('news.store');
 Route::get('/news/show/{id}', 'admin\adminnewsfeedcontroller@show')->name('news.show');
 Route::put('/news/{id}', 'admin\adminnewsfeedcontroller@update')->name('news.update');
