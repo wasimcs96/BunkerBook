@@ -52,12 +52,12 @@ Route::get('/user/destroy/{id}', 'admin\adminusercontroller@destroy')->name('use
 
 // category.......
 Route::get('/category', 'admin\admincategorycontroller@index')->name('category.index');
-Route::get('/category/create', 'admin\admincategorycontroller@create')->name('category.create');
+Route::post('/category/create', 'admin\admincategorycontroller@create')->name('category.create');
 Route::post('/category', 'admin\admincategorycontroller@store')->name('category.store');
 Route::get('/category/show/{id}', 'admin\admincategorycontroller@show')->name('category.show');
-Route::post('/category/{id}', 'admin\admincategorycontroller@update')->name('category.update');
+Route::post('/category/update/{id}', 'admin\admincategorycontroller@update')->name('category.update');
 Route::get('/category/edit/{id}', 'admin\admincategorycontroller@edit')->name('category.edit');
-Route::get('/category/destroy/{id}', 'admin\admincategorycontroller@destroy')->name('category.destroy');
+Route::get('/category/destroy/{id}', 'admin\admincategorycontroller@destroy')->name('category.delete');
 
 // plan.......
 Route::get('/plan', 'admin\adminplancontroller@index')->name('plan.index');
