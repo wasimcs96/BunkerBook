@@ -30,7 +30,6 @@
         </div>
         <nav id="left-sidebar-nav" class="sidebar-nav">
             <ul id="main-menu" class="metismenu">
-                <li class="header">Main</li>
                 {{-- <li class="{{ Request::segment(1) === 'mypage' ? 'active open' : null }}">
                     <a href="#myPage" class="has-arrow"><i class="icon-home"></i><span>My Page</span></a>
                     <ul>

@@ -46,9 +46,9 @@
                         </thead>
 
                         <tbody>
-                            @foreach($users as $user)
+                            @foreach($users as $key=>$user)
                             <tr>
-                                <td>@if(isset($user->id)){{ $user->id ?? '' }}@else N/A @endif</td>
+                                <td>{{$key+1}}</td>
                                 <td>@if(isset($user->image))<a href="{{asset($user->image)}}" target="_blank" ><img src="{{ asset($user->image)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
                                 <td>@if(isset($user->first_name)){{ $user->first_name ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($user->last_name)){{ $user->last_name ?? '' }}@else N/A @endif</td>
@@ -56,14 +56,14 @@
                                 <td>@if(isset($user->mobile)){{ $user->mobile ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($user->address)){{ $user->address ?? '' }}@else N/A @endif</td>
                                 <td>
-                                    <a class="btn btn-secondary btn-sm" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Edit User"
+                                    <a class="btn btn-secondary btn-sm" href="javascript:void(0);" title="Edit User"
                                         data-bs-toggle="modal" data-bs-target="#editModal-{{ $user->id }}">
                                         <span class="btn-label">
                                         <i class="fa fa-edit"></i>
                                         </span>
                                     </a>
 
-                                    <a class="btn btn-success btn-sm" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Plan Info"
+                                    <a class="btn btn-success btn-sm" href="javascript:void(0);" title="Plan Info"
                                         data-bs-toggle="modal" data-bs-target="#planModal-{{ $user->id }}">
                                         <span class="btn-label">
                                         <i class="fa fa-info-circle"></i>
@@ -71,13 +71,13 @@
                                     </a>
 
                                    
-                                    <a class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Delete User"
+                                    <a class="btn btn-danger btn-sm" title="Delete User"
                                         href="{{ route('users.destroy',['id'=>$user->id]) }}">
                                         <span class="btn-label">
                                         <i class="fa fa-trash-o"></i>
                                         </span>
                                     </a>
-                                    <a class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Memebership Transaction" href="{{ route('users.tansaction',['id'=>$user->id]) }}">
+                                    <a class="btn btn-warning btn-sm" title="Memebership Transaction" href="{{ route('users.tansaction',['id'=>$user->id]) }}">
                                         <span class="btn-label">
                                         <i class="fa fa-exchange"></i>
                                         </span>

@@ -41,9 +41,9 @@
                         </thead>
 
                         <tbody>
-                            @foreach($transactions as $transaction)
+                            @foreach($transactions as $key=>$transaction)
                             <tr>
-                                 <td>@if(isset($transaction->id)){{ $transaction->id ?? '' }}@else N/A @endif</td> 
+                                 <td>{{$key+1}}</td> 
                                 <td>@if(isset($transaction->user->first_name )){{ $transaction->user->first_name ?? '' }} {{ $transaction->user->last_name ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($transaction->user->planInfo->planManagment->plan_name)){{$transaction->user->planInfo->planManagment->plan_name ?? ''}}@else N/A @endif</td>
                                 <td>@if(isset($transaction->transaction_id)){{ $transaction->transaction_id ?? ''}}@else N/A @endif</td>

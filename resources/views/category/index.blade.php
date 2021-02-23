@@ -40,14 +40,15 @@
                         </thead>
                      
                         <tbody>
-                           @foreach($categories as $category)
+                    
+                           @foreach($categories as $key=>$category)
                             <tr>
-                                <td></td>
+                                <td>{{$key+1}}</td>
                                 <td>@if(isset($category->icon))<a href="{{asset($category->icon)}}" target="_blank" ><img src="{{ asset($category->icon)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
                                 <td>@if(isset($category->name)){{ $category->name ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($category->description)){{ $category->description ?? '' }}@else N/A @endif</td>
-                                <td><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#editModal-{{ $category->id }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
-                                    <a href="{{ route('category.delete',$category->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></a></td>
+                                <td><a href="javascript:void(0);" title="Edit" data-bs-toggle="modal" data-bs-target="#editModal-{{ $category->id }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                                    <a href="{{ route('category.delete',$category->id) }}" title="Delete" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></a></td>
 
                             </tr>
                             
@@ -67,7 +68,7 @@
                                         </div>
                                         <div class="mb-3">
                                           <label for="message-text" class="col-form-label">Description:</label>
-                                          <textarea class="form-control" name="Description" value="{{ $category->description ?? '' }}" id="message-text"></textarea>
+                                          <textarea class="form-control" name="Description" id="message-text">{{ $category->description ?? '' }}</textarea>
                                         </div>
                               
                                         <div class="mb-3">

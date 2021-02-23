@@ -43,12 +43,12 @@
                           @foreach($news as $new)
                             <tr>
                                 <td></td>
-                                <td>@if(isset($new->image)){{$new->image ?? ''}}@else N/A @endif</td>
-                                <td>@if(isset($new->title)){{$new->title ?? ''}}@else N/A @endif</td>
-                                <td>@if(isset($new->description)){{$new->description ?? ''}}@else N/A @endif</td>
-                                <td>@if(isset($new->youtube_link)){{$new->youtube_link ?? ''}}@else N/A @endif</td>
-                                <td><a class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
-                                <a class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></a></td>
+                                <td>{{$new->image ?? ''}}</td>
+                                <td>{{$new->title ?? ''}}</td>
+                                <td>{{$new->description ?? ''}}</td>
+                                <td>{{$new->youtube_link ?? ''}}</td>
+                                <td><a class="btn btn-sm btn-warning">Edit</a>
+                                <a class="btn btn-sm btn-danger">Delete</a></td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -131,10 +131,5 @@
 <script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
 <script src="{{ asset('assets/js/pages/tables/jquery-datatable.js') }}"></script>
 <script src="{{ asset('assets/vendor/summernote/dist/summernote.js') }}"></script>
-<style>
-    .icons-list div {line-height: 40px;white-space: nowrap;cursor: default;position: relative;z-index: 1;padding: 5px;border-right: 1px solid #252a33;}
-    .icons-list div i {display: inline-block;width: 40px;margin: 0;text-align: center;vertical-align: middle;-webkit-transition: font-size 0.2s; -moz-transition: font-size 0.2s; transition: font-size 0.2s;}
-    .icons-list div:hover i {font-size: 26px;}
-</style>
 
 @stop
