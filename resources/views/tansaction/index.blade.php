@@ -43,13 +43,13 @@
                         <tbody>
                             @foreach($transactions as $transaction)
                             <tr>
-                                 <td>{{ $transaction->id ?? '' }}</td> 
+                                 <td>@if(isset($transaction->id)){{ $transaction->id ?? '' }}@else N/A @endif</td> 
                                 <td>@if(isset($transaction->user->first_name )){{ $transaction->user->first_name ?? '' }} {{ $transaction->user->last_name ?? '' }}@else N/A @endif</td>
-                                <td>{{$transaction->user->planInfo->planManagment->plan_name ?? ''}}</td>
-                                <td>{{ $transaction->transaction_id ?? ''}}</td>
-                                <td>{{ $transaction->amount ?? ''}}</td>
-                                <td>{{ $transaction->type ?? ''}}</td>
-                                <td>{{ $transaction->cdate ?? ''}}</td>
+                                <td>@if(isset($transaction->user->planInfo->planManagment->plan_name)){{$transaction->user->planInfo->planManagment->plan_name ?? ''}}@else N/A @endif</td>
+                                <td>@if(isset($transaction->transaction_id)){{ $transaction->transaction_id ?? ''}}@else N/A @endif</td>
+                                <td>@if(isset($transaction->amount)){{ $transaction->amount ?? ''}}@else N/A @endif</td>
+                                <td>@if(isset($transaction->type)){{ $transaction->type ?? ''}}@else N/A @endif</td>
+                                <td>@if(isset($transaction->cdate)){{ $transaction->cdate ?? ''}}@else N/A @endif</td>
                             </tr>
                             @endforeach
                         </tbody>

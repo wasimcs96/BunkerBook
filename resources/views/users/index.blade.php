@@ -48,13 +48,13 @@
                         <tbody>
                             @foreach($users as $user)
                             <tr>
-                                <td>{{ $user->id ?? '' }}</td>
-                                <td><img src="{{ $user->image ?? '' }}"></td>
-                                <td>{{ $user->first_name ?? '' }}</td>
-                                <td>{{ $user->last_name ?? '' }}</td>
-                                <td>{{ $user->email ?? '' }}</td>
-                                <td>{{ $user->mobile ?? '' }}</td>
-                                <td>{{ $user->address ?? '' }}</td>
+                                <td>@if(isset($user->id)){{ $user->id ?? '' }}@else N/A @endif</td>
+                                <td>@if(isset($user->image))<img src="{{ asset($user->image)}}">@else N/A @endif</td>
+                                <td>@if(isset($user->first_name)){{ $user->first_name ?? '' }}@else N/A @endif</td>
+                                <td>@if(isset($user->last_name)){{ $user->last_name ?? '' }}@else N/A @endif</td>
+                                <td>@if(isset($user->email)){{ $user->email ?? '' }}@else N/A @endif</td>
+                                <td>@if(isset($user->mobile)){{ $user->mobile ?? '' }}@else N/A @endif</td>
+                                <td>@if(isset($user->address)){{ $user->address ?? '' }}@else N/A @endif</td>
                                 <td>
                                     <a class="btn btn-secondary btn-sm" href="javascript:void(0);"
                                         data-bs-toggle="modal" data-bs-target="#editModal-{{ $user->id }}">

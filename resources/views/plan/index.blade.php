@@ -30,7 +30,7 @@
                     <table class="table table-striped table-hover dataTable js-exportable">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <!-- <th>#</th> -->
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>Price</th>
@@ -42,11 +42,11 @@
                         <tbody>
                             @foreach($plans as $plan)
                             <tr>
-                                {{-- <td>{{ $plan->id }}</td> --}}
-                                <td>{{ $plan->plan_name ?? '' }}</td>
-                                <td>{{ $plan->plan_desc ?? ''}}</td>
-                                <td>{{ $plan->price ?? ''}}</td>
-                                <td>{{ $plan->validity ?? ''}}</td>
+                                {{-- <td>@if(isset($plan->id)){{ $plan->id }}@else N/A @endif</td> --}}
+                                <td>@if(isset($plan->plan_name)){{ $plan->plan_name ?? '' }}@else N/A @endif</td>
+                                <td>@if(isset($plan->plan_desc)){{ $plan->plan_desc ?? ''}}@else N/A @endif</td>
+                                <td>@if(isset($plan->price)){{ $plan->price ?? ''}}@else N/A @endif</td>
+                                <td>@if(isset($plan->validity)){{ $plan->validity ?? ''}}@else N/A @endif</td>
                                 <td>
                                     <a class="btn btn-info btn-sm"
                                         href="javascript:void(0);"  data-bs-toggle="modal"
