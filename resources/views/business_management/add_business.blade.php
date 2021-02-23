@@ -47,18 +47,22 @@
                                 </div>
                             </div>
 
-                        <div class="col-md-12">
+                            <div class="custm">
+                            <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Name</label>
+                                    <label>Email</label>
                                     <input type="text" name="name" placeholder="Name *" class="form-control" required>
                                 </div>
                             </div>
+                            </div>
+
 
                             <div class="col-md-12">
                                 <div class="form-group">
                                    <a href="javascript:void(0);" class="add_button2 btn btn-warning btn-sm" title="Add field">Add More fields</a>
                                 </div>
                              </div>
+                            
 
 
 
@@ -75,6 +79,8 @@
                                     </select>
                                 </div>
                             </div>
+
+                     
 
                             <div class="field_wrapper1">
                                 <div class="col-md-12">
@@ -397,7 +403,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">Saturday</label>
-                                    <select name="sunday" id="sunday" class="form-control">
+                                    <select name="Saturday" id="Saturday" class="form-control">
                                         <option value="open">Open</option>
                                         <option value="close">Close</option>
 
@@ -411,14 +417,14 @@
                                         <div class="col-md-6">
                                          <div class="form-group">
                                             <label class="control-label">Hours Start</label>
-                                            <input type="time" name="sunday_start_time" id="sunday_start_time" value="" class="form-control">
+                                            <input type="time" name="Saturday_start_time" id="Saturday_start_time" value="" class="form-control">
 
                                          </div>
                                       </div>
                                       <div class="col-md-6">
                                          <div class="form-group">
                                             <label class="control-label">Hours End</label>
-                                            <input type="time" name="sunday_end_time" id="sunday_end_time" value="" class="form-control">
+                                            <input type="time" name="Saturday_end_time" id="sunday_end_time" value="" class="form-control">
 
                                          </div>
                                       </div>
@@ -493,7 +499,7 @@
                             </div>
 
 
-
+<button type="submit" class="btn btn-primary">Submit</button>
                           </div>
                     </fieldset>
 
@@ -507,13 +513,17 @@
 
 @section('page-styles')
 <link rel="stylesheet" href="{{ asset('assets/vendor/jquery-steps/jquery.steps.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css') }}"> --}}
 <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-colorpicker/css/bootstrap-colorpicker.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/multi-select/css/multi-select.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/nouislider/nouislider.min.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+<link rel="stylesheet" href="{{ asset('assets/vendor/dropify/css/dropify.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
 
 @stop
 
@@ -521,8 +531,8 @@
 <script src="{{ asset('assets/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js') }}"></script><!-- Bootstrap Colorpicker Js -->
 <script src="{{ asset('assets/vendor/jquery-inputmask/jquery.inputmask.bundle.js') }}"></script><!-- Input Mask Plugin Js -->
 <script src="{{ asset('assets/vendor/jquery.maskedinput/jquery.maskedinput.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/multi-select/js/jquery.multi-select.js') }}"></script><!-- Multi Select Plugin Js -->
-<script src="{{ asset('assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js') }}"></script>
+{{-- <script src="{{ asset('assets/vendor/multi-select/js/jquery.multi-select.js') }}"></script><!-- Multi Select Plugin Js --> --}}
+{{-- <script src="{{ asset('assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js') }}"></script> --}}
 <script src="{{ asset('assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js') }}"></script><!-- Bootstrap Tags Input Plugin Js -->
 <script src="{{ asset('assets/vendor/nouislider/nouislider.js') }}"></script><!-- noUISlider Plugin Js -->
@@ -535,7 +545,13 @@
 
 <script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
 <script src="{{ asset('assets/js/pages/forms/form-wizard.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+<script src="{{ asset('assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/dropify/js/dropify.js') }}"></script>
 
+<script src="{{ asset('assets/js/pages/forms/dropify.js') }}"></script>
+
+<script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         var maxField = 10; //Input fields increment limitation
@@ -841,7 +857,7 @@
 //   });
 
   $(document).ready(function(){
-         var maxField = 10; //Input fields increment limitation
+         var maxField = 2; //Input fields increment limitation
          var addButton = $('.add_button1'); //Add button selector
          var wrapper = $('.field_wrapper1'); //Input field wrapper
          var x = 1; //Initial field counter is 1
@@ -852,7 +868,7 @@
              if(x < maxField){
                  x++; //Increment field counter
               console.log(x);
-              var fieldHTML = ' <div class="rowField1'+x+'" ><div class="col-md-9"><div class="form-group"><label class="control-label">Website</label><input type="text" name="website[]" value="" class="form-control"> </div></div><div class="col-md-3"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button1" id="'+x+'">Delete</a></div></div></div>'; //New input field html
+              var fieldHTML = ' <div class="rowField1'+x+'" ><div class="col-md-12"><div class="form-group"><label class="control-label">Website</label><input type="text" name="website[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button1" id="'+x+'">Delete</a></div></div></div>'; //New input field html
 
                  $(wrapper).append(fieldHTML); //Add field html
              }
@@ -873,9 +889,9 @@
 
      });
   $(document).ready(function(){
-         var maxField = 10; //Input fields increment limitation
+         var maxField = 2; //Input fields increment limitation
          var addButton = $('.add_button2'); //Add button selector
-         var wrapper = $('.field_wrapper2'); //Input field wrapper
+         var wrapper = $('.custm'); //Input field wrapper
          var x = 1; //Initial field counter is 1
 
          //Once add button is clicked
@@ -884,7 +900,7 @@
              if(x < maxField){
                  x++; //Increment field counter
               console.log(x);
-              var fieldHTML = ' <div class="rowField2'+x+'" ><div class="col-md-9"><div class="form-group"><label class="control-label">Email</label><input type="email" name="email[]" value="" class="form-control"> </div></div><div class="col-md-3"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button2" id="'+x+'">Delete</a></div></div></div>'; //New input field html
+              var fieldHTML = ' <div class="rowField2'+x+'" ><div class="col-md-12"><div class="form-group"><label class="control-label">Email</label><input type="email" name="email[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button2" id="'+x+'">Delete</a></div></div></div>'; //New input field html
 
                  $(wrapper).append(fieldHTML); //Add field html
              }

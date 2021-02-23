@@ -17,6 +17,7 @@ class BusinessController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
         $this->validate($request, [
             'email' => '[required]',
         ]);
@@ -24,7 +25,7 @@ class BusinessController extends Controller
         $business_profile_image ='';
 
 
-       if($request->hasFile('image'))
+       if($request->hasFile('business_profile'))
         {
          $image=$request->business_profile;
          $name= time().$image->getClientOriginalName();
@@ -34,7 +35,7 @@ class BusinessController extends Controller
 
         $featured_banner_image = '';
 
-        if($request->hasFile('image'))
+        if($request->hasFile('featured_banner_image'))
         {
          $image=$request->featured_banner_image;
          $name= time().$image->getClientOriginalName();
@@ -44,7 +45,7 @@ class BusinessController extends Controller
 
         $staff_profile = '';
 
-        if($request->hasFile('image'))
+        if($request->hasFile('profile'))
         {
          $image=$request->profile;
          $name= time().$image->getClientOriginalName();
@@ -94,9 +95,9 @@ class BusinessController extends Controller
             'friday_start_time' => $request->friday_start_time,
             'friday_end_time' => $request->friday_end_time,
 
-            'saturday'  => $request->saturday,
-            'saturday_start_time' => $request->saturday_start_time,
-            'saturday_end_time' => $request->saturday_time
+            'saturday'  => $request->Saturday,
+            'saturday_start_time' => $request->Saturday_start_time,
+            'saturday_end_time' => $request->Saturday_end_time,
 
         ]);
 
