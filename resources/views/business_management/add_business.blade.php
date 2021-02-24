@@ -439,13 +439,13 @@
                         <div class="col-md-12">
                            <div class="form-group">
                               <label class="control-label">Staff Detail</label>
-                              <input type="text" name="staff_name[]" value="" placeholder="Name" class="form-control">
-                              <input type="text" name="staff_job_title[]" value="" placeholder="Job title" class="form-control">
-                              <input type="text" name="staff_email[]" value="" placeholder="Email" class="form-control">
-                              <input type="text" name="staff_mobile[]" value="" placeholder="Mobile" class="form-control">
-                              <input type="text" name="staff_skype[]" value="" placeholder="Skype Id" class="form-control">
-                              <textarea name="staff_about[]" placeholder="About" class="form-control"></textarea>
-                              <input type="file" name="profile[]" value="" placeholder="Profile" accept="image/*" class="form-control">
+                              <input type="text" name="staff[][staff_name]" value="" placeholder="Name" class="form-control">
+                              <input type="text" name="staff[][staff_job_title]" value="" placeholder="Job title" class="form-control">
+                              <input type="text" name="staff[][staff_email]" value="" placeholder="Email" class="form-control">
+                              <input type="text" name="staff[][staff_mobile]" value="" placeholder="Mobile" class="form-control">
+                              <input type="text" name="staff[][staff_skype]" value="" placeholder="Skype Id" class="form-control">
+                              <textarea name="staff[][staff_about]" placeholder="About" class="form-control"></textarea>
+                              <input type="file" name="staff[][staff_profile]" value="" placeholder="Profile" accept="image/*" class="form-control">
 
                            </div>
                         </div>
@@ -590,7 +590,7 @@
             if(y < maxField){
                 y++; //Increment field counter
 
-             var fieldHTML_staff = ' <div class="rowField_staff'+y+'" ><div class="col-md-12"><div class="form-group"><label class="control-label">Staff Detail <a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button_staff" id="'+y+'">X</a> </label> <input type="text" name="staff_name[]"  value="" placeholder="Name" class="form-control"><input type="text" name="staff_job_title[]"  value="" placeholder="Job title" class="form-control"><input type="text" name="staff_email[]"  value="" placeholder="Email" class="form-control"><input type="text" name="staff_mobile[]"  value="" placeholder="Mobile" class="form-control"><input type="text" name="staff_skype[]"  value="" placeholder="Skype Id" class="form-control"><textarea name="staff_about[]"   placeholder="About" class="form-control" ></textarea><input type="file" name="profile[]"  value="" placeholder="Profile" accept="image/*" class="form-control"> </div></div></div>'; //New input field html
+             var fieldHTML_staff = ' <div class="rowField_staff'+y+'" ><div class="col-md-12"><div class="form-group"><label class="control-label">Staff Detail <a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button_staff" id="'+y+'">X</a> </label> <input type="text" name="staff[][staff_name]"  value="" placeholder="Name" class="form-control"><input type="text" name="staff[][staff_job_title]"  value="" placeholder="Job title" class="form-control"><input type="text" name="staff[][staff_email]"  value="" placeholder="Email" class="form-control"><input type="text" name="staff[][staff_mobile]"  value="" placeholder="Mobile" class="form-control"><input type="text" name="staff[][staff_skype]"  value="" placeholder="Skype Id" class="form-control"><textarea name="staff[][staff_about]"   placeholder="About" class="form-control" ></textarea><input type="file" name="staff[][staff_profile]"   value="" placeholder="Profile" accept="image/*" class="form-control"> </div></div></div>'; //New input field html
 
                 $(wrapper_staff).append(fieldHTML_staff); //Add field html
             }
