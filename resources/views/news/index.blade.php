@@ -57,8 +57,12 @@
             {!!$aRoom !!}
             @endif</td>
                                 <td class="">{{$new->youtube_link ?? ''}}</td>
-                                <td class=""><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#editModal" class="btn btn-sm btn-warning" style="color: white;" >Edit</a>
-                                <a href="{{route('news.destroy',$new->id)}}"class="btn btn-sm btn-danger">Delete</a></td>
+                                <td class=""><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#editModal" class="btn btn-sm btn-warning" style="color: white;" ><span class="btn-label">
+                                        <i class="fa fa-edit"></i>
+                                        </span></a>
+                                <a href="{{route('news.destroy',$new->id)}}"class="btn btn-sm btn-danger"><span class="btn-label">
+                                <i class="fa fa-trash-o"></i>
+                                        </span></a></td>
                             </tr>
                        
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -176,6 +180,11 @@
       display: none;
     }
 </style>
+</style>
+<style>
+    .icons-list div {line-height: 40px;white-space: nowrap;cursor: default;position: relative;z-index: 1;padding: 5px;border-right: 1px solid #252a33;}
+    .icons-list div i {display: inline-block;width: 40px;margin: 0;text-align: center;vertical-align: middle;-webkit-transition: font-size 0.2s; -moz-transition: font-size 0.2s; transition: font-size 0.2s;}
+    .icons-list div:hover i {font-size: 26px;}
 </style>
 <link rel="stylesheet" href="{{ asset('assets/vendor/summernote/dist/summernote.css') }}">
 @stop

@@ -15,8 +15,8 @@
                 <ul class="header-dropdown dropdown">
 
                     <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
-                    <li><a href="#addUserModal" class="btn btn-outline-primary float-right" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"> Add
+                    <li><a href="#addUserModal" class="btn btn-primary float-right" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" style="color: white;"> Add
                             User</a></li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"
