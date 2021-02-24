@@ -74,7 +74,7 @@ Route::get('/news', 'admin\adminnewsfeedcontroller@index')->name('news.index');
 Route::post('/news/create', 'admin\adminnewsfeedcontroller@create')->name('news.create');
 Route::post('/news', 'admin\adminnewsfeedcontroller@store')->name('news.store');
 Route::get('/news/show/{id}', 'admin\adminnewsfeedcontroller@show')->name('news.show');
-Route::put('/news/{id}', 'admin\adminnewsfeedcontroller@update')->name('news.update');
+Route::post('/news/{id}', 'admin\adminnewsfeedcontroller@update')->name('news.update');
 Route::get('/news/edit/{id}', 'admin\adminnewsfeedcontroller@edit')->name('news.edit');
 Route::get('/news/destroy/{id}', 'admin\adminnewsfeedcontroller@destroy')->name('news.destroy');
 
