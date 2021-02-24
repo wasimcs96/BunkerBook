@@ -79,20 +79,7 @@
                 <div class="row clearfix">
                     <div class="col-md-6 col-sm-12">
                         <h1>@yield('title')</h1>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('mypage.index')}}"><i class="icon-home"></i></a></li>
-                                @if (trim($__env->yieldContent('parentPageTitle')))
-                                    <li class="breadcrumb-item">@yield('parentPageTitle')</li>
-                                @endif
-                                @if (trim($__env->yieldContent('title2')))
-                                    <li class="breadcrumb-item">@yield('title2')</li>
-                                @endif
-                                @if (trim($__env->yieldContent('title')))
-                                    <li class="breadcrumb-item active">@yield('title')</li>
-                                @endif
-                            </ol>
-                        </nav>
+                        
                     </div>
                     <div class="col-md-6 col-sm-12 text-right hidden-xs">
                         <div class="d-flex flex-row-reverse">

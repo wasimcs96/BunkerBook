@@ -6,7 +6,7 @@
 @section('content')
 
 <div class="row clearfix">
-    <div class="col-6 col-md-4 col-xl-2">
+    <!-- <div class="col-6 col-md-4 col-xl-2">
         <div class="card">
             <div class="body ribbon">
                 <div class="ribbon-box green">15</div>
@@ -16,18 +16,18 @@
                 </a>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="col-6 col-md-4 col-xl-2">
         <div class="card">
             <div class="body">
-                <a href="{{route('pages.profile')}}" class="my_sort_cut text-muted">
+                <a href="{{route('users.index')}}" class="my_sort_cut text-muted">
                     <i class="icon-user"></i>
-                    <span>Profile</span>
+                    <span>User Management</span>
                 </a>
             </div>
         </div>
     </div>
-    <div class="col-6 col-md-4 col-xl-2">
+    <!-- <div class="col-6 col-md-4 col-xl-2">
         <div class="card">
             <div class="body ribbon">
                 <div class="ribbon-box orange">8</div>
@@ -37,8 +37,8 @@
                 </a>
             </div>
         </div>
-    </div>
-    <div class="col-6 col-md-4 col-xl-2">
+    </div> -->
+    <!-- <div class="col-6 col-md-4 col-xl-2">
         <div class="card">
             <div class="body">
                 <a href="{{route('dashboard.index3')}}" class="my_sort_cut text-muted">
@@ -47,8 +47,8 @@
                 </a>
             </div>
         </div>
-    </div>
-    <div class="col-6 col-md-4 col-xl-2">
+    </div> -->
+    <!-- <div class="col-6 col-md-4 col-xl-2">
         <div class="card">
             <div class="body">
                 <a href="{{route('app.calendar')}}" class="my_sort_cut text-muted">
@@ -57,8 +57,8 @@
                 </a>
             </div>
         </div>
-    </div>
-    <div class="col-6 col-md-4 col-xl-2">
+    </div> -->
+    <!-- <div class="col-6 col-md-4 col-xl-2">
         <div class="card">
             <div class="body ribbon">
                 <div class="ribbon-box indigo">10</div>
@@ -69,8 +69,8 @@
             </div>
         </div>
     </div>
-</div>
-<div class="row clearfix">
+</div> -->
+<!-- <div class="row clearfix">
     <div class="col-lg-4 col-md-12">
         <div class="card">
             <div class="header">
@@ -120,8 +120,8 @@
             </div>
         </div>
     </div>
-</div>
-<div class="row clearfix">
+</div> -->
+<!-- <div class="row clearfix">
     <div class="col-lg-3 col-md-6">
         <div class="card">
             <div class="body">
@@ -174,8 +174,8 @@
             </div>
         </div>
     </div>
-</div>
-<div class="row clearfix">
+</div> -->
+<!-- <div class="row clearfix">
     <div class="col-lg-8 col-md-12">
         <div class="table-responsive">
             <table class="table table-hover table-custom spacing5">
@@ -395,7 +395,7 @@
             </div>
         </div>                    
     </div>
-</div>
+</div> -->
 
 @stop
 
