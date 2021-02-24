@@ -6,8 +6,10 @@ use App\Models\Method\UserMethod;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
+use Laravel\Passport\HasApiTokens;
 class User extends Authenticatable
 {
+    use HasApiTokens;
     use Notifiable, HasRoles,UserMethod;
 
     const NOT_ACTIVE = 'not_active';

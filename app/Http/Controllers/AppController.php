@@ -9,4 +9,5 @@ class AppController extends BaseController
     function calendar(){
         return view('app.calendar');
     }
+    
 }

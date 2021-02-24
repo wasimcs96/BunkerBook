@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\User;
+use Validator;
+use Hash;
 class UserController extends Controller
 {
     public function register(Request $request){
@@ -14,7 +16,7 @@ class UserController extends Controller
             'mobile' => 'required|unique:users',
             'password' => 'required',
             'confirm_password' => 'required|same:password',
-            'medium' => 'required',
+            // 'medium' => 'required',
         ]);
 
 
@@ -23,6 +25,7 @@ class UserController extends Controller
         }
 
         $input = $request->all();
+        // dd($input);
         $input['password']=Hash::make($input['password']);
         $user = User::create($input);
         $success = $user;
