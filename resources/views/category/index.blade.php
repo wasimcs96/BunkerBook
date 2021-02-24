@@ -13,7 +13,7 @@
                 <h2>Table Tools<small>Basic example without any additional modification classes</small></h2>
                 <ul class="header-dropdown dropdown">
                     {{-- <li><a href="javascript:void(0)"></li> --}}
-                    <li><a href="javascript:void(0)" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#createModal">Add More</a></li>
+                    <li><a href="javascript:void(0)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal" style="color: white;">Add More</a></li>
                     <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
