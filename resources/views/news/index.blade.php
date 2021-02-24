@@ -29,12 +29,12 @@
                     <table class="table table-striped table-hover dataTable js-exportable">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Image</th>
-                                <th>Title</th>
-                                <th>Description</th>
-                                <th>Youtube Link</th>
-                                <th>Actions</th>
+                                <th class="col-lg-1">#</th>
+                                <th class="col-lg-2">Image</th>
+                                <th class="col-lg-2">Title</th>
+                                <th class="col-lg-3">Description</th>
+                                <th class="col-lg-2">Youtube Link</th>
+                                <th class="col-lg-2">Actions</th>
                             </tr>
                         </thead>
                      
@@ -42,14 +42,64 @@
                       
                           @foreach($news as $new)
                             <tr>
-                                <td></td>
-                                <td>{{$new->image ?? ''}}</td>
-                                <td>{{$new->title ?? ''}}</td>
-                                <td>{{$new->description ?? ''}}</td>
-                                <td>{{$new->youtube_link ?? ''}}</td>
-                                <td><a class="btn btn-sm btn-warning">Edit</a>
-                                <a class="btn btn-sm btn-danger">Delete</a></td>
+                                <td class=" "></td>
+                                <td class=""><img src="{{asset($new->image ?? '')}}" width="100px;"></td>
+                                <td class="">{{$new->title ?? ''}}</td>
+                                <td class="col-lg-3">       
+                                 <div class="comment more">
+                                 <?php $aRoom= $new->description ?>
+            @if(strlen($aRoom) > 100)
+            {{substr($aRoom,0,100)}}
+            <span class="read-more-show hide_content"><span class="btn btn-warning btn-sm">More<i class="fa fa-angle-down"></i></span></span>
+            <span class="read-more-content"> <?php $reamm = substr($aRoom,100,strlen($aRoom)) ?> {!! $reamm!!}
+            <span class="read-more-hide hide_content"><span class="btn btn-warning btn-sm">Less <i class="fa fa-angle-up"></i></span></span> </span>
+            @else
+            {!!$aRoom !!}
+            @endif</td>
+                                <td class="">{{$new->youtube_link ?? ''}}</td>
+                                <td class=""><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#editModal" class="btn btn-sm btn-warning" style="color: white;" >Edit</a>
+                                <a href="{{route('news.destroy',$new->id)}}"class="btn btn-sm btn-danger">Delete</a></td>
                             </tr>
+                       
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add News Feed</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{{route('news.update',$new->id)}}" method="post" enctype="multipart/form-data">
+         @csrf
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Title:</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{$new->title ?? ''}}">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">DESCRIPTION:</label>
+            <textarea class="form-control summernote" id="description" name="description">{!! $new->description !!}</textarea>
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Youtube Link:</label>
+            <input type="text" class="form-control" id="youtube_link" name="youtube_link" value="{{$new->youtube_link ?? ''}}">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Image:</label>
+            <input type="file" class="form-control" id="image" name="image"value="{{asset($new->image ?? '')}}">
+          </div>
+          <div class="mb-3" style="display: flex;justify-content: center;">
+          <img src="{{asset($new->image ?? '')}}" width="100px;">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Create </button>
+      </div>
+        </form>
+    </div>
+  </div>
+</div>
+
                             @endforeach
                         </tbody>
                     </table>
@@ -111,6 +161,21 @@
     tr.shown td.details-control {
         background: url('../assets/images/details_close.png') no-repeat center center;
     }
+
+    <style type="text/css">
+    .read-more-show{
+      cursor:pointer;
+      color: #ed8323;
+    }
+    .read-more-hide{
+      cursor:pointer;
+      color: #ed8323;
+    }
+
+    .hide_content{
+      display: none;
+    }
+</style>
 </style>
 <link rel="stylesheet" href="{{ asset('assets/vendor/summernote/dist/summernote.css') }}">
 @stop
@@ -132,4 +197,24 @@
 <script src="{{ asset('assets/js/pages/tables/jquery-datatable.js') }}"></script>
 <script src="{{ asset('assets/vendor/summernote/dist/summernote.js') }}"></script>
 
+<script type="text/javascript">
+// Hide the extra content initially, using JS so that if JS is disabled, no problemo:
+            $('.read-more-content').addClass('hide_content')
+            $('.read-more-show, .read-more-hide').removeClass('hide_content')
+
+            // Set up the toggle effect:
+            $('.read-more-show').on('click', function(e) {
+              $(this).next('.read-more-content').removeClass('hide_content');
+              $(this).addClass('hide_content');
+              e.preventDefault();
+            });
+
+            // Changes contributed by @diego-rzg
+            $('.read-more-hide').on('click', function(e) {
+              var p = $(this).parent('.read-more-content');
+              p.addClass('hide_content');
+              p.prev('.read-more-show').removeClass('hide_content'); // Hide only the preceding "Read More"
+              e.preventDefault();
+            });
+</script>
 @stop
