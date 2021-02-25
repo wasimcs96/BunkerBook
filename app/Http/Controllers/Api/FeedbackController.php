@@ -46,6 +46,6 @@ class FeedbackController extends Controller
             'message'=>$request->message,
             'attachment'=>$request->attachment, 
         ]);
-        return response()->json($feedback, 201);
+        return $this->sendResponse($feedback, 'Feedback Created successfully.');
     }
 }

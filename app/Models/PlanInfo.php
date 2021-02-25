@@ -8,6 +8,8 @@ class PlanInfo extends Model
 {
     protected $table = 'plan_info';
 
+    protected $fillable = ['plan_id','user_id','start_date','end_date','amount'];
+
     public function userPlanInfo()
     {
         return $this->belongsTo(User::class,'user_id');
