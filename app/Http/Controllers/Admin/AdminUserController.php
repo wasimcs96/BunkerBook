@@ -58,7 +58,7 @@ class AdminUserController extends Controller
             'image'=>$prostore,
             'mobile'=>$request->mobile,
             'email'=>$request->email,
-            'password' => Hash::make($request),
+            'password' => Hash::make($request->password),
             // 'password'=>$request->password,
             // 'address'=>$request->address,
             // 'plan'=>$request->plan,

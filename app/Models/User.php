@@ -26,6 +26,10 @@ class User extends Authenticatable
         'address',
         'birth_year',
         'image',
+        'company',
+        'job_title',
+        'city',
+        'country',
         'original_image_path',
         'password',
         'api_token'
