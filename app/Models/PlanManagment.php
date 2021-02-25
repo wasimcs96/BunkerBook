@@ -13,4 +13,9 @@ class PlanManagment extends Model
         return $this->hasOne(PlanInfo::class,'plan_id');
     }
 
+    public function transaction()
+    {
+        return $this->hasMany(Tansaction::class,'plan_id');
+    }
+
 }

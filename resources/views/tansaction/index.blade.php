@@ -45,7 +45,8 @@
                             <tr>
                                  <td>{{$key+1}}</td> 
                                 <td>@if(isset($transaction->user->first_name )){{ $transaction->user->first_name ?? '' }} {{ $transaction->user->last_name ?? '' }}@else N/A @endif</td>
-                                <td>@if(isset($transaction->user->planInfo->planManagment->plan_name)){{$transaction->user->planInfo->planManagment->plan_name ?? ''}}@else N/A @endif</td>
+                                {{-- {{dd($transaction->planManagement->plan_name)}} --}}
+                                <td>@if(isset($transaction->planManagement->plan_name)){{$transaction->planManagement->plan_name ?? ''}}@else N/A @endif</td>
                                 <td>@if(isset($transaction->transaction_id)){{ $transaction->transaction_id ?? ''}}@else N/A @endif</td>
                                 <td>@if(isset($transaction->amount)){{ $transaction->amount ?? ''}}@else N/A @endif</td>
                                 <td>@if(isset($transaction->type)){{ $transaction->type ?? ''}}@else N/A @endif</td>

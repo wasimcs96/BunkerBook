@@ -34,13 +34,14 @@ class UserController extends Controller
     }
 
     public function login (Request $request) {
-        $user = User::where('mobile', $request->mobile)->first();
+        $user = User::where('email', $request->email)->first();
         if ($user) {
 
             if (Hash::check($request->password, $user->password)) {
                 $success = $user;
                 $success['token'] =  $user->createToken('MyApp')->accessToken;
-
+                 $user->api_token=$success['token'];
+                 $user->save();
                 return $this->sendResponse($success, 'User has been logged in successfully.');
             } else {
                 return $this->sendError('Password missmatch');
