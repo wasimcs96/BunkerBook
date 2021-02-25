@@ -18,6 +18,7 @@ Route::middleware('auth:api')->group(function () {
 
     Route::get('/country', 'Api\CountryController@getCountry')->name('country.api');
 
+    Route::get('/category', 'Api\CategoryController@getCategory')->name('category.api');
 
 
 });
