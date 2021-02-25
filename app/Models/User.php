@@ -28,6 +28,7 @@ class User extends Authenticatable
         'image',
         'original_image_path',
         'password',
+        'api_token'
     ];
 
     protected $hidden = [
