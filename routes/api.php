@@ -8,4 +8,9 @@ Route::post('/login', 'Api\UserController@login')->name('login.api');
 Route::middleware('auth:api')->group(function () {
     Route::get('/news', 'Api\NewsfeedController@getNews')->name('news.api');
 
+    Route::get('/feedback', 'Api\FeedbackController@getFeedback')->name('feedback.api');
+
+    Route::post('/feedback/create', 'Api\FeedbackController@postFeedback')->name('feedback.create.api');
+
+
 });

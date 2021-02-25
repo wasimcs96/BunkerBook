@@ -22,6 +22,8 @@ return array(
     'App\\Http\\Controllers\\Admin\\MypageController' => $baseDir . '/app/Http/Controllers/Admin/MypageController.php',
     'App\\Http\\Controllers\\Admin\\ProductController' => $baseDir . '/app/Http/Controllers/Admin/ProductController.php',
     'App\\Http\\Controllers\\Admin\\UserController' => $baseDir . '/app/Http/Controllers/Admin/UserController.php',
+    'App\\Http\\Controllers\\Api\\FeedbackController' => $baseDir . '/app/Http/Controllers/Api/FeedbackController.php',
+    'App\\Http\\Controllers\\Api\\NewsfeedController' => $baseDir . '/app/Http/Controllers/Api/NewsfeedController.php',
     'App\\Http\\Controllers\\Api\\UserController' => $baseDir . '/app/Http/Controllers/Api/UserController.php',
     'App\\Http\\Controllers\\AppController' => $baseDir . '/app/Http/Controllers/AppController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
