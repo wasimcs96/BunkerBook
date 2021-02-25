@@ -14,7 +14,7 @@ class FeedbackController extends Controller
 
         $feedback = Feedback::all();
         $success = $feedback;
-        return $this->sendResponse($success,'News Find');
+        return $this->sendResponse($success,'Feedback Find');
     }
 
     public function postFeedback(Request $request){
