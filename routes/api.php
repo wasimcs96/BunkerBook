@@ -20,5 +20,8 @@ Route::middleware('auth:api')->group(function () {
 
     Route::get('/category', 'Api\CategoryController@getCategory')->name('category.api');
 
+    Route::get('/business', 'Api\BusinessController@getBusiness')->name('business.api');
+
+
 
 });
