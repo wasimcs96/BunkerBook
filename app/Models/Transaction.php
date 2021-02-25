@@ -8,6 +8,8 @@ class Transaction extends Model
 {
     protected $table = 'transaction';
 
+    protected $fillable = ['user_id','transaction_id','amount','plan_id','type'];
+
     public function user()
     {
         return $this->belongsTo(User::class,'user_id');

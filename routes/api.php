@@ -22,6 +22,15 @@ Route::middleware('auth:api')->group(function () {
 
     Route::get('/business', 'Api\BusinessController@getBusiness')->name('business.api');
 
+    Route::get('/bookmark', 'Api\BookmarkController@getBookmark')->name('bookmark.api');
+
+    Route::post('/bookmark/create', 'Api\BookmarkController@postBookmark')->name('bookmark.create.api');
+
+    Route::post('/plan/create', 'Api\PlanController@postPlan')->name('plan.create.api');
+
+
+
+
 
 
 });
