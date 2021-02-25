@@ -16,5 +16,8 @@ Route::middleware('auth:api')->group(function () {
 
     Route::post('/feedback/create', 'Api\FeedbackController@postFeedback')->name('feedback.create.api');
 
+    Route::get('/country', 'Api\CountryController@getCountry')->name('country.api');
+
+
 
 });
