@@ -15,6 +15,12 @@ class UserController extends Controller
             'last_name' => 'required',
             'mobile' => 'required|unique:users',
             'password' => 'required',
+            'email' => 'required',
+            'company_name' => 'required',
+            'job_title' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'country' => 'required',
             'confirm_password' => 'required|same:password',
             // 'medium' => 'required',
         ]);
@@ -24,10 +30,21 @@ class UserController extends Controller
             return $this->sendError('Validation Error.', $validator->errors());
         }
 
-        $input = $request->all();
+        // $input = $request->all();
         // dd($input);
-        $input['password']=Hash::make($input['password']);
-        $user = User::create($input);
+        // $input['password']=Hash::make($input['password']);
+        $user = User::create([
+            'first_name'=>$request->first_name,
+            'last_name'=>$request->last_name,
+            'mobile'=>$request->mobile,
+            'email'=>$request->email,
+            'company'=>$request->company_name,
+            'job_title'=>$request->job_title,
+            'address'=>$request->address,
+            'city'=>$request->city,
+            'password'=>Hash::make($request->password),
+            'country'=>$request->country,
+        ]);
         $success = $user;
         $success['token'] =  $user->createToken('MyApp')->accessToken;
         return $this->sendResponse($success, 'User register successfully.');
