@@ -232,6 +232,13 @@ Route::get('/frontend', function(){
 
 Auth::routes();
 
+Route::get('/blog/all', function(){
+    return view('frontEnd.blog.blog_all');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 /*Consultant*/
+Route::get('/contact', function(){
+    return view('frontEnd.contact.contact');
+});

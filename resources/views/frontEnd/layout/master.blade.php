@@ -115,7 +115,7 @@
         </div>
         <div class="copyright">
             <div class="container">
-                <p>Copyright © 2020. All Rights Reserved.</p>
+                <p>Copyright © 2021. All Rights Reserved By BunkerBook.</p>
                 <ul class="footer-social">
                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>

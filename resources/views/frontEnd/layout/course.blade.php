@@ -1,4 +1,4 @@
-<div id="portfolio" class="portfolio-area de-padding" data-background= "{{asset('frontEnd/assets/img/course/course-bg.jpg')}}" >
+<!-- <div id="portfolio" class="portfolio-area de-padding" data-background= "{{asset('frontEnd/assets/img/course/course-bg.jpg')}}" >
     <div class="container">
         <div class="row">
             <div class="col-xl-8 offset-xl-2">
@@ -17,11 +17,11 @@
                         <button data-filter=".development" class="">Science</button>
                         <button data-filter=".design" class="">Engineering</button>
                         <button data-filter=".photography" class="">Medical  </button>
-                        <button data-filter=".branding" class="">Other</button>
+                        <button data-filter=".branding" class="">Other</button> -->
                         <!-- <button data-filter=".video" class="">Web Development</button> -->
-                    </div>
+                    <!-- </div> -->
                     <!-- End Mixitup Nav-->
-                    <div class="magnific-mix-gallery masonary">
+                    <!-- <div class="magnific-mix-gallery masonary">
                         <div id="portfolio-grid" class="portfolio-items">
                             <div class="pf-item video design">
                                 <div class="course-box">
@@ -326,4 +326,4 @@
     <div class="more-btn">
         <a href="course.html">View All Courses <i class="ti ti-arrow-right"></i></a>
     </div>
-</div>
+</div> -->
