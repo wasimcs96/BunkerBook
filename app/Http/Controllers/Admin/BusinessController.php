@@ -47,78 +47,79 @@ class BusinessController extends Controller
         
 
 // dd($request->all());
-        // $business = Business::create([
-        //     'type' => $request->type,
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'category' =>  collect($request->category)->implode(','),
-        //     'website' => collect($request->website)->implode(','),
-        //     'landline' => collect($request->landline)->implode(','),
-        //     'address' => $request->address,
-        //     'country' => $request->country,
-        //     'start_time' => $request->start_time,
-        //     'end_time' => $request->end_time,
-        //     'business_profile' => $business_profile_image,
-        //     'featured_banner_image' => $featured_banner_image,
+        $business = Business::create([
+            'type' => $request->type,
+            'name' => $request->name,
+            'email' =>collect($request->email)->implode(','),
+            'category' =>  collect($request->category)->implode(','),
+            'website' => collect($request->website)->implode(','),
+            'landline' => collect($request->landline)->implode(','),
+            'address' => $request->address,
+            'country' => $request->country,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+            'business_profile' => $business_profile_image,
+            'featured_banner_image' => $featured_banner_image,
 
-        //     'about' => $request->about,
-        //     'ports_of_operation' => $request->ports_of_operation,
+            'about' => $request->about,
+            'ports_of_operation' => $request->ports_of_operation,
 
-        //     'sunday' => $request->sunday,
-        //     'sunday_start_time' => $request->sunday_start_time,
-        //     'sunday_end_time' => $request->sunday_end_time,
+            'sunday' => $request->sunday,
+            'sunday_start_time' => $request->sunday_start_time,
+            'sunday_end_time' => $request->sunday_end_time,
 
-        //     'monday' => $request->monday,
-        //     'monday_start_time' => $request->monday_start_time,
-        //     'monday_end_time' => $request->mondaay_end_time,
+            'monday' => $request->monday,
+            'monday_start_time' => $request->monday_start_time,
+            'monday_end_time' => $request->mondaay_end_time,
 
-        //     'tuesday' => $request->tuesday,
-        //     'tuesday_start_time' => $request->tuesday_start_time,
-        //     'tuesday_end_time' => $request->tuesday_end_time,
+            'tuesday' => $request->tuesday,
+            'tuesday_start_time' => $request->tuesday_start_time,
+            'tuesday_end_time' => $request->tuesday_end_time,
 
-        //     'wednesday' => $request->wednesday,
-        //     'wednesday_start_time' => $request->wednesday_start_time,
-        //     'wednesday_end_time' => $request->wednesday_end_time,
+            'wednesday' => $request->wednesday,
+            'wednesday_start_time' => $request->wednesday_start_time,
+            'wednesday_end_time' => $request->wednesday_end_time,
 
-        //     'thursday' => $request->thursday,
-        //     'thursday_start_time' => $request->thursday_start_time,
-        //     'thursday_end_time' => $request->thursday_end_time,
+            'thursday' => $request->thursday,
+            'thursday_start_time' => $request->thursday_start_time,
+            'thursday_end_time' => $request->thursday_end_time,
 
-        //     'friday' => $request->friday,
-        //     'friday_start_time' => $request->friday_start_time,
-        //     'friday_end_time' => $request->friday_end_time,
+            'friday' => $request->friday,
+            'friday_start_time' => $request->friday_start_time,
+            'friday_end_time' => $request->friday_end_time,
 
-        //     'saturday'  => $request->saturday,
-        //     'saturday_start_time' => $request->saturday_start_time,
-        //     'saturday_end_time' => strtotime($request->saturday_end_time),
+            'saturday'  => $request->saturday,
+            'saturday_start_time' => $request->saturday_start_time,
+            'saturday_end_time' => strtotime($request->saturday_end_time),
            
-        // ]);
+        ]);
         $staff_profilestore = '';
 
-        if($request->hasFile('profile'))
-        {
-            $staff_profile=collect($request->profile);
+      
+        //  $business_staff = dd($request->all());
+foreach($request->staff as $key =>$value )
 
-            // $staff_profile = $request->profile;
-            foreach($staff_profile as $staff_pro)
+{
 
-            $staff_profile_new_name = time() . $staff_pro->getclientOriginalName();
-            
-            $staff_pro->move('uploads/business_staffProfile',$staff_profile_new_name);
-            
-            $staff_profilestore = 'uploads/business_staffProfile/' . $staff_profile_new_name;
-        }
-        dd($request->all());
-        $business_staff = BusinessStaff::create([
-            'staff_name' => $request->staff_name,       
-            'staff_job_title' => $request->staff_job_title,
-            'staff_email' => $request->staff_email,
-            'staff_mobile' => $request->staff_mobile,
-            'staff_skype' => $request->staff_skype,
-            'staff_about' => $request->staff_about,
+    if($request->hasFile($value['profile']))
+    {
+        $staff_profile=$value['profile'];
+
+        // $staff_profile = $request->profile
+        $staff_profile_new_name = time() . $staff_profile->getclientOriginalName();
+        $staff_profile->move('uploads/business_staffProfile',$staff_profile_new_name);
+        $staff_profilestore = 'uploads/business_staffProfile/' . $staff_profile_new_name;
+    }
+        BusinessStaff::create([
+            'staff_name' => $value['staff_name'],       
+            'staff_job_title' => $value['staff_job_title'],
+            'staff_email' => $value['staff_email'],
+            'staff_mobile' => $value['staff_mobile'],
+            'staff_skype' => $value['staff_skype'],
+            'staff_about' => $value['staff_skype'],
             'profile' => $staff_profilestore
         ]);
-
+        }
   return redirect()->route('business.upcoming')->with('success','Business details added successfully');
     }
 

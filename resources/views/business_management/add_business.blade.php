@@ -35,7 +35,7 @@
                                 <label>Select Plan</label>
                                     <select name="status" class="form-control" required>
                                         <option value="">-- Select Type --</option>
-                                        <option value="1">Standerd</option>
+                                        <option value="1">Standard</option>
                                         <option value="2">Premium</option>
                                     </select>
                                </div>
@@ -434,18 +434,19 @@
                     </fieldset>
 
                     <h3>Personal Detail</h3>
+                   
                     <fieldset>
                         <div class="field_wrapper_staff">
                         <div class="col-md-12">
                            <div class="form-group">
                               <label class="control-label">Staff Detail</label>
-                              <input type="text" name="staff[][staff_name]" value="" placeholder="Name" class="form-control">
-                              <input type="text" name="staff[][staff_job_title]" value="" placeholder="Job title" class="form-control">
-                              <input type="text" name="staff[][staff_email]" value="" placeholder="Email" class="form-control">
-                              <input type="text" name="staff[][staff_mobile]" value="" placeholder="Mobile" class="form-control">
-                              <input type="text" name="staff[][staff_skype]" value="" placeholder="Skype Id" class="form-control">
-                              <textarea name="staff[][staff_about]" placeholder="About" class="form-control"></textarea>
-                              <input type="file" name="staff[][staff_profile]" value="" placeholder="Profile" accept="image/*" class="form-control">
+                              <input type="text" name="staff[0][staff_name]" value="" placeholder="Name" class="form-control">
+                              <input type="text" name="staff[0][staff_job_title]" value="" placeholder="Job title" class="form-control">
+                              <input type="text" name="staff[0][staff_email]" value="" placeholder="Email" class="form-control">
+                              <input type="text" name="staff[0][staff_mobile]" value="" placeholder="Mobile" class="form-control">
+                              <input type="text" name="staff[0][staff_skype]" value="" placeholder="Skype Id" class="form-control">
+                              <textarea name="staff[0][staff_about]" placeholder="About" class="form-control"></textarea>
+                              <input type="file" name="staff[0][staff_profile]" value="" placeholder="Profile" accept="image/*" class="form-control">
 
                            </div>
                         </div>
@@ -585,14 +586,16 @@
         var add_staff_button = $('.add_staff_button');
         var wrapper_staff = $('.field_wrapper_staff');
         var y=1;
+        var inc=1;
          $(add_staff_button).click(function(){
             //Check maximum number of input fields
             if(y < maxField){
                 y++; //Increment field counter
 
-             var fieldHTML_staff = ' <div class="rowField_staff'+y+'" ><div class="col-md-12"><div class="form-group"><label class="control-label">Staff Detail <a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button_staff" id="'+y+'">X</a> </label> <input type="text" name="staff[][staff_name]"  value="" placeholder="Name" class="form-control"><input type="text" name="staff[][staff_job_title]"  value="" placeholder="Job title" class="form-control"><input type="text" name="staff[][staff_email]"  value="" placeholder="Email" class="form-control"><input type="text" name="staff[][staff_mobile]"  value="" placeholder="Mobile" class="form-control"><input type="text" name="staff[][staff_skype]"  value="" placeholder="Skype Id" class="form-control"><textarea name="staff[][staff_about]"   placeholder="About" class="form-control" ></textarea><input type="file" name="staff[][staff_profile]"   value="" placeholder="Profile" accept="image/*" class="form-control"> </div></div></div>'; //New input field html
+             var fieldHTML_staff = ' <div class="rowField_staff'+y+'" ><div class="col-md-12"><div class="form-group"><label class="control-label">Staff Detail <a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button_staff" id="'+y+'">X</a> </label> <input type="text" name="staff['+inc+'][staff_name]"  value="" placeholder="Name" class="form-control"><input type="text" name="staff['+inc+'][staff_job_title]"  value="" placeholder="Job title" class="form-control"><input type="text" name="staff['+inc+'][staff_email]"  value="" placeholder="Email" class="form-control"><input type="text" name="staff['+inc+'][staff_mobile]"  value="" placeholder="Mobile" class="form-control"><input type="text" name="staff['+inc+'][staff_skype]"  value="" placeholder="Skype Id" class="form-control"><textarea name="staff['+inc+'][staff_about]"   placeholder="About" class="form-control" ></textarea><input type="file" name="staff['+inc+'][staff_profile]"   value="" placeholder="Profile" accept="image/*" class="form-control"> </div></div></div>'; //New input field html
 
                 $(wrapper_staff).append(fieldHTML_staff); //Add field html
+                inc++;
             }
         });
 
