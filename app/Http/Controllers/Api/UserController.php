@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Validator;
+use Illuminate\Validation\Rule;
 use Hash;
 class UserController extends Controller
 {
@@ -85,7 +86,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'first_name' => 'required',
             'last_name' => 'required',
-            'mobile' => 'required|unique:users,mobile,' . $request->user()->id
+            'email' => 'required',
         ]);
 
         if($validator->fails()){
@@ -96,7 +97,13 @@ class UserController extends Controller
         $updateUser = $userData->update([
          'first_name'=>$request->first_name,
          'last_name'=>$request->last_name,
-         'mobile'=>$request->mobile
+         'mobile'=>$request->mobile,
+         'email'=>$request->email,
+         'company_name'=>$request->company_name,
+         'job_title'=>$request->job_title,
+         'city'=>$request->city,
+         'address'=>$request->address,
+
         ]);
 
         return $this->sendResponse($userData, 'User Update successfully.');
@@ -125,7 +132,7 @@ class UserController extends Controller
         }
 
         if (Hash::check($request->old_password, $user->password)) {
-            $user->update(['password' => $request->password]);
+            $user->update(['password' => Hash::make($request->password)]);
         }else{
             return $this->sendError('Validation Error.', '', "The current password is not match with old password.");
         }
@@ -137,8 +144,8 @@ class UserController extends Controller
     {
         
         $validator = Validator::make($request->all(), [
-            'mobile' => 'required|numeric', Rule::exists('users')->where(function ($query) {
-                        $query->where('mobile', $request->mobile);
+            'email' => 'required', Rule::exists('users')->where(function ($query) {
+                        $query->where('email', $request->email);
                         }), 
             'password' => 'required'
         ]);
@@ -146,12 +153,12 @@ class UserController extends Controller
             return $this->sendError('Validation Error.', $validator->errors());
         }
 
-        $user = User::where("mobile", $request->mobile)->status("1")->first();
+        $user = User::where("email", $request->email)->first();
         if ($user) {
             $password=Hash::make($request->password);
             $user->update(['password' => $password]);
         }else{
-            return $this->sendError('Validation Error.', '', "Given Mobile Number Not Exists!");
+            return $this->sendError('Validation Error.', '', "Given Email Not Exists!");
         }
         return $this->sendResponse(array(), 'Password successfully updated');
 
