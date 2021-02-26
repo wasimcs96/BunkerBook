@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 Route::post('/register', 'Api\UserController@register')->name('register.api');
 Route::post('/login', 'Api\UserController@login')->name('login.api');
 
+Route::post('/forgotPassword', 'Api\UserController@forgotPassword')->name('forgotPassword');
+
 Route::middleware('auth:api')->group(function () {
     Route::get('/news', 'Api\NewsfeedController@getNews')->name('news.api');
     Route::get('/getAuthUser', 'Api\UserController@getUser')->name('getUser');
