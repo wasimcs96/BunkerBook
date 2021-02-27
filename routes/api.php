@@ -32,9 +32,6 @@ Route::middleware('auth:api')->group(function () {
 
     Route::post('/plan/create', 'Api\PlanController@postPlan')->name('plan.create.api');
 
-
-
-
-
+    Route::post('/business/category', 'Api\BusinessController@getBusinessCategory')->name('business.category.api');
 
 });
