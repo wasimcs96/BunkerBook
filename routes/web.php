@@ -292,3 +292,14 @@ Route::post('business/reject/model/{id}', 'Admin\BusinessController@rejectBusine
 
 Route::get('business/view/{id}', 'Admin\BusinessController@viewBusiness')->name('business.view');
 Route::get('business/delete/{id}', 'Admin\BusinessController@destroyBusiness')->name('business.delete');
+//country_business
+Route::get('/frontend/business', function(){
+    return view('frontEnd.country_business.business');
+});
+//category
+Route::get('/frontend/category', function(){
+    return view('frontEnd.category.category');
+});
+Route::get('/contact', function(){
+    return view('frontEnd.contact.contact');
+});

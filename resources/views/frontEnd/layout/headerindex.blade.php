@@ -62,6 +62,8 @@
                                     <li class="nav-item"><a class="nav-link" href="404.html">404 Page</a></li>
                                 </ul>
                             </li> -->
+                            <li class="nav-item"><a class="nav-link" href="/frontend/business">Country</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/frontend/category">Category</a></li>
                             <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                             <!-- <li class="nav-item dropdown">
                                 <a class="nav-link" href="#">Courses <i class="caret ti-plus"></i></a>
@@ -71,7 +73,7 @@
                                 </ul>
                             </li> -->
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="#">Blog </a>
+                                <a class="nav-link" href="/blog/all">Blog </a>
                                 <!-- <i class="caret ti-plus"></i> -->
                                 <!-- <ul class="navbar-nav">
                                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
@@ -88,7 +90,7 @@
                                     <li class="nav-item"><a class="nav-link" href="cart.html">Shop Cart</a></li>
                                 </ul>
                             </li> -->
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
                         </ul>
                         <div class="header-serarch-btn ab un-srs">
                             <input type="checkbox" class="frm" id="frm">
