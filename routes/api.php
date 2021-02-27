@@ -24,6 +24,8 @@ Route::middleware('auth:api')->group(function () {
 
     Route::get('/business', 'Api\BusinessController@getBusiness')->name('business.api');
 
+    Route::post('/business/create', 'Api\BusinessController@postBusiness')->name('business.create.api');
+
     Route::get('/bookmark', 'Api\BookmarkController@getBookmark')->name('bookmark.api');
 
     Route::post('/bookmark/create', 'Api\BookmarkController@postBookmark')->name('bookmark.create.api');
