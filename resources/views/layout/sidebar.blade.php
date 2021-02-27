@@ -30,7 +30,6 @@
         </div>
         <nav id="left-sidebar-nav" class="sidebar-nav">
             <ul id="main-menu" class="metismenu">
-                <li class="header">Main</li>
                 {{-- <li class="{{ Request::segment(1) === 'mypage' ? 'active open' : null }}">
                     <a href="#myPage" class="has-arrow"><i class="icon-home"></i><span>My Page</span></a>
                     <ul>
@@ -45,9 +44,50 @@
                     </ul>
                 </li> --}}
                 <li class="{{ Request::segment(2) === 'index2' ? 'active open' : null }}"><a href="{{route('dashboard.index2')}}"><i class="icon-speedometer"></i><span>Dashboard</span></a></li>
-                <li class="{{ Request::segment(2) === 'index3' ? 'active open' : null }}"><a href="{{route('dashboard.index3')}}"><i class="icon-diamond"></i><span>Cryptocurrency</span></a></li>
-                <li class="header">HR, Project & Job</li>
-                <li class="{{ Request::segment(1) === 'projects' ? 'active open' : null }}">
+                <li class="{{ Request::segment(1) === 'user' ? 'active open' : null }}"><a href="{{route('users.index')}}"><i class="icon-user"></i><span>User Management</span></a>
+                    <ul>
+                    <li class="{{ Request::segment(2) === 'index' ? 'active' : null }}"><a href="{{route('users.index')}}">Users list</a></li>
+                    </ul>
+                </li>
+                <li class="{{ Request::segment(1) === 'category' ? 'active open' : null }}"><a href="{{route('category.index')}}"><i class="icon-basket-loaded"></i><span>Category Management</span></a>
+                    <ul>
+                    <li class="{{ Request::segment(1) === 'category' ? 'active' : null }}"><a href="{{route('category.index')}}">Category list</a></li>
+                    </ul>
+                </li>
+                <li class="{{ Request::segment(1) === 'plan' ? 'active open' : null }}"><a href="{{route('plan.index')}}"><i class="icon-cursor"></i><span>Plan Management</span></a></li>
+
+                <li class="{{ Request::segment(1) === 'news' ? 'active open' : null }}"><a href="{{route('news.index')}}"><i class="icon-globe"></i><span>News Feed</span></a></li>
+
+                <li class="{{ Request::segment(2) === 'index3' ? 'active open' : null }}"><a href="{{route('dashboard.index3')}}"><i class="icon-map"></i><span>Business Management</span></a>
+                    <ul>
+                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('business.add')}}">Add Business</a></li>
+                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('business.upcoming')}}">Upcoming Business list</a></li>
+                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('business.active')}}">Active Business list</a></li>
+                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('business.reject')}}">Reject Business list</a></li>
+                    </ul>
+                </li>
+
+                <li class="{{ Request::segment(2) === 'index3' ? 'active open' : null }}"><a href="{{route('dashboard.index3')}}"><i class="icon-bubbles"></i><span>Contact Management</span></a>
+                    <ul>
+                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('tables.normal')}}">Business Contact History</a></li>
+                    </ul>
+                </li>
+
+                <li class="{{ Request::segment(1) === 'feedback' ? 'active open' : null }}"><a href="{{route('admin.feedback')}}"><i class="icon-list"></i><span>Feedback</span></a>
+                    <ul>
+                    <li class="{{ Request::segment(2) === 'all' ? 'active' : null }}"><a href="{{route('admin.feedback')}}">User Feedback History</a></li>
+                    </ul>
+                </li>
+
+                <li class="{{ Request::segment(1) === 'transaction' ? 'active open' : null }}"><a href="{{route('transaction.index')}}"><i class="icon-list"></i><span>tansaction</span></a>
+                    <ul>
+                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('transaction.index')}}">Plan History</a></li>
+                    </ul>
+                </li>
+                <li class="{{ Request::segment(2) === 'index2' ? 'active open' : null }}"><a href="{{route('dashboard.index2')}}"><i class="icon-paper-clip"></i><span>Upload Pdf</span></a></li>
+
+                <!-- <li class="header">HR, Project & Job</li> -->
+                <!-- <li class="{{ Request::segment(1) === 'projects' ? 'active open' : null }}">
                     <a href="#Project" class="has-arrow"><i class="icon-flag"></i><span>Project</span></a>
                     <ul>
                         <li class="{{ Request::segment(2) === 'taskboard' ? 'active' : null }}"><a href="{{route('projects.taskboard')}}">Taskboard</a></li>
@@ -58,8 +98,8 @@
                         <li class="{{ Request::segment(2) === 'clients' ? 'active' : null }}"><a href="{{route('projects.clients')}}">Clients</a></li>
                         <li class="{{ Request::segment(2) === 'todo' ? 'active' : null }}"><a href="{{route('projects.todo')}}">Todo List</a></li>
                     </ul>
-                </li>
-                <li class="{{ Request::segment(1) === 'hr' ? 'active open' : null }}">
+                </li> -->
+                <!-- <li class="{{ Request::segment(1) === 'hr' ? 'active open' : null }}">
                     <a href="#Project" class="has-arrow"><i class="icon-umbrella"></i><span>HRMS System</span></a>
                     <ul>
                         <li class="{{ Request::segment(2) === 'hrdashboard' ? 'active' : null }}"><a href="{{route('hr.hrdashboard')}}">Hr Dashboard</a></li>
@@ -73,8 +113,8 @@
                         <li class="{{ Request::segment(2) === 'accounts' ? 'active' : null }}"><a href="{{route('hr.accounts')}}">Accounts</a></li>
                         <li class="{{ Request::segment(2) === 'report' ? 'active' : null }}"><a href="{{route('hr.report')}}">Report</a></li>
                     </ul>
-                </li>
-                <li class="{{ Request::segment(1) === 'job' ? 'active open' : null }}">
+                </li> -->
+                <!-- <li class="{{ Request::segment(1) === 'job' ? 'active open' : null }}">
                     <a href="#JobPortal" class="has-arrow"><i class="icon-screen-tablet"></i><span>Job Portal</span></a>
                     <ul>
                         <li class="{{ Request::segment(2) === 'jobdashboard' ? 'active' : null }}"><a href="{{route('job.jobdashboard')}}">Dashboard</a></li>
@@ -83,36 +123,36 @@
                         <li class="{{ Request::segment(2) === 'resumes' ? 'active' : null }}"><a href="{{route('job.resumes')}}">Resumes</a></li>
                         <li class="{{ Request::segment(2) === 'jobsettings' ? 'active' : null }}"><a href="{{route('job.jobsettings')}}">Job Settings</a></li>
                     </ul>
-                </li>
-                <li class="header">App</li>
-                <li class="{{ Request::segment(1) === 'contact' ? 'active open' : null }}">
+                </li> -->
+                <!-- <li class="header">App</li> -->
+                <!-- <li class="{{ Request::segment(1) === 'contact' ? 'active open' : null }}">
                     <a href="#Contact" class="has-arrow"><i class="icon-book-open"></i><span>Contact</span></a>
                     <ul>
                         <li class="{{ Request::segment(2) === 'contact' ? 'active' : null }}"><a href="{{route('contact.contact')}}">List View</a></li>
                         <li class="{{ Request::segment(2) === 'contact2' ? 'active' : null }}"><a href="{{route('contact.contact2')}}">Grid View</a></li>
                     </ul>
-                </li>
-                <li class="{{ Request::segment(1) === 'email' ? 'active open' : null }}">
+                </li> -->
+                <!-- <li class="{{ Request::segment(1) === 'email' ? 'active open' : null }}">
                     <a href="#Contact" class="has-arrow"><i class="icon-drawer"></i><span>Email</span></a>
                     <ul>
                         <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('email.inbox')}}">Inbox</a></li>
                         <li class="{{ Request::segment(2) === 'compose' ? 'active' : null }}"><a href="{{route('email.compose')}}">Compose</a></li>
                         <li class="{{ Request::segment(2) === 'inboxdetail' ? 'active' : null }}"><a href="{{route('email.inboxdetail')}}">Inbox Detail</a></li>
                     </ul>
-                </li>
-                <li class="{{ Request::segment(2) === 'chat' ? 'active open' : null }}"><a href="{{route('messenger.chat')}}"><i class="icon-bubbles"></i><span>Messenger</span></a></li>
+                </li> -->
+                <!-- <li class="{{ Request::segment(2) === 'chat' ? 'active open' : null }}"><a href="{{route('messenger.chat')}}"><i class="icon-bubbles"></i><span>Messenger</span></a></li>
                 <li class="{{ Request::segment(2) === 'calendar' ? 'active open' : null }}"><a href="{{route('app.calendar')}}"><i class="icon-calendar"></i><span>Calendar</span></a></li>
                 <li class="header">UI Elements</li>
-                <li class="{{ Request::segment(2) === 'cards' ? 'active open' : null }}"><a href="{{route('cardlayout.cards')}}"><i class="icon-folder"></i><span>Cards Layout</span></a></li>
-                <li class="{{ Request::segment(1) === 'icon' ? 'active open' : null }}">
+                <li class="{{ Request::segment(2) === 'cards' ? 'active open' : null }}"><a href="{{route('cardlayout.cards')}}"><i class="icon-folder"></i><span>Cards Layout</span></a></li> -->
+                <!-- <li class="{{ Request::segment(1) === 'icon' ? 'active open' : null }}">
                     <a href="#uiIcons" class="has-arrow"><i class="icon-tag"></i><span>Icons</span></a>
                     <ul>
                         <li class="{{ Request::segment(2) === 'fontawesome' ? 'active' : null }}"><a href="{{route('icon.fontawesome')}}">FontAwesome</a></li>
                         <li class="{{ Request::segment(2) === 'iconsline' ? 'active' : null }}"><a href="{{route('icon.iconsline')}}">Simple Line</a></li>
                         <li class="{{ Request::segment(2) === 'themify' ? 'active' : null }}"><a href="{{route('icon.themify')}}">Themify Icon</a></li>
                     </ul>
-                </li>
-                <li class="{{ Request::segment(1) === 'components' ? 'active open' : null }}">
+                </li> -->
+                <!-- <li class="{{ Request::segment(1) === 'components' ? 'active open' : null }}">
                     <a href="#uiComponents" class="has-arrow"><i class="icon-diamond"></i><span>Components</span></a>
                     <ul>
                         <li class="{{ Request::segment(2) === 'bootstrap' ? 'active' : null }}"><a href="{{route('components.bootstrap')}}">Bootstrap UI</a></li>
@@ -130,8 +170,8 @@
                         <li class="{{ Request::segment(2) === 'rangesliders' ? 'active' : null }}"><a href="{{route('components.rangesliders')}}">Range Sliders</a></li>
                         <li class="{{ Request::segment(2) === 'helperclass' ? 'active' : null }}"><a href="{{route('components.helperclass')}}">Helper Classes</a></li>
                     </ul>
-                </li>
-                <li class="{{ Request::segment(1) === 'forms' ? 'active open' : null }}">
+                </li> -->
+                <!-- <li class="{{ Request::segment(1) === 'forms' ? 'active open' : null }}">
                     <a href="#forms" class="has-arrow"><i class="icon-pencil"></i><span>Forms</span></a>
                     <ul>
                         <li class="{{ Request::segment(2) === 'basic' ? 'active' : null }}"><a href="{{route('forms.basic')}}">Basic Elements</a></li>
@@ -144,8 +184,8 @@
                         <li class="{{ Request::segment(2) === 'markdown' ? 'active' : null }}"><a href="{{route('forms.markdown')}}">Markdown</a></li>
                         <li class="{{ Request::segment(2) === 'cropping' ? 'active' : null }}"><a href="{{route('forms.cropping')}}">Image Cropping</a></li>
                     </ul>
-                </li>
-                <li class="{{ Request::segment(1) === 'tables' ? 'active open' : null }}">
+                </li> -->
+                <!-- <li class="{{ Request::segment(1) === 'tables' ? 'active open' : null }}">
                     <a href="#Tables" class="has-arrow"><i class="icon-layers"></i><span>Tables</span></a>
                     <ul>
                         <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('tables.normal')}}">Normal Tables</a></li>
@@ -155,8 +195,8 @@
                         <li class="{{ Request::segment(2) === 'filter' ? 'active' : null }}"><a href="{{route('tables.filter')}}">Table Filter</a></li>
                         <li class="{{ Request::segment(2) === 'dragger' ? 'active' : null }}"><a href="{{route('tables.dragger')}}">Table dragger</a></li>
                     </ul>
-                </li>
-                <li class="{{ Request::segment(1) === 'charts' ? 'active open' : null }}">
+                </li> -->
+                <!-- <li class="{{ Request::segment(1) === 'charts' ? 'active open' : null }}">
                     <a href="#charts" class="has-arrow"><i class="icon-pie-chart"></i><span>Charts</span></a>
                     <ul>
                         <li class="{{ Request::segment(2) === 'c3' ? 'active' : null }}"><a href="{{route('charts.c3')}}">C3 Charts</a></li>
@@ -166,12 +206,12 @@
                         <li class="{{ Request::segment(2) === 'sparkline' ? 'active' : null }}"><a href="{{route('charts.sparkline')}}">Sparkline Chart</a></li>
                         <li class="{{ Request::segment(2) === 'knob' ? 'active' : null }}"><a href="{{route('charts.knob')}}">Jquery Knob</a></li>
                     </ul>
-                </li>
-                <li class="{{ Request::segment(2) === 'jvectormap' ? 'active open' : null }}"><a href="{{route('maps.jvectormap')}}"><i class="icon-map"></i><span>jVector Map</span></a></li>
+                </li> -->
+                <!-- <li class="{{ Request::segment(2) === 'jvectormap' ? 'active open' : null }}"><a href="{{route('maps.jvectormap')}}"><i class="icon-map"></i><span>jVector Map</span></a></li>
                 <li class="header">Extra</li>
                 <li class="{{ Request::segment(2) === 'settings' ? 'active open' : null }}"><a href="{{route('extra.settings')}}"><i class="icon-settings"></i><span>Settings</span></a></li>
-                <li class="{{ Request::segment(2) === 'widgets' ? 'active open' : null }}"><a href="{{route('widget.widgets')}}"><i class="icon-puzzle"></i><span>Widgets</span></a></li>
-                <li class="{{ Request::segment(1) === 'authentication' ? 'active open' : null }}">
+                <li class="{{ Request::segment(2) === 'widgets' ? 'active open' : null }}"><a href="{{route('widget.widgets')}}"><i class="icon-puzzle"></i><span>Widgets</span></a></li> -->
+                <!-- <li class="{{ Request::segment(1) === 'authentication' ? 'active open' : null }}">
                     <a href="#Authentication" class="has-arrow"><i class="icon-lock"></i><span>Authentication</span></a>
                     <ul>
                         <li class="{{ Request::segment(2) === 'login' ? 'active' : null }}"><a href="{{route('authentication.login')}}">Login</a></li>
@@ -182,8 +222,8 @@
                         <li class="{{ Request::segment(2) === 'maintenance' ? 'active' : null }}"><a href="{{route('authentication.maintenance')}}">Maintenance</a></li>
                         <li class="{{ Request::segment(2) === 'comingsoon' ? 'active' : null }}"><a href="{{route('authentication.comingsoon')}}">Coming Soon</a></li>
                     </ul>
-                </li>
-                <li class="{{ Request::segment(1) === 'pages' ? 'active open' : null }}">
+                </li> -->
+                <!-- <li class="{{ Request::segment(1) === 'pages' ? 'active open' : null }}">
                     <a href="#Pages" class="has-arrow"><i class="icon-docs"></i><span>Pages</span></a>
                     <ul>
                         <li class="{{ Request::segment(2) === 'blank' ? 'active' : null }}"><a href="{{route('pages.blank')}}">Blank Page</a></li>
@@ -196,7 +236,7 @@
                         <li class="{{ Request::segment(2) === 'gallery' ? 'active' : null }}"><a href="{{route('pages.gallery')}}">Image Gallery</a></li>
                         <li class="{{ Request::segment(2) === 'pricing' ? 'active' : null }}"><a href="{{route('pages.pricing')}}">Pricing</a></li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
         </nav>
     </div>

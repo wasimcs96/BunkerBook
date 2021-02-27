@@ -41,7 +41,47 @@ Route::group([
 
 Route::get('home', 'UserController@index')->name('home');
 
+// users.....
+Route::get('/user/index', 'admin\adminusercontroller@index')->name('users.index');
+Route::get('/user/create', 'admin\adminusercontroller@create')->name('users.create');
+Route::post('/user/store', 'admin\adminusercontroller@store')->name('users.store');
+Route::get('/user/show/{id}', 'admin\adminusercontroller@show')->name('users.show');
+Route::post('/user/update/{id}', 'admin\adminusercontroller@update')->name('users.update');
+Route::get('/user/edit/{id}', 'admin\adminusercontroller@edit')->name('users.edit');
+Route::get('/user/destroy/{id}', 'admin\adminusercontroller@destroy')->name('users.destroy');
+Route::get('/user/tansaction/{id}', 'Admin\AdminUserController@tansaction')->name('users.tansaction');
 
+// category.......
+Route::get('/category', 'admin\admincategorycontroller@index')->name('category.index');
+Route::post('/category/create', 'admin\admincategorycontroller@create')->name('category.create');
+Route::post('/category', 'admin\admincategorycontroller@store')->name('category.store');
+Route::get('/category/show/{id}', 'admin\admincategorycontroller@show')->name('category.show');
+Route::post('/category/update/{id}', 'admin\admincategorycontroller@update')->name('category.update');
+Route::get('/category/edit/{id}', 'admin\admincategorycontroller@edit')->name('category.edit');
+Route::get('/category/destroy/{id}', 'admin\admincategorycontroller@destroy')->name('category.delete');
+
+// plan.......
+Route::get('/plan', 'admin\adminplancontroller@index')->name('plan.index');
+// Route::get('/plan/create', 'admin\adminplancontroller@create')->name('plan.create');
+// Route::post('/plan', 'admin\adminplancontroller@store')->name('plan.store');
+Route::get('/plan/show/{id}', 'admin\adminplancontroller@show')->name('plan.show');
+Route::post('/plan/{id}', 'admin\adminplancontroller@update')->name('plan.update');
+Route::get('/plan/edit/{id}', 'admin\adminplancontroller@edit')->name('plan.edit');
+// Route::get('/plan/destroy/{id}', 'admin\adminplancontroller@destroy')->name('plan.destroy');
+
+// news.......
+Route::get('/news', 'admin\adminnewsfeedcontroller@index')->name('news.index');
+Route::post('/news/create', 'admin\adminnewsfeedcontroller@create')->name('news.create');
+Route::post('/news', 'admin\adminnewsfeedcontroller@store')->name('news.store');
+Route::get('/news/show/{id}', 'admin\adminnewsfeedcontroller@show')->name('news.show');
+Route::post('/news/{id}', 'admin\adminnewsfeedcontroller@update')->name('news.update');
+Route::get('/news/edit/{id}', 'admin\adminnewsfeedcontroller@edit')->name('news.edit');
+Route::get('/news/destroy/{id}', 'admin\adminnewsfeedcontroller@destroy')->name('news.destroy');
+
+// Transaction....
+Route::get('/transaction', 'Admin\AdminTransactioncontroller@index')->name('transaction.index');
+//feedback
+route::get('feedback/all','admin\adminfeedbackcontroller@index')->name('admin.feedback');
 
 Route::get('index', function(){
     return view('frontEnd.index');
@@ -238,7 +278,17 @@ Route::get('/blog/all', function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-/*Consultant*/
-Route::get('/contact', function(){
-    return view('frontEnd.contact.contact');
-});
+/*Business Management*/
+Route::get('business/add', 'Admin\BusinessController@addBusiness')->name('business.add');
+Route::post('business/store', 'Admin\BusinessController@store')->name('business.store');
+
+Route::get('business/upcoming', 'Admin\BusinessController@upcomingBusiness')->name('business.upcoming');
+Route::get('business/active', 'Admin\BusinessController@activeBusiness')->name('business.active');
+Route::get('business/reject', 'Admin\BusinessController@rejectBusiness')->name('business.reject');
+
+Route::get('business/edit/{id}', 'Admin\BusinessController@editBusiness')->name('business.edit');
+Route::post('business/update', 'Admin\BusinessController@updateBusiness')->name('business.update');
+Route::post('business/reject/model/{id}', 'Admin\BusinessController@rejectBusinessModel')->name('business.reject.model');
+
+Route::get('business/view/{id}', 'Admin\BusinessController@viewBusiness')->name('business.view');
+Route::get('business/delete/{id}', 'Admin\BusinessController@destroyBusiness')->name('business.delete');
