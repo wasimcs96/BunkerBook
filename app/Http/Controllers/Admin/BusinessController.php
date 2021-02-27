@@ -107,7 +107,7 @@ foreach($request->staff as $key =>$value )
 
         // $staff_profile = $request->profile
         $staff_profile_new_name = time() . $staff_profile->getclientOriginalName();
-        $staff_profile->move('uploads/business_staffProfile',$staff_profile_new_name);
+        $staff_pro->move('uploads/business_staffProfile',$staff_profile_new_name);
         $staff_profilestore = 'uploads/business_staffProfile/' . $staff_profile_new_name;
     }
         BusinessStaff::create([
