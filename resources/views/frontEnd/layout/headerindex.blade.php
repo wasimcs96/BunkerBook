@@ -33,7 +33,7 @@
 					</div>
 				</div>
 			</div>
-<div class="navbar navbar-expand-lg bsnav bsnav-sticky bsnav-sticky-slide bsnav-transparent bsnav-scrollspy sticked in">
+<div class="navbar navbar-expand-lg bsnav bsnav-sticky bsnav-sticky-slide bsnav-transparent bsnav-scrollspy sticked in" style="position: relative;">
                 <div class="container">
                     <a class="navbar-brand" href="index.html">
                     <img src="{{asset('frontEnd\assets\img\header\processed.png')}}" alt="logo" style="width: 120px;">    
@@ -42,14 +42,14 @@
                     <button class="navbar-toggler toggler-spring"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse justify-content-sm-end">
                         <ul class="navbar-nav navbar-mobile ml-auto">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="index.html">Home </a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Home </a>
                                 <!-- <i class="caret ti-plus"></i> -->
-                                <ul class="navbar-nav">
+                                <!-- <ul class="navbar-nav">
                                     <li class="nav-item"><a class="nav-link" href="index.html">Home varsion 1</a></li>
                                     <li class="nav-item"><a class="nav-link" href="index-2.html">Home varsion 2</a></li>
                                     <li class="nav-item"><a class="nav-link" href="index-3.html">Home varsion 3</a></li>
-                                </ul>
+                                </ul> -->
                             </li>
                             <!-- <li class="nav-item dropdown">
                                 <a class="nav-link" href="#">Pages <i class="caret ti-plus"></i></a>
@@ -91,6 +91,14 @@
                                 </ul>
                             </li> -->
                             <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link" href="#">Profile</a>
+                            <ul class="navbar-nav">
+                                    <li class="nav-item"><a class="nav-link" href="/frontend/account_info">Account info</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/frontend/membership">Membership</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/frontend/bookmark">Bookmark</a></li>
+                                </ul>
+                            </li>
                         </ul>
                         <div class="header-serarch-btn ab un-srs">
                             <input type="checkbox" class="frm" id="frm">
