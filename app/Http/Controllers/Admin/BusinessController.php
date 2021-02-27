@@ -7,6 +7,9 @@ use App\Models\BusinessStaff;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
+use App\Models\BusinessImage;
+use App\Models\BusinessVideo;
+
 
 class BusinessController extends Controller
 {
@@ -29,8 +32,9 @@ class BusinessController extends Controller
         {
          $businessprofile=$request->business_profile;
          $businessprofile_name= time().$businessprofile->getClientOriginalName();
-          $businessprofile->move('uploads/businessbannerimage',$businessprofile_name);
-         $business_profile_image= 'uploads/businessbannerimage/'.$businessprofile_name;
+          $businessprofile->move('uploads/businessprofileimage',$businessprofile_name);
+         $business_profile_image= 'uploads/businessprofileimage/'.$businessprofile_name;
+       
         }
 
         $featured_banner_image = '';
@@ -101,9 +105,9 @@ foreach($request->staff as $key =>$value )
 
 {
 
-    if($request->hasFile($value['profile']))
+    if($request->hasFile($value['staff_profile']))
     {
-        $staff_profile=$value['profile'];
+        $staff_profile=$value['staff_profile'];
 
         // $staff_profile = $request->profile
         $staff_profile_new_name = time() . $staff_profile->getclientOriginalName();
@@ -120,6 +124,42 @@ foreach($request->staff as $key =>$value )
             'profile' => $staff_profilestore
         ]);
         }
+
+     
+
+
+        if($request->hasFile('business_photos'))
+         {
+          $businessprofile=$request->business_photos;
+       
+          $businessimage_name= time().$businessprofile->getClientOriginalName();
+           $businessprofile->move('uploads/businessimage',$businessimage_name);
+          $business_image= 'uploads/businessimage/'.$businessimage_name;
+            BusinessImage::create([
+                'image' => $business_image,
+                'business_id' => $business->id
+            ]);
+          
+        
+         }
+ 
+        
+
+
+         if($request->hasFile('business_videos'))
+          {
+           $businessvideo=$request->business_videos;
+       
+           $businessvideo_name= time().$businessvideo->getClientOriginalName();
+            $businessvideo->move('uploads/businessvideo',$businessvideo_name);
+           $business_videos= 'uploads/businessvideo/'.$businessvideo_name;
+ 
+             BusinessVideo::create([
+                'video' => $business_videos,
+                'business_id' => $business->id
+            ]);
+             
+          }
   return redirect()->route('business.upcoming')->with('success','Business details added successfully');
     }
 
