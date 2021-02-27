@@ -73,7 +73,7 @@
                                 </ul>
                             </li> -->
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="#">Blog </a>
+                                <a class="nav-link" href="{{route('newsfeed.view')}}">Blog </a>
                                 <!-- <i class="caret ti-plus"></i> -->
                                 <!-- <ul class="navbar-nav">
                                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>

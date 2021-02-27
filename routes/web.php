@@ -272,9 +272,9 @@ Route::get('/frontend', function(){
 
 Auth::routes();
 
-Route::get('/blog/all', function(){
-    return view('frontEnd.blog.blog_all');
-});
+// Route::get('/blog/all', function(){
+//     return view('frontEnd.blog.blog_all');
+// });
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -322,3 +322,6 @@ Route::get('/frontend/add_business', function(){
 
 Route::get('business/category', 'FrontEndController\CategoryFrontController@index')->name('category.view');
 Route::get('category/wise/business', 'FrontEndController\CategoryFrontController@businesslist')->name('category.business');
+
+Route::get('newsfeed', 'FrontEndController\NewsfeedFrontController@index')->name('newsfeed.view');
+Route::get('newsfeed/detail/{id}', 'FrontEndController\NewsfeedFrontController@businesslist')->name('newsfeed.detail');

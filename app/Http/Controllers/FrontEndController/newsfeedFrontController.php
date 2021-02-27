@@ -4,8 +4,8 @@ namespace App\Http\Controllers\FrontEndController;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-class newsfeedFrontController extends Controller
+use App\Models\NewsFeed;
+class NewsfeedFrontController extends Controller
 {
    public function index()
    {
