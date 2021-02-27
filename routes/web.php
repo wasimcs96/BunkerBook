@@ -304,12 +304,17 @@ Route::get('/frontend/business', function(){
 Route::get('/contact', function(){
     return view('frontEnd.contact.contact');
 });
-
-Route::get('business/category', 'FrontEndController\CategoryFrontController@index')->name('category.view');
-Route::get('category/wise/business', 'FrontEndController\CategoryFrontController@businesslist')->name('category.business');
-
-// Route::get('/blog/all', function(){
-//     return view('frontEnd.blog.blog_all');
-// });
-Route::get('newsfeed', 'FrontEndController\newsfeedController@index')->name('newsfeed.view');
-Route::get('newsfeed/detail/{id}', 'FrontEndController\newsfeedController@detail')->name('newsfeed.detail');
+//category
+Route::get('/frontend/membership', function(){
+    return view('frontEnd.profile.membership.membership');
+});
+//category
+Route::get('/frontend/account_info', function(){
+    return view('frontEnd.profile.account_info.account');
+});
+Route::get('/frontend/bookmark', function(){
+    return view('frontEnd.profile.bookmark.bookmark');
+});
+Route::get('/frontend/add_business', function(){
+    return view('frontEnd.profile.business.add_business');
+});

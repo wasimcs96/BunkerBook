@@ -51,7 +51,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="text" name="name" placeholder="Name *" class="form-control" required>
+                                    <input type="text" name="email[]" placeholder="Email *" class="form-control" required>
                                 </div>
                             </div>
                             </div>
@@ -69,13 +69,11 @@
                             <div class="col-md-12">
                                 <label>Select Category</label>
                                 <div class="multiselect_div">
-                                    <select id="multiselect1" name="multiselect1[]"  class="selectpicker" multiple data-live-search="true">
-                                        <option value="cheese">Cheese</option>
-                                        <option value="tomatoes">Tomatoes</option>
-                                        <option value="mozarella">Mozzarella</option>
-                                        <option value="mushrooms">Mushrooms</option>
-                                        <option value="pepperoni">Pepperoni</option>
-                                        <option value="onions">Onions</option>
+                                <?php $category= App\Models\Category::all(); ?>
+                                    <select id="multiselect1" name="category[]"  class="selectpicker" multiple data-live-search="true">
+                                        @foreach($category as $cat)
+                                        <option value="{{ $cat->name }}">{{ $cat->name }}</option>
+                                       @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -86,7 +84,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                     <label class="control-label">Website</label>
-                                    <input type="text" name="website" value="" class="form-control">
+                                    <input type="text" name="website[]" value="" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -467,7 +465,7 @@
 
                                 <button type="button" class="btn_upload" id="upBtn">Upload a file</button>
 
-                                <input type="file" name="photos" id="photos" accept="image/*" class="form-control imageUpload">
+                                <input type="file" name="business_photos" id="photos" accept="image/*" class="form-control imageUpload">
 
                             </div>
 
@@ -490,7 +488,7 @@
 
                                 <button type="button" class="btn_upload" id="upvideoBtn">Upload a file</button>
 
-                                <input type="file" name="videos" id="videos" accept="video/*" class="form-control imageUpload">
+                                <input type="file" name="business_videos" id="videos" accept="video/*" class="form-control imageUpload">
 
                             </div>
 
