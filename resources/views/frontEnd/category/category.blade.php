@@ -16,102 +16,20 @@
 					</div>
 				</div>
 				<div class="cat-wrapper grid-4">
+				@foreach($category as $cat)
 					<div class="cat-box">
 						<div class="cat-pic">
-							<img src="assets/img/categories/1.jpg" alt="thumb">
+							<img src="{{asset($cat->icon)}}" alt="thumb">
 							<div class="cat-badge">
-								<span>28</span>
+								<span>{{$cat->business->count()}}</span>
 							</div>
 						</div>
 						<div class="cat-title">
-							<h5>Computer Science</h5>
-							<span><i class="ti ti-arrow-right"></i></span>
+							<a href="{{route('category.business')}}"><h5>{{$cat->name ?? ''}}</h5>
+							<span><i class="ti ti-arrow-right"></i></span></a>
 						</div>
 					</div>
-					<div class="cat-box">
-						<div class="cat-pic">
-							<img src="assets/img/categories/2.jpg" alt="thumb">
-							<div class="cat-badge">
-								<span>30</span>
-							</div>
-						</div>
-						<div class="cat-title">
-							<h5>See all Courses</h5>
-							<span><i class="ti ti-arrow-right"></i></span>
-						</div>
-					</div>
-					<div class="cat-box">
-						<div class="cat-pic">
-							<img src="assets/img/categories/3.jpg" alt="thumb">
-							<div class="cat-badge">
-								<span>50</span>
-							</div>
-						</div>
-						<div class="cat-title">
-							<h5>Programming</h5>
-							<span><i class="ti ti-arrow-right"></i></span>
-						</div>
-					</div>
-					<div class="cat-box">
-						<div class="cat-pic">
-							<img src="assets/img/categories/4.jpg" alt="thumb">
-							<div class="cat-badge">
-								<span>23</span>
-							</div>
-						</div>
-						<div class="cat-title">
-							<h5>Analysis of Algorithms</h5>
-							<span><i class="ti ti-arrow-right"></i></span>
-						</div>
-					</div>
-					<div class="cat-box">
-						<div class="cat-pic">
-							<img src="assets/img/categories/5.jpg" alt="thumb">
-							<div class="cat-badge">
-								<span>60</span>
-							</div>
-						</div>
-						<div class="cat-title">
-							<h5>Engineering</h5>
-							<span><i class="ti ti-arrow-right"></i></span>
-						</div>
-					</div>
-					<div class="cat-box">
-						<div class="cat-pic">
-							<img src="assets/img/categories/6.jpg" alt="thumb">
-							<div class="cat-badge">
-								<span>56</span>
-							</div>
-						</div>
-						<div class="cat-title">
-							<h5>Art & Designing</h5>
-							<span><i class="ti ti-arrow-right"></i></span>
-						</div>
-					</div>
-					<div class="cat-box">
-						<div class="cat-pic">
-							<img src="assets/img/categories/7.jpg" alt="thumb">
-							<div class="cat-badge">
-								<span>67</span>
-							</div>
-						</div>
-						<div class="cat-title">
-							<h5>Artificial Intelligence</h5>
-							<span><i class="ti ti-arrow-right"></i></span>
-						</div>
-					</div>
-					<div class="cat-box">
-						<div class="cat-pic">
-							<img src="assets/img/categories/8.jpg" alt="thumb">
-							<div class="cat-badge">
-								<span>63</span>
-							</div>
-						</div>
-						<div class="cat-title">
-							<h5>Medical Doctor</h5>
-							<span><i class="ti ti-arrow-right"></i></span>
-						</div>
-					</div>
+				@endforeach	
 				</div>
 			</div>
 			<div class="more-btn">

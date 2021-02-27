@@ -297,9 +297,13 @@ Route::get('/frontend/business', function(){
     return view('frontEnd.country_business.business');
 });
 //category
-Route::get('/frontend/category', function(){
-    return view('frontEnd.category.category');
-});
+// Route::get('/frontend/category', function(){
+//     return view('frontEnd.category.category');
+// });
+
 Route::get('/contact', function(){
     return view('frontEnd.contact.contact');
 });
+
+Route::get('business/category', 'FrontEndController\CategoryFrontController@index')->name('category.view');
+Route::get('category/wise/business', 'FrontEndController\CategoryFrontController@businesslist')->name('category.business');
