@@ -307,3 +307,9 @@ Route::get('/contact', function(){
 
 Route::get('business/category', 'FrontEndController\CategoryFrontController@index')->name('category.view');
 Route::get('category/wise/business', 'FrontEndController\CategoryFrontController@businesslist')->name('category.business');
+
+// Route::get('/blog/all', function(){
+//     return view('frontEnd.blog.blog_all');
+// });
+Route::get('newsfeed', 'FrontEndController\newsfeedController@index')->name('newsfeed.view');
+Route::get('newsfeed/detail/{id}', 'FrontEndController\newsfeedController@detail')->name('newsfeed.detail');
