@@ -21,7 +21,7 @@
 
 		<!-- Start Search
 		============================================= -->
-		<div class="t-area header-1-1 de-padding">
+		<!-- <div class="t-area header-1-1 de-padding">
 			<div class="container">
 				<div class="feature-wrapper un-form">
 					<form>
@@ -30,7 +30,7 @@
 					</form>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!-- End  Search-->
 
 		<!-- Start Booking Step
@@ -57,7 +57,7 @@
 						<div data-text="Choose us" class="site-title text-center">
 							<img src="{{ asset('frontEnd/assets/img/heading/choose.png') }}" alt="thumb">
 							<span class="sub-head">Reasons to choose</span>
-							<h2>Why choose our courses? Best way to shine <span>yourself</span></h2>
+							<h2>Why choose our Services? Best way to shine <span>Business</span></h2>
 						</div>
 					</div>
 				</div>
@@ -68,9 +68,9 @@
 						</div>
 						<div class="wh-content">
 							<div class="wh-cate">
-								<span>Categories:Education,Certificate</span>
+								<span>Categories:Oil,Bunker</span>
 							</div>
-							<h6>Admit us here. You know the world, you know the society</h6>
+							<h6>Lorem ipsum dolor sit amet consectetur adipisicing elit</h6>
 						</div>
 						<img src="{{ asset('frontEnd/assets/img/choose/choose-icon.png') }}" class="wh-icon-float" alt="thumb">
 					</div>
@@ -80,9 +80,9 @@
 						</div>
 						<div class="wh-content">
 							<div class="wh-cate">
-								<span>Categories:Education,Certificate</span>
+								<span>Categories:Oil,Bunker</span>
 							</div>
-							<h6>Admit us here. You know the world, you know the society</h6>
+							<h6>Lorem ipsum dolor sit amet consectetur adipisicing elit</h6>
 						</div>
 						<img src="{{ asset('frontEnd/assets/img/choose/choose-icon.png') }}" class="wh-icon-float" alt="thumb">
 					</div>
@@ -92,9 +92,9 @@
 						</div>
 						<div class="wh-content">
 							<div class="wh-cate">
-								<span>Categories:Education,Certificate</span>
+								<span>Categories:Oil,Bunker</span>
 							</div>
-							<h6>Admit us here. You know the world, you know the society</h6>
+							<h6>Lorem ipsum dolor sit amet consectetur adipisicing elit</h6>
 						</div>
 						<img src="{{ asset('frontEnd/assets/img/choose/choose-icon.png') }}" class="wh-icon-float" alt="thumb">
 					</div>
@@ -104,9 +104,9 @@
 						</div>
 						<div class="wh-content">
 							<div class="wh-cate">
-								<span>Categories:Education,Certificate</span>
+								<span>Categories:Oil,Bunker</span>
 							</div>
-							<h6>Admit us here. You know the world, you know the society</h6>
+							<h6>Lorem ipsum dolor sit amet consectetur adipisicing elit</h6>
 						</div>
 						<img src="{{ asset('frontEnd/assets/img/choose/choose-icon.png') }}" class="wh-icon-float" alt="thumb">
 					</div>
@@ -117,7 +117,7 @@
 
 		<!-- Start Course
 		============================================= style="background: url(frontEnd/assets/img/course/course-bg.jpg)" -->
-      @include('frontEnd.layout.course')
+      <!-- @include('frontEnd.layout.course') -->
 		<!-- End Course-->
 
 <!-- Start Event
@@ -132,7 +132,7 @@
 
 		<!-- Start Team
 		============================================= -->
-	@include('frontEnd.layout.consultant')
+	<!-- @include('frontEnd.layout.consultant') -->
 		<!-- End Team -->
 
 		<!-- Start Review of clients

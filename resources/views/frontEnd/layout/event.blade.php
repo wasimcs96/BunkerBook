@@ -1,4 +1,4 @@
-<div class="event-area de-pb">
+<div class="event-area de-padding">
     <div class="container">
         <div class="row">
             <div class="col-xl-8 offset-xl-2">

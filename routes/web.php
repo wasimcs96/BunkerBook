@@ -272,6 +272,10 @@ Route::get('/frontend', function(){
 
 Auth::routes();
 
+Route::get('/blog/all', function(){
+    return view('frontEnd.blog.blog_all');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 /*Business Management*/

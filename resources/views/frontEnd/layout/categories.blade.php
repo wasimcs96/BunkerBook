@@ -5,7 +5,7 @@
                 <div data-text="categories" class="site-title text-center">
                     <img src="{{ asset('frontEnd/assets/img/heading/site-top.png') }}" alt="thumb">
                     <span class="sub-head">Find Perfect one</span>
-                    <h2>Check all categories and enroll </h2>
+                    <h2>Check all categories </h2>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="cat-title">
-                    <h5>Computer Science</h5>
+                    <h5>Bunker Broker</h5>
                     <span><i class="ti ti-arrow-right"></i></span>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="cat-title">
-                    <h5>Management</h5>
+                    <h5>Bunker Supplier </h5>
                     <span><i class="ti ti-arrow-right"></i></span>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="cat-title">
-                    <h5>Analysis of Algorithms</h5>
+                    <h5>Bunker Trader </h5>
                     <span><i class="ti ti-arrow-right"></i></span>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <div class="cat-title">
-                    <h5>Engineering</h5>
+                    <h5>Bunker Surveyor & Testing </h5>
                     <span><i class="ti ti-arrow-right"></i></span>
                 </div>
             </div>
@@ -78,37 +78,14 @@
                     </div>
                 </div>
                 <div class="cat-title">
-                    <h5>Art & Designing</h5>
+                    <h5>Marine Oil and Lubricants </h5>
                     <span><i class="ti ti-arrow-right"></i></span>
                 </div>
             </div>
-            <div class="cat-box">
-                <div class="cat-pic">
-                    <img src="{{ asset('frontEnd/assets/img/categories/7.jpg') }}" alt="thumb">
-                    <div class="cat-badge">
-                        <span>67</span>
-                    </div>
-                </div>
-                <div class="cat-title">
-                    <h5>Artificial Intelligence</h5>
-                    <span><i class="ti ti-arrow-right"></i></span>
-                </div>
-            </div>
-            <div class="cat-box">
-                <div class="cat-pic">
-                    <img src="{{ asset('frontEnd/assets/img/categories/1.jpg') }}" alt="thumb">
-                    <div class="cat-badge">
-                        <span>63</span>
-                    </div>
-                </div>
-                <div class="cat-title">
-                    <h5>MBBS</h5>
-                    <span><i class="ti ti-arrow-right"></i></span>
-                </div>
             </div>
         </div>
     </div>
     <div class="more-btn">
-        <a href="course.html">View All Courses <i class="ti ti-arrow-right"></i></a>
+        <a href="course.html">View All Categories <i class="ti ti-arrow-right"></i></a>
     </div>
 </div>
