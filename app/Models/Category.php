@@ -13,5 +13,10 @@ class Category extends Model
         return $this->hasMany(SubCategory::class,'cat_id');
     }
 
+    public function business()
+    {
+        return $this->hasMany(Business::class,'category');
+    }
+
 
 }
