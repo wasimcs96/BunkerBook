@@ -46,6 +46,8 @@ return array(
     'App\\Http\\Controllers\\EmailController' => $baseDir . '/app/Http/Controllers/EmailController.php',
     'App\\Http\\Controllers\\ExtraController' => $baseDir . '/app/Http/Controllers/ExtraController.php',
     'App\\Http\\Controllers\\FormsController' => $baseDir . '/app/Http/Controllers/FormsController.php',
+    'App\\Http\\Controllers\\FrontEndController\\CategoryFrontController' => $baseDir . '/app/Http/Controllers/FrontEndController/CategoryFrontController.php',
+    'App\\Http\\Controllers\\FrontEndController\\newsfeedFrontController' => $baseDir . '/app/Http/Controllers/FrontEndController/newsfeedFrontController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\HrController' => $baseDir . '/app/Http/Controllers/HrController.php',
     'App\\Http\\Controllers\\IconController' => $baseDir . '/app/Http/Controllers/IconController.php',
