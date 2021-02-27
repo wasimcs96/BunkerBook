@@ -58,12 +58,12 @@
 
                 <li class="{{ Request::segment(1) === 'news' ? 'active open' : null }}"><a href="{{route('news.index')}}"><i class="icon-globe"></i><span>News Feed</span></a></li>
 
-                <li class="{{ Request::segment(2) === 'index3' ? 'active open' : null }}"><a href="{{route('dashboard.index3')}}"><i class="icon-map"></i><span>Business Management</span></a>
+                <li class="{{ Request::segment(1) === 'business' ? 'active open' : null }}"><a href="{{route('dashboard.index3')}}"><i class="icon-map"></i><span>Business Management</span></a>
                     <ul>
-                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('business.add')}}">Add Business</a></li>
-                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('business.upcoming')}}">Upcoming Business list</a></li>
-                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('business.active')}}">Active Business list</a></li>
-                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('business.reject')}}">Reject Business list</a></li>
+                    <li class="{{ Request::segment(2) === 'add' ? 'active' : null }}"><a href="{{route('business.add')}}">Add Business</a></li>
+                    <li class="{{ Request::segment(2) === 'upcoming' ? 'active' : null }}"><a href="{{route('business.upcoming')}}">Upcoming Business list</a></li>
+                    <li class="{{ Request::segment(2) === 'active' ? 'active' : null }}"><a href="{{route('business.active')}}">Active Business list</a></li>
+                    <li class="{{ Request::segment(2) === 'reject' ? 'active' : null }}"><a href="{{route('business.reject')}}">Reject Business list</a></li>
                     </ul>
                 </li>
 
@@ -79,9 +79,9 @@
                     </ul>
                 </li>
 
-                <li class="{{ Request::segment(1) === 'transaction' ? 'active open' : null }}"><a href="{{route('transaction.index')}}"><i class="icon-list"></i><span>tansaction</span></a>
+                <li class="{{ Request::segment(1) === 'transaction' ? 'active open' : null }}"><a href="{{route('transaction.index')}}"><i class="icon-list"></i><span>Tansaction</span></a>
                     <ul>
-                    <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('transaction.index')}}">Plan History</a></li>
+                    <li class="{{ Request::segment(1) === 'transaction' ? 'active' : null }}"><a href="{{route('transaction.index')}}">Plan History</a></li>
                     </ul>
                 </li>
                 <li class="{{ Request::segment(2) === 'index2' ? 'active open' : null }}"><a href="{{route('dashboard.index2')}}"><i class="icon-paper-clip"></i><span>Upload Pdf</span></a></li>
