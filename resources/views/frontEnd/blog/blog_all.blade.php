@@ -33,7 +33,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xl-8">
+
+		
 						<div class="single-blog">
+						@foreach($blogs as $blog)
 							<div class="single-content">
 								<div class="single-page-meta-content">
 									<ul>
@@ -66,16 +69,17 @@
 								<div class="single-page-img">
 									<img src="{{asset('frontEnd/assets/img/singlepost/single.jpg')}}" alt="thumb">
 								</div>
-								<a href="single.html"><h2 class="single-content-title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam, rem.</h2></a>
+								<a href="single.html"><h2 class="single-content-title">{{$blog->title ?? ''}}</h2></a>
 								<div class="single-content-text">
 									<p class="mb-0">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor magna ali Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodot consequa. Duis aute irures dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatuo Excepteur sint occcat cupidatat nonm proident, sunt in culpa qui officia deserunt 
+										{!! $blog->description !!}
 									</p>
 								</div>
 								<div class="blog-single-btn">
 									<a href="single.html" class="theme-btn">Read More</a>
 								</div>
 							</div>
+							@endforeach
 						
 						</div>
 						<div class="pagination-wrapper">
