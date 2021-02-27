@@ -63,7 +63,7 @@
                                 </ul>
                             </li> -->
                             <li class="nav-item"><a class="nav-link" href="/frontend/business">Country</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/frontend/category">Category</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('category.view')}}">Category</a></li>
                             <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                             <!-- <li class="nav-item dropdown">
                                 <a class="nav-link" href="#">Courses <i class="caret ti-plus"></i></a>
