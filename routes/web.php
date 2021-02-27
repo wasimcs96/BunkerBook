@@ -318,3 +318,7 @@ Route::get('/frontend/bookmark', function(){
 Route::get('/frontend/add_business', function(){
     return view('frontEnd.profile.business.add_business');
 });
+
+
+Route::get('business/category', 'FrontEndController\CategoryFrontController@index')->name('category.view');
+Route::get('category/wise/business', 'FrontEndController\CategoryFrontController@businesslist')->name('category.business');
