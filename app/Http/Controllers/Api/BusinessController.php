@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Business;
 use Validator;
-
+use DB;
 class BusinessController extends Controller
 {
     public function getBusiness()
@@ -72,4 +72,14 @@ class BusinessController extends Controller
         ]);
         return $this->sendResponse($business, 'Business Created successfully.');
     }
+    
+    public function getBusinessCategory(Request $request)
+    {
+        $categorycoming=$request->category_id;
+        // $total=[];
+        $business=DB::table("business")
+        ->whereRaw("find_in_set('$categorycoming',category)")->get();
+        return $this->sendResponse($business,'Business Find');
+    }
+
 }
