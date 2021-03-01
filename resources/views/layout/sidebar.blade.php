@@ -43,7 +43,7 @@
                         <li class="{{ Request::segment(2) === 'index10' ? 'active' : null }}"><a href="{{route('mypage.index10')}}">University Analytics</a></li>
                     </ul>
                 </li> --}}
-                <li class="{{ Request::segment(2) === 'index2' ? 'active open' : null }}"><a href="{{route('dashboard.index2')}}"><i class="icon-speedometer"></i><span>Dashboard</span></a></li>
+                <li class="{{ Request::segment(2) === 'panel' ? 'active open' : null }}"><a href="{{route('admin.panel')}}"><i class="icon-speedometer"></i><span>Dashboard</span></a></li>
                 <li class="{{ Request::segment(1) === 'user' ? 'active open' : null }}"><a href="{{route('users.index')}}"><i class="icon-user"></i><span>User Management</span></a>
                     <ul>
                     <li class="{{ Request::segment(2) === 'index' ? 'active' : null }}"><a href="{{route('users.index')}}">Users list</a></li>
@@ -58,7 +58,7 @@
 
                 <li class="{{ Request::segment(1) === 'news' ? 'active open' : null }}"><a href="{{route('news.index')}}"><i class="icon-globe"></i><span>News Feed</span></a></li>
 
-                <li class="{{ Request::segment(1) === 'business' ? 'active open' : null }}"><a href="{{route('dashboard.index3')}}"><i class="icon-map"></i><span>Business Management</span></a>
+                <li class="{{ Request::segment(1) === 'business' ? 'active open' : null }}"><a href="javascript:void(0)"><i class="icon-map"></i><span>Business Management</span></a>
                     <ul>
                     <li class="{{ Request::segment(2) === 'add' ? 'active' : null }}"><a href="{{route('business.add')}}">Add Business</a></li>
                     <li class="{{ Request::segment(2) === 'upcoming' ? 'active' : null }}"><a href="{{route('business.upcoming')}}">Upcoming Business list</a></li>
@@ -67,7 +67,7 @@
                     </ul>
                 </li>
 
-                <li class="{{ Request::segment(2) === 'index3' ? 'active open' : null }}"><a href="{{route('dashboard.index3')}}"><i class="icon-bubbles"></i><span>Contact Management</span></a>
+                <li class="{{ Request::segment(2) === 'contact' ? 'active open' : null }}"><a href="javascript:void(0)"><i class="icon-bubbles"></i><span>Contact Management</span></a>
                     <ul>
                     <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('tables.normal')}}">Business Contact History</a></li>
                     </ul>
@@ -84,7 +84,7 @@
                     <li class="{{ Request::segment(1) === 'transaction' ? 'active' : null }}"><a href="{{route('transaction.index')}}">Plan History</a></li>
                     </ul>
                 </li>
-                <li class="{{ Request::segment(2) === 'index2' ? 'active open' : null }}"><a href="{{route('dashboard.index2')}}"><i class="icon-paper-clip"></i><span>Upload Pdf</span></a></li>
+                <li class="{{ Request::segment(2) === 'panel' ? 'active open' : null }}"><a href="{{route('admin.panel')}}"><i class="icon-paper-clip"></i><span>Upload Pdf</span></a></li>
 
                 <!-- <li class="header">HR, Project & Job</li> -->
                 <!-- <li class="{{ Request::segment(1) === 'projects' ? 'active open' : null }}">

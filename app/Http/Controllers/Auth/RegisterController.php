@@ -12,7 +12,7 @@ class RegisterController extends Controller
 {
     use RegistersUsers;
 
-    protected $redirectTo = '/dashboard/index2';
+    protected $redirectTo = 'front';
 
     public function __construct()
     {
@@ -45,24 +45,24 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ])->assignRole('client');
        }
-       if($role==2){
-        return User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'mobile' => $data['mobile'],
-            'password' => Hash::make($data['password']),
-        ])->assignRole('university');
-       }
-       if($role==4){
-        return User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'mobile' => $data['mobile'],
-            'password' => Hash::make($data['password']),
-        ])->assignRole('consultant');
-       }
+    //    if($role==2){
+    //     return User::create([
+    //         'first_name' => $data['first_name'],
+    //         'last_name' => $data['last_name'],
+    //         'email' => $data['email'],
+    //         'mobile' => $data['mobile'],
+    //         'password' => Hash::make($data['password']),
+    //     ])->assignRole('university');
+    //    }
+    //    if($role==4){
+    //     return User::create([
+    //         'first_name' => $data['first_name'],
+    //         'last_name' => $data['last_name'],
+    //         'email' => $data['email'],
+    //         'mobile' => $data['mobile'],
+    //         'password' => Hash::make($data['password']),
+    //     ])->assignRole('consultant');
+    //    }
     }
 
     public function showRegistrationForm()

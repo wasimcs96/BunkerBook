@@ -40,28 +40,21 @@
 							<div class="single-content">
 								<div class="single-page-meta-content">
 									<ul>
-										<li>
-											<div class="single-meta-box single-admin-meta">
-												<img src="{{asset('frontEnd/assets/img/singlepost/40.png')}}" alt="thumb">
-												<div class="single-admin-bio">
-													<h5>By: John R Peter</h5>
-												</div>
-											</div>
-										</li>
+										
 										<li>
 											<div class="single-meta-box single-meta-date">
 												<i class="fas fa-calendar-alt"></i>
 												<div class="single-admin-bio">
-													<h5> Jan 20, 2019</h5>
+													<h5> @if(isset($blog->updated_at)&&$blog->updated_at != null){{$blog->updated_at->format('j-m-Y')}} @endif</h5>
 												</div>
 											</div>
 										</li>
 										<li>
 											<div class="single-meta-box single-meta-comments">
-												<i class="far fa-comment"></i>
-												<div class="single-admin-bio">
+												{{-- <i class="far fa-comment"></i> --}}
+												{{-- <div class="single-admin-bio">
 													<h5>Comments: 2</h5>
-												</div>
+												</div> --}}
 											</div>
 										</li>
 									</ul>
@@ -70,13 +63,13 @@
 									<img src="{{asset('frontEnd/assets/img/singlepost/single.jpg')}}" alt="thumb">
 								</div>
 								<a href="single.html"><h2 class="single-content-title">{{$blog->title ?? ''}}</h2></a>
-								<div class="single-content-text">
+								{{-- <div class="single-content-text">
 									<p class="mb-0">
 										{!! $blog->description !!}
 									</p>
-								</div>
+								</div> --}}
 								<div class="blog-single-btn">
-									<a href="single.html" class="theme-btn">Read More</a>
+									<a href="{{route('newsfeed.detail',$blog->id)}}" class="theme-btn">Read </a>
 								</div>
 							</div>
 							@endforeach

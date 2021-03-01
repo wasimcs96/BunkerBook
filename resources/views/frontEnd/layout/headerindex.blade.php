@@ -23,9 +23,13 @@
 									</ul>
 								</div>
 								<div class="header-loc">
-									<ul class="d-flex align-items-center">
-										<li><a href="#"><i class="fas fa-sign-in-alt"></i>Login</a></li>
-										<li><a href="#"><i class="fas fa-sign-in-alt"></i>Register</a></li>
+                                    <ul class="d-flex align-items-center">
+                                        @if(auth()->user())
+                                        <li><a href="{{route('logout')}}"><i class="fas fa-sign-in-alt"></i>Logout</a></li>
+                                        @else
+                                        <li><a href="{{route('login')}}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+										<li><a href="{{route('register')}}"><i class="fas fa-sign-in-alt"></i>Register</a></li>
+                                        @endif
 									</ul>
 								</div>
 							</div>
@@ -35,7 +39,7 @@
 			</div>
 <div class="navbar navbar-expand-lg bsnav bsnav-sticky bsnav-sticky-slide bsnav-transparent bsnav-scrollspy sticked in" style="position: relative;">
                 <div class="container">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{route('front')}}">
                     <img src="{{asset('frontEnd\assets\img\header\processed.png')}}" alt="logo" style="width: 120px;">    
                         <!-- <h1>Logo</h1> -->
                     </a>
@@ -43,7 +47,12 @@
                     <div class="collapse navbar-collapse justify-content-sm-end">
                         <ul class="navbar-nav navbar-mobile ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Home </a>
+                                @if(auth()->user() && auth()->user()->isAdmin())
+                                <a class="nav-link" href="{{route('admin.panel')}}">Dashboard </a>
+                            </li>
+                            @endif
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('front')}}">Home </a>
                                 <!-- <i class="caret ti-plus"></i> -->
                                 <!-- <ul class="navbar-nav">
                                     <li class="nav-item"><a class="nav-link" href="index.html">Home varsion 1</a></li>
@@ -91,14 +100,16 @@
                                 </ul>
                             </li> -->
                             <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                            @if(auth()->user())
                             <li class="nav-item dropdown">
                             <a class="nav-link" href="#">Profile</a>
                             <ul class="navbar-nav">
-                                    <li class="nav-item"><a class="nav-link" href="/frontend/account_info">Account info</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{route('user.detail')}}">Account info</a></li>
                                     <li class="nav-item"><a class="nav-link" href="/frontend/membership">Membership</a></li>
                                     <li class="nav-item"><a class="nav-link" href="/frontend/bookmark">Bookmark</a></li>
                                 </ul>
                             </li>
+                            @endif
                         </ul>
                         <div class="header-serarch-btn ab un-srs">
                             <input type="checkbox" class="frm" id="frm">

@@ -57,7 +57,7 @@
             {!!$aRoom !!}
             @endif</td>
                                 <td class="">{{$new->youtube_link ?? ''}}</td>
-                                <td class=""><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#editModal" class="btn btn-sm btn-warning" style="color: white;" ><span class="btn-label">
+                                <td class=""><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#editModal-{{$new->id ?? ''}}" class="btn btn-sm btn-warning" style="color: white;" ><span class="btn-label">
                                         <i class="fa fa-edit"></i>
                                         </span></a>
                                 <a href="{{route('news.destroy',$new->id)}}"class="btn btn-sm btn-danger"><span class="btn-label">
@@ -65,7 +65,7 @@
                                         </span></a></td>
                             </tr>
                        
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editModal-{{$new->id ?? ''}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
