@@ -58,6 +58,10 @@
 
                 <li class="{{ Request::segment(1) === 'news' ? 'active open' : null }}"><a href="{{route('news.index')}}"><i class="icon-globe"></i><span>News Feed</span></a></li>
 
+                <li class="{{ Request::segment(1) === 'news' ? 'active open' : null }}"><a href="{{route('event.index')}}"><i class="icon-globe"></i><span>Events</span></a></li>
+
+                <li class="{{ Request::segment(1) === 'news' ? 'active open' : null }}"><a href="{{route('banner.index')}}"><i class="icon-globe"></i><span>Banner</span></a></li>
+
                 <li class="{{ Request::segment(1) === 'business' ? 'active open' : null }}"><a href="javascript:void(0)"><i class="icon-map"></i><span>Business Management</span></a>
                     <ul>
                     <li class="{{ Request::segment(2) === 'add' ? 'active' : null }}"><a href="{{route('business.add')}}">Add Business</a></li>

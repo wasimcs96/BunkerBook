@@ -82,4 +82,17 @@ class BusinessController extends Controller
         return $this->sendResponse($business,'Business Find');
     }
 
+    public function getlimitbusiness(){
+
+        
+        $business = Business::select('name','id','business_profile')->get();
+        return $this->sendResponse($business,'Business limited data fetched');
+    }
+
+    public function findbusiness(Request $request){
+
+        $business=DB::table("business")
+        ->where('id',$request->id)->get();
+        return $this->sendResponse($business,'Business find');
+    }
 }

@@ -50,4 +50,6 @@ class PlanController extends Controller
        $success['transaction']=$transaction;
         return $this->sendResponse($success, 'Plan Created successfully.');
     }
+
+    
 }

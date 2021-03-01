@@ -33,5 +33,10 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/plan/create', 'Api\PlanController@postPlan')->name('plan.create.api');
 
     Route::post('/business/category', 'Api\BusinessController@getBusinessCategory')->name('business.category.api');
+    Route::get('/business/limit','Api\BusinessController@getlimitbusiness')->name('business.limit');
+
+    Route::post('/business/find','Api\BusinessController@findbusiness')->name('business.find');
+
+    Route::get('/banner/get','Api\BannerController@getbanner')->name('banner.get');
 
 });
