@@ -325,6 +325,13 @@ Route::get('newsfeed', 'FrontEndController\NewsfeedFrontController@index')->name
 Route::get('newsfeed/detail/{id}', 'FrontEndController\NewsfeedFrontController@detail')->name('newsfeed.detail');
 Route::get('business/detail/{id}','FrontEndController\BusinessFrontController@detail')->name('business.detail');
  //userrrr
- Route::get('User/Account/detail','FrontEndController\UserFrontController@index')->name('user.detail');
+Route::get('User/Account/detail','FrontEndController\UserFrontController@index')->name('user.detail');
 
 Route::post('User/Account/Update/{id}','FrontEndController\UserFrontController@update')->name('user.info');
+
+Route::get('banner/index','Admin\BannerController@index')->name('banner.index');
+
+Route::get('event/index','Admin\EventController@index')->name('event.index');
+
+Route::post('banner/create','Admin\BannerController@create')->name('banner.create');
+
