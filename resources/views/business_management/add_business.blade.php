@@ -72,7 +72,7 @@
                                 <?php $category= App\Models\Category::all(); ?>
                                     <select id="multiselect1" name="category[]"  class="selectpicker" multiple data-live-search="true">
                                         @foreach($category as $cat)
-                                        <option value="{{ $cat->name }}">{{ $cat->name }}</option>
+                                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                                        @endforeach
                                     </select>
                                 </div>

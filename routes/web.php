@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontEnd.index');
 })->name('front');
 
 
@@ -24,7 +24,7 @@ Route::group([
     // Authentication Routes...
     Route::get('login', 'LoginController@showLoginForm')->name('login_page');
     Route::post('login', 'LoginController@login')->name('login');
-    Route::post('logout', 'LoginController@logout')->name('logout');
+    Route::get('logout', 'LoginController@logout')->name('logout');
 
     // Registration Routes...
     Route::get('register', 'RegisterController@showRegistrationForm')->name('register_page');
@@ -111,9 +111,9 @@ Route::get('mypage/index9',                     'MypageController@index9')->name
 Route::get('mypage/index10',                    'MypageController@index10')->name('mypage.index10');
 
 /* My Page */
-Route::get('dashboard', function ()             { return redirect('dashboard/index2'); });
-Route::get('dashboard/index2',                  'DashboardController@index2')->name('dashboard.index2');
-Route::get('dashboard/index3',                  'DashboardController@index3')->name('dashboard.index3');
+// Route::get('dashboard', function ()             { return redirect('dashboard/index2'); });
+Route::get('admin/panel',                  'DashboardController@index2')->name('admin.panel');
+// Route::get('dashboard/index3',                  'DashboardController@index3')->name('dashboard.index3');
 
 
 /* App */
@@ -309,9 +309,7 @@ Route::get('/frontend/membership', function(){
     return view('frontEnd.profile.membership.membership');
 });
 //category
-Route::get('/frontend/account_info', function(){
-    return view('frontEnd.profile.account_info.account');
-});
+
 Route::get('/frontend/bookmark', function(){
     return view('frontEnd.profile.bookmark.bookmark');
 });
@@ -321,7 +319,12 @@ Route::get('/frontend/add_business', function(){
 
 
 Route::get('business/category', 'FrontEndController\CategoryFrontController@index')->name('category.view');
-Route::get('category/wise/business', 'FrontEndController\CategoryFrontController@businesslist')->name('category.business');
+Route::get('category/wise/business/{id}', 'FrontEndController\CategoryFrontController@businesslist')->name('category.business');
 
 Route::get('newsfeed', 'FrontEndController\NewsfeedFrontController@index')->name('newsfeed.view');
-Route::get('newsfeed/detail/{id}', 'FrontEndController\NewsfeedFrontController@businesslist')->name('newsfeed.detail');
+Route::get('newsfeed/detail/{id}', 'FrontEndController\NewsfeedFrontController@detail')->name('newsfeed.detail');
+Route::get('business/detail/{id}','FrontEndController\BusinessFrontController@detail')->name('business.detail');
+ //userrrr
+ Route::get('User/Account/detail','FrontEndController\UserFrontController@index')->name('user.detail');
+
+Route::post('User/Account/Update/{id}','FrontEndController\UserFrontController@update')->name('user.info');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\FrontEndController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use DB;
 class CategoryFrontController extends Controller
 {
     public function index()
@@ -13,9 +14,12 @@ class CategoryFrontController extends Controller
     return view('frontEnd.category.category',compact('category'));
 }
 
-public function businesslist()
+public function businesslist($id)
 {
-    // $business=Business::();
-    return view('frontEnd.category.category',compact('category'));
+    $business=DB::table("business")
+    ->whereRaw("find_in_set('$id',category)")->get();
+    
+
+    return view('frontEnd.category.business',compact('business'));
 }
 }

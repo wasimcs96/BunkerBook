@@ -17,7 +17,17 @@ class AdminCategoryController extends Controller
     public function update(Request $request, $id)
     {
         $category=Category::find($id);
+
+        if($request->has('image'))  {
+     
+            $featured = $request->image;
     
+            $featured_new_name = time() . $featured->getclientOriginalName();
+    
+            $featured->move('uploads/category',$featured_new_name);
+    
+            $category->icon = 'uploads/category/' . $featured_new_name;
+          }
         // dd($category);
         $category->name =$request->name;
         $category->description =$request->Description;
@@ -42,16 +52,16 @@ class AdminCategoryController extends Controller
 
         $featured_new_name = time() . $featured->getclientOriginalName();
 
-        $featured->move('uploads/posts',$featured_new_name);
+        $featured->move('uploads/category',$featured_new_name);
 
-        $storeimg = 'uploads/posts/' . $featured_new_name;
+        $storeimg = 'uploads/category/' . $featured_new_name;
       }
         Category::create([
             'name'=>$request->name,
             'description'=>$request->Description,
             'icon'=>$storeimg
                     ]);
-                    $categories=Category::all();
-                    return view('category.index',compact('categories'))->with('success','category created successfully');
+        $categories=Category::all();
+        return view('category.index',compact('categories'))->with('success','category created successfully');
     }
 }

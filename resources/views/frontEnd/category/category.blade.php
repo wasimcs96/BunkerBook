@@ -17,16 +17,28 @@
 				</div>
 				<div class="cat-wrapper grid-4">
 				@foreach($category as $cat)
-					<div class="cat-box">
+					<div class="cat-box" style="
+					height: 235px;
+				">
 						<div class="cat-pic">
-							<img src="{{asset($cat->icon)}}" alt="thumb">
+							<div>
+							<img src="{{asset($cat->icon)}}" alt="thumb" style="
+							height: auto;
+							width: 197px;
+						">
+						</div>
 							<div class="cat-badge">
-								<span>{{$cat->business->count()}}</span>
+								<span>  <?php  $business=DB::table("business")
+									->whereRaw("find_in_set('$cat->id',category)")->count();
+									?> {{$business}}</span>
 							</div>
 						</div>
 						<div class="cat-title">
-							<a href="{{route('category.business')}}"><h5>{{$cat->name ?? ''}}</h5>
-							<span><i class="ti ti-arrow-right"></i></span></a>
+							{{-- <div class="row"> --}}
+							<a href="{{route('category.business',$cat->id)}}"><h5>{{$cat->name ?? ''}}</h5>
+							</a>
+						{{-- </div> --}}
+
 						</div>
 					</div>
 				@endforeach	

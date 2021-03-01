@@ -12,4 +12,11 @@ class NewsfeedFrontController extends Controller
        $blogs=NewsFeed::all();
        return view('frontEnd.blog.blog_all',compact('blogs'));
    }
+
+   public function detail($id)
+   {
+       $blog=NewsFeed::where('id',$id)->first();
+    //    dd($blog);
+       return view('frontEnd.blog.blog_detail',compact('blog'));
+   }
 }

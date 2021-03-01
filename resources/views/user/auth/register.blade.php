@@ -96,7 +96,7 @@
                             @enderror
 
                     </div>
-
+{{-- 
                     <div class="form-group">
 
 
@@ -118,7 +118,7 @@
                                 </span>
                             @enderror
 
-                    </div>
+                    </div> --}}
 
 
                             <button type="submit" class="btn btn-primary btn-round btn-block">

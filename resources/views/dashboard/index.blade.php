@@ -47,7 +47,7 @@
     <!-- <div class="col-6 col-md-4 col-xl-2">
         <div class="card">
             <div class="body">
-                <a href="{{route('dashboard.index3')}}" class="my_sort_cut text-muted">
+                <a href="" class="my_sort_cut text-muted">
                     <i class="icon-diamond"></i>
                     <span>My Crypto</span>
                 </a>
@@ -57,7 +57,7 @@
     <!-- <div class="col-6 col-md-4 col-xl-2">
         <div class="card">
             <div class="body">
-                <a href="{{route('app.calendar')}}" class="my_sort_cut text-muted">
+                <a href="" class="my_sort_cut text-muted">
                     <i class="icon-calendar"></i>
                     <span>Calendar</span>
                 </a>
@@ -68,7 +68,7 @@
         <div class="card">
             <div class="body ribbon">
                 <div class="ribbon-box indigo">10</div>
-                <a href="{{route('pages.invoices')}}" class="my_sort_cut text-muted">
+                <a href=" class="my_sort_cut text-muted">
                     <i class="icon-doc"></i>
                     <span>Invoices</span>
                 </a>
