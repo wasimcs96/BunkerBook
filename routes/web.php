@@ -293,9 +293,6 @@ Route::post('business/reject/model/{id}', 'Admin\BusinessController@rejectBusine
 Route::get('business/view/{id}', 'Admin\BusinessController@viewBusiness')->name('business.view');
 Route::get('business/delete/{id}', 'Admin\BusinessController@destroyBusiness')->name('business.delete');
 //country_business
-Route::get('/frontend/business', function(){
-    return view('frontEnd.country_business.business');
-});
 //category
 // Route::get('/frontend/category', function(){
 //     return view('frontEnd.category.category');
@@ -347,3 +344,5 @@ Route::post('event/create','Admin\EventController@create')->name('event.create')
 Route::get('event/delete/{id}','Admin\EventController@destroy')->name('event.destroy');
 
 Route::get('bookmark/','FrontEndController\BookmarkFrontController@index')->name('bookmark.index');
+
+Route::get('country/wis/bussiness','FrontEndController\CountryFrontController@index')->name('country.bussiness');
