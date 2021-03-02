@@ -32,5 +32,33 @@ class BannerController extends Controller
         ]);
         return redirect()->route('banner.index')->with('success','Banner Added Successfully');
     }
+
+    public function destroy($id){
+        
+        $destroy = Banner::find($id);
+        $destroy->delete();
+        return redirect()->route('banner.index');
+    }
+
+    public function update(Request $request ,$id){
+        
+        // $banner = '';
+ 
+        
+                $edit = Banner::find($id);
+   
+        if($request->hasFile('image'))
+        {
+         $banner_image=$request->image;
+         $banner_name= time().$banner_image->getClientOriginalName();
+         $banner_image->move('uploads/bannerimage',$banner_name);
+         $edit->image = 'uploads/bannerimage/'.$banner_name;
+        }
+        $edit->url = $request->url;
+        $edit->position = $request->position;
+        // $edit->image = $banner;
+        $edit->save();
+        return redirect()->route('banner.index');
+    }
 }
 

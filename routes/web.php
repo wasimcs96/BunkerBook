@@ -331,7 +331,17 @@ Route::post('User/Account/Update/{id}','FrontEndController\UserFrontController@u
 
 Route::get('banner/index','Admin\BannerController@index')->name('banner.index');
 
-Route::get('event/index','Admin\EventController@index')->name('event.index');
 
 Route::post('banner/create','Admin\BannerController@create')->name('banner.create');
 
+Route::post('banner/update/{id}','Admin\BannerController@update')->name('banner.edit');
+
+Route::get('banner/delete/{id}','Admin\BannerController@destroy')->name('banner.destroy');
+
+Route::get('event/index','Admin\EventController@index')->name('event.index');
+
+Route::post('event/update/{id}','Admin\EventController@update')->name('event.update');
+
+Route::post('event/create','Admin\EventController@create')->name('event.create');
+
+Route::get('event/delete/{id}','Admin\EventController@destroy')->name('event.destroy');

@@ -105,7 +105,7 @@ foreach($request->staff as $key =>$value )
 
 {
 
-    if($request->hasFile($value['staff_profile']))
+    if($request->has($value['staff_profile']))
     {
         $staff_profile=$value['staff_profile'];
 
@@ -115,12 +115,13 @@ foreach($request->staff as $key =>$value )
         $staff_profilestore = 'uploads/business_staffProfile/' . $staff_profile_new_name;
     }
         BusinessStaff::create([
+            'business_id'=> $business->id,
             'staff_name' => $value['staff_name'],       
             'staff_job_title' => $value['staff_job_title'],
             'staff_email' => $value['staff_email'],
             'staff_mobile' => $value['staff_mobile'],
             'staff_skype' => $value['staff_skype'],
-            'staff_about' => $value['staff_skype'],
+            'staff_about' => $value['staff_about'],
             'profile' => $staff_profilestore
         ]);
         }
