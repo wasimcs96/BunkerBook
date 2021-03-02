@@ -49,13 +49,21 @@ class BusinessController extends Controller
 
       
         
-
+        $catim = null;
+        if($request->has('category')){
+        $category = $request->category;
+        $cat = explode(',',$category);
+        $catfinds = Category::whereIn('id',$cat)->pluck('name');
+        
+        $catim =collect($catfinds)->implode(',');  
+        }
 // dd($request->all());
         $business = Business::create([
             'type' => $request->type,
             'name' => $request->name,
             'email' =>collect($request->email)->implode(','),
             'category' =>  collect($request->category)->implode(','),
+            'category_name'=> $catim,
             'website' => collect($request->website)->implode(','),
             'landline' => collect($request->landline)->implode(','),
             'address' => $request->address,
