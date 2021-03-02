@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Business;
 use Validator;
 use App\Models\Category;
+use App\Models\BusinessRating;
 use DB;
 use App\Models\Bookmark;
 class BusinessController extends Controller
@@ -121,5 +122,25 @@ class BusinessController extends Controller
         $business=DB::table("business")
         ->where('id',$request->id)->get();
         return $this->sendResponse($business,'Business find');
+    }
+
+    public function posttbusinessrating(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'business_id' => 'required',
+        ]);
+
+
+        if($validator->fails()){
+            return $this->sendError('Validation Error.', $validator->errors());
+        }
+
+        $rating = BusinessRating::create([
+            'user_id'=>$request->user()->id,
+            'comment'=>$request->comment,
+            'business_id'=>$request->business_id,
+            'rating_number'=>$request->rating_number,
+        ]);
+        return $this->sendResponse($rating, 'Business Rating Created successfully.');
     }
 }
