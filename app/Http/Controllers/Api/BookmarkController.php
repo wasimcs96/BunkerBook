@@ -26,14 +26,6 @@ class BookmarkController extends Controller
             return $this->sendError('Validation Error.', $validator->errors());
         }
 
-       
-        // $user = User::create([
-
-        // ]);
-        // $success = $user;
-        // $success['token'] =  $user->createToken('MyApp')->accessToken;
-        // return $this->sendResponse($success, 'User register successfully.');
-
         $bookmark = Bookmark::create([
             'user_id'=>$request->user()->id,
             'bookmark_id'=>$request->bookmark_id,
