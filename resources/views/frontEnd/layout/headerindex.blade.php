@@ -71,7 +71,7 @@
                                     <li class="nav-item"><a class="nav-link" href="404.html">404 Page</a></li>
                                 </ul>
                             </li> -->
-                            <li class="nav-item"><a class="nav-link" href="/frontend/business">Country</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('country.bussiness')}}">Country</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{route('category.view')}}">Category</a></li>
                             <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                             <!-- <li class="nav-item dropdown">
