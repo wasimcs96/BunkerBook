@@ -39,4 +39,7 @@ Route::middleware('auth:api')->group(function () {
 
     Route::get('/banner/get','Api\BannerController@getbanner')->name('banner.get');
 
+    Route::get('/event/get','Api\EventController@getevent')->name('event.get');
+
+
 });

@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('parentPageTitle', 'My Page')
-@section('title', 'News List')
+@section('title', 'Banner Image')
 
 
 @section('content')
@@ -10,7 +10,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="header">
-                <h2>Table Tools<small>Basic example without any additional modification classes</small></h2>
+                <h2>Uploaded Banner<small></small></h2>
                 <ul class="header-dropdown dropdown">
                     <li><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#userModal" class="btn btn-sm btn-danger" style="color: white;" >Add More</a></li>
                     <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
@@ -44,13 +44,13 @@
                             <tr>
                                 <td class=" ">{{$key+1}}</td>
                                 <td class=""><img src="{{asset($banner->image ?? '')}}" width="100px;"></td>
-                                <td class="">{{$banner->url ?? ''}}</td>
+                                <td class=""><a href=" {{$banner->url ?? ''}}" >Visit</td>
                   
                                 <td class="">{{$banner->position?? ''}}</td>
                                 <td class=""><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#editModal-{{$banner->id ?? ''}}" class="btn btn-sm btn-warning" style="color: white;" ><span class="btn-label">
                                         <i class="fa fa-edit"></i>
                                         </span></a>
-                                <a href="{{route('news.destroy',$banner->id)}}"class="btn btn-sm btn-danger"><span class="btn-label">
+                                <a href="{{route('banner.destroy',$banner->id)}}"class="btn btn-sm btn-danger"><span class="btn-label">
                                 <i class="fa fa-trash-o"></i>
                                         </span></a></td>
                             </tr>
@@ -63,7 +63,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="{{route('news.update',$banner->id)}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('banner.edit',$banner->id)}}" method="post" enctype="multipart/form-data">
          @csrf
          <div class="mb-3">
           <label for="recipient-name" class="col-form-label">Image:</label>
@@ -71,16 +71,16 @@
         </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">URL:</label>
-            <input type="text" class="form-control" id="title" name="title" required>
+            <input type="text" class="form-control" value="{{$banner->url ?? ''}}" id="title" name="url" required>
           </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Position:</label>
-            <textarea class="form-control summernote" id="description" name="description" required></textarea>
+            <input type="text" class="form-control" value="{{$banner->position ?? ''}}" id="title" name="position" required>
           </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Create </button>
+        <button type="submit" class="btn btn-primary">Update</button>
       </div>
         </form>
     </div>

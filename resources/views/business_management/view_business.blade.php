@@ -14,57 +14,55 @@
                             <h4>Basic Detail</h4>
                             <p><img style="height: 150px;width: 150px;"
                                     src="https://www.matrixmaritimemedia.com/bunkerbook/assets/img/no-image.png"></p>
-                            <p><b>Name:</b> {{$view->name}}</p>
-                            <p><b>Email:</b> info@pavilionenergy.com</p>
-                            <p><b>Mobile:</b> </p>
-                            <p><b>Landline:</b> +65 6228 8100</p>
-                            <p><b>Address:</b> 12 Marina Boulevard #37-02 Marina Bay Financial Centre Tower 3 Singapore 018982.</p>
-                            <p><b>Start Time:</b> </p>
-                            <p><b>End Time:</b> </p>
+                            <p><b>Name:</b> {{$view->name ?? ''}}</p>
+                            <p><b>Email:</b>{{$view->email ?? ''}}</p>
+                            <p><b>Mobile:</b> {{$view->mobile ?? ''}}</p>
+                            <p><b>Landline:</b>  {{$view->landline ?? ''}}</p>
+                            <p><b>Address:</b> {{$view->address ?? ''}}</p>
+                            <p><b>Start Time:</b>  {{$view->start_time ?? ''}}</p>
+                            <p><b>End Time:</b>  {{$view->end_time ?? ''}}</p>
                             <hr>
                             <h4>Overview</h4>
-                            <p><b>about:</b> In January 2016, our wholly-owned subsidiary, Pavilion Energy Singapore, was appointed
-                                by the Maritime and Port Authority of Singapore (MPA) as an LNG bunker supplier to vessels in the
-                                Port of Singapore. Supported by our licence to import LNG for Singapore, Pavilion Energy Singapore
-                                works across the complete value chain to provide bunkering solutions to our customers. Combined with
-                                the demand of our on-shore customers in Singapore, Pavilion is able to leverage economies of scale
-                                to provide competitive logistics solutions for LNG bunkering.
-
-                                Pavilion Energy continues to work on LNG bunker supply and delivery models in partnership with
-                                international players for the provision of LNG bunker to vessels in the Port of Singapore.
-
-                                Note: As of 1 October 2019, Pavilion Gas has been renamed to Pavilion Energy Singapore.</p>
-                            <p><b>Ports of operation:</b> Operating all ports in Singapore, Spain and the UK.</p>
+                            <p><b>about:</b> {{$view->about ?? ''}}</p>
+                            <p><b>Ports of operation:</b> {{$view->ports_of_operation ?? ''}}.</p>
                             <h5>Office Hours</h5>
-                            <p><b>Sunday:</b> -</p>
+                            <p><b>Sunday:</b> {{$view->sunday_start_time ?? ''}} -  {{$view->sunday_end_time ?? ''}}</p>
 
-                            <p><b>Monday:</b> -</p>
 
-                            <p><b>Tuesday:</b> -</p>
+                            <p><b>Monday:</b> {{$view->monday_start_time}} - {{$view->monday_start_time}}</p>
 
-                            <p><b>Wednesday:</b> -</p>
+                            <p><b>Tuesday:</b>  {{$view->tuesday_start_time}} - {{$view->tuesday_start_time}}</p>
 
-                            <p><b>Thursday:</b> -</p>
+                            <p><b>Wednesday:</b> {{$view->wednesday_start_time}} - {{$view->wednesday_start_time}}</p>
 
-                            <p><b>Friday:</b> -</p>
+                            <p><b>Thursday:</b> {{$view->thursday_start_time}} - {{$view->thrusday_start_time}}</p>
 
-                            <p><b>Saturday:</b> -</p>
+                            <p><b>Friday:</b> {{$view->friday_start_time}} - {{$view->friday_start_time}}</p>
+
+                            <p><b>Saturday:</b> {{$view->saturday_start_time}} - {{$view->saturday_start_time}}</p>
                             <hr>
                             <h4>Personal Detail</h4>
-                            <p><b>name:</b> </p>
-                            <p><b>Job Title:</b> </p>
-                            <p><b>Email:</b> </p>
-                            <p><b>Mobile:</b> </p>
-                            <p><b>Skype Id:</b> </p>
-                            <p><b>About:</b> </p>
+                            <p><b>name:</b>{{$view->userBusiness->first_name ?? ''}} {{$view->userBusiness->last_name ?? ''}}</p>
+                            <p><b>Job Title: {{$view->userBusiness->job_title ?? ''}}</b> </p>
+                            <p><b>Email:</b> {{$view->userBusiness->email ?? ''}}</p>
+                            <p><b>Mobile:</b> {{$view->userBusiness->mobile ?? ''}}</p>
+                            {{-- <p><b>Skype Id:</b> {{$view->userBusiness->skype_id ?? ''}}</p> --}}
+                            {{-- <p><b>About:</b> </p> --}}
                             <hr>
                             <hr>
 
                             <h4>All Photos</h4>
+                            <?php $images=$view->businessImage; ?>
+                            @foreach($images as $image)
+                            <img src="{{asset($image->image ?? '')}}">
+                            @endforeach
                             <hr>
 
                             <h4>All Videos</h4>
-
+                            <?php $videos=$view->businessVideo; ?>
+                            @foreach($videos as $video)
+                            <img src="{{asset($video->video ?? '')}}">
+                            @endforeach
 
 
                         </div>

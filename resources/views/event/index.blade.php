@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('parentPageTitle', 'My Page')
-@section('title', 'News List')
+@section('title', 'Events List')
 
 
 @section('content')
@@ -10,18 +10,11 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="header">
-                <h2>Table Tools<small>Basic example without any additional modification classes</small></h2>
+                <h2>Events<small></small></h2>
                 <ul class="header-dropdown dropdown">
                     <li><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#userModal" class="btn btn-sm btn-danger" style="color: white;" >Add More</a></li>
                     <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="javascript:void(0);">Action</a></li>
-                            <li><a href="javascript:void(0);">Another Action</a></li>
-                            <li><a href="javascript:void(0);">Something else</a></li>
-                        </ul>
-                    </li>
+                 
                 </ul>
             </div>
             <div class="body">
@@ -40,14 +33,14 @@
                      
                         <tbody>
                       
-                          @foreach($news as $new)
+                          @foreach($events as $event)
                             <tr>
                                 <td class=" "></td>
-                                <td class=""><img src="{{asset($new->image ?? '')}}" width="100px;"></td>
-                                <td class="">{{$new->title ?? ''}}</td>
+                                <td class=""><img src="{{asset($event->image ?? '')}}" width="100px;"></td>
+                                <td class="">{{$event->title ?? ''}}</td>
                                 <td class="col-lg-3">       
                                  <div class="comment more">
-                                 <?php $aRoom= $new->description ?>
+                                 <?php $aRoom= $event->description ?>
             @if(strlen($aRoom) > 100)
             {{substr($aRoom,0,100)}}
             <span class="read-more-show hide_content"><span class="btn btn-warning btn-sm">More<i class="fa fa-angle-down"></i></span></span>
@@ -56,16 +49,16 @@
             @else
             {!!$aRoom !!}
             @endif</td>
-                                <td class="">{{$new->youtube_link ?? ''}}</td>
-                                <td class=""><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#editModal-{{$new->id ?? ''}}" class="btn btn-sm btn-warning" style="color: white;" ><span class="btn-label">
+                                <td class="">{{$event->youtube_link ?? ''}}</td>
+                                <td class=""><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#editModal-{{$event->id ?? ''}}" class="btn btn-sm btn-warning" style="color: white;" ><span class="btn-label">
                                         <i class="fa fa-edit"></i>
                                         </span></a>
-                                <a href="{{route('news.destroy',$new->id)}}"class="btn btn-sm btn-danger"><span class="btn-label">
+                                <a href="{{route('event.destroy',$event->id)}}"class="btn btn-sm btn-danger"><span class="btn-label">
                                 <i class="fa fa-trash-o"></i>
                                         </span></a></td>
                             </tr>
                        
-<div class="modal fade" id="editModal-{{$new->id ?? ''}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editModal-{{$event->id ?? ''}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -73,26 +66,26 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="{{route('news.update',$new->id)}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('event.update',$event->id)}}" method="post" enctype="multipart/form-data">
          @csrf
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Title:</label>
-            <input type="text" class="form-control" id="title" name="title" value="{{$new->title ?? ''}}">
+            <input type="text" class="form-control" id="title" name="title" value="{{$event->title ?? ''}}">
           </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">DESCRIPTION:</label>
-            <textarea class="form-control summernote" id="description" name="description">{!! $new->description !!}</textarea>
+            <textarea class="form-control summernote" id="description" name="description">{!! $event->description !!}</textarea>
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Youtube Link:</label>
-            <input type="text" class="form-control" id="youtube_link" name="youtube_link" value="{{$new->youtube_link ?? ''}}">
+            <input type="text" class="form-control" id="youtube_link" name="youtube_link" value="{{$event->youtube_link ?? ''}}">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Image:</label>
-            <input type="file" class="form-control" id="image" name="image"value="{{asset($new->image ?? '')}}">
+            <input type="file" class="form-control" id="image" name="image"value="{{asset($event->image ?? '')}}">
           </div>
           <div class="mb-3" style="display: flex;justify-content: center;">
-          <img src="{{asset($new->image ?? '')}}" width="100px;">
+          <img src="{{asset($event->image ?? '')}}" width="100px;">
           </div>
       </div>
       <div class="modal-footer">
@@ -117,11 +110,11 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add News Feed</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add Events</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="{{route('news.create')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('event.create')}}" method="post" enctype="multipart/form-data">
          @csrf
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Title:</label>

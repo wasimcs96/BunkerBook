@@ -75,20 +75,20 @@
                             <td>{{$business->type}}</td>
 
                             <td><img style="width: 150px;height: 100px;"
-                                src="{{$business->profile}}">
+                                src="{{asset($business->business_profile)}}">
                             </td>
                             <td>{{$business->name}}</td>
                             <td>{{$business->email}}</td>
                             <td>{{$business->mobile}}</td>
                             <td>{{$business->address}}</td>
-                            <td>{{$business->category}}</td>
+                            <td><?php  $category = $business->category; ?>{{$business->category}}</td>
                             <td>
                                 <a href="#"
                                 onclick="return confirm('Are you sure want to approve this Business?');"
                                 class="btn btn-danger btn-sm">Approve</a>
                                 <a href="javascript:void(0)" data-toggle="modal"
                                 data-target="#rejectModal" class="btn btn-warning btn-sm">Reject</a>
-                                <a href="#"
+                                <a href="{{route('business.view',$business->id)}}"
                                 class="btn btn-info btn-sm">View Detail</a></td>
                         </tr>
                         @endforeach
