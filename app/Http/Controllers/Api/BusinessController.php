@@ -77,8 +77,7 @@ class BusinessController extends Controller
     {
         $categorycoming=$request->category_id;
         // $total=[];
-        $business=DB::table("business")
-        ->whereRaw("find_in_set('$categorycoming',category)")->get();
+        $business=Business::whereRaw("find_in_set('$categorycoming',category)")->select('name','email','business_profile','category_name','mobile',)->get()->with(['businessRating']);
         return $this->sendResponse($business,'Business Find');
     }
 
