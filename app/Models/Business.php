@@ -5,7 +5,7 @@ class Business extends Model
 {
     protected $table = 'business';
 
-    protected $fillable = ['type', 'name', 'email', 'category', 'website', 'landline', 'address', 'country', 'start_time',
+    protected $fillable = ['type', 'name', 'email', 'category','category_name', 'website', 'landline', 'address', 'country', 'start_time',
                            'end_time', 'business_profile', 'featured_banner_image', 'about', 'ports_of_operation', 'sunday',
                            'sunday_start_time', 'sunday_end_time', 'monday', 'monday_start_time', 'monday_end_time', 'tuesday',
                            'tuesday_start_time', 'tuesday_end_time', 'wednesday', 'wednesday_start_time', 'wednesday_end_time', 'thursday',

@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Business;
 use Validator;
+use App\Models\Category;
+use App\Models\BusinessRating;
 use DB;
+use App\Models\Bookmark;
 class BusinessController extends Controller
 {
     public function getBusiness()
@@ -28,11 +31,19 @@ class BusinessController extends Controller
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
         }
-
+        $catim = null;
+        if($request->has('category')){
+        $category = $request->category;
+        $cat = explode(',',$category);
+        $catfinds = Category::whereIn('id',$cat)->pluck('name');
+        
+        $catim =collect($catfinds)->implode(',');  
+        }
         $business = Business::create([
             'user_id'=>$request->user()->id,
             'name'=>$request->name,
             'category'=>$request->category,
+            'category_name'=>$catim,
             'address'=>$request->address,
             'landline'=>$request->landline, 
             'fax'=>$request->fax, 
@@ -76,11 +87,29 @@ class BusinessController extends Controller
     public function getBusinessCategory(Request $request)
     {
         $categorycoming=$request->category_id;
-        // $total=[];
-        $business=Business::whereRaw("find_in_set('$categorycoming',category)")->select('name','email','business_profile','category_name','mobile',)->get()->with(['businessRating']);
-        return $this->sendResponse($business,'Business Find');
-    }
+        $data=[];
+        $business=Business::whereRaw("find_in_set('$categorycoming',category)")->select('id','name','email','business_profile','category_name','mobile')->with(['businessRating'])->get();
 
+       
+        foreach($business as $buisnes){
+        
+            $book = Bookmark::where('user_id',$request->user()->id)->where('business_id',$buisnes->id)->count();
+            if($book > 0)
+            {
+                $data['is_bookmark']= 1;
+            }else{
+                $data['is_bookmark']= 0 ;
+            }
+
+            $data['buisness']=$buisnes;
+        }
+    //   dd($data);
+        // $success['business'] =$busines;
+
+        return $this->sendResponse($data,'Business Find');
+
+    }
+    // ->select('name','email','business_profile','category_name','mobile',)
     public function getlimitbusiness(){
 
         
@@ -93,5 +122,25 @@ class BusinessController extends Controller
         $business=DB::table("business")
         ->where('id',$request->id)->get();
         return $this->sendResponse($business,'Business find');
+    }
+
+    public function posttbusinessrating(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'business_id' => 'required',
+        ]);
+
+
+        if($validator->fails()){
+            return $this->sendError('Validation Error.', $validator->errors());
+        }
+
+        $rating = BusinessRating::create([
+            'user_id'=>$request->user()->id,
+            'comment'=>$request->comment,
+            'business_id'=>$request->business_id,
+            'rating_number'=>$request->rating_number,
+        ]);
+        return $this->sendResponse($rating, 'Business Rating Created successfully.');
     }
 }
