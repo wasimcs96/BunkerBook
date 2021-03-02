@@ -335,3 +335,4 @@ Route::get('event/index','Admin\EventController@index')->name('event.index');
 
 Route::post('banner/create','Admin\BannerController@create')->name('banner.create');
 
+Route::get('bookmark/','FrontEndController\BookmarkFrontController@index')->name('bookmark.index');

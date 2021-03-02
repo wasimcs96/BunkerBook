@@ -46,4 +46,10 @@ class Business extends Model
     {
         return $this->belongsTo(category::class,'category');
     }
+
+    public function bookmark()
+    {
+        return $this->hasMany(Bookmark::class,'business_id');
+    }
+
 }
