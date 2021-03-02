@@ -345,3 +345,5 @@ Route::post('event/update/{id}','Admin\EventController@update')->name('event.upd
 Route::post('event/create','Admin\EventController@create')->name('event.create');
 
 Route::get('event/delete/{id}','Admin\EventController@destroy')->name('event.destroy');
+
+Route::get('bookmark/','FrontEndController\BookmarkFrontController@index')->name('bookmark.index');

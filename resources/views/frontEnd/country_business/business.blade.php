@@ -5,6 +5,26 @@
 
 
  @section('content')
+
+ <!-- Start Search
+		============================================= -->
+		<div class="t-area header-1-1 de-padding">
+			<div class="container">
+				<div class="feature-wrapper un-form">
+					<form>
+						<!-- <input type="text" class="srs-in" placeholder="Search Any Country ....."> -->
+						<select name="country" id="country" class="srs-in" placeholder="Search Any Country .....">
+							<option value="volvo">Australia</option>
+							<option value="saab">Newzealand</option>
+							<option value="mercedes">Canada</option>
+							<option value="audi">India</option>
+							</select>
+						<button type="submit" class="srs-bt">Search</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- End  Search-->
  <div id="portfolio" class="portfolio-area de-padding">
 			<div class="container">
 				<!-- <div class="row">
@@ -31,17 +51,18 @@
 							<div class="magnific-mix-gallery masonary">
 								<div id="portfolio-grid" class="portfolio-items">
 									<div class="pf-item video photography">
-										<div class="course-box">
+										<div class="course-box rounded" style="border: solid 5px #2E35D9;">
 											<div class="course-pic">
 												<img src="assets/img/course/course-1.jpg" class="course-img" alt="thumb">
 												<div class="course-pic-content">
 													<div class="course-rating">
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<span>(12k)</span>
+														<span><i class="fa fa-heart rounded-circle" aria-hidden="true" style="
+															background: white;
+															padding: 5px;
+															border: 5px;"></i></span>
+
+
+
 													</div>
 													<div class="course-author-time">
 														<div class="course-author-pic">
