@@ -19,13 +19,7 @@
     </div> -->
     <div class="col-6 col-md-4 col-xl-2">
         <div class="card">
-            <div class="body"  style="
-      background: linear-gradient(
-        45deg,
-        rgba(29, 236, 197, 0.5),
-        rgba(91, 14, 214, 0.5) 100%
-      );
-    ">
+            <div class="body">
                 <a href="{{route('users.index')}}" class="my_sort_cut text-muted" >
                     <i class="icon-user"></i>
                     <span>User Management</span>
