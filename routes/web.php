@@ -345,4 +345,6 @@ Route::get('event/delete/{id}','Admin\EventController@destroy')->name('event.des
 
 Route::get('bookmark/','FrontEndController\BookmarkFrontController@index')->name('bookmark.index');
 
-Route::get('country/wis/bussiness','FrontEndController\CountryFrontController@index')->name('country.bussiness');
+Route::get('event/','FrontEndController\EventFrontController@event')->name('event.index');  
+
+Route::get('event/detail/{id}','FrontEndController\EventFrontController@detail')->name('event.detail');
