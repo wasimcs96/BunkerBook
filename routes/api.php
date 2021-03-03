@@ -22,7 +22,7 @@ Route::middleware('auth:api')->group(function () {
 
     Route::get('/category', 'Api\CategoryController@getCategory')->name('category.api');
 
-    Route::get('/business', 'Api\BusinessController@getBusiness')->name('business.api');
+    Route::post('/business', 'Api\BusinessController@getBusiness')->name('business.api');
 
     Route::post('/business/create', 'Api\BusinessController@postBusiness')->name('business.create.api');
 
@@ -44,6 +44,12 @@ Route::middleware('auth:api')->group(function () {
 
     Route::post('/business/rating','Api\BusinessController@posttbusinessrating')->name('business.rating');
 
+    Route::post('/business/count','Api\CountryController@getbusinesscount')->name('business_count');
 
+    Route::post('/business/country','Api\CountryController@getcountrybusiness')->name('business_count');
+
+    Route::post('/business/rating/get','Api\BusinessController@businessrating')->name('business.rating.get');
+
+    Route::post('/business/request/post','Api\BusinessController@businessrequest')->name('business.request');
 
 });

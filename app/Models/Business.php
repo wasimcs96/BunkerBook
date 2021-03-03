@@ -52,4 +52,10 @@ class Business extends Model
         return $this->hasMany(Bookmark::class,'business_id');
     }
 
+    
+    public function country()
+    {
+        return $this->belongsTo(Business::class,'country');
+    }
+
 }

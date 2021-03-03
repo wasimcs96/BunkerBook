@@ -10,6 +10,8 @@ use App\Models\Category;
 use App\Models\BusinessRating;
 use DB;
 use App\Models\Bookmark;
+use App\Models\BusinessRequest;
+
 class BusinessController extends Controller
 {
     public function getBusiness()
@@ -88,22 +90,25 @@ class BusinessController extends Controller
     {
         $categorycoming=$request->category_id;
         $data=[];
+
         $business=Business::whereRaw("find_in_set('$categorycoming',category)")->select('id','name','email','business_profile','category_name','mobile')->with(['businessRating'])->get();
 
-       
+
         foreach($business as $buisnes){
         
             $book = Bookmark::where('user_id',$request->user()->id)->where('business_id',$buisnes->id)->count();
+             
             if($book > 0)
             {
-                $data['is_bookmark']= 1;
-            }else{
-                $data['is_bookmark']= 0 ;
+                $buisnes['is_bookmark']= 1;
             }
-
-            $data['buisness']=$buisnes;
+            else{
+                $buisnes['is_bookmark']= 0 ;
+            }
+            array_push($data,$buisnes);
+         
         }
-    //   dd($data);
+        //   dd(count($data));
         // $success['business'] =$busines;
 
         return $this->sendResponse($data,'Business Find');
@@ -119,8 +124,9 @@ class BusinessController extends Controller
 
     public function findbusiness(Request $request){
 
-        $business=DB::table("business")
-        ->where('id',$request->id)->get();
+        $business = Business::where('id',$request->id)->with(['businessImage','businessVideo','businessRating','businessRequest','businessStaff'])->get();
+
+
         return $this->sendResponse($business,'Business find');
     }
 
@@ -143,4 +149,27 @@ class BusinessController extends Controller
         ]);
         return $this->sendResponse($rating, 'Business Rating Created successfully.');
     }
+    public function businessrating(Request $request)
+    {
+        $rating = BusinessRating::where('business_id',$request->id)->average('rating_number');
+
+        return $this->sendResponse($rating, 'Business Rating averge successfully.');
+
+    }
+
+    public function businessrequest(Request $request){
+
+        $business = BusinessRequest::create([
+            'user_id'=>$request->user()->id,
+            'business_id'=>$request->business_id,
+            'title'=>$request->title,
+            'message'=>$request->message
+  
+   
+
+        ]);
+        return $this->sendResponse($business, 'Request added successfully.');
+        }
+       
+    
 }
