@@ -64,6 +64,7 @@ class BusinessController extends Controller
             'email' =>collect($request->email)->implode(','),
             'category' =>  collect($request->category)->implode(','),
             'category_name'=> $catim,
+            'business_time'=>$request->business_time,
             'website' => collect($request->website)->implode(','),
             'landline' => collect($request->landline)->implode(','),
             'address' => $request->address,
