@@ -348,3 +348,5 @@ Route::get('bookmark/','FrontEndController\BookmarkFrontController@index')->name
 Route::get('event/','FrontEndController\EventFrontController@event')->name('event.index');  
 
 Route::get('event/detail/{id}','FrontEndController\EventFrontController@detail')->name('event.detail');
+
+Route::get('country/wise/business','FrontEndController\CountryFrontController@index')->name('country.bussiness');

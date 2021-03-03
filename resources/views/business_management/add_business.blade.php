@@ -128,7 +128,23 @@
                                    <span class="msg_alert_class" id="countryMsg"></span>
                                 </div>
                              </div>
-
+                             {{-- <div class="col-md-6">
+                                <div class="form-group">
+                                   <label class="control-label">24/7</label>
+                                   <input type="checkbox" name="business_time" id="business_time" value="" class="form-control">
+                                   <span class="msg_alert_class" id="start_timeMsg"></span>
+                                </div>
+                             </div> --}}
+                             <div class="fancy-checkbox">
+                                {{-- <label class="control-label">Operating Hours Start</label> --}}
+                                <label><input type="checkbox" name="business_time" value="1"><span>24/7</span></label>
+                            </div>
+                            {{-- <div class="fancy-checkbox">
+                                <label><input type="checkbox" checked><span>Fancy Checkbox 2</span></label>
+                            </div>
+                            <div class="fancy-checkbox">
+                                <label><input type="checkbox"><span>Fancy Checkbox 3</span></label>
+                            </div> --}}
                             <div class="col-md-6">
                                 <div class="form-group">
                                    <label class="control-label">Operating Hours Start</label>
