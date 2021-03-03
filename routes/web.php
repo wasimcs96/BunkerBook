@@ -350,3 +350,8 @@ Route::get('event/','FrontEndController\EventFrontController@event')->name('even
 Route::get('event/detail/{id}','FrontEndController\EventFrontController@detail')->name('event.detail');
 
 Route::get('country/wise/business','FrontEndController\CountryFrontController@index')->name('country.bussiness');
+
+Route::post('country/filter','FrontEndController\CountryFrontController@countryfilter')->name('country.filter');
+
+Route::post('/bookmark','FrontEndController\BookmarkFrontController@postbookmark')->name('bookmark.create');
+

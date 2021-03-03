@@ -12,5 +12,10 @@ class CountryFrontController extends Controller
         return view ('frontEnd.country_business.business',compact('business'));
     }
 
-    
+    public function countryfilter(Request $request){
+        $filtcon = $request->country;
+        $business = Business::where('country',$filtcon)->get();
+        return view ('frontEnd.country_business.business',compact('business','filtcon'));
+
+    }
 }
