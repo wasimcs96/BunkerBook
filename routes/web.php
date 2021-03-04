@@ -358,3 +358,6 @@ Route::post('/bookmark','FrontEndController\BookmarkFrontController@postbookmark
 Route::post('business/status/update','Admin\BusinessController@status')->name('business.status');
 
 Route::post('business/reject/{id}','Admin\BusinessController@reject')->name('business.request.reject');
+
+Route::post('business/rating/{id}','FrontEndController\BusinessFrontController@rating')->name('business.rating');
+
