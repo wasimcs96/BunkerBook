@@ -287,7 +287,7 @@ Route::get('business/active', 'Admin\BusinessController@activeBusiness')->name('
 Route::get('business/reject', 'Admin\BusinessController@rejectBusiness')->name('business.reject');
 
 Route::get('business/edit/{id}', 'Admin\BusinessController@editBusiness')->name('business.edit');
-Route::post('business/update', 'Admin\BusinessController@updateBusiness')->name('business.update');
+Route::post('business/update/{id}', 'Admin\BusinessController@updateBusiness')->name('business.update');
 Route::post('business/reject/model/{id}', 'Admin\BusinessController@rejectBusinessModel')->name('business.reject.model');
 
 Route::get('business/view/{id}', 'Admin\BusinessController@viewBusiness')->name('business.view');
