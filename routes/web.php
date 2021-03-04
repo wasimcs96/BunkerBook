@@ -351,6 +351,7 @@ Route::get('event/detail/{id}','FrontEndController\EventFrontController@detail')
 
 Route::get('country/wise/business','FrontEndController\CountryFrontController@index')->name('country.bussiness');
 
-Route::post('business/status/update','Admin\BusinessController@status')->name('business.status');
+Route::post('country/filter','FrontEndController\CountryFrontController@countryfilter')->name('country.filter');
 
-Route::post('business/reject/{id}','Admin\BusinessController@reject')->name('business.request.reject');
+Route::post('/bookmark','FrontEndController\BookmarkFrontController@postbookmark')->name('bookmark.create');
+

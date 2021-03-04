@@ -36,8 +36,8 @@ class BusinessController extends Controller
         $catim = null;
         if($request->has('category')){
         $category = $request->category;
-        $cat = explode(',',$category);
-        $catfinds = Category::whereIn('id',$cat)->pluck('name');
+        // $cat = explode(',',$category);
+        $catfinds = Category::whereIn('id',$category)->pluck('name');
         
         $catim =collect($catfinds)->implode(',');  
         }
