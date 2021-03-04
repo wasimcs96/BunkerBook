@@ -47,13 +47,11 @@
                                 </div>
                             </div>
 
-                            <div class="custm">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="text" name="email[]" placeholder="Email *" class="form-control" required>
                                 </div>
-                            </div>
                             </div>
 
 
@@ -121,16 +119,7 @@
                                 </div>
                              </div>
 
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <select name="country" id="country" class="srs-in" placeholder="Search Any Country .....">
-                                        <?php $country=App\Models\Country::all(); ?>
-                                        @foreach($country as $count)
-                                        <option value="{{ $count->id ?? '' }}">{{ $count->name ?? ''}}</option>
-                                        @endforeach
-                                        </select>
-                                </div>
-                             </div>
+                         
                              {{-- <div class="col-md-6">
                                 <div class="form-group">
                                    <label class="control-label">24/7</label>
@@ -138,9 +127,18 @@
                                    <span class="msg_alert_class" id="start_timeMsg"></span>
                                 </div>
                              </div> --}}
-                             <div class="fancy-checkbox">
-                                {{-- <label class="control-label">Operating Hours Start</label> --}}
-                                <label><input type="checkbox" name="business_time" value="1"><span>24/7</span></label>
+                            <div class="row">
+                           
+                            <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <select name="country" id="country" class="rounded srs-in" style="width: -webkit-fill-available;border: solid 1px #ccc;padding: .375rem .75rem;" placeholder="Search Any Country .....">
+                                            <?php $country=App\Models\Country::all(); ?>
+                                            @foreach($country as $count)
+                                            <option value="{{ $count->id ?? '' }}">{{ $count->name ?? ''}}</option>
+                                            @endforeach
+                                            </select>
+                                    </div>
+                                </div>
                             </div>
                             {{-- <div class="fancy-checkbox">
                                 <label><input type="checkbox" checked><span>Fancy Checkbox 2</span></label>
@@ -148,6 +146,11 @@
                             <div class="fancy-checkbox">
                                 <label><input type="checkbox"><span>Fancy Checkbox 3</span></label>
                             </div> --}}
+                         <div class="row">
+                         <div class="fancy-checkbox col-md-1" style="margin: auto;">
+                                {{-- <label class="control-label">Operating Hours Start</label> --}}
+                                <label><input type="checkbox" name="business_time" value="1"><span>24/7</span></label>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                    <label class="control-label">Operating Hours Start</label>
@@ -156,13 +159,14 @@
                                 </div>
                              </div>
 
-                             <div class="col-md-6">
+                             <div class="col-md-5">
                                 <div class="form-group">
                                    <label class="control-label">Operating Hours End</label>
                                    <input type="time" name="end_time" id="end_time" value="" class="form-control">
                                    <span class="msg_alert_class" id="end_timeMsg"></span>
                                 </div>
                              </div>
+                         </div>
 
                              <div class="col-md-12">
                                 <div class="form-group">
@@ -457,13 +461,13 @@
                         <div class="col-md-12">
                            <div class="form-group">
                               <label class="control-label">Staff Detail</label>
-                              <input type="text" name="staff[0][staff_name]" value="" placeholder="Name" class="form-control">
-                              <input type="text" name="staff[0][staff_job_title]" value="" placeholder="Job title" class="form-control">
-                              <input type="text" name="staff[0][staff_email]" value="" placeholder="Email" class="form-control">
-                              <input type="text" name="staff[0][staff_mobile]" value="" placeholder="Mobile" class="form-control">
-                              <input type="text" name="staff[0][staff_skype]" value="" placeholder="Skype Id" class="form-control">
-                              <textarea name="staff[0][staff_about]" placeholder="About" class="form-control"></textarea>
-                              <input type="file" name="staff[0][staff_profile]" value="" placeholder="Profile" accept="image/*" class="form-control">
+                              <input type="text" name="staff[0][staff_name]" value="" placeholder="Name" class="form-control my-3">
+                              <input type="text" name="staff[0][staff_job_title]" value="" placeholder="Job title" class="form-control my-3">
+                              <input type="text" name="staff[0][staff_email]" value="" placeholder="Email" class="form-control my-3">
+                              <input type="text" name="staff[0][staff_mobile]" value="" placeholder="Mobile" class="form-control my-3">
+                              <input type="text" name="staff[0][staff_skype]" value="" placeholder="Skype Id" class="form-control my-3">
+                              <textarea name="staff[0][staff_about]" placeholder="About" class="form-control my-3"></textarea>
+                              <input type="file" name="staff[0][staff_profile]" value="" placeholder="Profile" accept="image/*" class="form-control my-3">
 
                            </div>
                         </div>
@@ -482,12 +486,12 @@
 
                             <div class="upload-btn-wrapper">
 
-                                <button type="button" class="btn_upload" id="upBtn">Upload a file</button>
+                                <!-- <button type="button" class="btn_upload" id="upBtn">Upload a file</button> -->
 
                                 <input type="file" name="business_photos[]" id="photos" class="form-control imageUpload" multiple>
 
                             </div>
-                            <input name="" id="photo" type="file" class="dropify-frrr" >
+                            <!-- <input name="" id="photo" type="file" class="dropify-frrr" > -->
 
                             <div id="preview" class="col-md-12">
 
