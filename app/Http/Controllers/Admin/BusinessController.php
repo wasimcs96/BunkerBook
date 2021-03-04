@@ -327,11 +327,16 @@ foreach($request->staff as $key2 => $value)
 //         $bs->save();
          }
         
-         $dbps = BusinessImage::where('business_id',$id)->delete();
+        
          $deletedRows = BusinessImage::where('business_id', '=', $id)->delete();
          if($request->hasFile('business_photos'))
          {
-   
+            $dbps = BusinessImage::where('business_id',$id)->get();
+            foreach($dbps as $dbp)
+           {
+   $dbp->delete();
+           }
+
              $images=collect($request->business_photos);
                  foreach($images as $image){
                  $businessimage_name= time().$image->getClientOriginalName();
