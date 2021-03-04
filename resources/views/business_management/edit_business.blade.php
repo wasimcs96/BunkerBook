@@ -934,7 +934,7 @@
              if(x < maxField){
                  x++; //Increment field counter
               console.log(x);
-              var fieldHTML = ' <div class="rowField1'+x+'" ><div class="col-md-12"><div class="form-group"><label class="control-label">Website</label><input type="text" name="youtube_video[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_buttonyoutube_link" id="'+x+'">Delete</a></div></div></div>'; //New input field html
+              var fieldHTML = ' <div class="rowField1'+x+'" ><div class="col-md-12"><div class="form-group"><label class="control-label">Youtube Link</label><input type="text" name="youtube_video[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_buttonyoutube_link" id="'+x+'">Delete</a></div></div></div>'; //New input field html
 
                  $(wrapper).append(fieldHTML); //Add field html
              }

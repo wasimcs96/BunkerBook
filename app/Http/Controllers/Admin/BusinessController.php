@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Config;
 use App\Models\BusinessImage;
 use App\Models\Category;
 use App\Models\BusinessVideo;
+use DB;
 // use App\Models\Category;
 use App\Models\BusinessRequest;
 class BusinessController extends Controller
@@ -326,36 +327,43 @@ foreach($request->staff as $key2 => $value)
 //         $bs->save();
          }
         
+         $dbps = BusinessImage::where('business_id',$id)->delete();
+         $deletedRows = BusinessImage::where('business_id', '=', $id)->delete();
          if($request->hasFile('business_photos'))
          {
-         
+   
              $images=collect($request->business_photos);
-             // dd(auth()->user());
-         // dd($images);
-         
-             foreach($images as $image){
+                 foreach($images as $image){
                  $businessimage_name= time().$image->getClientOriginalName();
                  $image->move('uploads/businessimage',$businessimage_name);
              $business_image= 'uploads/businessimage/'.$businessimage_name;
-               $bBI=  BusinessImage::where('business',$id);
-                $bBI->image = $business_image;
-                $bBI->business_id = $id;
-                $bBi->save();
+                
+             BusinessImage::create([
+                'image' => $business_image,
+                'business_id' => $business->id
+            ]);
+              
+                // $bBI->image = $business_image;
+                // $bBI->business_id = $id;
+                // $bBI->save();
              }
          }
-         
+         if($request->has('youtube_video')){
+             $video=BusinessVideo::where('business_id',$id)->delete();
              $videos = collect($request->youtube_video);
+
              foreach($videos as $video){
-                       $bvi =  BusinessVideo::where('business',$id);
-                            $bvi->video = $video;
-                            $bvi->business_id =$id;
-                       $bvi->save();
+                     
+                       BusinessVideo::create([
+                        'video'=> $video,
+                        'business_id' => $id
+                    ]);
                          
                          }
-         
+                        }
  
  
-        return view('business_management.active_business')->with('info','business updated successfully');
+        return redirect()->route('business.active')->with('info','business updated successfully');
     }
 
     public function viewBusiness($id)
