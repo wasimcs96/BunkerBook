@@ -69,7 +69,7 @@
 
                     <tbody>
                         <?php $i= 1; ?>
-                        @foreach($reject_business as $business)
+                        @foreach($business_list as $business)
                         <tr>
                             <td>{{$i}}</td>
                             <td><input checked="" type="checkbox" value="id" onclick="makeFeature('id')" id="featured"></td>
@@ -84,9 +84,7 @@
                             <td>{{$business->address ?? ''}}</td>
                             <td>{{$business->category ?? ''}}</td>
                             <td>
-                                <a href="#"
-                                onclick="return confirm('Are you sure want to approve this Business?');"
-                                class="btn btn-danger btn-sm">Approve</a>
+                              <button class="accept btn btn-danger btn-sm" acceptIB="1" businesID={{$business->id ?? ''}}>Approve</button>
                                 <a href="#"class="btn btn-info btn-sm">View Detail</a></td>
                                 <?php $i++; ?>
                         </tr>
@@ -170,4 +168,37 @@
 
     }
     </script>
+       <script>
+        var accept=""
+        
+        
+        
+        $('.accept').click(function(){
+        
+        
+            var accept = $(this).attr('acceptIB');
+            var businessid = $(this).attr('businesID')
+        console.log(accept);
+        console.log(businessid);
+        // document.getElementById(media_id).style.display="none";
+        // console.log(media_id);
+                $.ajaxSetup({
+                 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  }
+                    });
+                    $.ajax({
+                        type: "post",
+                        url: "{{route('business.status')}}",
+                        data: {accept: accept, businessid:businessid},
+                        success: function (result) {
+                            console.log('success');
+        
+                        }
+                    });
+        
+        
+        
+        });
+         </script>
 @stop

@@ -9,8 +9,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
 use App\Models\BusinessImage;
 use App\Models\BusinessVideo;
-
-
+use App\Models\Category;
+use App\Models\BusinessRequest;
 class BusinessController extends Controller
 {
     public function addBusiness()
@@ -52,8 +52,8 @@ class BusinessController extends Controller
         $catim = null;
         if($request->has('category')){
         $category = $request->category;
-        $cat = explode(',',$category);
-        $catfinds = Category::whereIn('id',$cat)->pluck('name');
+        // $cat = explode(',',$category);
+        $catfinds = Category::whereIn('id',$category)->pluck('name');
         
         $catim =collect($catfinds)->implode(',');  
         }
@@ -110,16 +110,16 @@ class BusinessController extends Controller
 
       
         //  $business_staff = dd($request->all());
-foreach($request->staff as $key =>$value )
+foreach($request->staff as $key2 => $value)
 
 {
 
-    if($request->has($value['staff_profile']))
+    if($request->file($value['staff_profile']))
     {
         $staff_profile=$value['staff_profile'];
-
+// dd()
         // $staff_profile = $request->profile
-        $staff_profile_new_name = time() . $staff_profile->getclientOriginalName();
+        $staff_profile_new_name = time() . $staff_profile->getClientOriginalName();
         $staff_pro->move('uploads/business_staffProfile',$staff_profile_new_name);
         $staff_profilestore = 'uploads/business_staffProfile/' . $staff_profile_new_name;
     }
@@ -175,31 +175,31 @@ foreach($request->staff as $key =>$value )
 
     public function upcomingBusiness()
     {
-        $business_list = Business::orderBy('created_at', 'DESC')->get();
+        $business_list = Business::where('status',0)->orderBy('created_at', 'DESC')->get();
         return view('business_management.upcoming_business_list',compact('business_list'));
     }
 
     public function activeBusiness()
     {
-        $business_list = Business::orderBy('created_at', 'DESC')->get();
+        $business_list = Business::where('status',1)->orderBy('created_at', 'DESC')->get();
         return view('business_management.active_business',compact('business_list'));
     }
 
     public function rejectBusiness()
     {
-        $reject_business = Business::where('reject_reason', '!=', 'null')->get()->first();
+        $business_list = Business::where('status',2)->orderBy('created_at', 'DESC')->get();
         // dd( $reject_business);
-        return view('business_management.reject_business', compact('reject_business'));
+        return view('business_management.reject_business', compact('business_list'));
     }
 
-    public function rejectBusinessModel(Request $request,  $id)
-    {
-       $reject =  Business::find('id', $id)->first();
-       Business::create([
-            $reject->reject_reason = $request->reject_reason
-       ]);
-        return redirect()->back();
-    }
+    // public function rejectBusinessModel(Request $request,  $id)
+    // {
+    //    $reject =  Business::find('id', $id)->first();
+    //    Business::create([
+    //         $reject->reject_reason = $request->reject_reason
+    //    ]);
+    //     return redirect()->back();
+    // }
 
     public function editBusiness(Business $id)
     {
@@ -221,9 +221,37 @@ foreach($request->staff as $key =>$value )
 
     public function destroyBusiness($id)
     {
-        $delete_business = Business::where('id', $id)->first();
-        $delete_business->delete()->with('danger','business deleted successfully');
+        $delete_business = Business::find($id);
+        $delete_business->delete($id);
+        return redirect()->back()->with('danger','business deleted successfully');
     }
 
+    public function status(Request $request){
+        // dd($request->all());
+        $business= Business::find($request->businessid);
+        $business->status = $request->accept;
+        $business->save();
+        
+        return response()->json([
+            'success' => 'image deleted successfully!'
+        ]);
+    }
+
+    public function reject(Request $request , $id){
+        // dd($request->all());
+        $business= Business::find($id);
+        $business->status = $request->reject;
+        $business->reject_reason = $request->reject_reason;
+        $business->save();
+
+        // $busre = BusinessRequest::create([
+        // 'user_id'=>$request->user_id,
+        // 'business_id'=>$id,
+        // 'message'=>$request->reject_reason,
+        // 'type'=>2
+        // ]);
+        
+        return redirect()->back()->with('danger','Business Rejected Successfully');
+    }
 }
 
