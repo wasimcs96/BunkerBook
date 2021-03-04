@@ -521,7 +521,7 @@
                             </div>
                          </div>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary float-right">Submit</button>
                     </fieldset>
 
                 </form>
