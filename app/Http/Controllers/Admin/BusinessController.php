@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Config;
 use App\Models\BusinessImage;
 use App\Models\Category;
 use App\Models\BusinessVideo;
-use App\Models\Category;
+// use App\Models\Category;
 use App\Models\BusinessRequest;
 class BusinessController extends Controller
 {
@@ -111,11 +111,12 @@ class BusinessController extends Controller
 
       
         //  $business_staff = dd($request->all());
+        
 foreach($request->staff as $key2 => $value)
 
 {
 
-    if($request->file($value['staff_profile']))
+    if(isset($value['staff_profile']) && $request->file($value['staff_profile']))
     {
         $staff_profile=$value['staff_profile'];
 // dd()
@@ -135,42 +136,44 @@ foreach($request->staff as $key2 => $value)
             'profile' => $staff_profilestore
         ]);
         }
-
-     
-
-
+    
         if($request->hasFile('business_photos'))
-         {
-          $businessprofile=$request->business_photos;
-       
-          $businessimage_name= time().$businessprofile->getClientOriginalName();
-           $businessprofile->move('uploads/businessimage',$businessimage_name);
-          $business_image= 'uploads/businessimage/'.$businessimage_name;
-            BusinessImage::create([
-                'image' => $business_image,
-                'business_id' => $business->id
-            ]);
-          
+        {
         
-         }
- 
+            $images=collect($request->business_photos);
+            // dd(auth()->user());
+        // dd($images);
+        
+            foreach($images as $image){
+                $businessimage_name= time().$image->getClientOriginalName();
+                $image->move('uploads/businessimage',$businessimage_name);
+            $business_image= 'uploads/businessimage/'.$businessimage_name;
+                BusinessImage::create([
+                    'image' => $business_image,
+                    'business_id' => $business->id
+                ]);
+            }
+        }
+        
+            $videos = collect($request->youtube_video);
+            foreach($videos as $video){
+                        BusinessVideo::create([
+                           'video' => $video,
+                           'business_id' => $business->id
+                       ]);
+                        
+                        }
         
 
 
-         if($request->hasFile('business_videos'))
-          {
-           $businessvideo=$request->business_videos;
+        //  if($request->hasFile('business_videos'))
+        //   {
+        //    $businessvideo=$request->business_videos;
        
-           $businessvideo_name= time().$businessvideo->getClientOriginalName();
-            $businessvideo->move('uploads/businessvideo',$businessvideo_name);
-           $business_videos= 'uploads/businessvideo/'.$businessvideo_name;
- 
-             BusinessVideo::create([
-                'video' => $business_videos,
-                'business_id' => $business->id
-            ]);
-             
-          }
+        //    $businessvideo_name= time().$businessvideo->getClientOriginalName();
+        //     $businessvideo->move('uploads/businessvideo',$businessvideo_name);
+        //    $business_videos= 'uploads/businessvideo/'.$businessvideo_name;
+        //   }
   return redirect()->route('business.upcoming')->with('success','Business details added successfully');
     }
 

@@ -484,9 +484,10 @@
 
                                 <button type="button" class="btn_upload" id="upBtn">Upload a file</button>
 
-                                <input type="file" name="business_photos" id="photos" accept="image/*" class="form-control imageUpload">
+                                <input type="file" name="business_photos[]" id="photos" class="form-control imageUpload" multiple>
 
                             </div>
+                            <input name="" id="photo" type="file" class="dropify-frrr" >
 
                             <div id="preview" class="col-md-12">
 
@@ -500,25 +501,23 @@
 
                     <h3>Videos</h3>
                     <fieldset>
-                        <div class="form-group">
-                            <label class=" form-control-label">Videos </label><br>
-
-                            <div class="upload-btn-wrapper">
-
-                                <button type="button" class="btn_upload" id="upvideoBtn">Upload a file</button>
-
-                                <input type="file" name="business_videos" id="videos" accept="video/*" class="form-control imageUpload">
-
+                      
+                        <div class="field_wrapperyoutube_link">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                <label class="control-label">Youtube Link</label>
+                                <input type="text" name="youtube_video[]" value="" class="form-control">
+                                </div>
                             </div>
+                        </div>
 
-                            <div id="videopreview" class="col-md-12">
-
-
+                         <div class="col-md-12">
+                            <div class="form-group">
+                               <a href="javascript:void(0);" class="add_buttonyoutube_link btn btn-warning btn-sm" title="Add field">Add More fields</a>
                             </div>
+                         </div>
 
-
-<button type="submit" class="btn btn-primary">Submit</button>
-                          </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </fieldset>
 
                 </form>
@@ -940,5 +939,55 @@
 
 
      });
+
+     
+  $(document).ready(function(){
+         var maxField = 2; //Input fields increment limitation
+         var addButton = $('.add_buttonyoutube_link'); //Add button selector
+         var wrapper = $('.field_wrapperyoutube_link'); //Input field wrapper
+         var x = 1; //Initial field counter is 1
+
+         //Once add button is clicked
+         $(addButton).click(function(){
+             //Check maximum number of input fields
+             if(x < maxField){
+                 x++; //Increment field counter
+              console.log(x);
+              var fieldHTML = ' <div class="rowField1'+x+'" ><div class="col-md-12"><div class="form-group"><label class="control-label">Website</label><input type="text" name="youtube_video[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_buttonyoutube_link" id="'+x+'">Delete</a></div></div></div>'; //New input field html
+
+                 $(wrapper).append(fieldHTML); //Add field html
+             }
+         });
+
+         //Once remove button is clicked
+         $(wrapper).on('click', '.remove_button1', function(e){
+             e.preventDefault();
+          var current_id=$(this).attr('id');
+          console.log(current_id);
+
+             $('.rowField1'+current_id).remove(); //Remove field html
+             x--; //Decrement field counter
+         });
+
+
+
+
+     });
+
+</script>
+<script src="{{ asset('assets/vendor/dropify/js/dropify.js') }}"></script>
+
+<script src="{{ asset('assets/js/pages/forms/dropify.js') }}"></script>
+
+
+<script>
+    $('.dropify-frrr').dropify({
+        messages: {
+            default: 'Upload Image',
+            replace: 'Upload  Image',
+            remove: 'Cancel',
+            error: 'Sorry,the file is too large'
+        }
+    });
 </script>
 @stop
