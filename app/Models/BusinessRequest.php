@@ -11,7 +11,8 @@ class BusinessRequest extends Model
         'user_id',
         'title',
         'message',
-        'business_id'
+        'business_id',
+        'type'
     ];
     public function businessRequest()
     {
