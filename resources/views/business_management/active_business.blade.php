@@ -68,9 +68,9 @@
                     </thead> --}}
 
                     <tbody>
-                        @foreach($business_list as $business)
+                        @foreach($business_list as $key=> $business)
                         <tr>
-                            <td>{{$business->id}}</td>
+                            <td>{{$key+1}}</td>
                             <td><input checked="" type="checkbox" value="id" onclick="makeFeature('id')" id="featured"></td>
                             <td>{{$business->type}}</td>
 

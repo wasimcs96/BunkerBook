@@ -123,9 +123,12 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                   <label class="control-label">Country</label>
-                                   <input type="text" name="country" id="country" value="" class="form-control">
-                                   <span class="msg_alert_class" id="countryMsg"></span>
+                                    <select name="country" id="country" class="srs-in" placeholder="Search Any Country .....">
+                                        <?php $country=App\Models\Country::all(); ?>
+                                        @foreach($country as $count)
+                                        <option value="{{ $count->id ?? '' }}">{{ $count->name ?? ''}}</option>
+                                        @endforeach
+                                        </select>
                                 </div>
                              </div>
                              {{-- <div class="col-md-6">

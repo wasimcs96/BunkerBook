@@ -83,14 +83,42 @@
                             <td>{{$business->address}}</td>
                             <td><?php  $category = $business->category; ?>{{$business->category}}</td>
                             <td>
-                                <a href="#"
-                                onclick="return confirm('Are you sure want to approve this Business?');"
-                                class="btn btn-danger btn-sm">Approve</a>
+                                <button class="accept btn btn-danger btn-sm" acceptIB="1" businesID={{$business->id}}>Approve</button>
                                 <a href="javascript:void(0)" data-toggle="modal"
-                                data-target="#rejectModal" class="btn btn-warning btn-sm">Reject</a>
+                                data-target="#rejectModal{{$business->id}}" class="btn btn-warning btn-sm">Reject</a>
                                 <a href="{{route('business.view',$business->id)}}"
                                 class="btn btn-info btn-sm">View Detail</a></td>
                         </tr>
+                        <div id="rejectModal{{$business->id}}" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+                      
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h4 class="modal-title">Reject Reason</h4>
+                                <button type="button" class="close" data-dismiss="modal">×</button>
+                            
+                              </div>
+                              <form method="post" action="{{route('business.request.reject',['id'=>$business->id])}}">
+                                @csrf
+                              <div class="modal-body">
+                      
+                               <div class="form-group">
+                                   <label>Reject reason</label>
+                                   <textarea class="form-control" name="reject_reason" required=""></textarea>
+                                   <input type="hidden" name="reject" value="2">
+                                   <input type="hidden" name="user_id" value="{{$business->user_id}}">
+                               </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                 <button type="submit" class="btn btn-info">Submit</button>
+                              </div>
+                            </form>
+                            </div>
+                      
+                          </div>
+                        </div>
                         @endforeach
                     </tbody>
                 </table>
@@ -171,4 +199,37 @@
 
     }
     </script>
+    <script>
+      var accept=""
+      
+      
+      
+      $('.accept').click(function(){
+      
+      
+          var accept = $(this).attr('acceptIB');
+          var businessid = $(this).attr('businesID')
+      console.log(accept);
+      console.log(businessid);
+      // document.getElementById(media_id).style.display="none";
+      // console.log(media_id);
+              $.ajaxSetup({
+               headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+                  });
+                  $.ajax({
+                      type: "post",
+                      url: "{{route('business.status')}}",
+                      data: {accept: accept, businessid:businessid},
+                      success: function (result) {
+                          console.log('success');
+      
+                      }
+                  });
+      
+      
+      
+      });
+       </script>
 @stop
