@@ -355,3 +355,6 @@ Route::post('country/filter','FrontEndController\CountryFrontController@countryf
 
 Route::post('/bookmark','FrontEndController\BookmarkFrontController@postbookmark')->name('bookmark.create');
 
+Route::post('business/status/update','Admin\BusinessController@status')->name('business.status');
+
+Route::post('business/reject/{id}','Admin\BusinessController@reject')->name('business.request.reject');
