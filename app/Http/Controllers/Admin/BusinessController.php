@@ -205,14 +205,156 @@ foreach($request->staff as $key2 => $value)
     //     return redirect()->back();
     // }
 
-    public function editBusiness(Business $id)
+    public function editBusiness($id)
     {
-        // dd('dffghjgfgxgfhf');
-        return view('business_management.edit_business')->with('business');
+        $business = Business::find($id);
+        
+        return view('business_management.edit_business', compact('business'));
     }
 
-    public function updateBusiness()
+    public function updateBusiness(Request $request ,$id)
     {
+        $business_profile_image ='';
+
+
+        if($request->hasFile('business_profile'))
+         {
+          $businessprofile=$request->business_profile;
+          $businessprofile_name= time().$businessprofile->getClientOriginalName();
+           $businessprofile->move('uploads/businessprofileimage',$businessprofile_name);
+          $business_profile_image= 'uploads/businessprofileimage/'.$businessprofile_name;
+        
+         }
+ 
+         $featured_banner_image = '';
+ 
+         if($request->hasFile('featured_banner_image'))
+         {
+          $banner=$request->featured_banner_image;
+          $banner_name= time().$banner->getClientOriginalName();
+          $st= $banner->move('uploads/businessbannerimage',$banner_name);
+          $featured_banner_image = 'uploads/businessbannerimage/'.$banner_name;
+         }
+ 
+       
+         
+         $catim = null;
+         if($request->has('category')){
+         $category = $request->category;
+         // $cat = explode(',',$category);
+         $catfinds = Category::whereIn('id',$category)->pluck('name');
+         
+         $catim =collect($catfinds)->implode(',');  
+         }
+ // dd($request->all());
+         $business = Business::find($id);
+            $business->type = $request->type;
+            $business->name = $request->name;
+            $business->email =collect($request->email)->implode(',');
+            $business->category = collect($request->category)->implode(',');
+            $business->category_name= $catim;
+            $business->business_time=$request->business_time;
+            $business->website =collect($request->website)->implode(',');
+            $business->landline = collect($request->landline)->implode(',');
+            $business->address = $request->address;
+            $business->country = $request->country;
+            $business->start_time = $request->start_time;
+            $business->end_time = $request->end_time;
+            $business->business_profile = $business_profile_image;
+            $business->featured_banner_image = $featured_banner_image;
+ 
+            $business->about = $request->about;
+            $business->ports_of_operation = $request->ports_of_operation;
+ 
+            $business->sunday = $request->sunday;
+            $business->sunday_start_time = $request->sunday_start_time;
+            $business->sunday_end_time = $request->sunday_end_time;
+
+            $business->monday = $request->monday;
+            $business->monday_start_time = $request->monday_start_time;
+            $business->monday_end_time = $request->mondaay_end_time;
+ 
+            $business->tuesday = $request->tuesday;
+            $business->tuesday_start_time = $request->tuesday_start_time;
+            $business->tuesday_end_time = $request->tuesday_end_time;
+ 
+            $business->wednesday = $request->wednesday;
+            $business->wednesday_start_time = $request->wednesday_start_time;
+            $business->wednesday_end_time = $request->wednesday_end_time;
+ 
+            $business->thursday = $request->thursday;
+            $business->thursday_start_time = $request->thursday_start_time;
+            $business->thursday_end_time = $request->thursday_end_time;
+
+            $business->friday =$request->friday;
+            $business->friday_start_time = $request->friday_start_time;
+            $business->friday_end_time = $request->friday_end_time;
+ 
+            $business->saturday  = $request->saturday;
+            $business->saturday_start_time = $request->saturday_start_time;
+            $business->saturday_end_time = strtotime($request->saturday_end_time);
+            
+            $business->save();
+         
+         $staff_profilestore = '';
+ 
+         //  $business_staff = dd($request->all());
+         
+ foreach($request->staff as $key2 => $value)
+ 
+ {
+ 
+//      if(isset($value['staff_profile']) && $request->file($value['staff_profile']))
+//      {
+//          $staff_profile=$value['staff_profile'];
+//  // dd()
+//          // $staff_profile = $request->profile
+//          $staff_profile_new_name = time() . $staff_profile->getClientOriginalName();
+//          $staff_pro->move('uploads/business_staffProfile',$staff_profile_new_name);
+//          $staff_profilestore = 'uploads/business_staffProfile/' . $staff_profile_new_name;
+//      }
+//          $bs= BusinessStaff::where('business_id',$id);
+         
+//          $bs->business_id= $id;
+//          $bs->staff_name = $value['staff_name'];    
+//          $bs->staff_job_title = $value['staff_job_title'];
+//          $bs->staff_email = $value['staff_email'];
+//          $bs->staff_mobile = $value['staff_mobile'];
+//          $bs->staff_skype = $value['staff_skype'];
+//          $bs->staff_about = $value['staff_about'];
+//          $bs->profile = $staff_profilestore;
+//         $bs->save();
+         }
+        
+         if($request->hasFile('business_photos'))
+         {
+         
+             $images=collect($request->business_photos);
+             // dd(auth()->user());
+         // dd($images);
+         
+             foreach($images as $image){
+                 $businessimage_name= time().$image->getClientOriginalName();
+                 $image->move('uploads/businessimage',$businessimage_name);
+             $business_image= 'uploads/businessimage/'.$businessimage_name;
+               $bBI=  BusinessImage::where('business',$id);
+                $bBI->image = $business_image;
+                $bBI->business_id = $id;
+                $bBi->save();
+             }
+         }
+         
+             $videos = collect($request->youtube_video);
+             foreach($videos as $video){
+                       $bvi =  BusinessVideo::where('business',$id);
+                            $bvi->video = $video;
+                            $bvi->business_id =$id;
+                       $bvi->save();
+                         
+                         }
+         
+ 
+ 
         return view('business_management.active_business')->with('info','business updated successfully');
     }
 

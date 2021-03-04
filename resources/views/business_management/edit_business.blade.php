@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('parentPageTitle', 'Business')
-@section('title', 'Add New Business')
+@section('title', 'Edit Business')
 
 @section('content')
 
@@ -25,12 +25,12 @@
 
             </div>
             <div class="body wizard_validation">
-                <form id="wizard_with_validation" action="{{route('business.store')}}" method="POST" enctype="multipart/form-data">
+                <form id="wizard_with_validation" action="{{route('business.update',$business->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                    <h3>Basic Details</h3>
                     <fieldset>
                         <div class="row clearfix">
-                            <div class="col-md-12">
+                            {{-- <div class="col-md-12">
                                 <div class="form-group">
 
                                     <select name="status" class="form-control" required>
@@ -39,10 +39,14 @@
                                         <option value="2">Premium</option>
                                     </select>
                                </div>
-                            </div>
+                            </div> --}}
+        {{-- {{dd($business)}} --}}
+
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="text" name="name" placeholder="Name *" class="form-control" required>
+                                   <label class="control-label">Email</label>
+
+                                    <input type="text" name="name" placeholder="Name *" value="{{$business->name ?? ''}}" class="form-control" required>
                                 </div>
                             </div>
 
@@ -50,7 +54,7 @@
                                 <div class="col-md-12">
                                    <div class="form-group">
                                    <label class="control-label">Email</label>
-                                      <input type="text" name="email[]" id="email" value="" class="form-control">
+                                      <input type="text" name="email[]" id="email" value="{{$business->email ?? ''}}" class="form-control">
                                        <span class="msg_alert_class" id="emailMsg"></span>
 
                                    </div>
@@ -65,16 +69,14 @@
 
 
 
-                            <div class="col-md-12">
+                             <div class="col-md-12">
                                 <label>Select Category</label>
                                 <div class="multiselect_div">
-                                    <select id="multiselect1" name="multiselect1[]" class="multiselect" multiple="multiple">
-                                        <option value="cheese">Cheese</option>
-                                        <option value="tomatoes">Tomatoes</option>
-                                        <option value="mozarella">Mozzarella</option>
-                                        <option value="mushrooms">Mushrooms</option>
-                                        <option value="pepperoni">Pepperoni</option>
-                                        <option value="onions">Onions</option>
+                                <?php $category= App\Models\Category::all(); ?>
+                                    <select id="multiselect1" name="category[]"  class="selectpicker" multiple data-live-search="true">
+                                        @foreach($category as $cat)
+                                        <option value="{{ $cat->id ?? '' }}">{{ $cat->name ?? ''}}</option>
+                                       @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -83,7 +85,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                     <label class="control-label">Website</label>
-                                    <input type="text" name="website" value="" class="form-control">
+                                    <input type="text" name="website" value="{{$business->website ?? ''}}"class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +100,7 @@
                                 <div class="col-md-12">
                                    <div class="form-group">
                                       <label class="control-label">Landline</label>
-                                      <input type="text" name="landline[]" value="" class="form-control">
+                                      <input type="text" name="landline[]" value="{{$business->landline ?? ''}}" value="" class="form-control">
                                    </div>
                                 </div>
                               </div>
@@ -112,7 +114,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                    <label class="control-label">Address</label>
-                                   <input type="text" name="address" id="address" value="" class="form-control geocomplete pac-target-input" placeholder="Enter a location" autocomplete="off">
+                                   <input type="text" name="address" id="address" value="{{$business->address ?? ''}}" class="form-control geocomplete pac-target-input" placeholder="Enter a location" autocomplete="off">
                                    <input type="hidden" id="lat" name="lat" value="">
                                    <input type="hidden" id="long" name="lng" value="">
 
@@ -120,18 +122,21 @@
                                 </div>
                              </div>
 
-                            <div class="col-md-12">
+                             <div class="col-md-12">
                                 <div class="form-group">
-                                   <label class="control-label">Country</label>
-                                   <input type="text" name="country" id="country" value="" class="form-control">
-                                   <span class="msg_alert_class" id="countryMsg"></span>
+                                    <select name="country" id="country" class="srs-in" placeholder="Search Any Country .....">
+                                        <?php $country=App\Models\Country::all(); ?>
+                                        @foreach($country as $count)
+                                        <option value="{{ $count->id ?? '' }}" @if(isset($business->country)&&$business->country == $count->id) selected @endif>{{ $count->name ?? ''}}</option>
+                                        @endforeach
+                                        </select>
                                 </div>
                              </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
                                    <label class="control-label">Operating Hours Start</label>
-                                   <input type="time" name="start_time" id="start_time" value="" class="form-control">
+                                   <input type="time" value="{{$business->start_time ?? ''}}" name="start_time" id="start_time" value="" class="form-control">
                                    <span class="msg_alert_class" id="start_timeMsg"></span>
                                 </div>
                              </div>
@@ -139,7 +144,7 @@
                              <div class="col-md-6">
                                 <div class="form-group">
                                    <label class="control-label">Operating Hours End</label>
-                                   <input type="time" name="end_time" id="end_time" value="" class="form-control">
+                                   <input type="time" name="end_time" {{$business->end_time ?? ''}} id="end_time" value="" class="form-control">
                                    <span class="msg_alert_class" id="end_timeMsg"></span>
                                 </div>
                              </div>
@@ -147,8 +152,12 @@
                              <div class="col-md-12">
                                 <div class="form-group">
                                    <label class="control-label">Bussiness Profile</label>
-                                   <input type="file" name="business_profile" accept="image/*" class="form-control">
+                                   <input type="file" name="business_profile"  accept="image/*" class="form-control">
+
                                 </div>
+                                @if(isset($business->business_profile))
+                                <img src="{{asset($business->business_profile)}}">
+                                @endif
                              </div>
 
                              <div class="col-md-12">
@@ -156,6 +165,10 @@
                                    <label class="control-label">Featured Banner Image</label>
                                    <input type="file" name="featured_banner_image" accept="image/*" class="form-control">
                                 </div>
+                                @if(isset($business->featured_banner_image))
+
+                                <img src="{{asset($business->featured_banner_image)}}">
+@endif
                              </div>
 
                         </div>
@@ -167,14 +180,14 @@
                             <div class="form-group">
                                <label class="control-label">About Us</label>
 
-                               <textarea name="about" class="form-control"></textarea>
+                               <textarea name="about" value=""class="form-control">{{$business->about ?? ''}}</textarea>
                             </div>
                         </div>
                          <div class="col-md-12">
                             <div class="form-group">
                                <label class="control-label">Ports of Operation</label>
 
-                               <textarea name="ports_of_operation" class="form-control"></textarea>
+                               <textarea name="ports_of_operation" value=""class="form-control">{{$business->ports_of_operation ?? ''}}</textarea>
                             </div>
                          </div>
                          <div class="col-md-12">
@@ -189,8 +202,8 @@
                                 <div class="form-group">
                                     <label class="control-label">Sunday</label>
                                     <select name="sunday" id="sunday" class="form-control">
-                                        <option value="open">Open</option>
-                                        <option value="close">Close</option>
+                                        <option value="open" @if(isset($business->sunday) && $business->sunday == 'open') selected @endif >Open</option>
+                                        <option value="close" @if(isset($business->sunday) && $business->sunday == 'close') selected @endif >Close</option>
 
                                     </select>
 
@@ -202,14 +215,14 @@
                                         <div class="col-md-6">
                                          <div class="form-group">
                                             <label class="control-label">Hours Start</label>
-                                            <input type="time" name="sunday_start_time" id="sunday_start_time" value="" class="form-control">
+                                            <input type="time" value="{{$business->sunday_start_time ?? ''}}" name="sunday_start_time" id="sunday_start_time" value="" class="form-control">
 
                                          </div>
                                       </div>
                                       <div class="col-md-6">
                                          <div class="form-group">
                                             <label class="control-label">Hours End</label>
-                                            <input type="time" name="sunday_end_time" id="sunday_end_time" value="" class="form-control">
+                                            <input type="time" value="{{$business->sunday_end_time ?? ''}}"  name="sunday_end_time" id="sunday_end_time" value="" class="form-control">
 
                                          </div>
                                       </div>
@@ -222,8 +235,8 @@
                                 <div class="form-group">
                                     <label class="control-label">Monday</label>
                                     <select name="monday" id="monday" class="form-control">
-                                        <option value="open">Open</option>
-                                        <option value="close">Close</option>
+                                        <option value="open" @if(isset($business->monday) && $business->monday == 'open') selected @endif >Open</option>
+                                        <option value="close"  @if(isset($business->monday) && $business->monday == 'close') selected @endif >Close</option>
 
                                     </select>
 
@@ -235,14 +248,14 @@
                                         <div class="col-md-6">
                                          <div class="form-group">
                                             <label class="control-label">Hours Start</label>
-                                            <input type="time" name="monday_start_time" id="monday_start_time" value="" class="form-control">
+                                            <input type="time" value="{{$business->monday_start_time ?? ''}}"  name="monday_start_time" id="monday_start_time" value="" class="form-control">
 
                                          </div>
                                       </div>
                                       <div class="col-md-6">
                                          <div class="form-group">
                                             <label class="control-label">Hours End</label>
-                                            <input type="time" name="monday_end_time" id="monday_end_time" value="" class="form-control">
+                                            <input type="time" name="monday_end_time" value="{{$business->monday_end_time ?? ''}}"  id="monday_end_time" value="" class="form-control">
 
                                          </div>
                                       </div>
@@ -433,19 +446,19 @@
                     <h3>Personal Detail</h3>
                     <fieldset>
                         <div class="field_wrapper_staff">
-                        <div class="col-md-12">
-                           <div class="form-group">
-                              <label class="control-label">Staff Detail</label>
-                              <input type="text" name="staff_name[]" value="" placeholder="Name" class="form-control">
-                              <input type="text" name="staff_job_title[]" value="" placeholder="Job title" class="form-control">
-                              <input type="text" name="staff_email[]" value="" placeholder="Email" class="form-control">
-                              <input type="text" name="staff_mobile[]" value="" placeholder="Mobile" class="form-control">
-                              <input type="text" name="staff_skype[]" value="" placeholder="Skype Id" class="form-control">
-                              <textarea name="staff_about[]" placeholder="About" class="form-control"></textarea>
-                              <input type="file" name="profile[]" value="" placeholder="Profile" accept="image/*" class="form-control">
-
-                           </div>
-                        </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                   <label class="control-label">Staff Detail</label>
+                                   <input type="text" name="staff[0][staff_name]" value="" placeholder="Name" class="form-control">
+                                   <input type="text" name="staff[0][staff_job_title]" value="" placeholder="Job title" class="form-control">
+                                   <input type="text" name="staff[0][staff_email]" value="" placeholder="Email" class="form-control">
+                                   <input type="text" name="staff[0][staff_mobile]" value="" placeholder="Mobile" class="form-control">
+                                   <input type="text" name="staff[0][staff_skype]" value="" placeholder="Skype Id" class="form-control">
+                                   <textarea name="staff[0][staff_about]" placeholder="About" class="form-control"></textarea>
+                                   <input type="file" name="staff[0][staff_profile]" value="" placeholder="Profile" accept="image/*" class="form-control">
+     
+                                </div>
+                             </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                <a href="javascript:void(0);" class="add_staff_button btn btn-warning btn-sm" title="Add field">Add More Staff</a>
@@ -463,9 +476,10 @@
 
                                 <button type="button" class="btn_upload" id="upBtn">Upload a file</button>
 
-                                <input type="file" name="photos" id="photos" accept="image/*" class="form-control imageUpload">
+                                <input type="file" name="business_photos[]" id="photos" class="form-control imageUpload" multiple>
 
                             </div>
+                      
 
                             <div id="preview" class="col-md-12">
 
@@ -479,25 +493,23 @@
 
                     <h3>Videos</h3>
                     <fieldset>
-                        <div class="form-group">
-                            <label class=" form-control-label">Videos </label><br>
-
-                            <div class="upload-btn-wrapper">
-
-                                <button type="button" class="btn_upload" id="upvideoBtn">Upload a file</button>
-
-                                <input type="file" name="videos" id="videos" accept="video/*" class="form-control imageUpload">
-
+                      
+                        <div class="field_wrapperyoutube_link">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                <label class="control-label">Youtube Link</label>
+                                <input type="text" name="youtube_video[]" value="" class="form-control">
+                                </div>
                             </div>
+                        </div>
 
-                            <div id="videopreview" class="col-md-12">
-
-
+                         <div class="col-md-12">
+                            <div class="form-group">
+                               <a href="javascript:void(0);" class="add_buttonyoutube_link btn btn-warning btn-sm" title="Add field">Add More fields</a>
                             </div>
+                         </div>
 
-
-
-                          </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </fieldset>
 
                 </form>
@@ -572,14 +584,16 @@
         var add_staff_button = $('.add_staff_button');
         var wrapper_staff = $('.field_wrapper_staff');
         var y=1;
+        var inc=1;
          $(add_staff_button).click(function(){
             //Check maximum number of input fields
             if(y < maxField){
                 y++; //Increment field counter
 
-             var fieldHTML_staff = ' <div class="rowField_staff'+y+'" ><div class="col-md-12"><div class="form-group"><label class="control-label">Staff Detail <a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button_staff" id="'+y+'">X</a> </label> <input type="text" name="staff_name[]"  value="" placeholder="Name" class="form-control"><input type="text" name="staff_job_title[]"  value="" placeholder="Job title" class="form-control"><input type="text" name="staff_email[]"  value="" placeholder="Email" class="form-control"><input type="text" name="staff_mobile[]"  value="" placeholder="Mobile" class="form-control"><input type="text" name="staff_skype[]"  value="" placeholder="Skype Id" class="form-control"><textarea name="staff_about[]"   placeholder="About" class="form-control" ></textarea><input type="file" name="profile[]"  value="" placeholder="Profile" accept="image/*" class="form-control"> </div></div></div>'; //New input field html
+             var fieldHTML_staff = ' <div class="rowField_staff'+y+'" ><div class="col-md-12"><div class="form-group"><label class="control-label">Staff Detail <a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button_staff" id="'+y+'">X</a> </label> <input type="text" name="staff['+inc+'][staff_name]"  value="" placeholder="Name" class="form-control"><input type="text" name="staff['+inc+'][staff_job_title]"  value="" placeholder="Job title" class="form-control"><input type="text" name="staff['+inc+'][staff_email]"  value="" placeholder="Email" class="form-control"><input type="text" name="staff['+inc+'][staff_mobile]"  value="" placeholder="Mobile" class="form-control"><input type="text" name="staff['+inc+'][staff_skype]"  value="" placeholder="Skype Id" class="form-control"><textarea name="staff['+inc+'][staff_about]"   placeholder="About" class="form-control" ></textarea><input type="file" name="staff['+inc+'][staff_profile]"   value="" placeholder="Profile" accept="image/*" class="form-control"> </div></div></div>'; //New input field html
 
                 $(wrapper_staff).append(fieldHTML_staff); //Add field html
+                inc++;
             }
         });
 
@@ -594,7 +608,6 @@
         });
 
     });
-
  jQuery(function() {
 
      jQuery(document).on("change","#photos", function()
@@ -900,6 +913,40 @@
           console.log(current_id);
 
              $('.rowField2'+current_id).remove(); //Remove field html
+             x--; //Decrement field counter
+         });
+
+
+
+
+     });
+
+       
+  $(document).ready(function(){
+         var maxField = 2; //Input fields increment limitation
+         var addButton = $('.add_buttonyoutube_link'); //Add button selector
+         var wrapper = $('.field_wrapperyoutube_link'); //Input field wrapper
+         var x = 1; //Initial field counter is 1
+
+         //Once add button is clicked
+         $(addButton).click(function(){
+             //Check maximum number of input fields
+             if(x < maxField){
+                 x++; //Increment field counter
+              console.log(x);
+              var fieldHTML = ' <div class="rowField1'+x+'" ><div class="col-md-12"><div class="form-group"><label class="control-label">Website</label><input type="text" name="youtube_video[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_buttonyoutube_link" id="'+x+'">Delete</a></div></div></div>'; //New input field html
+
+                 $(wrapper).append(fieldHTML); //Add field html
+             }
+         });
+
+         //Once remove button is clicked
+         $(wrapper).on('click', '.remove_button1', function(e){
+             e.preventDefault();
+          var current_id=$(this).attr('id');
+          console.log(current_id);
+
+             $('.rowField1'+current_id).remove(); //Remove field html
              x--; //Decrement field counter
          });
 
