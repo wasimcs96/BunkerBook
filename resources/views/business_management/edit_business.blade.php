@@ -44,7 +44,7 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                   <label class="control-label">Email</label>
+                                   <label class="control-label">Name</label>
 
                                     <input type="text" name="name" placeholder="Name *" value="{{$business->name ?? ''}}" class="form-control" required>
                                 </div>
@@ -54,7 +54,7 @@
                                 <div class="col-md-12">
                                    <div class="form-group">
                                    <label class="control-label">Email</label>
-                                      <input type="text" name="email[]" id="email" value="{{$business->email ?? ''}}" class="form-control">
+                                      <input type="email" name="email[]" id="email" value="{{$business->email ?? ''}}" class="form-control">
                                        <span class="msg_alert_class" id="emailMsg"></span>
 
                                    </div>
@@ -132,7 +132,10 @@
                                         </select>
                                 </div>
                              </div>
-
+                             <div class="fancy-checkbox col-md-1" style="margin: auto;">
+                                {{-- <label class="control-label">Operating Hours Start</label> --}}
+                                <label><input type="checkbox" name="business_time" value="1"><span>24/7</span></label>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                    <label class="control-label">Operating Hours Start</label>
@@ -522,13 +525,17 @@
 
 @section('page-styles')
 <link rel="stylesheet" href="{{ asset('assets/vendor/jquery-steps/jquery.steps.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css') }}"> --}}
 <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-colorpicker/css/bootstrap-colorpicker.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/multi-select/css/multi-select.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/nouislider/nouislider.min.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+<link rel="stylesheet" href="{{ asset('assets/vendor/dropify/css/dropify.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
 
 @stop
 
@@ -536,8 +543,8 @@
 <script src="{{ asset('assets/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js') }}"></script><!-- Bootstrap Colorpicker Js -->
 <script src="{{ asset('assets/vendor/jquery-inputmask/jquery.inputmask.bundle.js') }}"></script><!-- Input Mask Plugin Js -->
 <script src="{{ asset('assets/vendor/jquery.maskedinput/jquery.maskedinput.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/multi-select/js/jquery.multi-select.js') }}"></script><!-- Multi Select Plugin Js -->
-<script src="{{ asset('assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js') }}"></script>
+{{-- <script src="{{ asset('assets/vendor/multi-select/js/jquery.multi-select.js') }}"></script><!-- Multi Select Plugin Js --> --}}
+{{-- <script src="{{ asset('assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js') }}"></script> --}}
 <script src="{{ asset('assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js') }}"></script><!-- Bootstrap Tags Input Plugin Js -->
 <script src="{{ asset('assets/vendor/nouislider/nouislider.js') }}"></script><!-- noUISlider Plugin Js -->
@@ -546,10 +553,17 @@
 <script src="{{ asset('assets/js/pages/forms/advanced-form-elements.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" type="text/javascript"></script>
 <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=y8edi4divxwsplcdd28rzuyx245zbzdndm22yzhuaanemki5"></script>
-<script src="https://www.matrixmaritimemedia.com/bunkerbook/assets/js/jquery.geocomplete.min.js"></script>
+{{-- <script src="https://www.matrixmaritimemedia.com/bunkerbook/assets/js/jquery.geocomplete.min.js"></script> --}}
 
 <script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
 <script src="{{ asset('assets/js/pages/forms/form-wizard.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+<script src="{{ asset('assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/dropify/js/dropify.js') }}"></script>
+
+<script src="{{ asset('assets/js/pages/forms/dropify.js') }}"></script>
+
+<script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -857,7 +871,7 @@
 //   });
 
   $(document).ready(function(){
-         var maxField = 10; //Input fields increment limitation
+         var maxField = 2; //Input fields increment limitation
          var addButton = $('.add_button1'); //Add button selector
          var wrapper = $('.field_wrapper1'); //Input field wrapper
          var x = 1; //Initial field counter is 1
@@ -889,7 +903,7 @@
 
      });
   $(document).ready(function(){
-         var maxField = 10; //Input fields increment limitation
+         var maxField = 2; //Input fields increment limitation
          var addButton = $('.add_button2'); //Add button selector
          var wrapper = $('.field_wrapper2'); //Input field wrapper
          var x = 1; //Initial field counter is 1

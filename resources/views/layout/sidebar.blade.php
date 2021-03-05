@@ -65,6 +65,7 @@
                 <li class="{{ Request::segment(1) === 'business' ? 'active open' : null }}"><a href="javascript:void(0)"><i class="icon-map"></i><span>Business Management</span></a>
                     <ul>
                     <li class="{{ Request::segment(2) === 'add' ? 'active' : null }}"><a href="{{route('business.add')}}">Add Business</a></li>
+                    <li class="{{ Request::segment(2) === 'upload' ? 'active' : null }}"><a href="{{route('business.upload')}}">Upload Business</a></li>
                     <li class="{{ Request::segment(2) === 'upcoming' ? 'active' : null }}"><a href="{{route('business.upcoming')}}">Upcoming Business list</a></li>
                     <li class="{{ Request::segment(2) === 'active' ? 'active' : null }}"><a href="{{route('business.active')}}">Active Business list</a></li>
                     <li class="{{ Request::segment(2) === 'reject' ? 'active' : null }}"><a href="{{route('business.reject')}}">Reject Business list</a></li>
