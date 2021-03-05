@@ -52,7 +52,7 @@
 															padding: 5px;
 															border: 5px;"></i></span>
                                                             @else
-                                                            <span><button class="bookadd"  custom2="{{$bus->id ?? ''}}" ><i class="fa fa-heart rounded-circle" aria-hidden="true" style="
+                                                            <span><button class="bookadd"   custom2="{{$bus->id ?? ''}}" style="background: none;border: none;" ><i class="fa fa-heart rounded-circle" aria-hidden="true" style="
 															background: white;
                                                             color: black;
 															padding: 5px;
@@ -92,7 +92,7 @@
 														<p class="mb-0">26 lesson</p>
 													</div> -->
                                         </div>
-                                        <div class="course-text">
+                                        <div class="course-text" style="word-break: break-all;">
                                             <a href="course-details.html">
                                                 <h5>{{$bus->name ?? ''}}</h5>
                                             </a>
@@ -112,7 +112,8 @@
                                         </div>
                                         <div class="course-bottom">
                                             <a href="{{route('business.detail',$bus->id)}}" class="course-btn">See
-                                                Details <i class="ti ti-arrow-right"></i></a> <span>$15.00</span>
+                                                Details <i class="ti ti-arrow-right"></i></a> 
+                                                <!-- <span>$15.00</span> -->
                                         </div>
                                     </div>
                                 </div>
