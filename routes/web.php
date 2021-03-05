@@ -350,7 +350,7 @@ Route::get('event/delete/{id}','Admin\EventController@destroy')->name('event.des
 
 Route::get('bookmark/','FrontEndController\BookmarkFrontController@index')->name('bookmark.index');
 
-Route::get('event/','FrontEndController\EventFrontController@event')->name('event.index');  
+Route::get('event/','FrontEndController\EventFrontController@event')->name('event.front.index');  
 
 Route::get('event/detail/{id}','FrontEndController\EventFrontController@detail')->name('event.detail');
 
@@ -372,3 +372,4 @@ Route::post('import', 'Admin\BusinessImportController@import')->name('import');
 
 
 Route::get('business/upload','Admin\BusinessController@importCreate')->name('business.upload');
+

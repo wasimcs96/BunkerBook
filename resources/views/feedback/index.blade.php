@@ -29,6 +29,7 @@
                     <table class="table table-striped table-hover dataTable js-exportable">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Attachment</th>
                                 <th>Subject</th>
                                 <th>Message</th>
@@ -38,13 +39,14 @@
                         </thead>
                      
                         <tbody>
-                           @foreach($feedbacks as $feedback)
+                           @foreach($feedbacks as $key=>$feedback)
                             <tr>
-
-                                <td><img src="{{ $feedback->attachment }}"></td>
-                                <td>{{ $feedback->subject }}</td>
-                                <td>{{ $feedback->message }}</td>
-                                <td>{{ $feedback->created_at}}</td>
+                                <td>{{ $key+1 }}</td>
+                                <!-- <td><img src="{{ $feedback->attachment }}"></td> -->
+                                <td>@if(isset($feedback->attachment)&&file_exists($feedback->attachment))<a href="{{asset($feedback->attachment)}}" target="_blank" ><img src="{{ asset($feedback->attachment)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
+                                <td>@if(isset($feedback->subject)){{ $feedback->subject }}@else N/A @endif</td>
+                                <td>@if(isset($feedback->message)){{ $feedback->message }}@else N/A @endif</td>
+                                <td>@if(isset($feedback->created_at)){{ $feedback->created_at}}@else N/A @endif</td>
                           
                             
                             </tr>

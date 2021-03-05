@@ -32,10 +32,10 @@
                         <tr role="row">
                           <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                             aria-sort="ascending" aria-label="#: activate to sort column descending" style="width: 8px;">#</th>
-                          <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                            aria-label="Featured: activate to sort column ascending" style="width: 57px;">Featured</th>
-                          <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                            aria-label="Listing Type: activate to sort column ascending" style="width: 41px;">Listing Type</th>
+                          <!-- <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                            aria-label="Featured: activate to sort column ascending" style="width: 57px;">Featured</th> -->
+                          <!-- <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                            aria-label="Listing Type: activate to sort column ascending" style="width: 41px;">Listing Type</th> -->
                           <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                             aria-label="Profile: activate to sort column ascending" style="width: 128px;">Profile</th>
                           <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
@@ -72,17 +72,18 @@
                         @foreach($business_list as $business)
                         <tr>
                             <td>{{$i}}</td>
-                            <td><input checked="" type="checkbox" value="id" onclick="makeFeature('id')" id="featured"></td>
-                            <td>{{$business->type ?? ''}}</td>
+                            <!-- <td><input checked="" type="checkbox" value="id" onclick="makeFeature('id')" id="featured"></td> -->
+                            <!-- <td>{{$business->type ?? ''}}</td> -->
 
-                            <td><img style="width: 150px;height: 100px;"
+                            <!-- <td><img style="width: 150px;height: 100px;"
                               src="{{asset($business->business_profile)}}">
-                            </td>
-                            <td>{{$business->name ?? ''}}</td>
-                            <td>{{$business->email ?? ''}}</td>
-                            <td>{{$business->mobile ?? ''}}</td>
-                            <td>{{$business->address ?? ''}}</td>
-                            <td>{{$business->category_name ?? ''}}</td>
+                            </td> -->
+                            <td>@if(isset($business->business_profile)&&file_exists($business->business_profile))<a href="{{asset($business->business_profile)}}" target="_blank" ><img src="{{ asset($business->business_profile)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
+                            <td>@if(isset($business->name)){{$business->name ?? ''}}@else N/A @endif</td>
+                            <td>@if(isset($business->email)){{$business->email ?? ''}}@else N/A @endif</td>
+                            <td>@if(isset($business->mobile)){{$business->mobile ?? ''}}@else N/A @endif</td>
+                            <td>@if(isset($business->address)){{$business->address ?? ''}}@else N/A @endif</td>
+                            <td>@if(isset($business->category_name)){{$business->category_name ?? ''}}@else N/A @endif</td>
                             <td>
                               <button data-toggle="modal" data-target="#mdlerror{{$business->id ?? ''}}" class=" btn btn-danger btn-sm" >Approve</button>
                               <a href="{{route('business.view',$business->id)}}"

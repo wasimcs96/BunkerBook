@@ -44,7 +44,7 @@
                            @foreach($categories as $key=>$category)
                             <tr>
                                 <td>{{$key+1}}</td>
-                                <td>@if(isset($category->icon))<a href="{{asset($category->icon)}}" target="_blank" ><img src="{{ asset($category->icon)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
+                                <td>@if(isset($category->icon)&&file_exists($category->icon))<a href="{{asset($category->icon)}}" target="_blank" ><img src="{{ asset($category->icon)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
                                 <td>@if(isset($category->name)){{ $category->name ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($category->description)){{ $category->description ?? '' }}@else N/A @endif</td>
                                 <td><a href="javascript:void(0);" title="Edit" data-bs-toggle="modal" data-bs-target="#editModal-{{ $category->id }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>

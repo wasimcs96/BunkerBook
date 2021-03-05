@@ -40,11 +40,12 @@
                      
                         <tbody>
                       
-                          @foreach($news as $new)
+                          @foreach($news as $key=>$new)
                             <tr>
-                                <td class=" "></td>
-                                <td class=""><img src="{{asset($new->image ?? '')}}" width="100px;"></td>
-                                <td class="">{{$new->title ?? ''}}</td>
+                                <td class=" ">{{$key+1}}</td>
+                                <!-- <td class=""><img src="{{asset($new->image ?? '')}}" width="100px;"></td> -->
+                                <td>@if(isset($new->image)&&file_exists($new->image))<a href="{{asset($new->image)}}" target="_blank" ><img src="{{ asset($new->image)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
+                                <td class="">@if(isset($new->title)){{$new->title ?? ''}}@else N/A @endif</td>
                                 <td class="col-lg-3">       
                                  <div class="comment more">
                                  <?php $aRoom= $new->description ?>
@@ -56,7 +57,7 @@
             @else
             {!!$aRoom !!}
             @endif</td>
-                                <td class="">{{$new->youtube_link ?? ''}}</td>
+                                <td class="">@if(isset($new->youtube_link)){{$new->youtube_link ?? ''}}@else N/A @endif</td>
                                 <td class=""><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#editModal-{{$new->id ?? ''}}" class="btn btn-sm btn-warning" style="color: white;" ><span class="btn-label">
                                         <i class="fa fa-edit"></i>
                                         </span></a>

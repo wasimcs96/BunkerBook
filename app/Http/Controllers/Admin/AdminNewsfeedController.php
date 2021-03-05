@@ -31,7 +31,7 @@ class AdminNewsfeedController extends Controller
             'image'=>$storeimg,
             'youtube_link'=>$request->youtube_link
             ]);
-            return redirect()->route('news.index')->with('success','Newsfeed updated successfully');
+            return redirect()->route('news.index')->with('success','Newsfeed created successfully');
     }
     public function update(Request $request , $id){
         // dd($id);       $storeimg= '';
@@ -57,6 +57,6 @@ class AdminNewsfeedController extends Controller
     public function destroy($id){
         $store=NewsFeed::find($id);
         $store->delete($id);
-        return redirect()->route('news.index')->with('success','Newsfeed updated successfully');
+        return redirect()->route('news.index')->with('success','Newsfeed deleted successfully');
     }
 }

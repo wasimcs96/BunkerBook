@@ -43,10 +43,11 @@
                           @foreach($banners as $key=> $banner)
                             <tr>
                                 <td class=" ">{{$key+1}}</td>
-                                <td class=""><img src="{{asset($banner->image ?? '')}}" width="100px;"></td>
+                                <!-- <td class=""><img src="{{asset($banner->image ?? '')}}" width="100px;"></td> -->
+                                <td>@if(isset($banner->image)&&file_exists($banner->image))<a href="{{asset($banner->image)}}" target="_blank" ><img src="{{ asset($banner->image)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
                                 <td class=""><a href=" {{$banner->url ?? ''}}" >Visit</td>
                   
-                                <td class="">{{$banner->position?? ''}}</td>
+                                <td class="">@if(isset($banner->position)){{$banner->position?? ''}}@else N/A @endif</td>
                                 <td class=""><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#editModal-{{$banner->id ?? ''}}" class="btn btn-sm btn-warning" style="color: white;" ><span class="btn-label">
                                         <i class="fa fa-edit"></i>
                                         </span></a>
