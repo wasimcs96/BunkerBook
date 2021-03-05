@@ -57,7 +57,7 @@
                                 <div class="col-md-12">
                                    <div class="form-group">
                                    <label class="control-label">Email</label>
-                                      <input type="email" name="email[]" id="email" value="{{$business->email ?? ''}}" class="form-control">
+                                      <input type="email" name="email[]" id="email"  class="form-control">
                                        <span class="msg_alert_class" id="emailMsg"></span>
 
                                    </div>
@@ -86,7 +86,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                     <label class="control-label">Website</label>
-                                    <input type="text" name="website" value="{{$business->website ?? ''}}"class="form-control">
+                                    <input type="text" name="website"class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                                 <div class="col-md-12">
                                    <div class="form-group">
                                       <label class="control-label">Landline</label>
-                                      <input type="text" name="landline[]" value="{{$business->landline ?? ''}}" value="" class="form-control">
+                                      <input type="text" name="landline[]"  value="" class="form-control">
                                    </div>
                                 </div>
                               </div>

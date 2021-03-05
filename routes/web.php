@@ -315,9 +315,9 @@ Route::get('/frontend/membership', function(){
 });
 //category
 
-Route::get('/frontend/bookmark', function(){
-    return view('frontEnd.profile.bookmark.bookmark');
-});
+// Route::get('/frontend/bookmark', function(){
+//     return view('frontEnd.profile.bookmark.bookmark');
+// });
 Route::get('/frontend/add_business', function(){
     return view('frontEnd.profile.business.add_business');
 });

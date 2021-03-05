@@ -41,10 +41,12 @@
                                </div>
                             </div> --}}
                             <div class="col-md-12">
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Name</label>
                                     <input type="text" name="name" placeholder="Name *" class="form-control" required>
                                 </div>
+                            </div>
                             </div>
 
                             <div class="custm">
@@ -66,7 +68,7 @@
 
 
 
-                            <div class="col-md-12">
+                            <div class="col-md-12 my-3">
                                 <label>Select Category</label>
                                 <div class="multiselect_div">
                                 <?php $category= App\Models\Category::all(); ?>
@@ -123,7 +125,7 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <select name="country" id="country" class="srs-in" placeholder="Search Any Country .....">
+                                    <select name="country" id="country" class="srs-in rounded" style="width: -webkit-fill-available;border: solid 1px #ccc;padding: .375rem .75rem;" placeholder="Search Any Country .....">
                                         <?php $country=App\Models\Country::all(); ?>
                                         @foreach($country as $count)
                                         <option value="{{ $count->id ?? '' }}">{{ $count->name ?? ''}}</option>
@@ -138,7 +140,7 @@
                                    <span class="msg_alert_class" id="start_timeMsg"></span>
                                 </div>
                              </div> --}}
-                             <div class="fancy-checkbox">
+                             <div class="fancy-checkbox m-auto col-md-1">
                                 {{-- <label class="control-label">Operating Hours Start</label> --}}
                                 <label><input type="checkbox" name="business_time" value="1"><span>24/7</span></label>
                             </div>
@@ -156,7 +158,7 @@
                                 </div>
                              </div>
 
-                             <div class="col-md-6">
+                             <div class="col-md-5">
                                 <div class="form-group">
                                    <label class="control-label">Operating Hours End</label>
                                    <input type="time" name="end_time" id="end_time" value="" class="form-control">
@@ -453,17 +455,19 @@
                     <h3>Personal Detail</h3>
                    
                     <fieldset>
-                        <div class="field_wrapper_staff">
+                        <div class="field_wrapper_ my-3">
                         <div class="col-md-12">
+                            <div class="field_wrapper_staff">
                            <div class="form-group">
                               <label class="control-label">Staff Detail</label>
-                              <input type="text" name="staff[0][staff_name]" value="" placeholder="Name" class="form-control">
-                              <input type="text" name="staff[0][staff_job_title]" value="" placeholder="Job title" class="form-control">
-                              <input type="text" name="staff[0][staff_email]" value="" placeholder="Email" class="form-control">
-                              <input type="text" name="staff[0][staff_mobile]" value="" placeholder="Mobile" class="form-control">
-                              <input type="text" name="staff[0][staff_skype]" value="" placeholder="Skype Id" class="form-control">
-                              <textarea name="staff[0][staff_about]" placeholder="About" class="form-control"></textarea>
-                              <input type="file" name="staff[0][staff_profile]" value="" placeholder="Profile" accept="image/*" class="form-control">
+                              <input type="text" name="staff[0][staff_name]" value="" placeholder="Name" class="form-control my-3">
+                              <input type="text" name="staff[0][staff_job_title]" value="" placeholder="Job title" class="form-control my-3">
+                              <input type="text" name="staff[0][staff_email]" value="" placeholder="Email" class="form-control my-3">
+                              <input type="text" name="staff[0][staff_mobile]" value="" placeholder="Mobile" class="form-control my-3">
+                              <input type="text" name="staff[0][staff_skype]" value="" placeholder="Skype Id" class="form-control my-3">
+                              <textarea name="staff[0][staff_about]" placeholder="About" class="form-control my-3"></textarea>
+                              <input type="file" name="staff[0][staff_profile]" value="" placeholder="Profile" accept="image/*" class="form-control my-3">
+                              </div>
 
                            </div>
                         </div>
@@ -482,12 +486,12 @@
 
                             <div class="upload-btn-wrapper">
 
-                                <button type="button" class="btn_upload" id="upBtn">Upload a file</button>
+                                <!-- <button type="button" class="btn_upload" id="upBtn">Upload a file</button> -->
 
                                 <input type="file" name="business_photos[]" id="photos" class="form-control imageUpload" multiple>
 
                             </div>
-                            <input name="" id="photo" type="file" class="dropify-frrr" >
+                            <!-- <input name="" id="photo" type="file" class="dropify-frrr" > -->
 
                             <div id="preview" class="col-md-12">
 
@@ -517,7 +521,7 @@
                             </div>
                          </div>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary float-right">Submit</button>
                     </fieldset>
 
                 </form>
@@ -608,7 +612,7 @@
             if(y < maxField){
                 y++; //Increment field counter
 
-             var fieldHTML_staff = ' <div class="rowField_staff'+y+'" ><div class="col-md-12"><div class="form-group"><label class="control-label">Staff Detail <a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button_staff" id="'+y+'">X</a> </label> <input type="text" name="staff['+inc+'][staff_name]"  value="" placeholder="Name" class="form-control"><input type="text" name="staff['+inc+'][staff_job_title]"  value="" placeholder="Job title" class="form-control"><input type="text" name="staff['+inc+'][staff_email]"  value="" placeholder="Email" class="form-control"><input type="text" name="staff['+inc+'][staff_mobile]"  value="" placeholder="Mobile" class="form-control"><input type="text" name="staff['+inc+'][staff_skype]"  value="" placeholder="Skype Id" class="form-control"><textarea name="staff['+inc+'][staff_about]"   placeholder="About" class="form-control" ></textarea><input type="file" name="staff['+inc+'][staff_profile]"   value="" placeholder="Profile" accept="image/*" class="form-control"> </div></div></div>'; //New input field html
+             var fieldHTML_staff = ' <div class="rowField_staff'+y+'" ><div class="col-md-12"><div class="form-group"><label class="control-label">Staff Detail <a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button_staff" id="'+y+'">X</a> </label> <input type="text" name="staff['+inc+'][staff_name]"  value="" placeholder="Name" class="my-3 form-control"><input type="text" name="staff['+inc+'][staff_job_title]"  value="" placeholder="Job title" class="my-3 form-control"><input type="text" name="staff['+inc+'][staff_email]"  value="" placeholder="Email" class="my-3 form-control"><input type="text" name="staff['+inc+'][staff_mobile]"  value="" placeholder="Mobile" class="my-3 form-control"><input type="text" name="staff['+inc+'][staff_skype]"  value="" placeholder="Skype Id" class="my-3 form-control"><textarea name="staff['+inc+'][staff_about]"   placeholder="About" class="my-3 form-control" ></textarea><input type="file" name="staff['+inc+'][staff_profile]"   value="" placeholder="Profile" accept="image/*" class="my-3 form-control"> </div></div></div>'; //New input field html
 
                 $(wrapper_staff).append(fieldHTML_staff); //Add field html
                 inc++;
