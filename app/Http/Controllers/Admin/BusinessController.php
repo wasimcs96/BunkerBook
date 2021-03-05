@@ -298,43 +298,46 @@ foreach($request->staff as $key2 => $value)
             $business->save();
          
          $staff_profilestore = '';
+        if($request->has('staff')){
+     
+         $bss = BusinessStaff::where('business_id',$id)->get();
+            foreach($bss as $bs)
+           {
+                $bs->delete();
+           }
+        foreach($request->staff as $key2 => $value)
+        
+        {
  
-         //  $business_staff = dd($request->all());
-         
- foreach($request->staff as $key2 => $value)
- 
- {
- 
-//      if(isset($value['staff_profile']) && $request->file($value['staff_profile']))
-//      {
-//          $staff_profile=$value['staff_profile'];
-//  // dd()
-//          // $staff_profile = $request->profile
-//          $staff_profile_new_name = time() . $staff_profile->getClientOriginalName();
-//          $staff_pro->move('uploads/business_staffProfile',$staff_profile_new_name);
-//          $staff_profilestore = 'uploads/business_staffProfile/' . $staff_profile_new_name;
-//      }
-//          $bs= BusinessStaff::where('business_id',$id);
-         
-//          $bs->business_id= $id;
-//          $bs->staff_name = $value['staff_name'];    
-//          $bs->staff_job_title = $value['staff_job_title'];
-//          $bs->staff_email = $value['staff_email'];
-//          $bs->staff_mobile = $value['staff_mobile'];
-//          $bs->staff_skype = $value['staff_skype'];
-//          $bs->staff_about = $value['staff_about'];
-//          $bs->profile = $staff_profilestore;
-//         $bs->save();
+     if(isset($value['staff_profile']) && $request->file($value['staff_profile']))
+     {
+         $staff_profile=$value['staff_profile'];
+ // dd()
+         // $staff_profile = $request->profile
+         $staff_profile_new_name = time() . $staff_profile->getClientOriginalName();
+         $staff_pro->move('uploads/business_staffProfile',$staff_profile_new_name);
+         $staff_profilestore = 'uploads/business_staffProfile/' . $staff_profile_new_name;
+     }
+            BusinessStaff::create([
+                'business_id'=> $business->id,
+                'staff_name' => $value['staff_name'],       
+                'staff_job_title' => $value['staff_job_title'],
+                'staff_email' => $value['staff_email'],
+                'staff_mobile' => $value['staff_mobile'],
+                'staff_skype' => $value['staff_skype'],
+                'staff_about' => $value['staff_about'],
+                'profile' => $staff_profilestore
+            ]);
          }
         
-        
+ }
          $deletedRows = BusinessImage::where('business_id', '=', $id)->delete();
          if($request->hasFile('business_photos'))
          {
             $dbps = BusinessImage::where('business_id',$id)->get();
             foreach($dbps as $dbp)
            {
-   $dbp->delete();
+                $dbp->delete();
            }
 
              $images=collect($request->business_photos);
@@ -354,7 +357,12 @@ foreach($request->staff as $key2 => $value)
              }
          }
          if($request->has('youtube_video')){
-             $video=BusinessVideo::where('business_id',$id)->delete();
+
+            $bvs = BusinessVideo::where('business_id',$id)->get();
+            foreach($bvs as $bv)
+           {
+                $bv->delete();
+           }
              $videos = collect($request->youtube_video);
 
              foreach($videos as $video){
@@ -385,15 +393,14 @@ foreach($request->staff as $key2 => $value)
         return redirect()->back()->with('danger','business deleted successfully');
     }
 
-    public function status(Request $request){
+    public function status(Request $request , $id){
         // dd($request->all());
-        $business= Business::find($request->businessid);
-        $business->status = $request->accept;
+        $business= Business::find($id);
+        // dd($business);
+        $business->status = 1;
         $business->save();
         
-        return response()->json([
-            'success' => 'image deleted successfully!'
-        ]);
+        return redirect()->back()->with('success','business Approved successfully');
     }
 
     public function reject(Request $request , $id){
@@ -411,6 +418,14 @@ foreach($request->staff as $key2 => $value)
         // ]);
         
         return redirect()->back()->with('danger','Business Rejected Successfully');
+    }
+
+    public function importCreate(){
+        return view('business_management.import_business');
+    }
+
+    public function importStore(){
+        return view('business_management.import_business');
     }
 }
 

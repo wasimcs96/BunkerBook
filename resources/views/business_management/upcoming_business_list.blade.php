@@ -68,28 +68,85 @@
                     </thead> --}}
 
                     <tbody>
-                        @foreach($business_list as $business)
+                        @foreach($business_list as $key=> $business)
                         <tr>
-                            <td>{{$business->id}}</td>
+                            <td>{{$key+1}}</td>
                             <td><input checked="" type="checkbox" value="id" onclick="makeFeature('id')" id="featured"></td>
                             <td>{{$business->type}}</td>
 
                             <td><img style="width: 150px;height: 100px;"
                                 src="{{asset($business->business_profile)}}">
                             </td>
-                            <td>{{$business->name}}</td>
-                            <td>{{$business->email}}</td>
-                            <td>{{$business->mobile}}</td>
-                            <td>{{$business->address}}</td>
-                            <td><?php  $category = $business->category; ?>{{$business->category}}</td>
+                            <td>{{$business->name ?? ''}}</td>
+                            <td>{{$business->email ?? ''}}</td>
+                            <td>{{$business->mobile ?? ''}}</td>
+                            <td>{{$business->address ?? ''}}</td>
+                            <td><?php  $category = $business->category; ?>{{$business->category_name ?? ''}}</td>
                             <td>
-                                <button class="accept btn btn-danger btn-sm" acceptIB="1" businesID={{$business->id}}>Approve</button>
+                                <button data-toggle="modal" data-target="#mdlerror{{$business->id ?? ''}}" class=" btn btn-danger btn-sm" >Approve</button>
                                 <a href="javascript:void(0)" data-toggle="modal"
-                                data-target="#rejectModal{{$business->id}}" class="btn btn-warning btn-sm">Reject</a>
+                                data-target="#rejectModal{{$business->id ?? ''}}" class="btn btn-warning btn-sm">Reject</a>
                                 <a href="{{route('business.view',$business->id)}}"
                                 class="btn btn-info btn-sm">View Detail</a></td>
                         </tr>
-                        <div id="rejectModal{{$business->id}}" class="modal fade" role="dialog">
+
+                        <div class="modal fade" id="mdlerror{{$business->id ?? ''}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                        
+                              <div class="modal-body" style="
+                              text-align:center;
+                              padding: 0px;
+                              ">
+                                  <div style="
+                                  padding: 0px;
+                                  background-color: #fdb719;
+                              ">
+                                  <img  style=" width: 122px;margin-top: 18px;margin-bottom: 18px"; src="{{asset('frontEnd/assets/images/error.png')}}">
+                                  </div>
+                        
+                                  <div style="
+                                  background-color: white;
+                                  color: #585550;
+                                  font-family: sans-serif;
+                              ">
+                                      <h1>Are You Sure  ! </h1>
+                                      <h4 style="
+                        
+                                      margin: 0px;
+                                      font-size: large;
+                                      "
+                                  >You Want To Approve Selected Business</h4>
+                                  </div>
+                              </div>
+                              <div class="modal-footer"  style="
+                              padding: 0px;
+                              border: 0px;
+                              justify-content: center;
+                              background-color: white;
+                          ">
+                                {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
+                                {{-- <button type= class="btn btn-primary">Submit</button> --}}
+                                <form action="{{route('business.status',$business->id)}}" method="POST">
+                                  @csrf
+                                  <input type="hidden" name="accept" value="1">
+                                  {{-- <input type="hidden" name="business_id" value="{{$business->id ?? ''}}"> --}}
+
+                                <button style="border-radius: 62px;
+                                background-color: #fdb719;
+                                border-color: #fdb719;
+                                color: black;
+                                font-weight: 500;
+                          font-family: sans-serif;" type="submit" class="btn btn-primary accept"  id="add_document3">OK</button>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          </form>
+                              </div>
+                              </div>
+                             </div>
+                        </div>
+                        
+                        {{-- #############################ERROR --}}
+                        <div id="rejectModal{{$business->id ?? ''}}" class="modal fade" role="dialog">
                           <div class="modal-dialog">
                       
                             <!-- Modal content-->
@@ -199,7 +256,7 @@
 
     }
     </script>
-    <script>
+    {{-- <script>
       var accept=""
       
       
@@ -231,5 +288,5 @@
       
       
       });
-       </script>
+       </script> --}}
 @stop

@@ -46,14 +46,15 @@
                                     <input type="text" name="name" placeholder="Name *" class="form-control" required>
                                 </div>
                             </div>
-
+                           
+                            <div class="custm"> 
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="text" name="email[]" placeholder="Email *" class="form-control" required>
                                 </div>
                             </div>
-
+                        </div>  
 
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -562,7 +563,7 @@
 <script src="{{ asset('assets/js/pages/forms/advanced-form-elements.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" type="text/javascript"></script>
 <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=y8edi4divxwsplcdd28rzuyx245zbzdndm22yzhuaanemki5"></script>
-<script src="https://www.matrixmaritimemedia.com/bunkerbook/assets/js/jquery.geocomplete.min.js"></script>
+{{-- <script src="https://www.matrixmaritimemedia.com/bunkerbook/assets/js/jquery.geocomplete.min.js"></script> --}}
 
 <script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
 <script src="{{ asset('assets/js/pages/forms/form-wizard.js') }}"></script>
