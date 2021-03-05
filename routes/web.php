@@ -373,3 +373,5 @@ Route::post('import', 'Admin\BusinessImportController@import')->name('import');
 
 Route::get('business/upload','Admin\BusinessController@importCreate')->name('business.upload');
 
+Route::get('admin/pdf.create','Admin\PdfController@create')->name('admin.pdf.create');
+Route::get('admin/pdf.store','Admin\PdfController@create')->name('admin.pdf.create');
