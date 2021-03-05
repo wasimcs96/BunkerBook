@@ -82,7 +82,7 @@
                             <td>{{$business->email ?? ''}}</td>
                             <td>{{$business->mobile ?? ''}}</td>
                             <td>{{$business->address ?? ''}}</td>
-                            <td>{{$business->category ?? ''}}</td>
+                            <td>{{$business->category_name ?? ''}}</td>
                             <td>
                               <button data-toggle="modal" data-target="#mdlerror{{$business->id ?? ''}}" class=" btn btn-danger btn-sm" >Approve</button>
                               <a href="{{route('business.view',$business->id)}}"

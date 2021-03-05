@@ -37,6 +37,7 @@
                                     <input type="text" name="name" placeholder="Name *" class="form-control" required>
                                 </div>
                             </div>
+                            </div>
                            
                             <div class="custm"> 
                             <div class="col-md-12">

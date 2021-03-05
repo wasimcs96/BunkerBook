@@ -72,11 +72,11 @@
                     </ul>
                 </li>
 
-                <li class="{{ Request::segment(2) === 'contact' ? 'active open' : null }}"><a href="javascript:void(0)"><i class="icon-bubbles"></i><span>Contact Management</span></a>
+                <!-- <li class="{{ Request::segment(2) === 'contact' ? 'active open' : null }}"><a href="javascript:void(0)"><i class="icon-bubbles"></i><span>Contact Management</span></a>
                     <ul>
                     <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('tables.normal')}}">Business Contact History</a></li>
                     </ul>
-                </li>
+                </li> -->
 
                 <li class="{{ Request::segment(1) === 'feedback' ? 'active open' : null }}"><a href="{{route('admin.feedback')}}"><i class="icon-list"></i><span>Feedback</span></a>
                     <ul>
