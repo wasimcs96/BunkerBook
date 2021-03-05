@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\Models\UniversityCourse;
+use App\Models\Business;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 use Maatwebsite\Excel\Validators\Failure;
@@ -12,17 +12,18 @@ use Maatwebsite\Excel\Concerns\SkipsOnFailure;
 use Rule;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Illuminate\Support\Carbon;
+use App\Models\Category;
 
-class BusinessImport implements ToModel, WithStartRow, WithHeadingRow
+class BusinessImport implements ToModel, WithStartRow,  WithHeadingRow
 {
     use Importable;
   public $category;
 
 
-  public function  __construct($category)
+  public function  __construct($category, $country)
   {
      $this->category=$category;
-    //  $this->type=$type;
+     $this->country=$country;
   }
 
   public function startRow(): int
@@ -35,20 +36,95 @@ class BusinessImport implements ToModel, WithStartRow, WithHeadingRow
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
+
+
+
     public function model(array $row)
     {
-        dd($row);
-        $start_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[9]))->format('Y-m-d');
-        $end_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[10]))->format('Y-m-d');
-            return new UniversityCourse([
-            'category_id' =>$this->category,
-            'title' => $row[0],
-            'type' => $this->type,
+    //    dd($row);
+            $catim = null;
+            // if($request->has('category')){
+            $category = $this->category;
+            // $cat = explode(',',$category);
+            $catfinds = Category::where('id',$category)->pluck('name');
+            
+            $catim =collect($catfinds)->implode(',');  
+            // }
+
+        $start_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['business_start_time']))->format('H:i:s');
+        $end_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['business_end_time']))->format('H:i:s');
+
+        $Sunday_start_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['sunday_start_time']))->format('H:i:s');
+        $Sunday_end_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['sunday_end_time']))->format('H:i:s');
+
+        $Monday_start_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['monday_start_time']))->format('H:i:s');
+        $Monday_end_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['monday_end_time']))->format('H:i:s');
+
+        $Tuesday_start_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['tuesday_start_time']))->format('H:i:s');
+        $Tuesday_end_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['tuesday_end_time']))->format('H:i:s');
+
+        $Wednesday_start_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['wednesday_start_time']))->format('H:i:s');
+        $Wednesday_end_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['wednesday_end_time']))->format('H:i:s');
+
+        $Thrusday_start_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['thrusday_start_time']))->format('H:i:s');
+        $Thrusday_end_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['thrusday_end_time']))->format('H:i:s');
+
+        $Friday_start_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['friday_start_time']))->format('H:i:s');
+        $Friday_end_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['friday_end_time']))->format('H:i:s');
+
+        $Saturday_start_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['saturday_start_time']))->format('H:i:s');
+        $Saturday_end_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['saturday_end_time']))->format('H:i:s');
+
+        // $start_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['business_start_time']))->format('H:i:s');
+        // $end_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['business_end_time']))->format('H:i:s');
+
+        // $catim='saohia avesh';
+            return new Business([
+            'name' => $row['business_name'],
+            'email' =>$row['business_email'],
+            'category' =>$this->category,
+            'category_name'=> $catim,
+            'country' => $this->country,
+            'status' => 1,
             'user_id' => auth()->user()->id,
-            'description' => $row[1],
-            'fees' => $row[2],
-            'start_date' => $start_date,
-            'end_date' => $end_date,
+            'website' =>$row['business_website'],
+            'landline' => $row['business_landline'],
+            'state' => $row['business_state'],
+            'address' =>  $row['business_address'],
+            'city'=>$row['city'],
+            'start_time' =>$start_date,
+            'end_time' =>  $end_date,
+            'about' => $row['business_about'],
+        'ports_of_operation' => $row['ports_of_operation'],
+
+        'sunday' => $row['sunday'],
+        'sunday_start_time' => $Sunday_start_date,
+        'sunday_end_time' => $Sunday_end_date,
+        
+        'monday' => $row['monday'],
+        'monday_start_time' => $Monday_start_date,
+        'monday_end_time' => $Monday_end_date,
+        
+        'tuesday' => $row['tuesday'],
+        'tuesday_start_time' => $Tuesday_start_date,
+        'tuesday_end_time' => $Tuesday_end_date,
+        
+        'wednesday' =>$row['wednesday'],
+        'wednesday_start_time' => $Wednesday_start_date,
+        'wednesday_end_time' => $Wednesday_end_date,
+        
+        'thursday' => $row['thrusday'],
+        'thursday_start_time' => $Thrusday_start_date,
+        'thursday_end_time' => $Thrusday_end_date,
+        
+        'friday' => $row['friday'],
+        'friday_start_time' => $Friday_start_date,
+        'friday_end_time' => $Friday_end_date,
+        
+        'saturday'  => $row['saturday'],
+        'saturday_start_time' => $Saturday_start_date,
+        'saturday_end_time' => $Saturday_end_date,
+        'mobile'=>$row['mobile'],
         ]);
 
     }

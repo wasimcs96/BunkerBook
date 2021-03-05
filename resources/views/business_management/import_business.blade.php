@@ -26,7 +26,7 @@
                  {{-- {{  dd($categorys) }} ->unique('parent_id') --}}
                     <div class="form-group">
                         <label for="title">Category</label>
-                        <select name="parent_id" class="form-control" id="parent_category" required>
+                        <select name="category" class="form-control" id="parent_category" required>
                             <option value="">--- Select Category ---</option>
                             @foreach ($categories  as $category)
                                 {{-- @if($category->id == NULL) --}}
@@ -36,14 +36,28 @@
                         </select>
                     </div>
                
-                   
+                    @php
+                    $countries = DB::table('country')->get();
+                @endphp
+             {{-- {{  dd($categorys) }} ->unique('parent_id') --}}
+                <div class="form-group">
+                    <label for="title">Country</label>
+                    <select name="country" class="form-control" id="parent_category" required>
+                        <option value="">--- Select Country ---</option>
+                        @foreach ($countries  as $country)
+                            {{-- @if($category->id == NULL) --}}
+                                <option value="{{ $country->id ?? '' }}">{{ $country->name ?? '' }}</option>
+                            {{-- @endif --}}
+                        @endforeach
+                    </select>
+                </div>
                     <div class="form-group">
                         <label>Upload Business</label>
                         <input type="file" name="file" class="form-control" style="padding-bottom: 33px;" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Upload Business</button>
-                    <a href="{{route('university.courses')}}" class="btn btn-danger">Back</a>
+                    <a href="{{route('business.upcoming')}}" class="btn btn-danger">Back</a>
                 </form>
             </div>
         </div>

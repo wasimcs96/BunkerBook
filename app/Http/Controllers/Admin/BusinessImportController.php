@@ -31,9 +31,10 @@ class BusinessImportController extends Controller
     public function import(Request $request)
     {
         // dd($request->all());
-        $category = $request->category_id;
+        $category = $request->category;
+        $country = $request->country;
         // $type = $request->type;
-        Excel::import(new BusinessImport($category),request()->file('file'));
+        Excel::import(new BusinessImport($category,$country),request()->file('file'));
 
         return redirect()->back()->with('success','Course Uploaded Successfully');
     }
