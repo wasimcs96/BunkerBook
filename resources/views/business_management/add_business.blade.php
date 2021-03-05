@@ -30,16 +30,7 @@
                    <h3>Basic Details</h3>
                     <fieldset>
                         <div class="row clearfix">
-                            {{-- <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Select Plan</label>
-                                    <select name="status" class="form-control" required>
-                                        <option value="">-- Select Type --</option>
-                                        <option value="1">Standard</option>
-                                        <option value="2">Premium</option>
-                                    </select>
-                               </div>
-                            </div> --}}
+                            
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Name</label>
