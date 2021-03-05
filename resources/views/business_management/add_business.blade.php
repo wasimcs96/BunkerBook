@@ -40,11 +40,13 @@
                                     </select>
                                </div>
                             </div> --}}
+                            <div class="col-lg-12">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Name</label>
                                     <input type="text" name="name" placeholder="Name *" class="form-control" required>
                                 </div>
+                            </div>
                             </div>
                            
                             <div class="custm"> 

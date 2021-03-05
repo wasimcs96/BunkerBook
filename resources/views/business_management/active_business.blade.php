@@ -81,7 +81,7 @@
                             <td>{{$business->email}}</td>
                             <td>{{$business->mobile}}</td>
                             <td>{{$business->address}}</td>
-                            <td>{{$business->category}}</td>
+                            <td>{{$business->category_name ?? ''}}</td>
                             <td>
                               <a href="{{route('business.edit', $business->id)}}" class="btn btn-warning btn-sm">Edit</a>
                               <a href="javascript:void(0)" data-toggle="modal" class="btn btn-danger" data-target="#mdlerror{{$business->id ?? ''}}">Delete</a>
