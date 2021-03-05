@@ -17,19 +17,23 @@
 											<!-- <input type="text" class="form-control" name="name" id="name"> -->
 											<h3>Update Your Profile Here...</h3>
 											<div class="pen" style="width: fit-content;margin: auto;">
+	
+											<div style="width: fit-content;">
 											<i class="fas fa-user-edit" style="
     position: absolute;
     left: 50%;
     top: 55%;
     color: white;
 "></i>
+											</div>
                                             	<img class="rounded-circle" @if(isset($user->image))src="{{asset($user->image)}}" @else src="{{asset('assets/images/image-gallery/11.jpg')}}" @endif alt="" style="width:250px;height:250px;">
 											</div>
 											<!-- <span class="alert alert-error"></span> -->
 										</div>
+										<input  class="my-5 rounded d-flex m-auto" name="profile_image" value="" type="file" style="border: solid 1px #ccc">
 										<div class="form-group">
 											<label for="name">First Name</label>
-											<input type="text" class="form-control" name="first_name" id="name">
+											<input type="text" class="form-control" name="first_name" id="name" value="{{auth()->user()->firstname ?? ' '}}">
 											<span class="alert alert-error"></span>
 										</div>
 										<div class="form-group">
@@ -74,16 +78,18 @@
 										</div>
 									<!-- </div> -->
 									<div class="col-md-12 text-center">
-									<button class="btn btn-primary btn-lg" type="submit">sdfsad</button>
-										{{-- <button type="submit" id//="submit">Save</button> --}}
+									<button class="btn btn-primary btn-lg" type="submit" style="font-size: 20px;">Save</button>
+										{{-- <button type="submit" id="submit">Save</button> --}}
 										<!-- Alert Message -->
 										{{-- <div class="alert-notification">
 											<div id="message" class="alert-msg"></div>
 										</div> --}}
 									</div>
+									
 								<!-- </div> -->
 							</form>
 						</div>
 					</div>
   </div>
     @endsection
+	
