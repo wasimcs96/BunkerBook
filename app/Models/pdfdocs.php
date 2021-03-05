@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class pdfdocs extends Model
+class Pdfdocs extends Model
 {
     protected $table = 'pdf_docs';
 
