@@ -88,7 +88,7 @@
 													</p> -->
                                         </div>
                                         <div class="course-bottom">
-                                            <a href="{{route('business.detail',$book->business->id)}}"
+                                            <a href="{{route('business.detail',$book->business->id ?? '')}}"
                                                 class="course-btn">See Details <i class="ti ti-arrow-right"></i></a>
                                             <!-- <span>$15.00</span> -->
                                         </div>

@@ -18,14 +18,14 @@
 											<h3>Update Your Profile Here...</h3>
 											<div class="pen" style="width: fit-content;margin: auto;">
 	
-											<div style="width: fit-content;">
+											<!-- <div style="width: fit-content;">
 											<i class="fas fa-user-edit" style="
     position: absolute;
     left: 50%;
     top: 55%;
     color: white;
 "></i>
-											</div>
+											</div> -->
                                             	<img class="rounded-circle" @if(isset($user->image))src="{{asset($user->image)}}" @else src="{{asset('assets/images/image-gallery/11.jpg')}}" @endif alt="" style="width:250px;height:250px;">
 											</div>
 											<!-- <span class="alert alert-error"></span> -->
