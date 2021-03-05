@@ -16,6 +16,11 @@ Route::get('consultant/book', function(){
 Route::get('university', function(){
     return view('frontEnd.university.university');
 });
+Route::get('/add_business/front', function(){
+    return view('frontEnd.profile.add_business');
+});
+
+Route::get('/add_business/front', 'FrontEndController\BusinessFrontController@create')->name('front.business.create');
 
 Route::group([
     'namespace' => 'Auth',
