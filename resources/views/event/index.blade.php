@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('parentPageTitle', 'My Page')
-@section('title', 'Events List')
+@section('title', 'Event List')
 
 
 @section('content')
@@ -33,11 +33,11 @@
                      
                         <tbody>
                       
-                          @foreach($events as $event)
+                          @foreach($events as $key=>$event)
                             <tr>
-                                <td class=" "></td>
-                                <td class=""><img src="{{asset($event->image ?? '')}}" width="100px;"></td>
-                                <td class="">{{$event->title ?? ''}}</td>
+                                <td class=" ">{{$key+1}}</td>
+                                <td>@if(isset($event->image)&&file_exists($event->image))<a href="{{asset($event->image)}}" target="_blank" ><img src="{{ asset($event->image)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
+                                <td>@if(isset($event->title)){{ $event->title ?? '' }}@else N/A @endif</td>
                                 <td class="col-lg-3">       
                                  <div class="comment more">
                                  <?php $aRoom= $event->description ?>
@@ -49,7 +49,7 @@
             @else
             {!!$aRoom !!}
             @endif</td>
-                                <td class="">{{$event->youtube_link ?? ''}}</td>
+                                <td>@if(isset($event->youtube_link)){{ $event->youtube_link ?? '' }}@else N/A @endif</td>
                                 <td class=""><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#editModal-{{$event->id ?? ''}}" class="btn btn-sm btn-warning" style="color: white;" ><span class="btn-label">
                                         <i class="fa fa-edit"></i>
                                         </span></a>

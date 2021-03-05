@@ -58,7 +58,7 @@
 
                 <li class="{{ Request::segment(1) === 'news' ? 'active open' : null }}"><a href="{{route('news.index')}}"><i class="icon-globe"></i><span>News Feed</span></a></li>
 
-                <li class="{{ Request::segment(1) === 'events' ? 'active open' : null }}"><a href="{{route('event.index')}}"><i class="icon-globe"></i><span>Events</span></a></li>
+                <li class="{{ Request::segment(1) === 'event' ? 'active open' : null }}"><a href="{{route('event.index')}}"><i class="icon-globe"></i><span>Events</span></a></li>
 
                 <li class="{{ Request::segment(1) === 'banner' ? 'active open' : null }}"><a href="{{route('banner.index')}}"><i class="icon-globe"></i><span>Banner</span></a></li>
 
@@ -89,7 +89,7 @@
                     <li class="{{ Request::segment(1) === 'transaction' ? 'active' : null }}"><a href="{{route('transaction.index')}}">Plan History</a></li>
                     </ul>
                 </li> --}}
-                <li class="{{ Request::segment(2) === 'panel' ? 'active open' : null }}"><a href="{{route('admin.panel')}}"><i class="icon-paper-clip"></i><span>Upload Pdf</span></a></li>
+                <li class="{{ Request::segment(2) === 'admin' ? 'active open' : null }}"><a href="{{route('admin.panel')}}"><i class="icon-paper-clip"></i><span>Upload Pdf</span></a></li>
 
                 <!-- <li class="header">HR, Project & Job</li> -->
                 <!-- <li class="{{ Request::segment(1) === 'projects' ? 'active open' : null }}">

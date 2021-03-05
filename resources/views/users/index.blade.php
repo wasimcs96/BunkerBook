@@ -50,7 +50,7 @@
                             <tr>
                                 <td>{{$key+1}}</td>
                                 <td>@if(isset($user->image))<a href="{{asset($user->image)}}" target="_blank" ><img src="{{ asset($user->image)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
-                                <td>@if(isset($user->first_name)){{ $user->first_name ?? '' }}@else N/A @endif</td>
+                                <td>@if(isset($user->first_name)&&file_exists($user->first_name)){{ $user->first_name ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($user->last_name)){{ $user->last_name ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($user->email)){{ $user->email ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($user->mobile)){{ $user->mobile ?? '' }}@else N/A @endif</td>
@@ -63,12 +63,12 @@
                                         </span>
                                     </a>
 
-                                    <a class="btn btn-success btn-sm" href="javascript:void(0);" title="Plan Info"
+                                    <!-- <a class="btn btn-success btn-sm" href="javascript:void(0);" title="Plan Info"
                                         data-bs-toggle="modal" data-bs-target="#planModal-{{ $user->id }}">
                                         <span class="btn-label">
                                         <i class="fa fa-info-circle"></i>
                                         </span>
-                                    </a>
+                                    </a> -->
 
                                    
                                     <a class="btn btn-danger btn-sm" title="Delete User"
@@ -77,11 +77,11 @@
                                         <i class="fa fa-trash-o"></i>
                                         </span>
                                     </a>
-                                    <a class="btn btn-warning btn-sm" title="Memebership Transaction" href="{{ route('users.tansaction',['id'=>$user->id]) }}">
+                                    <!-- <a class="btn btn-warning btn-sm" title="Memebership Transaction" href="{{ route('users.tansaction',['id'=>$user->id]) }}">
                                         <span class="btn-label">
                                         <i class="fa fa-exchange"></i>
                                         </span>
-                                    </a>
+                                    </a> -->
                                 </td>
                             </tr>
                             <div class="modal fade" id="planModal-{{ $user->id ?? '' }}" tabindex="-1"
