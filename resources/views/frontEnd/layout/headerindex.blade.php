@@ -86,7 +86,7 @@
                     <a class="nav-link" href="{{route('newsfeed.view')}}">Blog </a>
                     </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="{{route('event.index')}}">Event </a>
+                    <a class="nav-link" href="{{route('event.front.index')}}">Event </a>
                 </li>
                 <!-- <i class="caret ti-plus"></i> -->
                 <!-- <ul class="navbar-nav">
@@ -112,6 +112,8 @@
                         <li class="nav-item"><a class="nav-link" href="{{route('user.detail')}}">Account info</a></li>
                         <li class="nav-item"><a class="nav-link" href="/frontend/membership">Membership</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{route('bookmark.index')}}">Bookmark</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('front.business.create')}}">Add Business</a></li>
+
                     </ul>
                 </li>
                 @endif
