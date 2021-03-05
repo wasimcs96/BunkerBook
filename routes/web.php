@@ -22,6 +22,9 @@ Route::get('/add_business/front', function(){
 
 Route::get('/add_business/front', 'FrontEndController\BusinessFrontController@create')->name('front.business.create');
 
+Route::post('/add/business/front/store', 'FrontEndController\BusinessFrontController@postbusiness')->name('front.business.add.create');
+
+
 Route::group([
     'namespace' => 'Auth',
 ], function () {
