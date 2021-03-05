@@ -5,6 +5,12 @@ use Illuminate\Http\Request;
 Route::post('/register', 'Api\UserController@register')->name('register.api');
 Route::post('/login', 'Api\UserController@login')->name('login.api');
 
+Route::get('/category', 'Api\CategoryController@getCategory')->name('category.api');
+
+Route::get('/banner/get','Api\BannerController@getbanner')->name('banner.get');
+
+Route::get('/business/limit','Api\BusinessController@getlimitbusiness')->name('business.limit');
+
 Route::post('/forgotPassword', 'Api\UserController@forgotPassword')->name('forgotPassword');
 
 Route::middleware('auth:api')->group(function () {
@@ -20,7 +26,6 @@ Route::middleware('auth:api')->group(function () {
 
     Route::get('/country', 'Api\CountryController@getCountry')->name('country.api');
 
-    Route::get('/category', 'Api\CategoryController@getCategory')->name('category.api');
 
     Route::post('/business', 'Api\BusinessController@getBusiness')->name('business.api');
 
@@ -34,11 +39,9 @@ Route::middleware('auth:api')->group(function () {
 
     Route::post('/business/category', 'Api\BusinessController@getBusinessCategory')->name('business.category.api');
 
-    Route::get('/business/limit','Api\BusinessController@getlimitbusiness')->name('business.limit');
 
     Route::post('/business/find','Api\BusinessController@findbusiness')->name('business.find');
 
-    Route::get('/banner/get','Api\BannerController@getbanner')->name('banner.get');
 
     Route::get('/event/get','Api\EventController@getevent')->name('event.get');
 
