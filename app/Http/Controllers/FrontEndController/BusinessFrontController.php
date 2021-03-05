@@ -30,4 +30,7 @@ class BusinessFrontController extends Controller
         ]);
         return redirect()->back();
     }
+    public function create(){
+        return view('frontEnd.profile.add_business');
+    }
 }
