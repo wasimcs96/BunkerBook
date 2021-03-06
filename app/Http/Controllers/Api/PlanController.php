@@ -51,5 +51,9 @@ class PlanController extends Controller
         return $this->sendResponse($success, 'Plan Created successfully.');
     }
 
-    
+    public function pdfget(){
+        $pdf = Pdfdocs::all();
+        return $this->sendResponse($pdf , 'PDF Fetched successfully.');
+
+    }
 }

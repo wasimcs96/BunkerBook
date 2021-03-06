@@ -13,6 +13,18 @@ class UserFrontController extends Controller
     public function update(Request $request , $id){
 
         $user = User::find($id);
+        
+        $featured_banner_image = '';
+ 
+        if($request->hasFile('featured_banner_image'))
+        {
+         $banner=$request->featured_banner_image;
+         $banner_name= time().$banner->getClientOriginalName();
+         $st= $banner->move('uploads/businessbannerimage',$banner_name);
+         $featured_banner_image = 'uploads/businessbannerimage/'.$banner_name;
+        }
+
+// dd($request->all());
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->email = $request->email;
