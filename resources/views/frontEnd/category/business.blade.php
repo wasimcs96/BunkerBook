@@ -32,7 +32,7 @@
 								<div id="portfolio-grid" class="portfolio-items">
 									@foreach($business as $bus)
 									<div class="pf-item video photography">
-                                <div class="course-box rounded" style="border: solid 5px #2E35D9;">
+                                <div class="course-box rounded" style="border: solid 5px #FFA500;">
                                     <div class="course-pic">
                                     @if(isset($bus->featured_banner_image)&& file_exists($bus->featured_banner_image))
                                         <img src="{{ asset($bus->featured_banner_image ?? '') }}"9 class="course-img" alt="thumb"style="height: 220px;">

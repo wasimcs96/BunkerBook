@@ -13,9 +13,9 @@
 
     <!-- Start Breadcrumb
 		============================================= -->
-    <div class="site-breadcrumb" style="background: url({{asset('frontEnd/assets/img/breadcrumb/breadcrumb.jpg')}})">
-        <div class="breadcrumb-circle">
-            <img src="{{asset('frontEnd/assets/img/header/header-shape-2.png')}}" class="hero-circle-1" alt="thumb">
+    <div class="site-breadcrumb" style="background: url({{asset('frontEnd/assets/img/team/ship.jpg')}})">
+        <div class="">
+            <!-- <img src="{{asset('frontEnd/assets/img/header/header-shape-2.png')}}" class="hero-circle-1" alt="thumb"> -->
         </div>
         <div class="container">
             <h2 class="breadcrumb-title">{{$business->name ?? ''}} Details</h2>
@@ -31,42 +31,7 @@
 		============================================= -->
     <div class="course-info de-padding">
         <div class="container">
-            {{-- <div class="course-info-wrapper"> --}}
-            {{-- <div class="course-left-sidebar">
-						<div class="course-left-box category">
-							<a href="#">Computer science</a>
-							<a href="#">Artificial intelligence</a>
-							<a href="#">Architecture</a>
-							<a href="#">Health & Fitness</a>
-							<a href="#">Analysis of Algorithms</a>
-						</div>
-						<div class="course-left-box crs-post">
-							<h5 class="course-left-title">More course for you</h5>
-							<div class="course-post">
-								<div class="course-post-wrp">
-									<img src="assets/img/singlepost/post-2.png" alt="thumb">
-									<div class="course-post-text">
-										<h6>Complete education learning course 2020</h6>
-										<span>$90.00</span>
-									</div>
-								</div>
-								<div class="course-post-wrp">
-									<img src="assets/img/singlepost/post-2.png" alt="thumb">
-									<div class="course-post-text">
-										<h6>Complete education learning course 2020</h6>
-										<span>$90.00</span>
-									</div>
-								</div>
-								<div class="course-post-wrp">
-									<img src="assets/img/singlepost/post-2.png" alt="thumb">
-									<div class="course-post-text">
-										<h6>Complete education learning course 2020</h6>
-										<span>$90.00</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div> --}}
+         
             <div class="course-right-content col-lg-12">
                 <div class="course-syl-header">
                     <h2 class="course-syl-title">
@@ -74,15 +39,7 @@
                     </h2>
                     <div class="course-syl-author cr-mb">
                         <ul>
-                            {{-- <li>
-										<div class="course-syl-author-wrp d-bio">
-											<img src="assets/img/singlepost/post-3.png" alt="thumb">
-											<div class="course-syl-bio">
-												<p>Author: </p>
-												<span>MD. Malino Masker</span>
-											</div>
-										</div>
-									</li> --}}
+                            
                             <li>
                                 <div class="course-syl-author-wrp d-bio">
                                     <div class="course-syl-bio">
@@ -103,6 +60,71 @@
                                                 @endif</span>
                                         </div>
                                     </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="course-syl-author-wrp d-bio">
+                                <div class="card-rating">
+                                                        <div class="d-flex flex-wrap align-items-center">
+                                                        <?php $rat = App\Models\BusinessRating::where('business_id',$business->id)->average('rating_number');  $rating = round($rat);?>
+
+                                            <p class="col-md-12 p-0 mr-2" style="color:#ffa500; margin-bottom: unset;">Rating:</p>
+                                            @if(isset($rating))
+                                            <span>@if($rating == 3 ?? '' )
+                                            <span class="ratings ">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-o"></i>
+                                            <i class="fas fa-star-o"></i>
+                                            </span>
+                                            @elseif($rating == 4 ?? '')
+                                            <span class="ratings ">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-o"></i>
+                                            </span>
+                                            @elseif($rating == 5 ?? '')
+                                            <span class="ratings ">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            </span>
+                                            @elseif($rating == 1 ?? '')
+                                            <span class="ratings ">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-o"></i>
+                                            <i class="fas fa-star-o"></i>
+                                            <i class="fas fa-star-o"></i>
+                                            <i class="fas fa-star-o"></i>
+                                            </span>
+                                            @elseif($rating == 2 ?? '')
+                                            <span class="ratings ">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-o"></i>
+                                            <i class="fas fa-star-o"></i>
+                                            <i class="fas fa-star-o"></i>
+                                            </span>
+                                            @endif
+                                            </span>
+                                            {!!"&nbsp;"!!}
+                                            <span class="badge badge-warning text-white font-size-16">
+                                            @if($rating == null)- @else{{$rating ?? ''}}/5 @endif
+                                            </span>
+                                            @else
+                                            <span class="badge badge-warning text-white font-size-16">
+                                            @if($rating == null)- @else{{$rating ?? ''}}/5 @endif
+                                            </span>
+                                            @endif
+                                            </p>
+                                            </div>
+                                            </div>
+                                        </div>
                                 </div>
                             </li>
                         </ul>

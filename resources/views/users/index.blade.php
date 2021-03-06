@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('parentPageTitle', 'My Page')
-@section('title', 'User List')
+@section('title', 'User Management')
 
 
 @section('content')
@@ -11,22 +11,11 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="header">
-                <h2>Table Tools<small>Basic example without any additional modification classes</small></h2>
+                <h2>User List</h2>
                 <ul class="header-dropdown dropdown">
-
-                    <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
                     <li><a href="#addUserModal" class="btn btn-primary float-right" data-bs-toggle="modal"
                             data-bs-target="#exampleModal" style="color: white;"> Add
                             User</a></li>
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                            aria-haspopup="true" aria-expanded="false"></a>
-                        {{-- <ul class="dropdown-menu">
-                            <li><a href="javascript:void(0);">Action</a></li>
-                            <li><a href="javascript:void(0);">Another Action</a></li>
-                            <li><a href="javascript:void(0);">Something else</a></li>
-                        </ul> --}}
-                    </li>
                 </ul>
             </div>
             <div class="body">
@@ -180,21 +169,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-
-                                                <div class="row">
-                                                    <div class="mb-3 col-lg-12">
-                                                        <div class="form-group">
-                                                            <label for="">plan</label>
-                                                            <select class="form-control" name="plan_id">
-                                                                <option value="1">Annual Plan</option>
-                                                                <option value="2">Half Year Plan</option>
-
-                                                            </select>
-                                                            <p id="erremail" class="mb-0 text-danger em"></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div class="row">
                                                     <div class="mb-3 col-lg-12">
                                                         <div class="form-group">
@@ -298,19 +272,6 @@
                     </div>
 
 
-                    <div class="row">
-                        <div class="mb-3 col-lg-12">
-                            <div class="form-group">
-                                <label for="">plan</label>
-                                <select class="form-control" name="plan_id">
-                                    <option value="1">Annual Plan</option>
-                                    <option value="2">Half Year Plan</option>
-
-                                </select>
-                                <p id="erremail" class="mb-0 text-danger em"></p>
-                            </div>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="mb-3 col-lg-12">
                             <div class="form-group">
