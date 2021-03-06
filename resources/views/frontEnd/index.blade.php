@@ -40,7 +40,7 @@
 
 		<!-- Start Welcome Project
 		============================================= frontEnd/assets/img/about/ab-2-pic.jpg style="background-image: url(frontEnd/assets/img/about/about-bg.png)"-->
-        @include('frontEnd.layout.project')
+        <!-- @include('frontEnd.layout.project') -->
 		<!-- End Welcome Project-->
 
 		<!-- Start Categories
@@ -120,14 +120,11 @@
       <!-- @include('frontEnd.layout.course') -->
 		<!-- End Course-->
 
-<!-- Start Event
-		============================================= -->
-		@include('frontEnd.layout.event')
-		<!-- End Event -->
+
 
 		<!-- Start Address
 		============================================= -->
-		@include('frontEnd.layout.address')
+		
 		<!-- End Address-->
 
 		<!-- Start Team
@@ -140,9 +137,15 @@
 @include('frontEnd.layout.review')
 		<!-- End Review -->
 
+		<!-- Start Event
+		============================================= -->
+		@include('frontEnd.layout.event')
+		<!-- End Event -->
+
 		<!-- Start Blog or Reasons to Choose
 		============================================= -->
-		@include('frontEnd.layout.reasonstochoose')
+		<!-- @include('frontEnd.layout.reasonstochoose') -->
+		<!-- @include('frontEnd.layout.address') -->
 		<!-- End Blog-->
 
 		<!-- Start Counter

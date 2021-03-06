@@ -1,7 +1,7 @@
 <div id="home" class="hero-section">
     <div class="hero-sliderr">
         <!-- owl Slider Begin -->
-        <div class="hero-single" data-background="{{ asset('frontEnd/assets/img/header/8.jpg') }}">
+        <div class="hero-single" style="background-image: url('{{asset('frontEnd/assets/img/team/ship.jpg')}}');">
             <div class="hero-shapes">
                 <!-- <img src="{{ asset('frontEnd/assets/img/header/header-2.png') }}" alt="thumb"> -->
             </div>
@@ -16,8 +16,8 @@
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, molestiae!                            </p>
                             <div class="hro-btn">
-                                <a href="course.html " class="theme-btn">Contact Us <i class="ti ti-arrow-right"></i></a>
-                                <a href="#" class="theme-btn theme-btn-active">About Us</a>
+                                <a href="{{route('newsfeed.view')}}" class="theme-btn">newsfeed <i class="ti ti-arrow-right"></i></a>
+                                <a href="{{route('about_us')}}" class="theme-btn theme-btn-active">About Us</a>
                             </div>
                         </div>
                     </div>

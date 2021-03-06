@@ -13,7 +13,7 @@
 								</div> -->
                 </div>
                 <div class="header-social-loc">
-                    <div class="header-scl">
+                    <!-- <div class="header-scl">
                         <span>We're active on</span>
                         <ul>
                             <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -21,7 +21,7 @@
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                             <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                         </ul>
-                    </div>
+                    </div> -->
                     <div class="header-loc">
                         <ul class="d-flex align-items-center">
                             @if(auth()->user())
@@ -74,7 +74,7 @@
                             </li> -->
                             <li class="nav-item"><a class="nav-link" href="{{route('country.bussiness')}}">Country</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{route('category.view')}}">Category</a></li>
-                            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('feedback.index')}}">Feedback</a></li>
                             <!-- <li class="nav-item dropdown">
                                 <a class="nav-link" href="#">Courses <i class="caret ti-plus"></i></a>
                                 <ul class="navbar-nav">
@@ -83,11 +83,12 @@
                                 </ul>
                             </li> -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="{{route('newsfeed.view')}}">Blog </a>
+                    <a class="nav-link" href="{{route('newsfeed.view')}}">Newsfeed </a>
                     </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="{{route('event.front.index')}}">Event </a>
                 </li>
+                <li class="nav-item"><a class="nav-link" href="{{route('about_us')}}">About Us</a></li>
                 <!-- <i class="caret ti-plus"></i> -->
                 <!-- <ul class="navbar-nav">
                                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
@@ -104,7 +105,7 @@
                                     <li class="nav-item"><a class="nav-link" href="cart.html">Shop Cart</a></li>
                                 </ul>
                             </li> -->
-                <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li> -->
                 @if(auth()->user())
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#">Profile</a>
@@ -118,14 +119,14 @@
                 </li>
                 @endif
             </ul>
-            <div class="header-serarch-btn ab un-srs">
+            <!-- <div class="header-serarch-btn ab un-srs">
                 <input type="checkbox" class="frm" id="frm">
                 <label for="frm"><i class="ti ti-search"></i></label>
                 <form class="header-form">
                     <input type="text" placeholder="search ...">
                     <button type="button" class="srs-btn"><i class="ti ti-search"></i></button>
                 </form>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

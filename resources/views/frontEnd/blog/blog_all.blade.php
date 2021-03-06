@@ -14,8 +14,8 @@
 		<!-- Start Breadcrumb
 		============================================= -->
 		<div class="site-breadcrumb" style="background: url(frontEnd/assets/img/breadcrumb/breadcrumb.jpg)">
-			<div class="breadcrumb-circle">
-				<img src="{{asset('frontEnd/assets/img/header/header-shape-2.png')}}" class="hero-circle-1" alt="thumb">
+			<div class="">
+				<!-- <img src="{{asset('frontEnd/assets/img/header/header-shape-2.png')}}" class="hero-circle-1" alt="thumb"> -->
 			</div>
 			<div class="container">
 			<h2 class="breadcrumb-title">Newsfeed</h2>
@@ -32,7 +32,7 @@
 		<div class="single-area de-padding clearfix">
 			<div class="container">
 				<div class="row">
-					<div class="col-xl-8">
+					<div class="">
 
 		
 						<div class="single-blog">
@@ -87,17 +87,17 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-4">
-						<aside class="sidebar">
+					<!-- <div class="col-xl-4">
+						<aside class="sidebar"> -->
 							<!--Search-->
-							<div class="sidebar-widget search">
+							<!-- <div class="sidebar-widget search">
 								<form>
 									<input type="text" placeholder="Search">
 									<button class="sub-btn"><i class="fas fa-search"></i></button>
 								</form>
-							</div>
+							</div> -->
 							<!--Recent Post-->
-							<div class="sidebar-widget recent-post">
+							<!-- <div class="sidebar-widget recent-post">
 								<h4 class="widget-title">Recent News</h4>
 								<div class="recent-post-content">
 									<div class="recent-post-single">
@@ -137,9 +137,9 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!--Categories-->
-							<div class="sidebar-widget cate">
+							<!-- <div class="sidebar-widget cate">
 								<h4 class="widget-title">Categories</h4>
 								<ul>
 									<li><a href="#"><i class="fas fa-tags"></i>Success Stories</a></li>
@@ -149,9 +149,9 @@
 									<li><a href="#"><i class="fas fa-tags"></i>Healthy Living</a></li>
 									<li><a href="#"><i class="fas fa-tags"></i>Nutrition & Weight Loss</a></li>
 								</ul>
-							</div>
+							</div> -->
 							<!--Tags-->
-							<div class="sidebar-widget Tags">
+							<!-- <div class="sidebar-widget Tags">
 								<h4 class="widget-title">Tags</h4>
 								<ul>
 									<li><a href="#">Graphic Design</a></li>
@@ -161,9 +161,9 @@
 									<li><a href="#">Graphic Design</a></li>
 									<li><a href="#">Web Design</a></li>
 								</ul>
-							</div>
-						</aside>
-					</div>
+							</div> -->
+						<!-- </aside> -->
+					<!-- </div> -->
 				</div>
 			</div>
 		</div>

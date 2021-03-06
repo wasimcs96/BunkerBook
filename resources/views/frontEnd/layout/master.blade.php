@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title> Project - A Gateway to Universities </title>
+	<title> Bunkerbook </title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
@@ -49,8 +49,8 @@
 <div class="clearfix"></div>
 <!--  data-background=" {{ asset('frontEnd/assets/img/footer/ftr-2-bg.jpg')}}" -->
 <footer class="footer-2 footer-shape">
-    <div class="footer-circle">
-        <img src="{{ asset('frontEnd/assets/img/header/header-shape-2.png') }}" class="hero-circle-1" alt="thumb">
+    <div class="">
+        <!-- <img src="{{ asset('frontEnd/assets/img/header/header-shape-2.png') }}" class="hero-circle-1" alt="thumb"> -->
     </div>
     <div class="footer-widget">
         <div class="container">
@@ -60,24 +60,24 @@
                     <p>
                         Consequuntur posuere sint blandit, suscipit nascetur sociis wisi quam repellendus! perspiciatis  iste tempore rutrum.
                     </p>
-                    <div class="footer-hours">
+                    <!-- <div class="footer-hours">
                         <ul>
                             <li><i class="fas fa-clock"></i> Opening Hours</li>
                             <li><span>9 am - 5pm</span></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="footer-widget-box footer-sub">
                     <h4 class="foo-widget-title">Subscribe</h4>
                     <p>
                         Lorem ipsum dolor sit  consectetur adipisicing elit, sed eiusmotempor incididunt ut labore et
                     </p>
-                    <div class="subscribe">
+                    <!-- <div class="subscribe">
                         <form>
                             <input type="text" placeholder="Type Your Email">
                             <button type="submit"><i class="fas fa-location-arrow"></i></button>
                         </form>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- <div class="footer-widget-box footer-cat">
                     <h4 class="foo-widget-title">Popular Categories</h4>
@@ -101,14 +101,15 @@
                     </ul>
                 </div>
                 <div class="footer-widget-box footer-link">
-                    <h4 class="foo-widget-title">Gallery</h4>
+                    <h4 class="foo-widget-title">Newsfeed</h4>
+                    <?php $news= App\Models\Newsfeed::pluck('image')?>
                     <div class="footer-gallery grid-3">
-                        <img src="{{ asset('frontEnd/assets/img/partner/brand-5.jpg') }}" alt="thumb">
-                        <img src="{{ asset('frontEnd/assets/img/partner/brand-5.jpg') }}" alt="thumb">
-                        <img src="{{ asset('frontEnd/assets/img/partner/brand-5.jpg') }}" alt="thumb">
-                        <img src="{{ asset('frontEnd/assets/img/partner/brand-5.jpg') }}" alt="thumb">
-                        <img src="{{ asset('frontEnd/assets/img/partner/brand-5.jpg') }}" alt="thumb">
-                        <img src="{{ asset('frontEnd/assets/img/partner/brand-5.jpg') }}" alt="thumb">
+                        <img src="{{ asset('frontEnd/assets/img/team/ship.jpg') }}" alt="thumb">
+                        <img src="{{ asset('frontEnd/assets/img/team/ship.jpg') }}" alt="thumb">
+                        <img src="{{ asset('frontEnd/assets/img/team/ship.jpg') }}" alt="thumb">
+                        <img src="{{ asset('frontEnd/assets/img/team/ship.jpg') }}" alt="thumb">
+                        <img src="{{ asset('frontEnd/assets/img/team/ship.jpg') }}" alt="thumb">
+                        <img src="{{ asset('frontEnd/assets/img/team/ship.jpg') }}" alt="thumb">
                     </div>
                 </div>
             </div>
@@ -116,12 +117,12 @@
         <div class="copyright">
             <div class="container">
                 <p>Copyright © 2021. All Rights Reserved By BunkerBook.</p>
-                <ul class="footer-social">
+                <!-- <ul class="footer-social">
                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                     <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </div>

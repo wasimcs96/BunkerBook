@@ -1,4 +1,4 @@
-<div class="counter-area de-padding" data-background="{{asset('frontEnd/assets/img/review/review-bg.jpg')}}">
+<div class="counter-area de-padding" data-background="{{asset('frontEnd/assets/img/team/ship.jpg')}}">
     <div class="container">
         <div class="row">
             <div class="col-xl-8 offset-xl-2">
