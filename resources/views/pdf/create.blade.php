@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('parentPageTitle', 'Business')
-@section('title', 'Add New Business')
+@section('title', 'Add New Document')
 
 @section('content')
 
@@ -8,55 +8,27 @@
     <div class="col-md-12">
         <div class="card">
             <div class="header">
-                <h2>Add Course</h2>
+                <h2>Add PDF</h2>
                 <ul class="header-dropdown dropdown">
 
                     <li>
                         <a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
-                    <a  href="{{ asset('assets/sample_CSV/SampleCsv.xlsx') }}" class="btn btn-warning btn-flat" download>Sample CSV</a>
-                    <a href="{{Route('business.add')}}" class="btn btn-primary">Add Business</a>
+                    {{-- <a  href="{{ asset('assets/default/SampleCsv.xlsx') }}" class="btn btn-warning btn-flat" download>Sample CSV</a> --}}
+                    {{-- <a href="{{Route('business.add')}}" class="btn btn-primary">Add Business</a> --}}
                 </ul>
             </div>
             <div class="body">
-                <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.pdf.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @php
-                        $categories = DB::table('category')->get();
-                    @endphp
-                 {{-- {{  dd($categorys) }} ->unique('parent_id') --}}
+            
+              
                     <div class="form-group">
-                        <label for="title">Category</label>
-                        <select name="category" class="form-control" id="parent_category" required>
-                            <option value="">--- Select Category ---</option>
-                            @foreach ($categories  as $category)
-                                {{-- @if($category->id == NULL) --}}
-                                    <option value="{{ $category->id ?? '' }}">{{ $category->name ?? '' }}</option>
-                                {{-- @endif --}}
-                            @endforeach
-                        </select>
-                    </div>
-               
-                    @php
-                    $countries = DB::table('country')->get();
-                @endphp
-             {{-- {{  dd($categorys) }} ->unique('parent_id') --}}
-                <div class="form-group">
-                    <label for="title">Country</label>
-                    <select name="country" class="form-control" id="parent_category" required>
-                        <option value="">--- Select Country ---</option>
-                        @foreach ($countries  as $country)
-                            {{-- @if($category->id == NULL) --}}
-                                <option value="{{ $country->id ?? '' }}">{{ $country->name ?? '' }}</option>
-                            {{-- @endif --}}
-                        @endforeach
-                    </select>
-                </div>
-                    <div class="form-group">
-                        <label>Upload Business</label>
-                        <input type="file" name="file" class="form-control" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" style="padding-bottom: 33px;" required>
+                        <label>Upload PDF</label>
+                        
+                        <input type="file" name="file[]" accept="application/pdf" class="form-control" style="padding-bottom: 33px;" multiple required>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Upload Business</button>
+                    <button type="submit" class="btn btn-primary">Upload </button>
                     <a href="{{route('business.upcoming')}}" class="btn btn-danger">Back</a>
                 </form>
             </div>

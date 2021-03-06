@@ -89,7 +89,7 @@
                     <li class="{{ Request::segment(1) === 'transaction' ? 'active' : null }}"><a href="{{route('transaction.index')}}">Plan History</a></li>
                     </ul>
                 </li> --}}
-                <li class="{{ Request::segment(2) === 'admin' ? 'active open' : null }}"><a href="{{route('admin.pdf.create')}}"><i class="icon-paper-clip"></i><span>Upload Pdf</span></a></li>
+                <li class="{{ Request::segment(2) === 'admin' ? 'active open' : null }}"><a href="{{route('admin.pdf.index')}}"><i class="icon-paper-clip"></i><span>Upload Pdf</span></a></li>
 
                 <!-- <li class="header">HR, Project & Job</li> -->
                 <!-- <li class="{{ Request::segment(1) === 'projects' ? 'active open' : null }}">

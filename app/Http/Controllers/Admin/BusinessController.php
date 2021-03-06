@@ -66,6 +66,7 @@ class BusinessController extends Controller
             'email' =>collect($request->email)->implode(','),
             'category' =>  collect($request->category)->implode(','),
             'category_name'=> $catim,
+            'mobile'=>$request->mobile,
             'business_time'=>$request->business_time,
             'website' => collect($request->website)->implode(','),
             'landline' => collect($request->landline)->implode(','),
@@ -254,6 +255,7 @@ foreach($request->staff as $key2 => $value)
             $business->email =collect($request->email)->implode(',');
             $business->category = collect($request->category)->implode(',');
             $business->category_name= $catim;
+            $business->mobile = $request->mobile;
             $business->business_time=$request->business_time;
             $business->website =collect($request->website)->implode(',');
             $business->landline = collect($request->landline)->implode(',');
