@@ -101,10 +101,19 @@
                                 <div class="col-md-12">
                                    <div class="form-group">
                                       <label class="control-label">Landline</label>
-                                      <input type="text" name="landline[]"  value="" class="form-control">
+                                      <input type="number" name="landline[]"  value="" class="form-control">
                                    </div>
                                 </div>
                               </div>
+
+                              <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Mobile</label>
+                                        <input type="number" name="mobile" placeholder="Mobile" value="{{$business->mobile ?? ''}}" class="form-control" required>
+                                    </div>
+                                </div>
+                                </div>
 
                               <div class="col-md-12">
                                 <div class="form-group">
@@ -456,7 +465,7 @@
                                    <input type="text" name="staff[0][staff_name]" value="" placeholder="Name" class="form-control my-3">
                                    <input type="text" name="staff[0][staff_job_title]" value="" placeholder="Job title" class="form-control my-3">
                                    <input type="text" name="staff[0][staff_email]" value="" placeholder="Email" class="form-control my-3">
-                                   <input type="text" name="staff[0][staff_mobile]" value="" placeholder="Mobile" class="form-control my-3">
+                                   <input type="number" name="staff[0][staff_mobile]" value="" placeholder="Mobile" class="form-control my-3">
                                    <input type="text" name="staff[0][staff_skype]" value="" placeholder="Skype Id" class="form-control my-3">
                                    <textarea name="staff[0][staff_about]" placeholder="About" class="form-control my-3"></textarea>
                                    <input type="file" name="staff[0][staff_profile]" value="" placeholder="Profile" accept="image/*" class="form-control my-3">
@@ -580,7 +589,7 @@
             if(x < maxField){
                 x++; //Increment field counter
              console.log(x);
-             var fieldHTML = ' <div class="rowField'+x+'" ><div class="col-md-9"><div class="form-group"><label class="control-label">Landline</label><input type="text" name="landline[]" value="" class="form-control"> </div></div><div class="col-md-3"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button" id="'+x+'">Delete</a></div></div></div>'; //New input field html
+             var fieldHTML = ' <div class="rowField'+x+'" ><div class="col-md-9"><div class="form-group"><label class="control-label">Landline</label><input type="number" name="landline[]" value="" class="form-control"> </div></div><div class="col-md-3"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button" id="'+x+'">Delete</a></div></div></div>'; //New input field html
 
                 $(wrapper).append(fieldHTML); //Add field html
             }
@@ -606,7 +615,7 @@
             if(y < maxField){
                 y++; //Increment field counter
 
-             var fieldHTML_staff = ' <div class="rowField_staff'+y+'" ><div class="col-md-12"><div class="form-group"><label class="control-label">Staff Detail <a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button_staff" id="'+y+'">X</a> </label> <input type="text" name="staff['+inc+'][staff_name]"  value="" placeholder="Name" class="my-3 form-control"><input type="text" name="staff['+inc+'][staff_job_title]"  value="" placeholder="Job title" class="my-3 form-control"><input type="text" name="staff['+inc+'][staff_email]"  value="" placeholder="Email" class="form-control my-3"><input type="text" name="staff['+inc+'][staff_mobile]"  value="" placeholder="Mobile" class="my-3 form-control"><input type="text" name="staff['+inc+'][staff_skype]"  value="" placeholder="Skype Id" class="my-3 form-control"><textarea name="staff['+inc+'][staff_about]"   placeholder="About" class="my-3 form-control" ></textarea><input type="file" name="staff['+inc+'][staff_profile]"   value="" placeholder="Profile" accept="image/*" class="my-3 form-control"> </div></div></div>'; //New input field html
+             var fieldHTML_staff = ' <div class="rowField_staff'+y+'" ><div class="col-md-12"><div class="form-group"><label class="control-label">Staff Detail <a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button_staff" id="'+y+'">X</a> </label> <input type="text" name="staff['+inc+'][staff_name]"  value="" placeholder="Name" class="my-3 form-control"><input type="text" name="staff['+inc+'][staff_job_title]"  value="" placeholder="Job title" class="my-3 form-control"><input type="text" name="staff['+inc+'][staff_email]"  value="" placeholder="Email" class="form-control my-3"><input type="number" name="staff['+inc+'][staff_mobile]"  value="" placeholder="Mobile" class="my-3 form-control"><input type="text" name="staff['+inc+'][staff_skype]"  value="" placeholder="Skype Id" class="my-3 form-control"><textarea name="staff['+inc+'][staff_about]"   placeholder="About" class="my-3 form-control" ></textarea><input type="file" name="staff['+inc+'][staff_profile]"   value="" placeholder="Profile" accept="image/*" class="my-3 form-control"> </div></div></div>'; //New input field html
 
                 $(wrapper_staff).append(fieldHTML_staff); //Add field html
                 inc++;

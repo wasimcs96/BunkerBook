@@ -49,48 +49,6 @@ Route::group([
 
 Route::get('home', 'UserController@index')->name('home');
 
-// users.....
-Route::get('/user/index', 'admin\adminusercontroller@index')->name('users.index');
-Route::get('/user/create', 'admin\adminusercontroller@create')->name('users.create');
-Route::post('/user/store', 'admin\adminusercontroller@store')->name('users.store');
-Route::get('/user/show/{id}', 'admin\adminusercontroller@show')->name('users.show');
-Route::post('/user/update/{id}', 'admin\adminusercontroller@update')->name('users.update');
-Route::get('/user/edit/{id}', 'admin\adminusercontroller@edit')->name('users.edit');
-Route::get('/user/destroy/{id}', 'admin\adminusercontroller@destroy')->name('users.destroy');
-Route::get('/user/tansaction/{id}', 'Admin\AdminUserController@tansaction')->name('users.tansaction');
-
-// category.......
-Route::get('/category', 'admin\admincategorycontroller@index')->name('category.index');
-Route::post('/category/create', 'admin\admincategorycontroller@create')->name('category.create');
-Route::post('/category', 'admin\admincategorycontroller@store')->name('category.store');
-Route::get('/category/show/{id}', 'admin\admincategorycontroller@show')->name('category.show');
-Route::post('/category/update/{id}', 'admin\admincategorycontroller@update')->name('category.update');
-Route::get('/category/edit/{id}', 'admin\admincategorycontroller@edit')->name('category.edit');
-Route::get('/category/destroy/{id}', 'admin\admincategorycontroller@destroy')->name('category.delete');
-
-// plan.......
-Route::get('/plan', 'admin\adminplancontroller@index')->name('plan.index');
-// Route::get('/plan/create', 'admin\adminplancontroller@create')->name('plan.create');
-// Route::post('/plan', 'admin\adminplancontroller@store')->name('plan.store');
-Route::get('/plan/show/{id}', 'admin\adminplancontroller@show')->name('plan.show');
-Route::post('/plan/{id}', 'admin\adminplancontroller@update')->name('plan.update');
-Route::get('/plan/edit/{id}', 'admin\adminplancontroller@edit')->name('plan.edit');
-// Route::get('/plan/destroy/{id}', 'admin\adminplancontroller@destroy')->name('plan.destroy');
-
-// news.......
-Route::get('/news', 'admin\adminnewsfeedcontroller@index')->name('news.index');
-Route::post('/news/create', 'admin\adminnewsfeedcontroller@create')->name('news.create');
-Route::post('/news', 'admin\adminnewsfeedcontroller@store')->name('news.store');
-Route::get('/news/show/{id}', 'admin\adminnewsfeedcontroller@show')->name('news.show');
-Route::post('/news/{id}', 'admin\adminnewsfeedcontroller@update')->name('news.update');
-Route::get('/news/edit/{id}', 'admin\adminnewsfeedcontroller@edit')->name('news.edit');
-Route::get('/news/destroy/{id}', 'admin\adminnewsfeedcontroller@destroy')->name('news.destroy');
-
-// Transaction....
-Route::get('/transaction', 'Admin\AdminTransactioncontroller@index')->name('transaction.index');
-//feedback
-route::get('feedback/all','admin\adminfeedbackcontroller@index')->name('admin.feedback');
-
 Route::get('index', function(){
     return view('frontEnd.index');
 })->name('frontend.index');
@@ -280,13 +238,8 @@ Route::get('/frontend', function(){
 
 Auth::routes();
 
-// Route::get('/blog/all', function(){
-//     return view('frontEnd.blog.blog_all');
-// });
+Route::group(['prefix'=>'admin', 'middleware' => 'role:superadmin'], function () {
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-/*Business Management*/
 Route::get('business/add', 'Admin\BusinessController@addBusiness')->name('business.add');
 Route::post('business/store', 'Admin\BusinessController@store')->name('business.store');
 
@@ -300,6 +253,93 @@ Route::post('business/reject/model/{id}', 'Admin\BusinessController@rejectBusine
 
 Route::get('business/view/{id}', 'Admin\BusinessController@viewBusiness')->name('business.view');
 Route::get('business/delete/{id}', 'Admin\BusinessController@destroyBusiness')->name('business.delete');
+
+
+// users.....
+Route::get('/user/index', 'admin\adminusercontroller@index')->name('users.index');
+Route::get('/user/create', 'admin\adminusercontroller@create')->name('users.create');
+Route::post('/user/store', 'admin\adminusercontroller@store')->name('users.store');
+Route::get('/user/show/{id}', 'admin\adminusercontroller@show')->name('users.show');
+Route::post('/user/update/{id}', 'admin\adminusercontroller@update')->name('users.update');
+Route::get('/user/edit/{id}', 'admin\adminusercontroller@edit')->name('users.edit');
+Route::get('/user/destroy/{id}', 'admin\adminusercontroller@destroy')->name('users.destroy');
+Route::get('/user/tansaction/{id}', 'Admin\AdminUserController@tansaction')->name('users.tansaction');
+
+// category.......
+Route::get('/category', 'admin\admincategorycontroller@index')->name('category.index');
+Route::post('/category/create', 'admin\admincategorycontroller@create')->name('category.create');
+Route::post('/category', 'admin\admincategorycontroller@store')->name('category.store');
+Route::get('/category/show/{id}', 'admin\admincategorycontroller@show')->name('category.show');
+Route::post('/category/update/{id}', 'admin\admincategorycontroller@update')->name('category.update');
+Route::get('/category/edit/{id}', 'admin\admincategorycontroller@edit')->name('category.edit');
+Route::get('/category/destroy/{id}', 'admin\admincategorycontroller@destroy')->name('category.delete');
+
+// plan.......
+Route::get('/plan', 'admin\adminplancontroller@index')->name('plan.index');
+// Route::get('/plan/create', 'admin\adminplancontroller@create')->name('plan.create');
+// Route::post('/plan', 'admin\adminplancontroller@store')->name('plan.store');
+Route::get('/plan/show/{id}', 'admin\adminplancontroller@show')->name('plan.show');
+Route::post('/plan/{id}', 'admin\adminplancontroller@update')->name('plan.update');
+Route::get('/plan/edit/{id}', 'admin\adminplancontroller@edit')->name('plan.edit');
+// Route::get('/plan/destroy/{id}', 'admin\adminplancontroller@destroy')->name('plan.destroy');
+
+// news.......
+Route::get('/news', 'admin\adminnewsfeedcontroller@index')->name('news.index');
+Route::post('/news/create', 'admin\adminnewsfeedcontroller@create')->name('news.create');
+Route::post('/news', 'admin\adminnewsfeedcontroller@store')->name('news.store');
+Route::get('/news/show/{id}', 'admin\adminnewsfeedcontroller@show')->name('news.show');
+Route::post('/news/{id}', 'admin\adminnewsfeedcontroller@update')->name('news.update');
+Route::get('/news/edit/{id}', 'admin\adminnewsfeedcontroller@edit')->name('news.edit');
+Route::get('/news/destroy/{id}', 'admin\adminnewsfeedcontroller@destroy')->name('news.destroy');
+
+// Transaction....
+Route::get('/transaction', 'Admin\AdminTransactioncontroller@index')->name('transaction.index');
+//feedback
+Route::get('feedback/all','admin\adminfeedbackcontroller@index')->name('admin.feedback');
+
+
+Route::get('banner/index','Admin\BannerController@index')->name('banner.index');
+
+
+Route::post('banner/create','Admin\BannerController@create')->name('banner.create');
+
+Route::post('banner/update/{id}','Admin\BannerController@update')->name('banner.edit');
+
+Route::get('banner/delete/{id}','Admin\BannerController@destroy')->name('banner.destroy');
+
+Route::get('event/index','Admin\EventController@index')->name('event.index');
+
+Route::post('event/update/{id}','Admin\EventController@update')->name('event.update');
+
+Route::post('event/create','Admin\EventController@create')->name('event.create');
+
+Route::get('event/delete/{id}','Admin\EventController@destroy')->name('event.destroy');
+
+
+Route::post('business/status/update/{id}','Admin\BusinessController@status')->name('business.status');
+
+Route::post('business/reject/{id}','Admin\BusinessController@reject')->name('business.request.reject');
+
+Route::post('business/rating/{id}','FrontEndController\BusinessFrontController@rating')->name('business.rating');
+
+Route::get('export', 'Admin\BusinessImportController@export')->name('export');
+Route::get('importExportView', 'Admin\BusinessImportController@importExportView');
+Route::post('import', 'Admin\BusinessImportController@import')->name('import');
+
+
+Route::get('business/upload','Admin\BusinessController@importCreate')->name('business.upload');
+
+Route::get('/pdf.index','Admin\PdfController@index')->name('admin.pdf.index');
+Route::get('/pdf.create','Admin\PdfController@create')->name('admin.pdf.create');
+Route::post('/pdf.store','Admin\PdfController@store')->name('admin.pdf.store');
+Route::get('/pdf.delete/{id}','Admin\PdfController@destroy')->name('admin.pdf.delete');
+
+
+});
+Route::get('/home', 'HomeController@index')->name('home');
+
+/*Business Management*/
+
 //country_business
 //category
 // Route::get('/frontend/category', function(){
@@ -334,22 +374,6 @@ Route::get('User/Account/detail','FrontEndController\UserFrontController@index')
 
 Route::post('User/Account/Update/{id}','FrontEndController\UserFrontController@update')->name('user.info');
 
-Route::get('banner/index','Admin\BannerController@index')->name('banner.index');
-
-
-Route::post('banner/create','Admin\BannerController@create')->name('banner.create');
-
-Route::post('banner/update/{id}','Admin\BannerController@update')->name('banner.edit');
-
-Route::get('banner/delete/{id}','Admin\BannerController@destroy')->name('banner.destroy');
-
-Route::get('event/index','Admin\EventController@index')->name('event.index');
-
-Route::post('event/update/{id}','Admin\EventController@update')->name('event.update');
-
-Route::post('event/create','Admin\EventController@create')->name('event.create');
-
-Route::get('event/delete/{id}','Admin\EventController@destroy')->name('event.destroy');
 
 Route::get('bookmark/','FrontEndController\BookmarkFrontController@index')->name('bookmark.index');
 
@@ -363,18 +387,5 @@ Route::post('country/filter','FrontEndController\CountryFrontController@countryf
 
 Route::post('/bookmark','FrontEndController\BookmarkFrontController@postbookmark')->name('bookmark.create');
 
-Route::post('business/status/update/{id}','Admin\BusinessController@status')->name('business.status');
+Route::post('/bookmark/delete','FrontEndController\BookmarkFrontController@deletebookmark')->name('bookmark.remove');
 
-Route::post('business/reject/{id}','Admin\BusinessController@reject')->name('business.request.reject');
-
-Route::post('business/rating/{id}','FrontEndController\BusinessFrontController@rating')->name('business.rating');
-
-Route::get('export', 'Admin\BusinessImportController@export')->name('export');
-Route::get('importExportView', 'Admin\BusinessImportController@importExportView');
-Route::post('import', 'Admin\BusinessImportController@import')->name('import');
-
-
-Route::get('business/upload','Admin\BusinessController@importCreate')->name('business.upload');
-
-Route::get('admin/pdf.create','Admin\PdfController@create')->name('admin.pdf.create');
-Route::post('admin/pdf.store','Admin\PdfController@store')->name('admin.pdf.store');

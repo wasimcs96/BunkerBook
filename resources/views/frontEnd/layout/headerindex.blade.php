@@ -110,7 +110,7 @@
                     <a class="nav-link" href="#">Profile</a>
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="{{route('user.detail')}}">Account info</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/frontend/membership">Membership</a></li>
+                        {{-- <li class="nav-item"><a class="nav-link" href="/frontend/membership">Membership</a></li> --}}
                         <li class="nav-item"><a class="nav-link" href="{{route('bookmark.index')}}">Bookmark</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{route('front.business.create')}}">Add Business</a></li>
 

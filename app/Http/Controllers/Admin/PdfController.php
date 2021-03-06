@@ -7,8 +7,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Pdfdocs;
 class PdfController extends Controller
 {
-    public function create(){
+    public function index(){
         return view('pdf.index');
+    }
+
+    public function create(){
+        return view('pdf.create');
     }
 
     public function store(Request $request){
@@ -30,4 +34,13 @@ $files = $request->file;
             return redirect()->back()->with('success','Document Uploaded Successfully');
 
     }
+
+    
+    public function destroy($id){
+      
+      $del = Pdfdocs::find($id);
+      $del->delete();
+                    return redirect()->back()->with('success','Document Uploaded Successfully');
+        
+            }
 }

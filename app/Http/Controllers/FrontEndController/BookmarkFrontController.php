@@ -26,4 +26,15 @@ class BookmarkFrontController extends Controller
             'success' => 'bookmark added successfully!'
         ]);
     }
+
+    public function deletebookmark(Request $request)
+    {
+        // dd($request->all());
+
+       $delete = Bookmark::where('user_id',auth()->user()->id)->where('business_id',$request->media_id);
+       $delete->delete();
+        return response()->json([
+            'success' => 'bookmark added successfully!'
+        ]);
+    }
 }

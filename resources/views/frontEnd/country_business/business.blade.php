@@ -44,19 +44,19 @@
                                         <div class="course-pic-content">
                                             <div class="course-rating">
                                             @if(auth()->user())
-                                            <?php $bookmark=App\Models\Bookmark::where('business_id',$bus->id)->where('user_id',auth()->user()->id)->count();?>
-                                            @if($bookmark > 0)
-                                                <span><i class="fa fa-heart rounded-circle" aria-hidden="true" style="
+                                            <?php $bookmark=App\Models\Bookmark::where('business_id',$bus->id)->where('user_id',auth()->user()->id)->first();?>
+                                            @if(isset($bookmark->business_id) && $bookmark->business_id == $bus->id && $bookmark->user_id == auth()->user()->id)
+                                                <span><i class="fa fa-heart rounded-circle bookremove" custom2="{{$bus->id ?? ''}}" aria-hidden="true" style="
 															background: white;
                                                            
 															padding: 5px;
 															border: 5px;"></i></span>
                                                             @else
-                                                            <span><button class="bookadd"   custom2="{{$bus->id ?? ''}}" style="background: none;border: none;" ><i class="fa fa-heart rounded-circle" aria-hidden="true" style="
+                                                            <span><i class=" bookadd fa fa-heart rounded-circle"  custom2="{{$bus->id ?? ''}}"aria-hidden="true" style="
 															background: white;
                                                             color: black;
 															padding: 5px;
-															border: 5px;"></i></button></span>
+															border: 5px;"></i></span>
                                             @endif
 @endif
 
@@ -139,8 +139,8 @@ var media_id=""
 
 $('.bookadd').click(function(){
 
-
     var media_id = $(this).attr('custom2');
+    $(this).css('color', '#255dff');
 console.log(media_id);
 // document.getElementById(media_id).style.display="none";
 // console.log(media_id);
@@ -155,7 +155,7 @@ console.log(media_id);
                 data: {media_id: media_id, "_token": "{{ csrf_token() }}"},
                 success: function (result) {
                     console.log('success');
-
+// document.getElementsByClassName('bookdone').css('background-color', 'red');
                 }
             });
 
@@ -163,4 +163,36 @@ console.log(media_id);
 
 });
  </script>
+
+ <script>
+    var media_id=""
+    // var user_id = 
+    
+    
+    $('.bookremove').click(function(){
+    
+        var media_id = $(this).attr('custom2');
+        $(this).css('color', 'black');
+    console.log(media_id);
+    // document.getElementById(media_id).style.display="none";
+    // console.log(media_id);
+            $.ajaxSetup({
+             headers: {
+             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+                });
+                $.ajax({
+                    type: "post",
+                    url: "{{route('bookmark.remove')}}",
+                    data: {media_id: media_id, "_token": "{{ csrf_token() }}"},
+                    success: function (result) {
+                        console.log('success');
+    // document.getElementsByClassName('bookdone').css('background-color', 'red');
+                    }
+                });
+    
+    
+    
+    });
+     </script>
 @endsection
