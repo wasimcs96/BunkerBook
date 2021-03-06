@@ -18,5 +18,8 @@ class ResetEmailController extends Controller
         if($validator->fails()){
             return $this->sendError('Email Does Not exist in our Database.', $validator->errors());
         }
+        $email = $request->email;
+        return $this->sendResponse($email,'Reset Password link sent to this Email');
+
     }
 }
