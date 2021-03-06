@@ -30,7 +30,7 @@
 											</div>
 											<!-- <span class="alert alert-error"></span> -->
 										</div>
-										<input  class="my-5 rounded d-flex m-auto" name="profile_image" value="" type="file" style="border: solid 1px #ccc">
+										<input  class="my-5 rounded d-flex m-auto" name="profile_image" accept="image/*" value="" type="file" style="border: solid 1px #ccc">
 										<div class="form-group">
 											<label for="name">First Name</label>
 											<input type="text" class="form-control" name="first_name" id="name" value="{{auth()->user()->firstname ?? ' '}}">

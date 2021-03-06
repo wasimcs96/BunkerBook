@@ -21,11 +21,11 @@
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"
                             aria-haspopup="true" aria-expanded="false"></a>
-                        <ul class="dropdown-menu">
+                        {{-- <ul class="dropdown-menu">
                             <li><a href="javascript:void(0);">Action</a></li>
                             <li><a href="javascript:void(0);">Another Action</a></li>
                             <li><a href="javascript:void(0);">Something else</a></li>
-                        </ul>
+                        </ul> --}}
                     </li>
                 </ul>
             </div>
@@ -50,7 +50,7 @@
                             <tr>
                                 <td>{{$key+1}}</td>
                                 <td>@if(isset($user->image))<a href="{{asset($user->image)}}" target="_blank" ><img src="{{ asset($user->image)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
-                                <td>@if(isset($user->first_name)&&file_exists($user->first_name)){{ $user->first_name ?? '' }}@else N/A @endif</td>
+                                <td>@if(isset($user->first_name)){{ $user->first_name ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($user->last_name)){{ $user->last_name ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($user->email)){{ $user->email ?? '' }}@else N/A @endif</td>
                                 <td>@if(isset($user->mobile)){{ $user->mobile ?? '' }}@else N/A @endif</td>

@@ -55,4 +55,8 @@ Route::middleware('auth:api')->group(function () {
 
     Route::post('/business/request/post','Api\BusinessController@businessrequest')->name('business.request');
 
+    Route::get('/pdf/get','Api\PlanController@pdfget')->name('pdfget');
+
+    Route::post('/reset/email/sent','Api\ResetEmailController@sentemail')->name('reset.email.sent')
+
 });
