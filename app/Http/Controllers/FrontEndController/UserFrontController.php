@@ -8,7 +8,7 @@ use App\Models\User;
 class UserFrontController extends Controller
 {
     public function index(){
-        return view('frontEnd/profile/account_info/account');
+        return view('frontEnd.profile.account_info.account');
     }
     public function update(Request $request , $id){
 
@@ -26,5 +26,8 @@ class UserFrontController extends Controller
 
 
 
+    }
+    public function about(){
+        return view('frontEnd.about.about');
     }
 }

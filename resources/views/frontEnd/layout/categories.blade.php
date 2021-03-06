@@ -1,9 +1,9 @@
-<div class="cat-area de-padding">
+<div class="cat-area">
     <div class="container">
         <div class="row">
             <div class="col-xl-8 offset-xl-2">
                 <div data-text="categories" class="site-title text-center">
-                    <img src="{{ asset('frontEnd/assets/img/heading/site-top.png') }}" alt="thumb">
+                    <img src="{{ asset('frontEnd/assets/img/heading/choose.png') }}" alt="thumb">
                     <span class="sub-head">Find Perfect one</span>
                     <h2>Check all categories </h2>
                 </div>
@@ -86,6 +86,6 @@
         </div>
     </div>
     <div class="more-btn">
-        <a href="course.html">View All Categories <i class="ti ti-arrow-right"></i></a>
+        <a href="{{route('category.view')}}">View All Categories <i class="ti ti-arrow-right"></i></a>
     </div>
 </div>

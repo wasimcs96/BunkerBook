@@ -51,10 +51,10 @@
 	--bg-color-2: #f9f9f9;
 	--bg-color-3: #EEEEEE;
 	--body-color: #686868;
-	--theme-color: #2E35DA;
-	--theme-color-2: #2E35DA;
-	--theme-color-3: #2024b0;
-	--theme-color-sec: #255dff;
+	--theme-color: #ffa500;
+	--theme-color-2: #ffa500;
+	--theme-color-3: #ffa500;
+	--theme-color-sec: #ffa500;
 	--white-color: #fff;
 	--black-color: #000;
 	--light-color: #EFEFEF;
@@ -931,7 +931,7 @@ select:focus {
     right: 150px;
     top: -32px;
     content: '';
-    background-color: #2E35DA;
+    background-color: #ffa500;
     border-radius: 50%;
 }
 
@@ -1102,7 +1102,7 @@ header.header.header-2 .header-1 {
 .header-1-wrap.hdr-3 .header-scl ul li a i,
 .header-1-wrap.hdr-3 .header-loc ul li a,
 .header-1-wrap.hdr-3 .header-loc ul li a i{
-	color: #2E35DA;
+	color: #ffa500;
 }
 
 .header-1-wrap.hdr-3 .header-btn,
@@ -1622,7 +1622,7 @@ header.header.header-2 .header-1 {
 	/* background-image: -moz-linear-gradient( 90deg, #EB9E04 0%, #C21500 99%);
 	background-image: -webkit-linear-gradient( 90deg, #EB9E04 0%, #C21500 99%);
 	background-image: -ms-linear-gradient( 90deg, #EB9E04 0%, #C21500 99%); */
-    background: #2E35DA;
+    background: #ffa500;
 	-webkit-text-fill-color: transparent;
 	-webkit-background-clip: text;
 }
@@ -5559,7 +5559,7 @@ ul.footer-menu li a{
 
 .copyright {
     padding: 2rem 0;
-	background:  rgba(2,16,121,.51);
+	background:  #ffa500;
 }
 
 .copyright .container {

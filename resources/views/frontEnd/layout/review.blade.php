@@ -13,7 +13,7 @@
             <div class="review-box">
                 <div class="review-header">
                     <img src="{{ asset('frontEnd/assets/img/review/user-1.png') }}" alt="thumb">
-                    <img src="{{ asset('frontEnd/assets/img/review/qoute.png') }}" alt="thumb">
+                    <!-- <img src="{{ asset('frontEnd/assets/img/review/qoute.png') }}" alt="thumb"> -->
                 </div>
                 <div class="review-text">
                     <h5>Sraties Morgan - <span> Pusuing B.Tech in Computer Science</span></h5>
@@ -35,7 +35,7 @@
             <div class="review-box">
                 <div class="review-header">
                     <img src="{{ asset('frontEnd/assets/img/review/user-2.png') }}" alt="thumb">
-                    <img src="{{ asset('frontEnd/assets/img/review/qoute.png') }}" alt="thumb">
+                    <!-- <img src="{{ asset('frontEnd/assets/img/review/qoute.png') }}" alt="thumb"> -->
                 </div>
                 <div class="review-text">
                     <h5>Sraties Morgan - <span>Pursuing MBBS in Abroad</span></h5>
@@ -57,7 +57,7 @@
             <div class="review-box">
                 <div class="review-header">
                     <img src="{{ asset('frontEnd/assets/img/review/user-3.png') }}" alt="thumb">
-                    <img src="{{ asset('frontEnd/assets/img/review/qoute.png') }}" alt="thumb">
+                    <!-- <img src="{{ asset('frontEnd/assets/img/review/qoute.png') }}" alt="thumb"> -->
                 </div>
                 <div class="review-text">
                     <h5>Sraties Morgan - <span>Pusuing B.Com in Finanace and Accounting</span></h5>
@@ -79,7 +79,7 @@
             <div class="review-box">
                 <div class="review-header">
                     <img src="{{ asset('frontEnd/assets/img/review/user-2.png') }}" alt="thumb">
-                    <img src="{{ asset('frontEnd/assets/img/review/qoute.png') }}" alt="thumb">
+                    <!-- <img src="{{ asset('frontEnd/assets/img/review/qoute.png') }}" alt="thumb"> -->
                 </div>
                 <div class="review-text">
                     <h5>Sraties Morgan - <span>Pursuing B.A. in Public Administration</span></h5>

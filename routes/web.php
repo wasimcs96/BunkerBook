@@ -16,9 +16,7 @@ Route::get('consultant/book', function(){
 Route::get('university', function(){
     return view('frontEnd.university.university');
 });
-Route::get('/add_business/front', function(){
-    return view('frontEnd.profile.add_business');
-});
+Route::get('/about/detail', 'FrontEndController\UserFrontController@about')->name('about_us');
 
 Route::get('/add_business/front', 'FrontEndController\BusinessFrontController@create')->name('front.business.create');
 
@@ -389,3 +387,6 @@ Route::post('/bookmark','FrontEndController\BookmarkFrontController@postbookmark
 
 Route::post('/bookmark/delete','FrontEndController\BookmarkFrontController@deletebookmark')->name('bookmark.remove');
 
+Route::get('feedback/create','FrontEndController\FeedbackController@index')->name('feedback.index');
+
+Route::post('feedback/store','FrontEndController\FeedbackController@store')->name('feedback.store');
