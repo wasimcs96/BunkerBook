@@ -13,15 +13,6 @@
                 <h2>Uploaded Banner<small></small></h2>
                 <ul class="header-dropdown dropdown">
                     <li><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#userModal" class="btn btn-sm btn-danger" style="color: white;" >Add More</a></li>
-                    <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="javascript:void(0);">Action</a></li>
-                            <li><a href="javascript:void(0);">Another Action</a></li>
-                            <li><a href="javascript:void(0);">Something else</a></li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
             <div class="body">
@@ -29,11 +20,11 @@
                     <table class="table table-striped table-hover dataTable js-exportable">
                         <thead>
                             <tr>
-                                <th class="col-lg-1">#</th>
-                                <th class="col-lg-2">Image</th>
+                                <th class="col-lg-1" style="width: 8px;">#</th>
+                                <th class="col-lg-2" style="width: 128px;">Image</th>
                                 <th class="col-lg-2">URL</th>
                                 {{-- <th class="col-lg-3">Description</th> --}}
-                                <th class="col-lg-2">Position</th>
+                                <th class="col-lg-2" style="width: 128px;">Position</th>
                                 <th class="col-lg-2">Actions</th>
                             </tr>
                         </thead>

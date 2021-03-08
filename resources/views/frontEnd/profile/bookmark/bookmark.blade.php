@@ -29,11 +29,18 @@
 							</div> -->
                     <!-- End Mixitup Nav-->
                     <div class="magnific-mix-gallery masonary">
+                        @if(isset($books)&& $books->count() < 1)
+                        <div class="qwe" style="text-align: center;">
+                            <i class="fas fa-bookmark fa-4x"></i>
+                            <Br></Br>
+                            <h3>Oops! No Bookmark Added</h3>
+                        </div>
+                        @endif
                         <div id="portfolio-grid" class="portfolio-items">
 
                             @foreach($books as $book)
                             <div class="pf-item video photography">
-                                <div class="course-box rounded" style="border: solid 5px #2E35D9;">
+                                <div class="course-box rounded" style="border: solid 5px #FFA500;">
                                     <div class="course-pic">
                                     @if(isset($book->business->featured_banner_image)&& file_exists($book->business->featured_banner_image))
                                         <img src="{{ asset($book->featured_banner_image ?? '') }}"9 class="course-img" alt="thumb"style="height: 220px;">

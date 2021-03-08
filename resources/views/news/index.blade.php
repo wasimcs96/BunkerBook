@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('parentPageTitle', 'My Page')
-@section('title', 'News List')
+@section('title', 'News Feed')
 
 
 @section('content')
@@ -10,18 +10,9 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="header">
-                <h2>Table Tools<small>Basic example without any additional modification classes</small></h2>
+                <h2>News List</h2>
                 <ul class="header-dropdown dropdown">
                     <li><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#userModal" class="btn btn-sm btn-danger" style="color: white;" >Add More</a></li>
-                    <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="javascript:void(0);">Action</a></li>
-                            <li><a href="javascript:void(0);">Another Action</a></li>
-                            <li><a href="javascript:void(0);">Something else</a></li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
             <div class="body">

@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('parentPageTitle', 'My Page')
-@section('title', 'Event List')
+@section('title', 'Events')
 
 
 @section('content')
@@ -10,11 +10,9 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="header">
-                <h2>Events<small></small></h2>
+                <h2>Events List</h2>
                 <ul class="header-dropdown dropdown">
                     <li><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#userModal" class="btn btn-sm btn-danger" style="color: white;" >Add More</a></li>
-                    <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
-                 
                 </ul>
             </div>
             <div class="body">

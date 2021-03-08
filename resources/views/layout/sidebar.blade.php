@@ -1,12 +1,12 @@
 <div id="left-sidebar" class="sidebar">
     <div class="navbar-brand">
-        <a href="index.html"><img src="../assets/images/icon.svg" alt="Oculux Logo" class="img-fluid logo"><span>Oculux</span></a>
+        <a href="index.html"><img src="{{asset('assets/images/icon.svg')}}" alt="Oculux Logo" class="img-fluid logo"><span>Bunkerbook</span></a>
         <button type="button" class="btn-toggle-offcanvas btn btn-sm float-right"><i class="lnr lnr-menu fa fa-chevron-circle-left"></i></button>
     </div>
     <div class="sidebar-scroll">
         <div class="user-account">
             <div class="user_div">
-                <img src="../assets/images/user.png" class="user-photo" alt="User Profile Picture">
+                <img src="{{asset('assets/images/user.png')}}" class="user-photo" alt="User Profile Picture">
             </div>
             <div class="dropdown">
                 <span>Welcome,</span>
@@ -44,31 +44,31 @@
                     </ul>
                 </li> --}}
                 <li class="{{ Request::segment(2) === 'panel' ? 'active open' : null }}"><a href="{{route('admin.panel')}}"><i class="icon-speedometer"></i><span>Dashboard</span></a></li>
-                <li class="{{ Request::segment(1) === 'user' ? 'active open' : null }}"><a href="{{route('users.index')}}"><i class="icon-user"></i><span>User Management</span></a>
+                <li class="{{ Request::segment(2) === 'user' ? 'active open' : null }}"><a href="{{route('users.index')}}"><i class="icon-user"></i><span>User Management</span></a>
                     <ul>
-                    <li class="{{ Request::segment(2) === 'index' ? 'active' : null }}"><a href="{{route('users.index')}}">Users list</a></li>
+                    <li class="{{ Request::segment(3) === 'index' ? 'active' : null }}"><a href="{{route('users.index')}}">Users list</a></li>
                     </ul>
                 </li>
-                <li class="{{ Request::segment(1) === 'category' ? 'active open' : null }}"><a href="{{route('category.index')}}"><i class="icon-basket-loaded"></i><span>Category Management</span></a>
+                <li class="{{ Request::segment(2) === 'category' ? 'active open' : null }}"><a href="{{route('category.index')}}"><i class="icon-basket-loaded"></i><span>Category Management</span></a>
                     <ul>
-                    <li class="{{ Request::segment(1) === 'category' ? 'active' : null }}"><a href="{{route('category.index')}}">Category list</a></li>
+                    <li class="{{ Request::segment(3) === 'category' ? 'active' : null }}"><a href="{{route('category.index')}}">Category list</a></li>
                     </ul>
                 </li>
-                {{-- <li class="{{ Request::segment(1) === 'plan' ? 'active open' : null }}"><a href="{{route('plan.index')}}"><i class="icon-cursor"></i><span>Plan Management</span></a></li> --}}
+                {{-- <li class="{{ Request::segment(2) === 'plan' ? 'active open' : null }}"><a href="{{route('plan.index')}}"><i class="icon-cursor"></i><span>Plan Management</span></a></li> --}}
 
-                <li class="{{ Request::segment(1) === 'news' ? 'active open' : null }}"><a href="{{route('news.index')}}"><i class="icon-globe"></i><span>News Feed</span></a></li>
+                <li class="{{ Request::segment(2) === 'news' ? 'active open' : null }}"><a href="{{route('news.index')}}"><i class="icon-globe"></i><span>News Feed</span></a></li>
 
-                <li class="{{ Request::segment(1) === 'event' ? 'active open' : null }}"><a href="{{route('event.index')}}"><i class="icon-globe"></i><span>Events</span></a></li>
+                <li class="{{ Request::segment(2) === 'event' ? 'active open' : null }}"><a href="{{route('event.index')}}"><i class="icon-globe"></i><span>Events</span></a></li>
 
-                <li class="{{ Request::segment(1) === 'banner' ? 'active open' : null }}"><a href="{{route('banner.index')}}"><i class="icon-globe"></i><span>Banner</span></a></li>
+                <li class="{{ Request::segment(2) === 'banner' ? 'active open' : null }}"><a href="{{route('banner.index')}}"><i class="icon-globe"></i><span>Banner</span></a></li>
 
-                <li class="{{ Request::segment(1) === 'business' ? 'active open' : null }}"><a href="javascript:void(0)"><i class="icon-map"></i><span>Business Management</span></a>
+                <li class="{{ Request::segment(2) === 'business' ? 'active open' : null }}"><a href="javascript:void(0)"><i class="icon-map"></i><span>Business Management</span></a>
                     <ul>
-                    <li class="{{ Request::segment(2) === 'add' ? 'active' : null }}"><a href="{{route('business.add')}}">Add Business</a></li>
-                    <li class="{{ Request::segment(2) === 'upload' ? 'active' : null }}"><a href="{{route('business.upload')}}">Upload Business</a></li>
-                    <li class="{{ Request::segment(2) === 'upcoming' ? 'active' : null }}"><a href="{{route('business.upcoming')}}">Upcoming Business list</a></li>
-                    <li class="{{ Request::segment(2) === 'active' ? 'active' : null }}"><a href="{{route('business.active')}}">Active Business list</a></li>
-                    <li class="{{ Request::segment(2) === 'reject' ? 'active' : null }}"><a href="{{route('business.reject')}}">Reject Business list</a></li>
+                    <li class="{{ Request::segment(3) === 'add' ? 'active' : null }}"><a href="{{route('business.add')}}">Add Business</a></li>
+                    <li class="{{ Request::segment(3) === 'upload' ? 'active' : null }}"><a href="{{route('business.upload')}}">Upload Business</a></li>
+                    <li class="{{ Request::segment(3) === 'upcoming' ? 'active' : null }}"><a href="{{route('business.upcoming')}}">Upcoming Business list</a></li>
+                    <li class="{{ Request::segment(3) === 'active' ? 'active' : null }}"><a href="{{route('business.active')}}">Active Business list</a></li>
+                    <li class="{{ Request::segment(3) === 'reject' ? 'active' : null }}"><a href="{{route('business.reject')}}">Reject Business list</a></li>
                     </ul>
                 </li>
 

@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('parentPageTitle', 'Business')
-@section('title', 'Add New Business')
+@section('title', 'Business Management')
 
 @section('content')
 
@@ -8,11 +8,10 @@
     <div class="col-md-12">
         <div class="card">
             <div class="header">
-                <h2>Add Course</h2>
+                <h2>Upload Business</h2>
                 <ul class="header-dropdown dropdown">
 
-                    <li>
-                        <a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
+                    
                     <a  href="{{ asset('assets/sample_CSV/SampleCsv.xlsx') }}" class="btn btn-warning btn-flat" download>Sample CSV</a>
                     <a href="{{Route('business.add')}}" class="btn btn-primary">Add Business</a>
                 </ul>
