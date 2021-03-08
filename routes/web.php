@@ -254,46 +254,46 @@ Route::get('business/delete/{id}', 'Admin\BusinessController@destroyBusiness')->
 
 
 // users.....
-Route::get('/user/index', 'admin\adminusercontroller@index')->name('users.index');
-Route::get('/user/create', 'admin\adminusercontroller@create')->name('users.create');
-Route::post('/user/store', 'admin\adminusercontroller@store')->name('users.store');
-Route::get('/user/show/{id}', 'admin\adminusercontroller@show')->name('users.show');
-Route::post('/user/update/{id}', 'admin\adminusercontroller@update')->name('users.update');
-Route::get('/user/edit/{id}', 'admin\adminusercontroller@edit')->name('users.edit');
-Route::get('/user/destroy/{id}', 'admin\adminusercontroller@destroy')->name('users.destroy');
+Route::get('/user/index', 'Admin\AdminUserController@index')->name('users.index');
+Route::get('/user/create', 'Admin\AdminUserController@create')->name('users.create');
+Route::post('/user/store', 'Admin\AdminUserController@store')->name('users.store');
+Route::get('/user/show/{id}', 'Admin\AdminUserController@show')->name('users.show');
+Route::post('/user/update/{id}', 'Admin\AdminUserController@update')->name('users.update');
+Route::get('/user/edit/{id}', 'Admin\AdminUserController@edit')->name('users.edit');
+Route::get('/user/destroy/{id}', 'Admin\AdminUserController@destroy')->name('users.destroy');
 Route::get('/user/tansaction/{id}', 'Admin\AdminUserController@tansaction')->name('users.tansaction');
 
 // category.......
-Route::get('/category', 'admin\admincategorycontroller@index')->name('category.index');
-Route::post('/category/create', 'admin\admincategorycontroller@create')->name('category.create');
-Route::post('/category', 'admin\admincategorycontroller@store')->name('category.store');
-Route::get('/category/show/{id}', 'admin\admincategorycontroller@show')->name('category.show');
-Route::post('/category/update/{id}', 'admin\admincategorycontroller@update')->name('category.update');
-Route::get('/category/edit/{id}', 'admin\admincategorycontroller@edit')->name('category.edit');
-Route::get('/category/destroy/{id}', 'admin\admincategorycontroller@destroy')->name('category.delete');
+Route::get('/category', 'Admin\AdminCategoryController@index')->name('category.index');
+Route::post('/category/create', 'Admin\AdminCategoryController@create')->name('category.create');
+Route::post('/category', 'Admin\AdminCategoryController@store')->name('category.store');
+Route::get('/category/show/{id}', 'Admin\AdminCategoryController@show')->name('category.show');
+Route::post('/category/update/{id}', 'Admin\AdminCategoryController@update')->name('category.update');
+Route::get('/category/edit/{id}', 'Admin\AdminCategoryController@edit')->name('category.edit');
+Route::get('/category/destroy/{id}', 'Admin\AdminCategoryController@destroy')->name('category.delete');
 
 // plan.......
-Route::get('/plan', 'admin\adminplancontroller@index')->name('plan.index');
+Route::get('/plan', 'Admin\AdminPlanController@index')->name('plan.index');
 // Route::get('/plan/create', 'admin\adminplancontroller@create')->name('plan.create');
 // Route::post('/plan', 'admin\adminplancontroller@store')->name('plan.store');
-Route::get('/plan/show/{id}', 'admin\adminplancontroller@show')->name('plan.show');
-Route::post('/plan/{id}', 'admin\adminplancontroller@update')->name('plan.update');
-Route::get('/plan/edit/{id}', 'admin\adminplancontroller@edit')->name('plan.edit');
+Route::get('/plan/show/{id}', 'Admin\AdminPlanController@show')->name('plan.show');
+Route::post('/plan/{id}', 'Admin\AdminPlanController@update')->name('plan.update');
+Route::get('/plan/edit/{id}', 'Admin\AdminplanController@edit')->name('plan.edit');
 // Route::get('/plan/destroy/{id}', 'admin\adminplancontroller@destroy')->name('plan.destroy');
 
 // news.......
-Route::get('/news', 'admin\adminnewsfeedcontroller@index')->name('news.index');
-Route::post('/news/create', 'admin\adminnewsfeedcontroller@create')->name('news.create');
-Route::post('/news', 'admin\adminnewsfeedcontroller@store')->name('news.store');
-Route::get('/news/show/{id}', 'admin\adminnewsfeedcontroller@show')->name('news.show');
-Route::post('/news/{id}', 'admin\adminnewsfeedcontroller@update')->name('news.update');
-Route::get('/news/edit/{id}', 'admin\adminnewsfeedcontroller@edit')->name('news.edit');
-Route::get('/news/destroy/{id}', 'admin\adminnewsfeedcontroller@destroy')->name('news.destroy');
+Route::get('/news', 'Admin\AdminNewsfeedcontroller@index')->name('news.index');
+Route::post('/news/create', 'Admin\AdminNewsfeedcontroller@create')->name('news.create');
+Route::post('/news', 'Admin\AdminNewsfeedcontroller@store')->name('news.store');
+Route::get('/news/show/{id}', 'Admin\AdminNewsfeedcontroller@show')->name('news.show');
+Route::post('/news/{id}', 'Admin\AdminNewsfeedcontroller@update')->name('news.update');
+Route::get('/news/edit/{id}', 'Admin\AdminNewsfeedcontroller@edit')->name('news.edit');
+Route::get('/news/destroy/{id}', 'Admin\AdminNewsfeedcontroller@destroy')->name('news.destroy');
 
 // Transaction....
 Route::get('/transaction', 'Admin\AdminTransactioncontroller@index')->name('transaction.index');
 //feedback
-Route::get('feedback/all','admin\adminfeedbackcontroller@index')->name('admin.feedback');
+Route::get('feedback/all','Admin\AdminFeedbackController@index')->name('admin.feedback');
 
 
 Route::get('banner/index','Admin\BannerController@index')->name('banner.index');
