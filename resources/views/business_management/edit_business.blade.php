@@ -13,17 +13,16 @@
                    <h3>Basic Details</h3>
                     <fieldset>
                         <div class="row clearfix">
-                            {{-- <div class="col-md-12">
-                                <div class="form-group">
-
-                                    <select name="status" class="form-control" required>
-                                        <option value="">-- Select Type --</option>
-                                        <option value="1">Standerd</option>
-                                        <option value="2">Premium</option>
-                                    </select>
-                               </div>
-                            </div> --}}
-        {{-- {{dd($business)}} --}}
+                        <div class="col-md-12">
+                        <div class="col-md-12">
+                        <label>Select Plan</label>
+                            <select class="form-select" name="plan" aria-label="Default select example" style="width: -webkit-fill-available;border: solid 1px #ccc;padding: .375rem .75rem;" required>
+                            <option value="">-- Select Type --</option>
+                                <option value="0">Standard</option>
+                                <option value="1">Premium</option>
+                            </select>
+                        </div>
+                    </div>
 
                             <div class="col-md-12">
                             <div class="col-md-12">

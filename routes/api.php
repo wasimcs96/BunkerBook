@@ -59,4 +59,8 @@ Route::middleware('auth:api')->group(function () {
 
     Route::post('/reset/email/sent','Api\ResetEmailController@sentemail')->name('reset.email.sent');
 
+    Route::post('/bookmark/delete', 'Api\BookmarkController@deleteBookmark')->name('bookmark.delete.api');
+
+
+
 });

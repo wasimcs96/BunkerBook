@@ -61,7 +61,7 @@ class BusinessController extends Controller
         }
 // dd($request->all());
         $business = Business::create([
-            'type' => $request->type,
+            'plan' => $request->plan,
             'name' => $request->name,
             'email' =>collect($request->email)->implode(','),
             'category' =>  collect($request->category)->implode(','),
@@ -250,7 +250,7 @@ foreach($request->staff as $key2 => $value)
          }
  // dd($request->all());
          $business = Business::find($id);
-            $business->type = $request->type;
+            $business->plan = $request->plan;
             $business->name = $request->name;
             $business->email =collect($request->email)->implode(',');
             $business->category = collect($request->category)->implode(',');

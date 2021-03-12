@@ -33,4 +33,15 @@ class BookmarkController extends Controller
         ]);
         return $this->sendResponse($bookmark, 'Bookmark Created successfully.');
     }
+
+    public function deleteBookmark(Request $request)
+    {
+        $book = Bookmark::where('business_id',$request->business_id)->where('user_id',$request->user()->id)->first();
+        // dd($book);
+        $book->delete();
+
+        return $this->sendResponse($book, 'Bookmark Deleted successfully.');
+
+
+    }
 }
