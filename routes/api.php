@@ -57,7 +57,7 @@ Route::middleware('auth:api')->group(function () {
 
     Route::get('/pdf/get','Api\PlanController@pdfget')->name('pdfget');
 
-    Route::post('/reset/email/sent','Api\ResetEmailController@sentemail')->name('reset.email.sent');
+    Route::post('/reset/email/sent','Api\ResetEmailController@forgotPassword')->name('reset.email.sent');
 
     Route::post('/bookmark/delete', 'Api\BookmarkController@deleteBookmark')->name('bookmark.delete.api');
 
