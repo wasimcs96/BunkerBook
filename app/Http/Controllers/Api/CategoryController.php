@@ -13,6 +13,6 @@ class CategoryController extends Controller
     
             $category = Category::all();
             $success = $category;
-            return $this->sendResponse($success,'News Find');
+            return $this->sendResponse($success,'category Find');
         }
 }

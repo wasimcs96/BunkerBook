@@ -145,32 +145,7 @@
                                    <span class="msg_alert_class" id="start_timeMsg"></span>
                                 </div>
                              </div> --}}
-                            <div class="fancy-checkbox m-auto col-md-1">
-                                <label><input type="checkbox" id="role" name="business_time"
-                                        value="1"><span>24/7</span></label>
-                            </div>
-                            {{-- <div class="fancy-checkbox">
-                                <label><input type="checkbox" checked><span>Fancy Checkbox 2</span></label>
-                            </div>
-                            <div class="fancy-checkbox">
-                                <label><input type="checkbox"><span>Fancy Checkbox 3</span></label>
-                            </div> --}}
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label">Operating Hours Start</label>
-                                    <input type="time" name="start_time" id="start_time" value="" class="form-control">
-                                    <span class="msg_alert_class" id="start_timeMsg"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <label class="control-label">Operating Hours End</label>
-                                    <input type="time" name="end_time" id="end_time" value="" class="form-control">
-                                    <span class="msg_alert_class" id="end_timeMsg"></span>
-                                </div>
-                            </div>
-
+                          
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="control-label">Bussiness Profile</label>
@@ -205,7 +180,218 @@
                                 <textarea name="ports_of_operation" class="form-control"></textarea>
                             </div>
                         </div>
-                        
+
+                        <div class="row">
+                            <div class="fancy-checkbox m-auto col-md-1">
+                                <label><input type="checkbox"  id="chkPassport" onclick="myFunction()" name="business_time"
+                                        value="1"><span>24/7</span></label>
+                            </div>
+                       
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Operating Hours Start</label>
+                                    <input type="time" name="start_time" id="start_time" value="" class="form-control">
+                                    <span class="msg_alert_class" id="start_timeMsg"></span>
+                                </div>
+                            </div>
+    
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label class="control-label">Operating Hours End</label>
+                                    <input type="time" name="end_time" id="end_time" value="" class="form-control">
+                                    <span class="msg_alert_class" id="end_timeMsg"></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                                <div id="uniname">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="control-label">Office Hours</label>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label">Sunday</label>
+                    <select name="sunday" id="sunday" class="form-control">
+                        <option value="open">Open</option>
+                        <option value="close">Close</option>
+                    </select>
+                </div>
+            </div>
+           {{-- <div class="row"> --}}
+            <div class="row" id="sundayDiv">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Hours Start</label>
+                        <input type="time" name="sunday_start_time" id="sunday_start_time" value=""class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Hours End</label>
+                        <input type="time" name="sunday_end_time" id="sunday_end_time" value=""class="form-control">
+                    </div>
+                </div>
+            </div>
+           {{-- </div> --}}
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label">Monday</label>
+                    <select name="monday" id="monday" class="form-control">
+                        <option value="open">Open</option>
+                        <option value="close">Close</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row" id="mondayDiv">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Hours Start</label>
+                        <input type="time"name="monday_start_time"id="monday_start_time" value=""class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Hours End</label>
+                        <input type="time" name="monday_end_time" id="monday_end_time" value=""class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label">Tuesday</label>
+                    <select name="tuesday" id="tuesday" class="form-control">
+                        <option value="open">Open</option>
+                        <option value="close">Close</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row" id="sundayDiv" >
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Hours Start</label>
+                        <input type="time" name="tuesday_start_time" id="tuesday_start_time"value="" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Hours End</label>
+                        <input type="time" name="tuesday_end_time" id="tuesday_end_time" value=""class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label">Wednesday</label>
+                    <select name="wednesday" id="wednesday" class="form-control">
+                        <option value="open">Open</option>
+                        <option value="close">Close</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row" id="sundayDiv" >
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Hours Start</label>
+                        <input type="time"name="wednesday_start_time"id="wednesday_start_time"value="" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6"> 
+                    <div class="form-group">
+                        <label class="control-label">Hours End</label>
+                        <input type="time" name="wednesday_end_time" id="wednesday_end_time"value="" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label">Thursday</label>
+                    <select name="thursday" id="thursday" class="form-control">
+                        <option value="open">Open</option>
+                        <option value="close">Close</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row" id="sundayDiv" >
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Hours Start</label>
+                        <input type="time" name="thursday_start_time" id="thursday_start_time"value="" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Hours End</label>
+                        <input type="time" name="thursday_end_time" id="thursday_end_time" value=""class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label">Friday</label>
+                    <select name="friday" id="friday" class="form-control">
+                        <option value="open">Open</option>
+                        <option value="close">Close</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row" id="sundayDiv" >
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Hours Start</label>
+                        <input type="time" name="friday_start_time" id="friday_start_time" value=""class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Hours End</label>
+                        <input type="time" name="friday_end_time" id="friday_end_time" value=""class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label">Saturday</label>
+                    <select name="Saturday" id="Saturday" class="form-control">
+                        <option value="open">Open</option>
+                        <option value="close">Close</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row" id="sundayDiv" >
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Hours Start</label>
+                        <input type="time" name="Saturday_start_time" id="Saturday_start_time"value="" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Hours End</label>
+                        <input type="time" name="Saturday_end_time" id="sunday_end_time" value=""class="form-control">
+                    </div>
+                    </div>
+                </div>
+                        </div>
 
                     </fieldset>
 
@@ -316,6 +502,7 @@
 @stop
 
 @section('page-script')
+
 <script src="{{ asset('assets/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js') }}"></script>
 <!-- Bootstrap Colorpicker Js -->
 <script src="{{ asset('assets/vendor/jquery-inputmask/jquery.inputmask.bundle.js') }}"></script>
@@ -323,7 +510,7 @@
 <script src="{{ asset('assets/vendor/jquery.maskedinput/jquery.maskedinput.min.js') }}"></script>
 {{-- <script src="{{ asset('assets/vendor/multi-select/js/jquery.multi-select.js') }}"></script>
 <!-- Multi Select Plugin Js --> --}}
-{{-- <script src="{{ asset('assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/admin/jquery.min.js') }}"></script> --}}
 <script src="{{ asset('assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js') }}"></script>
 <!-- Bootstrap Tags Input Plugin Js -->
@@ -334,9 +521,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" type="text/javascript"></script>
 <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=y8edi4divxwsplcdd28rzuyx245zbzdndm22yzhuaanemki5">
 </script>
-<script src="https://www.matrixmaritimemedia.com/bunkerbook/assets/js/jquery.geocomplete.min.js"></script>
+{{-- <script src="https://www.matrixmaritimemedia.com/bunkerbook/assets/js/jquery.geocomplete.min.js"></script> --}}
 
-<script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
+
 <script src="{{ asset('assets/js/pages/forms/form-wizard.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 <script src="{{ asset('assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
@@ -791,18 +978,36 @@ $('.dropify-frrr').dropify({
     }
 });
 </script>
-<script>
-$(document).ready(function() {
-    $('#role').on('change', function() {
-        if (this.value == '1')
-        //.....................^.......
-        {
-            $("#uniname").html(
-            '<div class="col-md-12"><div class="form-group"><label class="control-label">Office Hours</label></div></div><div class="col-md-12"><div class="col-md-6"><div class="form-group"><label class="control-label">Sunday</label><select name="sunday" id="sunday" class="form-control"><option value="open">Open</option><option value="close">Close</option></select></div></div><div class="col-md-6" id="sundayDiv" style="display: block;"><div class="col-md-6"><div class="form-group"><label class="control-label">Hours Start</label><input type="time" name="sunday_start_time" id="sunday_start_time" value=""class="form-control"></div></div><div class="col-md-6"><div class="form-group"><label class="control-label">Hours End</label><input type="time" name="sunday_end_time" id="sunday_end_time" value=""class="form-control"></div></div></div></div><div class="col-md-12"><div class="col-md-6"><div class="form-group"><label class="control-label">Monday</label><select name="monday" id="monday" class="form-control"><optionvalue="open">Open</option><option value="close">Close</option></select></div></div><div class="col-md-6" id="mondayDiv"><div class="col-md-6"><div class="form-group"><labelclass="control-label">Hours Start</label><input type="time"name="monday_start_time"id="monday_start_time" value=""class="form-control"></div></div><div class="col-md-6"><div class="form-group"><label class="control-label">Hours End</label><input type="time" name="monday_end_time" id="monday_end_time" value=""class="form-control"></div></div></div></div><div class="col-md-12"><div class="col-md-6"><div class="form-group"><label class="control-label">Tuesday</label><select name="tuesday" id="tuesday" class="form-control"><option value="open">Open</option><option value="close">Close</option></select></div></div><div class="col-md-6" id="tuesdayDiv"><div class="col-md-6"><div class="form-group"><label class="control-label">Hours Start</label><input type="time" name="tuesday_start_time" id="tuesday_start_time"value="" class="form-control"></div></div><div class="col-md-6"><div class="form-group"><label class="control-label">Hours End</label><input type="time" name="tuesday_end_time" id="tuesday_end_time" value=""class="form-control"></div></div></div></div><div class="col-md-12"><div class="col-md-6"><div class="form-group"><label class="control-label">Wednesday</label><select name="wednesday" id="wednesday" class="form-control"><option value="open">Open</option><option value="close">Close</option></select></div></div><div class="col-md-6" id="wednesdayDiv"><div class="col-md-6"><div class="form-group"><label class="control-label">Hours Start</label><input type="time"name="wednesday_start_time"id="wednesday_start_time"value="" class="form-control"></div></div><div class="col-md-6"><div class="form-group"><label class="control-label">Hours End</label><input type="time" name="wednesday_end_time" id="wednesday_end_time"value="" class="form-control"></div></div></div></div><div class="col-md-12"><div class="col-md-6"><div class="form-group"><label class="control-label">Thursday</label><select name="thursday" id="thursday" class="form-control"><option value="open">Open</option><option value="close">Close</option></select></div></div><div class="col-md-6" id="thursdayDiv"><div class="col-md-6"><div class="form-group"><label class="control-label">Hours Start</label><input type="time" name="thursday_start_time" id="thursday_start_time"value="" class="form-control"></div></div><div class="col-md-6"><div class="form-group"><label class="control-label">Hours End</label><input type="time" name="thursday_end_time" id="thursday_end_time" value=""class="form-control"></div></div></div></div><div class="col-md-12"><div class="col-md-6"><div class="form-group"><label class="control-label">Friday</label><select name="friday" id="friday" class="form-control"><option value="open">Open</option><option value="close">Close</option></select></div></div><div class="col-md-6" id="fridayDiv"><div class="col-md-6"><div class="form-group"><label class="control-label">Hours Start</label><input type="time" name="friday_start_time" id="friday_start_time" value=""class="form-control"></div></div><div class="col-md-6"><div class="form-group"><label class="control-label">Hours End</label><input type="time" name="friday_end_time" id="friday_end_time" value=""class="form-control"></div></div></div></div><div class="col-md-12"><div class="col-md-6"><div class="form-group"><label class="control-label">Saturday</label><select name="Saturday" id="Saturday" class="form-control"><option value="open">Open</option><option value="close">Close</option></select></div></div><div class="col-md-6" id="sundayDiv" style="display: block;"><div class="col-md-6"><div class="form-group"><label class="control-label">Hours Start</label><input type="time" name="Saturday_start_time" id="Saturday_start_time"value="" class="form-control"></div></div><div class="col-md-6"><div class="form-group"><label class="control-label">Hours End</label><input type="time" name="Saturday_end_time" id="sunday_end_time" value=""class="form-control"></div></div></div>');
-        } else {
-            $("#uniname").html('');
-        }
+
+
+{{-- <script type="text/javascript">
+    $(function () {
+        $("#chkPassport").click(function () {
+            console.log('sdsdsd');
+            if ($(this).is("checked")) {
+                $("#uniname").show();
+            } else {
+                $("#uniname").style('display:none');
+            }
+        });
     });
-});
+
+    
+</script> --}}
+<script>
+    function myFunction() {
+// Get the checkbox
+var checkBox = document.getElementById("chkPassport");
+// Get the output text
+var text = document.getElementById("uniname");
+
+// If the checkbox is checked, display the output text
+if (checkBox.checked == true){
+text.style.display = "none";
+} else {
+text.style.display = "block";
+}
+}
 </script>
+
 @stop

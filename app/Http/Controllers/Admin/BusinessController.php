@@ -61,7 +61,7 @@ class BusinessController extends Controller
         }
 // dd($request->all());
         $business = Business::create([
-            'plan' => $request->plan,
+            'plan_type' => $request->plan,
             'name' => $request->name,
             'email' =>collect($request->email)->implode(','),
             'category' =>  collect($request->category)->implode(','),
@@ -76,7 +76,7 @@ class BusinessController extends Controller
             'end_time' => $request->end_time,
             'business_profile' => $business_profile_image,
             'featured_banner_image' => $featured_banner_image,
-
+            'status'=>1,
             'about' => $request->about,
             'ports_of_operation' => $request->ports_of_operation,
 
@@ -121,7 +121,7 @@ foreach($request->staff as $key2 => $value)
     if(isset($value['staff_profile']) && $request->file($value['staff_profile']))
     {
         $staff_profile=$value['staff_profile'];
-// dd()
+        // dd($staff_profile);
         // $staff_profile = $request->profile
         $staff_profile_new_name = time() . $staff_profile->getClientOriginalName();
         $staff_pro->move('uploads/business_staffProfile',$staff_profile_new_name);
@@ -176,7 +176,7 @@ foreach($request->staff as $key2 => $value)
         //     $businessvideo->move('uploads/businessvideo',$businessvideo_name);
         //    $business_videos= 'uploads/businessvideo/'.$businessvideo_name;
         //   }
-  return redirect()->route('business.upcoming')->with('success','Business details added successfully');
+  return redirect()->route('business.active')->with('success','Business details added successfully');
     }
 
     public function upcomingBusiness()
@@ -250,7 +250,7 @@ foreach($request->staff as $key2 => $value)
          }
  // dd($request->all());
          $business = Business::find($id);
-            $business->plan = $request->plan;
+            $business->plan_type = $request->plan;
             $business->name = $request->name;
             $business->email =collect($request->email)->implode(',');
             $business->category = collect($request->category)->implode(',');
@@ -265,7 +265,7 @@ foreach($request->staff as $key2 => $value)
             $business->end_time = $request->end_time;
             $business->business_profile = $business_profile_image;
             $business->featured_banner_image = $featured_banner_image;
- 
+            $business->plan_type = $request->plan;
             $business->about = $request->about;
             $business->ports_of_operation = $request->ports_of_operation;
  

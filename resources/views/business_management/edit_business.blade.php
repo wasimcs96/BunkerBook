@@ -88,14 +88,7 @@
                                 </div>
                               </div>
 
-                              <div class="col-md-12">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Mobile</label>
-                                        <input type="number" name="mobile" placeholder="Mobile" value="{{$business->mobile ?? ''}}" class="form-control" required>
-                                    </div>
-                                </div>
-                                </div>
+                           
 
                               <div class="col-md-12">
                                 <div class="form-group">

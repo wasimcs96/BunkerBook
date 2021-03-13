@@ -102,7 +102,7 @@
                 </div>
                 <div class="footer-widget-box footer-link">
                     <h4 class="foo-widget-title">Newsfeed</h4>
-                    <?php $news= App\Models\Newsfeed::pluck('image')?>
+     
                     <div class="footer-gallery grid-3">
                         <img src="{{ asset('frontEnd/assets/img/team/ship.jpg') }}" alt="thumb">
                         <img src="{{ asset('frontEnd/assets/img/team/ship.jpg') }}" alt="thumb">
