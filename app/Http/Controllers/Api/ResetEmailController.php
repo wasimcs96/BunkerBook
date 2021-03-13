@@ -4,34 +4,45 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use App\Notifications\ResetPassword ;
+use Illuminate\Validation\Rule;
+use Validator;
+// use App\Notifications\ResetPassword as ResetPasswordNotification;
+
 
 class ResetEmailController extends Controller
 {
-    public function sentemail(Request $request){
+    // public function sentemail(Request $request){
 
-        $validator = Validator::make($request->all(), [
-            'email' => 'required', Rule::exists('users')->where(function ($query) {
-                        $query->where('email', $request->email);
-                        }), 
+    //     $validator = Validator::make($request->all(), [
+    //         'email' => 'required', Rule::exists('users')->where(function ($query) {
+    //                     $query->where('email', $request->email);
+    //                     }), 
           
-        ]);
-        if($validator->fails()){
-            return $this->sendError('Email Does Not exist in our Database.', $validator->errors());
-        }
-        $email = $request->email;
-        return $this->sendResponse($email,'Reset Password link sent to this Email');
+    //     ]);
+    //     if($validator->fails()){
+    //         return $this->sendError('Email Does Not exist in our Database.', $validator->errors());
+    //     }
+    //     $email = $request->email;
+    //     return $this->sendResponse($email,'Reset Password link sent to this Email');
 
-    }
+    // }
 
     public function forgotPassword(Request $request) {
 
-        $arguments = $request->all();
+        // $arguments = $request->all();
 
-        $validator = $this->getForgotPasswordValidator($arguments);
+        $validator = Validator::make($request->all(), [
+            'email' => 'required'
+        ]);
+
+  
 
         if($validator->fails()){
 
-            return $this->processValidatorErrors($validator->errors());
+            return $this->sendError($validator->errors());
 
         }
 
@@ -39,13 +50,13 @@ class ResetEmailController extends Controller
 
         if (is_null($user)) {
 
-          return $this->returnNotFound(['message' => 'User not found']);
+          return $this->sendError( $user, 'User not found');
 
         }
 
-        $user->notify(new ResetPasswordNotification($user->id));
+        // $user->notify(new ResetPasswordNotification($user->id));
 
-        return $this->returnSuccess(['message' => 'We have e-mailed your password reset link!']);
+        return $this->sendResponse($user,'We have e-mailed your password reset link!');
 
     }
 

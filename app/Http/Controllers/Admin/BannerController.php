@@ -28,7 +28,8 @@ class BannerController extends Controller
         Banner::create([
             'image'=>$banner,
             'url'=>$request->url,
-            'position'=>$request->position
+            'position'=>$request->position,
+            'business_id'=>$request->business
         ]);
         return redirect()->route('banner.index')->with('success','Banner Added Successfully');
     }
