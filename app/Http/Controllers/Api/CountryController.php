@@ -10,9 +10,18 @@ class CountryController extends Controller
 {
     public function getCountry()
     {
-        $country = Country::all();
-        $success = $country;
-        return $this->sendResponse($success,'Country Find');
+        $data=[];
+        $countries = Country::all();
+
+        foreach($countries as $country){
+        
+            $book = Business::where('country',$country->id)->count();
+             $country['count']=$book;
+            array_push($data,$country);
+         
+        }
+        // $success = $country;
+        return $this->sendResponse($data,'Country Find');
     }
 
     public function getbusinesscount(Request $request){

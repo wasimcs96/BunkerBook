@@ -13,6 +13,9 @@ Route::get('/business/limit','Api\BusinessController@getlimitbusiness')->name('b
 
 Route::post('/forgotPassword', 'Api\UserController@forgotPassword')->name('forgotPassword');
 
+Route::post('/reset/email/sent','Api\ResetEmailController@forgotPassword')->name('reset.email.sent');
+
+
 Route::middleware('auth:api')->group(function () {
     Route::get('/news', 'Api\NewsfeedController@getNews')->name('news.api');
     Route::get('/getAuthUser', 'Api\UserController@getUser')->name('getUser');
@@ -57,10 +60,7 @@ Route::middleware('auth:api')->group(function () {
 
     Route::get('/pdf/get','Api\PlanController@pdfget')->name('pdfget');
 
-    Route::post('/reset/email/sent','Api\ResetEmailController@forgotPassword')->name('reset.email.sent');
 
     Route::post('/bookmark/delete', 'Api\BookmarkController@deleteBookmark')->name('bookmark.delete.api');
-
-
 
 });

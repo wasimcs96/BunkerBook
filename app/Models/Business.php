@@ -59,4 +59,9 @@ class Business extends Model
         return $this->belongsTo(Country::class,'country');
     }
 
+    public function banner()
+    {
+        return $this->hasMany(Banner::class,'business_id');
+    }
+
 }

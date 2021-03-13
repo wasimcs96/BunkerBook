@@ -123,11 +123,26 @@ class BusinessController extends Controller
     }
 
     public function findbusiness(Request $request){
+        $data=[];
+        $business = Business::where('id',$request->id)->with(['businessImage','businessVideo','businessRating','businessRequest','businessStaff'])->first();
 
-        $business = Business::where('id',$request->id)->with(['businessImage','businessVideo','businessRating','businessRequest','businessStaff'])->get();
+        // dd($business);
 
-
-        return $this->sendResponse($business,'Business find');
+        // foreach($business as $buisnes){
+        
+            $book = Bookmark::where('user_id',$request->user()->id)->where('business_id',$business->id)->count();
+             
+            if($book > 0)
+            {
+                $business['is_bookmark']= 1;
+            }
+            else{
+                $business['is_bookmark']= 0 ;
+            }
+            array_push($data,$business);
+            // }
+            //  dd($data);
+        return $this->sendResponse($data,'Business find');
     }
 
     public function posttbusinessrating(Request $request){
