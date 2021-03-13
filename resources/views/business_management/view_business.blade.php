@@ -15,6 +15,8 @@
                             <p style="text-align: unset">
                             @if(isset($view->business_profile)&& file_exists($view->business_profile)) <img style="height: 150px;width: 150px;" src="{{asset($view->business_profile)}}">@else <img style="height: 150px;width: 150px;" src="{{asset('frontEnd/assets/img/about/ab-2-pic.jpg')}}">@endif</p>
                            <div class="row p-4">
+                               {{-- {{dd($view)}} --}}
+                            <p class="col-md-6"><b>Plan:</b>@if(isset($view->plan_type)) @if($view->plan_type == 0)Standard @else Premium @endif @endif</p>
                            <p class="col-md-6"><b>Name:</b> {{$view->name ?? ''}}</p>
                             <p class="col-md-6"><b>Email:</b>{{$view->email ?? ''}}</p>
                             <p class="col-md-6"><b>Mobile:</b> {{$view->mobile ?? ''}}</p>

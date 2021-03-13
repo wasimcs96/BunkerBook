@@ -282,16 +282,16 @@ Route::get('/plan/edit/{id}', 'Admin\AdminplanController@edit')->name('plan.edit
 // Route::get('/plan/destroy/{id}', 'admin\adminplancontroller@destroy')->name('plan.destroy');
 
 // news.......
-Route::get('/news', 'Admin\AdminNewsfeedcontroller@index')->name('news.index');
-Route::post('/news/create', 'Admin\AdminNewsfeedcontroller@create')->name('news.create');
-Route::post('/news', 'Admin\AdminNewsfeedcontroller@store')->name('news.store');
-Route::get('/news/show/{id}', 'Admin\AdminNewsfeedcontroller@show')->name('news.show');
-Route::post('/news/{id}', 'Admin\AdminNewsfeedcontroller@update')->name('news.update');
-Route::get('/news/edit/{id}', 'Admin\AdminNewsfeedcontroller@edit')->name('news.edit');
-Route::get('/news/destroy/{id}', 'Admin\AdminNewsfeedcontroller@destroy')->name('news.destroy');
+Route::get('/news', 'Admin\AdminNewsfeedController@index')->name('news.index');
+Route::post('/news/create', 'Admin\AdminNewsfeedController@create')->name('news.create');
+Route::post('/news', 'Admin\AdminNewsfeedController@store')->name('news.store');
+Route::get('/news/show/{id}', 'Admin\AdminNewsfeedController@show')->name('news.show');
+Route::post('/news/{id}', 'Admin\AdminNewsfeedController@update')->name('news.update');
+Route::get('/news/edit/{id}', 'Admin\AdminNewsfeedController@edit')->name('news.edit');
+Route::get('/news/destroy/{id}', 'Admin\AdminNewsfeedController@destroy')->name('news.destroy');
 
 // Transaction....
-Route::get('/transaction', 'Admin\AdminTransactioncontroller@index')->name('transaction.index');
+Route::get('/transaction', 'Admin\AdminTransactionController@index')->name('transaction.index');
 //feedback
 Route::get('feedback/all','Admin\AdminFeedbackController@index')->name('admin.feedback');
 

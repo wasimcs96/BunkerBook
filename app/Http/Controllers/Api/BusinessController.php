@@ -43,6 +43,7 @@ class BusinessController extends Controller
         }
         $business = Business::create([
             'user_id'=>$request->user()->id,
+            // 'plan_type' =>$request
             'name'=>$request->name,
             'category'=>$request->category,
             'category_name'=>$catim,
@@ -126,6 +127,8 @@ class BusinessController extends Controller
         $data=[];
         $business = Business::where('id',$request->id)->with(['businessImage','businessVideo','businessRating','businessRequest','businessStaff'])->first();
 
+        $business['category']=explode(',',$business->category_name) ;
+        // dd($category);
         // dd($business);
 
         // foreach($business as $buisnes){
