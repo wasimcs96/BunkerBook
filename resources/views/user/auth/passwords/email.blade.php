@@ -68,6 +68,5 @@
 body{
     background: #FFA500;
 }
-
 </style>
 @endsection
