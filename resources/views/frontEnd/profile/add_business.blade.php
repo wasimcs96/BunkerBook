@@ -136,15 +136,22 @@
                 <textarea name="ports_of_operation" rows="3" col="5" class="form-control"></textarea>
             </div>
         </div>
-        <div class="row">
-            <div class="fancy-checkbox m-auto col-md-1">
+            <div class="fancy-checkbox col-md-6">
                 <label><input type="checkbox"  id="chkPassport" onclick="myFunction()" name="business_time"
-                        value="1"><span>24/7</span></label>
+                        value="1" style="
+    width: 25px;
+    height: 25px;
+"></label>
+<span style="
+    margin-left: 10px;
+    font-size: 25px;
+">24/7</span>
             </div>
-        </div>
         <div id="uniname">
-        <div class="row">
-            <div class="col-md-6">
+        <div class="row" >
+            <div class="col-md-6" style="
+    padding-left: 30px;
+">
                 <div class="form-group">
                     <label class="control-label">Operating Hours Start</label>
                     <input type="time" name="start_time"  id="start_time" value=""
@@ -153,7 +160,9 @@
                 </div>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-6" style="
+    padding-right: 30px;
+">
                 <div class="form-group">
                     <label class="control-label">Operating Hours End</label>
                     <input type="time" name="end_time"  id="end_time" value=""
@@ -170,7 +179,9 @@
         </div>
         <!--sunday-->
         <div class="col-md-12">
-            <div class="col-md-6">
+            <div class="col-md-12" style="
+    padding: 0;
+">
                 <div class="form-group">
                     <label class="control-label">Sunday</label>
                     <select name="sunday"  id="sunday" class="form-control">
@@ -179,7 +190,7 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-6" id="sundayDiv" style="display: block;">
+            <div class="row" id="sundayDiv">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours Start</label>
@@ -198,7 +209,9 @@
         </div>
         <!--monday-->
         <div class="col-md-12">
-            <div class="col-md-6">
+            <div class="col-md-12" style="
+    padding: 0;
+">
                 <div class="form-group">
                     <label class="control-label">Monday</label>
                     <select  name="monday" id="monday" class="form-control">
@@ -210,7 +223,7 @@
                 </div>
 
             </div>
-            <div class="col-md-6" id="mondayDiv">
+            <div class="row" id="mondayDiv">
 
                 <div class="col-md-6">
                     <div class="form-group">
@@ -235,7 +248,9 @@
         </div>
         <!--tuesday-->
         <div class="col-md-12">
-            <div class="col-md-6">
+            <div class="col-md-12" style="
+    padding: 0;
+">
                 <div class="form-group">
                     <label class="control-label">Tuesday</label>
                     <select  name="tuesday" id="tuesday" class="form-control">
@@ -247,7 +262,7 @@
                 </div>
 
             </div>
-            <div class="col-md-6" id="tuesdayDiv">
+            <div class="row" id="tuesdayDiv">
 
                 <div class="col-md-6">
                     <div class="form-group">
@@ -272,7 +287,9 @@
         </div>
         <!--wednesday-->
         <div class="col-md-12">
-            <div class="col-md-6">
+            <div class="col-md-12" style="
+    padding: 0;
+">
                 <div class="form-group">
                     <label class="control-label">Wednesday</label>
                     <select  name="wednesday" id="wednesday" class="form-control">
@@ -284,7 +301,7 @@
                 </div>
 
             </div>
-            <div class="col-md-6" id="wednesdayDiv">
+            <div class="row" id="wednesdayDiv">
 
                 <div class="col-md-6">
                     <div class="form-group">
@@ -309,7 +326,9 @@
         </div>
         <!--thursday-->
         <div class="col-md-12">
-            <div class="col-md-6">
+            <div class="col-md-12" style="
+    padding: 0;
+">
                 <div class="form-group">
                     <label class="control-label">Thursday</label>
                     <select  name="thursday" id="thursday" class="form-control">
@@ -321,7 +340,7 @@
                 </div>
 
             </div>
-            <div class="col-md-6" id="thursdayDiv">
+            <div class="row" id="thursdayDiv">
 
                 <div class="col-md-6">
                     <div class="form-group">
@@ -346,7 +365,9 @@
         </div>
         <!--Friday-->
         <div class="col-md-12">
-            <div class="col-md-6">
+            <div class="col-md-12" style="
+    padding: 0;
+">
                 <div class="form-group">
                     <label class="control-label">Friday</label>
                     <select  name="friday" id="friday" class="form-control">
@@ -358,7 +379,7 @@
                 </div>
 
             </div>
-            <div class="col-md-6" id="fridayDiv">
+            <div class="row" id="fridayDiv">
 
                 <div class="col-md-6">
                     <div class="form-group">
@@ -383,7 +404,9 @@
         </div>
         <!--saturday-->
         <div class="col-md-12">
-            <div class="col-md-6">
+            <div class="col-md-12" style="
+    padding: 0;
+">
                 <div class="form-group">
                     <label class="control-label">Saturday</label>
                     <select  name="Saturday" id="Saturday" class="form-control">
@@ -395,7 +418,7 @@
                 </div>
 
             </div>
-            <div class="col-md-6" id="sundayDiv" style="display: block;">
+            <div class="row" id="sundayDiv">
 
                 <div class="col-md-6">
                     <div class="form-group">
