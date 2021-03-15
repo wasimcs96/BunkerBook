@@ -50,16 +50,16 @@
 
                                             @if(auth()->user())
                                             <?php $bookmark=App\Models\Bookmark::where('business_id',$bus->id)->where('user_id',auth()->user()->id)->first();?>
-                                            <span id="bookid">
+                                            <span class="bookid" customid="{{$bus->id ?? ''}}">
                                             @if(isset($bookmark->business_id) && $bookmark->business_id == $bus->id && $bookmark->user_id == auth()->user()->id)
                                                
-                                            <i class="fas fa fa-heart rounded-circle"  id="save-icon"  check="0"  custom2="{{$bus->id ?? ''}}" aria-hidden="true" style="
+                                            <i class="fas fa fa-heart rounded-circle"  id="save-icon-{{$bus->id ?? ''}}"  check="0"  custom2="{{$bus->id ?? ''}}" aria-hidden="true" style="
                                                 background: white;
                                                 color: red;
                                                 padding: 5px;
                                                 border: 5px;"></i>
                                                             @else
-                                                            <i class="fas fa fa-heart rounded-circle" id="save-icon" check="1" custom2="{{$bus->id ?? ''}}" aria-hidden="true" style="
+                                                            <i class="fas fa fa-heart rounded-circle" id="save-icon-{{$bus->id ?? ''}}" check="1" custom2="{{$bus->id ?? ''}}" aria-hidden="true" style="
                                                                 background: white;
                                                                
                                                                 padding: 5px;
@@ -212,14 +212,14 @@
 var media_id=""
 // var user_id = 
 
-
-$('#bookid').on('click',function(){
-    console.log('sdsd');
+$('.bookid').on('click',function(){
+    // console.log('sdsd');
+    var id= $(this).attr('customid');
     var saveEl = document.getElementById("save-icon");
-    var iconType = $(this).attr('check');
-    var media_id = $(this).attr('custom2');
-    if ( iconType === 0 ) {
-         console.log('sds000');
+    var iconType = $("#save-icon-"+id).attr('check');
+//   console.log(iconType);
+    if ( iconType == 1 ) {
+        //  console.log('sds000');
         $.ajaxSetup({
          headers: {
          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -228,10 +228,11 @@ $('#bookid').on('click',function(){
             $.ajax({
                 type: "post",
                 url: "{{route('bookmark.create')}}",
-                data: {media_id: media_id, "_token": "{{ csrf_token() }}"},
+                data: {media_id: id, "_token": "{{ csrf_token() }}"},
                 success: function (result) {
                     console.log('success');
-                    $(iconType).attr("check", 1);
+                    $("#save-icon-"+id).attr('check',0);
+                    $("#save-icon-"+id).css('color', 'red');
                 }
             });
             // .done(function (response) {
@@ -242,7 +243,7 @@ $('#bookid').on('click',function(){
             // });
 
         } else {
-    console.log('sdsd');
+    // console.log('sdsdelse');
 
             $.ajaxSetup({
              headers: {
@@ -252,10 +253,11 @@ $('#bookid').on('click',function(){
                 $.ajax({
                     type: "post",
                     url: "{{route('bookmark.remove')}}",
-                    data: {media_id: media_id, "_token": "{{ csrf_token() }}"},
+                    data: {media_id: id, "_token": "{{ csrf_token() }}"},
                     success: function (result) {
-                        console.log('success');
-                        $(iconType).attr("check", 0);
+                        // console.log('success');
+                        $("#save-icon-"+id).attr('check',1);
+                    $("#save-icon-"+id).css('color', 'gold');
                     }
                 });
     
