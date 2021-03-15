@@ -1,11 +1,17 @@
-@extends('user.layouts.app')
+@extends('frontEnd.layout.master')
 
 @section('content')
-<div class="container">
+<div class="container" style="
+">
     <div class="row justify-content-center">
+    <img src="{{asset('frontEnd\assets\img\header\processed.png')}}" alt="" style="
+    width: 381px;
+">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header" style="
+    color: #FFA500;
+">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -32,8 +38,16 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-6 offset-md-4" style="
+    text-align: center;
+">
+                                <button type="submit" class="btn btn-primary" style="
+    width: 167px;
+    height: 29.5px;
+    font-size: 12px;
+    background: #FFA500;
+    border: #FFA500;
+">
                                     {{ __('Send Password Reset Link') }}
                                 </button>
                             </div>
@@ -44,4 +58,16 @@
         </div>
     </div>
 </div>
+@endsection
+@section('per_page_style')
+<style>
+
+.footer-widget{
+    display:none;
+}
+body{
+    background: #FFA500;
+}
+
+</style>
 @endsection
