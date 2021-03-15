@@ -51,32 +51,37 @@
 					</div>
 					<div class="cta-right">
 						<div class="contact-inputs">
-							<form class="contact-form" method="post" action="https://siteforest.tech/templatebucket/lasson/assets/mail/contact.php">
+							<form  method="post" action="{{route('feedback.store') }}" enctype="multipart/form-data">
+								@csrf
 								<div class="row">
 									<div class="col-md-12">
 										<div class="form-group">
-											<label for="name">Full Name</label>
-											<input type="text" class="form-control" name="name" id="name">
+											<label for="name">Subject</label>
+											<input type="text" class="form-control" name="subject" id="name">
 											<span class="alert alert-error"></span>
 										</div>
 										<div class="form-group">
-											<label for="email">Email Address</label>
-											<input type="email" class="form-control" name="email" id="email">
-											<span class="alert alert-error"></span>
+											<label for="comments">Message</label>
+											<textarea class="form-control" id="comments" name="message" rows="5"></textarea>
 										</div>
 									</div>
 									<div class="col-md-12">
 										<div class="form-group">
-											<label for="comments">Write Something</label>
-											<textarea class="form-control" id="comments" name="comments" rows="5"></textarea>
+											<label for="email">ScreenShots</label>
+											<input  class="my-5 rounded d-flex m-auto" name="image" accept="image/*" value="" type="file" style="width: 100%; border: solid 1px #ccc">
+											<span class="alert alert-error"></span>
 										</div>
-										<button type="submit" name="submit" id="submit">
-											Send your Message
+										<button type="submit" class="btn btn-primary" name="submit" id="submit" style="
+										width: 167px;
+										height: 29.5px;
+										font-size: 12px;
+										background: #FFA500;
+										border: #FFA500;
+									">
+											Send Feedback
 										</button>
 										<!-- Alert Message -->
-										<div class="alert-notification">
-											<div id="message" class="alert-msg"></div>
-										</div>
+									
 									</div>
 								</div>
 							</form>
