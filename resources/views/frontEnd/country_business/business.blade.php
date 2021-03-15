@@ -47,21 +47,26 @@
                                         @endif
                                         <div class="course-pic-content">
                                             <div class="course-rating">
+
                                             @if(auth()->user())
                                             <?php $bookmark=App\Models\Bookmark::where('business_id',$bus->id)->where('user_id',auth()->user()->id)->first();?>
+                                            <span id="bookid">
                                             @if(isset($bookmark->business_id) && $bookmark->business_id == $bus->id && $bookmark->user_id == auth()->user()->id)
-                                                <span><i class="fa fa-heart rounded-circle bookremove" custom2="{{$bus->id ?? ''}}" aria-hidden="true" style="
-															background: white;
-                                                           
-															padding: 5px;
-															border: 5px;"></i></span>
+                                               
+                                            <i class="fas fa fa-heart rounded-circle"  id="save-icon"  check="0"  custom2="{{$bus->id ?? ''}}" aria-hidden="true" style="
+                                                background: white;
+                                                color: red;
+                                                padding: 5px;
+                                                border: 5px;"></i>
                                                             @else
-                                                            <span><i class=" bookadd fa fa-heart rounded-circle"  custom2="{{$bus->id ?? ''}}"aria-hidden="true" style="
-															background: white;
-                                                            color: black;
-															padding: 5px;
-															border: 5px;"></i></span>
+                                                            <i class="fas fa fa-heart rounded-circle" id="save-icon" check="1" custom2="{{$bus->id ?? ''}}" aria-hidden="true" style="
+                                                                background: white;
+                                                               
+                                                                padding: 5px;
+                                                                border: 5px;"></i>
+                                                            
                                             @endif
+                                        </span>
 @endif
 
                                             </div>                                            
@@ -192,7 +197,7 @@
 </div>
 
 @endsection
-@section('per_page_script')
+@section('per_page_style')
 <style>
 .fa-star{
     color: gold;
@@ -208,13 +213,13 @@ var media_id=""
 // var user_id = 
 
 
-$('.bookadd').click(function(){
-
+$('#bookid').on('click',function(){
+    console.log('sdsd');
+    var saveEl = document.getElementById("save-icon");
+    var iconType = $(this).attr('check');
     var media_id = $(this).attr('custom2');
-    $(this).css('color', '#255dff');
-console.log(media_id);
-// document.getElementById(media_id).style.display="none";
-// console.log(media_id);
+    if ( iconType === 0 ) {
+         console.log('sds000');
         $.ajaxSetup({
          headers: {
          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -226,25 +231,49 @@ console.log(media_id);
                 data: {media_id: media_id, "_token": "{{ csrf_token() }}"},
                 success: function (result) {
                     console.log('success');
-// document.getElementsByClassName('bookdone').css('background-color', 'red');
+                    $(iconType).attr("check", 1);
                 }
             });
+            // .done(function (response) {
 
+            // })
+            // .fail(function () {
+            //     console.log('failure');
+            // });
 
+        } else {
+    console.log('sdsd');
+
+            $.ajaxSetup({
+             headers: {
+             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+                });
+                $.ajax({
+                    type: "post",
+                    url: "{{route('bookmark.remove')}}",
+                    data: {media_id: media_id, "_token": "{{ csrf_token() }}"},
+                    success: function (result) {
+                        console.log('success');
+                        $(iconType).attr("check", 0);
+                    }
+                });
+    
+        }
 
 });
  </script>
-
+{{-- 
  <script>
     var media_id=""
     // var user_id = 
     
     
-    $('.bookremove').click(function(){
-    
+    $('.bookremove').on('click',function(){
+        console.log('ddfdfdf');
         var media_id = $(this).attr('custom2');
         $(this).css('color', 'black');
-    console.log(media_id);
+   
     // document.getElementById(media_id).style.display="none";
     // console.log(media_id);
             $.ajaxSetup({
@@ -265,5 +294,56 @@ console.log(media_id);
     
     
     });
-     </script>
+     </script> --}}
+{{-- <script>
+    $('#bookid').on('click',function(){
+        console.log('sds11111d');
+    var saveEl = document.getElementById("save-icon");
+    var iconType = $(this).attr('check');
+    var media_id = $(this).attr('custom2');
+
+     if ( iconType === 0 ) {
+         console.log('sdsd');
+        $.ajaxSetup({
+         headers: {
+         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+            });
+            $.ajax({
+                type: "post",
+                url: "{{route('bookmark.create')}}",
+                data: {media_id: media_id, "_token": "{{ csrf_token() }}"},
+                success: function (result) {
+                    console.log('success');
+// document.getElementsByClassName('bookdone').css('background-color', 'red');
+
+                }
+            });
+            // .done(function (response) {
+            //     document.getElementById("save-icon").classList.add("far");
+            //     document.getElementById("save").innerHTML="Save";
+            // })
+            // .fail(function () {
+            //     console.log('failure');
+            // });
+
+        } else {
+            $.ajaxSetup({
+             headers: {
+             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+                });
+                $.ajax({
+                    type: "post",
+                    url: "{{route('bookmark.remove')}}",
+                    data: {media_id: media_id, "_token": "{{ csrf_token() }}"},
+                    success: function (result) {
+                        console.log('success');
+    // document.getElementsByClassName('bookdone').css('background-color', 'red');
+                    }
+                });
+    
+        }
+    });
+            </script> --}}
 @endsection

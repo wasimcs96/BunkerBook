@@ -7,7 +7,7 @@
   <div class="container">
   <div class="cta-right my-5">
 						<div class="contact-inputs">
-							<form   action="{{route('user.info',$user->id)}}" method="POST">
+							<form   action="{{route('user.info',$user->id)}}" method="POST" enctype="multipart/form-data">
 								@csrf
 								<!-- <div class="row"> -->
 									<div class="col-md-12">
@@ -26,55 +26,61 @@
     color: white;
 "></i>
 											</div> -->
-                                            	<img class="rounded-circle" @if(isset($user->image))src="{{asset($user->image)}}" @else src="{{asset('assets/images/image-gallery/11.jpg')}}" @endif alt="" style="width:250px;height:250px;">
+											{{-- {{dd(auth()->user()->image)}} --}}
+                                            	<img class="rounded-circle" @if(isset(auth()->user()->image)&&file_exists(auth()->user()->image))src="{{asset(auth()->user()->image)}}" @else src="{{asset('assets/images/image-gallery/11.jpg')}}" @endif alt="" style="width:250px;height:250px;">
 											</div>
 											<!-- <span class="alert alert-error"></span> -->
 										</div>
-										<input  class="my-5 rounded d-flex m-auto" name="profile_image" accept="image/*" value="" type="file" style="border: solid 1px #ccc">
+										<input  class="my-5 rounded d-flex m-auto" name="image" accept="image/*" value="" type="file" style="border: solid 1px #ccc">
 										<div class="form-group">
 											<label for="name">First Name</label>
-											<input type="text" class="form-control" name="first_name" id="name" value="{{auth()->user()->firstname ?? ' '}}">
+											{{-- {{dd()}} --}}
+											<input type="text" class="form-control" name="first_name" id="name" value="{{auth()->user()->first_name ?? ''}}">
 											<span class="alert alert-error"></span>
 										</div>
 										<div class="form-group">
 											<label for="name">Last Name</label>
-											<input type="text" class="form-control" name="last_name" id="name">
+											<input type="text" class="form-control" value="{{auth()->user()->last_name ?? ''}}" name="last_name" id="name">
 											<span class="alert alert-error"></span>
 										</div>
 										<div class="form-group">
 											<label for="email">Email Address</label>
-											<input type="email" class="form-control" name="email" id="email">
+											<input type="email" class="form-control" value="{{auth()->user()->email ?? ''}}" name="email" id="email">
 											<span class="alert alert-error"></span>
 										</div>
-                                        <div class="form-group">
-											<label for="name">Mobile No.</label>
-											<input type="number" class="form-control" name="mobile" id="name">
-											<span class="alert alert-error"></span>
-										</div>
+                                   
                                         <div class="form-group">
 											<label for="name">Company</label>
-											<input type="text" class="form-control" name="company" id="name">
+											<input type="text" class="form-control" value="{{auth()->user()->company ?? ''}}" name="company" id="name">
 											<span class="alert alert-error"></span>
 										</div>
                                         <div class="form-group">
 											<label for="name">Job Title</label>
-											<input type="text" class="form-control" name="job_title" id="name">
+											<input type="text" class="form-control" value="{{auth()->user()->job_title ?? ''}}" name="job_title" id="name">
 											<span class="alert alert-error"></span>
 										</div>
                                         <div class="form-group">
 											<label for="name">Address</label>
-											<input type="text" class="form-control" name="address" id="name">
+											<input type="text" class="form-control" value="{{auth()->user()->address ?? ''}}" name="address" id="name">
 											<span class="alert alert-error"></span>
 										</div>
                                         <div class="form-group">
 											<label for="name">City</label>
-											<input type="text" class="form-control" name="city" id="name">
+											<input type="text" class="form-control" value="{{auth()->user()->city ?? ''}}" name="city" id="name">
 											<span class="alert alert-error"></span>
 										</div>
                                         <div class="form-group">
-											<label for="name">Country</label>
-											<input type="text" class="form-control" name="country" id="name">
-											<span class="alert alert-error"></span>
+										
+											
+												<div class="form-group">
+													<select name="country" id="country" class="rounded srs-in" style="width: -webkit-fill-available;border: solid 1px #ccc;padding: .375rem .75rem;" placeholder="Search Any Country .....">
+														<?php $country=App\Models\Country::all(); ?>
+														@foreach($country as $count)
+														<option value="{{ $count->id ?? '' }}" @if(isset(auth()->user()->country)&&auth()->user()->country == $count->id) selected @endif>{{ $count->name ?? ''}}</option>
+														@endforeach
+														</select>
+												</div>
+											 
 										</div>
 									<!-- </div> -->
 									<div class="col-md-12 text-center">

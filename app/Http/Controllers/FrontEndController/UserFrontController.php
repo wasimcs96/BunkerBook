@@ -16,13 +16,14 @@ class UserFrontController extends Controller
         
         $featured_banner_image = '';
  
-        if($request->hasFile('featured_banner_image'))
+        if($request->has('image'))
         {
-         $banner=$request->featured_banner_image;
+         $banner=$request->image;
          $banner_name= time().$banner->getClientOriginalName();
-         $st= $banner->move('uploads/businessbannerimage',$banner_name);
-         $featured_banner_image = 'uploads/businessbannerimage/'.$banner_name;
+        $banner->move('uploads/userProfile',$banner_name);
+         $featured_banner_image = 'uploads/userProfile/'.$banner_name;
         }
+        // dd($featured_banner_image);
 
 // dd($request->all());
         $user->first_name = $request->first_name;
@@ -33,6 +34,9 @@ class UserFrontController extends Controller
         $user->job_title = $request->job_title;
         $user->address = $request->address;
         $user->city = $request->city;
+        $user->country = $request->country;
+        $user->image =  $featured_banner_image;
+
         $user->save();
         return redirect()->route('user.detail');
 

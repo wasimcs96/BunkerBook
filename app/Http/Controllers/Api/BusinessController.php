@@ -98,7 +98,7 @@ class BusinessController extends Controller
         foreach($business as $buisnes){
         
             $book = Bookmark::where('user_id',$request->user()->id)->where('business_id',$buisnes->id)->count();
-             
+            $buisnes['category']=explode(',',$buisnes->category_name) ;
             if($book > 0)
             {
                 $buisnes['is_bookmark']= 1;
@@ -107,7 +107,7 @@ class BusinessController extends Controller
                 $buisnes['is_bookmark']= 0 ;
             }
             array_push($data,$buisnes);
-         
+        //  dd($buisnes['categr'])
         }
         //   dd(count($data));
         // $success['business'] =$busines;
