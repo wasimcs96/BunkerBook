@@ -117,14 +117,15 @@ class BusinessController extends Controller
 foreach($request->staff as $key2 => $value)
 
 {
-
-    if(isset($value['staff_profile']) && $request->file($value['staff_profile']))
+    
+    if(isset($value['staff_profile']) || $request->file($value['staff_profile']))
     {
+        // dd($value);
         $staff_profile=$value['staff_profile'];
         // dd($staff_profile);
         // $staff_profile = $request->profile
         $staff_profile_new_name = time() . $staff_profile->getClientOriginalName();
-        $staff_pro->move('uploads/business_staffProfile',$staff_profile_new_name);
+        $staff_profile->move('uploads/business_staffProfile',$staff_profile_new_name);
         $staff_profilestore = 'uploads/business_staffProfile/' . $staff_profile_new_name;
     }
         BusinessStaff::create([
@@ -311,13 +312,13 @@ foreach($request->staff as $key2 => $value)
         
         {
  
-     if(isset($value['staff_profile']) && $request->file($value['staff_profile']))
+     if(isset($value['staff_profile']) || $request->file($value['staff_profile']))
      {
          $staff_profile=$value['staff_profile'];
  // dd()
          // $staff_profile = $request->profile
          $staff_profile_new_name = time() . $staff_profile->getClientOriginalName();
-         $staff_pro->move('uploads/business_staffProfile',$staff_profile_new_name);
+         $staff_profile->move('uploads/business_staffProfile',$staff_profile_new_name);
          $staff_profilestore = 'uploads/business_staffProfile/' . $staff_profile_new_name;
      }
             BusinessStaff::create([

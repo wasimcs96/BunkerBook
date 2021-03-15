@@ -34,9 +34,24 @@ class CountryController extends Controller
 
     Public function getcountrybusiness(Request $request)
     {
+        $data=[];
         $business = Business::where('country',$request->id)->select('id','name','email','business_profile','category_name','mobile')->get();
 
-        return $this->sendResponse($business,'business count Find');
+        foreach($business as $buisnes){
+        
+            // $book = Bookmark::where('user_id',$request->user()->id)->where('business_id',$buisnes->id)->count();
+            $buisnes['category']=explode(',',$buisnes->category_name) ;
+            // if($book > 0)
+            // {
+            //     $buisnes['is_bookmark']= 1;
+            // }
+            // else{
+            //     $buisnes['is_bookmark']= 0 ;
+            // }
+            array_push($data,$buisnes);
+         
+        }
+        return $this->sendResponse($data,'business count Find');
 
 
     }

@@ -186,7 +186,8 @@
                                 <label><input type="checkbox"  id="chkPassport" onclick="myFunction()" name="business_time"
                                         value="1"><span>24/7</span></label>
                             </div>
-                       
+                        </div>
+                        <div id="uniname">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">Operating Hours Start</label>
@@ -202,10 +203,9 @@
                                     <span class="msg_alert_class" id="end_timeMsg"></span>
                                 </div>
                             </div>
-                        </div>
+                      
 
-
-                                <div id="uniname">
+                              
         <div class="col-md-12">
             <div class="form-group">
                 <label class="control-label">Office Hours</label>
