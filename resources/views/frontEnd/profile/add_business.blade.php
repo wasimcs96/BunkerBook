@@ -29,7 +29,7 @@
 
         <div class="col-md-12">
             <div class="form-group">
-                <a href="javascript:void(0);" class="add_button2 btn btn-warning btn-sm" title="Add field">Add More
+                <a href="javascript:void(0);" class="add_button2 btn btn-warning btn-large" title="Add field">Add More
                     fields</a>
             </div>
         </div>
@@ -56,7 +56,7 @@
         </div>
         <div class="col-md-12">
             <div class="form-group">
-                <a href="javascript:void(0);" class="add_button1 btn btn-warning btn-sm" title="Add field">Add More
+                <a href="javascript:void(0);" class="add_button1 btn btn-warning btn-large" title="Add field">Add More
                     fields</a>
             </div>
         </div>
@@ -70,7 +70,7 @@
         </div>
         <div class="col-md-12">
             <div class="form-group">
-                <a href="javascript:void(0);" class="add_button btn btn-warning btn-sm" title="Add field">Add More
+                <a href="javascript:void(0);" class="add_button btn btn-warning btn-large" title="Add field">Add More
                     fields</a>
             </div>
         </div>
@@ -83,8 +83,9 @@
             </div>
         </div>
         <!-- <div class="row">                    -->
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-12 col-sm-12">
             <div class="form-group">
+                <label class="control-label">Country</label>
                 <select name="country" id="country" class="rounded srs-in"
                     style="width: -webkit-fill-available;border: solid 1px #ccc;padding: .375rem .75rem;"
                     placeholder="Search Any Country .....">
@@ -106,7 +107,9 @@
             <div class="form-group">
                 <label class="control-label">Bussiness Profile</label>
                 <input type="file" name="business_profile"  accept="image/*"
-                    class="form-control">
+                    class="form-control" style="
+    padding-bottom: 33.75;
+">
             </div>
         </div>
 
@@ -114,7 +117,9 @@
             <div class="form-group">
                 <label class="control-label">Featured Banner Image</label>
                 <input type="file" name="featured_banner_image"  accept="image/*"
-                    class="form-control">
+                    class="form-control" style="
+    padding-bottom: 33.75;
+">
             </div>
         </div>
 
@@ -136,22 +141,14 @@
                 <textarea name="ports_of_operation" rows="3" col="5" class="form-control"></textarea>
             </div>
         </div>
-            <div class="fancy-checkbox col-md-6">
+            <div class="fancy-checkbox col-md-6" style="display: flex;align-items: flex-end;">
                 <label><input type="checkbox"  id="chkPassport" onclick="myFunction()" name="business_time"
-                        value="1" style="
-    width: 25px;
-    height: 25px;
-"></label>
-<span style="
-    margin-left: 10px;
-    font-size: 25px;
-">24/7</span>
+                        value="1" style="width: 20px; height: 20px;"></label>
+                        <span style="font-size: 15px;margin-left: 6px;color: black;">24/7</span>
             </div>
         <div id="uniname">
         <div class="row" >
-            <div class="col-md-6" style="
-    padding-left: 30px;
-">
+            <div class="col-md-6" style="padding-left: 30px;">
                 <div class="form-group">
                     <label class="control-label">Operating Hours Start</label>
                     <input type="time" name="start_time"  id="start_time" value=""
@@ -160,9 +157,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6" style="
-    padding-right: 30px;
-">
+            <div class="col-md-6" style="padding-right: 30px;">
                 <div class="form-group">
                     <label class="control-label">Operating Hours End</label>
                     <input type="time" name="end_time"  id="end_time" value=""
@@ -179,9 +174,7 @@
         </div>
         <!--sunday-->
         <div class="col-md-12">
-            <div class="col-md-12" style="
-    padding: 0;
-">
+            <div class="col-md-12" style="padding: 0;">
                 <div class="form-group">
                     <label class="control-label">Sunday</label>
                     <select name="sunday"  id="sunday" class="form-control">
@@ -209,9 +202,7 @@
         </div>
         <!--monday-->
         <div class="col-md-12">
-            <div class="col-md-12" style="
-    padding: 0;
-">
+            <div class="col-md-12" style="padding: 0;">
                 <div class="form-group">
                     <label class="control-label">Monday</label>
                     <select  name="monday" id="monday" class="form-control">
@@ -248,9 +239,7 @@
         </div>
         <!--tuesday-->
         <div class="col-md-12">
-            <div class="col-md-12" style="
-    padding: 0;
-">
+            <div class="col-md-12" style="padding: 0;">
                 <div class="form-group">
                     <label class="control-label">Tuesday</label>
                     <select  name="tuesday" id="tuesday" class="form-control">
@@ -287,9 +276,7 @@
         </div>
         <!--wednesday-->
         <div class="col-md-12">
-            <div class="col-md-12" style="
-    padding: 0;
-">
+            <div class="col-md-12" style="padding: 0;">
                 <div class="form-group">
                     <label class="control-label">Wednesday</label>
                     <select  name="wednesday" id="wednesday" class="form-control">
@@ -326,9 +313,7 @@
         </div>
         <!--thursday-->
         <div class="col-md-12">
-            <div class="col-md-12" style="
-    padding: 0;
-">
+            <div class="col-md-12" style="padding: 0;">
                 <div class="form-group">
                     <label class="control-label">Thursday</label>
                     <select  name="thursday" id="thursday" class="form-control">
@@ -458,13 +443,13 @@
                         placeholder="Skype Id" class="form-control my-3">
                     <textarea name="staff[0][staff_about]" placeholder="About" class="form-control my-3"></textarea>
                     <input  type="file" name="staff[0][staff_profile]" value=""
-                        placeholder="Profile" accept="image/*" class="form-control my-3">
+                        placeholder="Profile" accept="image/*" class="form-control my-3" style="padding-bottom: 34.75;">
 
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <a href="javascript:void(0);" class="add_staff_button btn btn-warning btn-sm" title="Add field">Add
+                    <a href="javascript:void(0);" class="add_staff_button btn btn-warning btn-large" title="Add field">Add
                         More Staff</a>
                 </div>
             </div>
@@ -482,7 +467,7 @@
                 <!-- <button type="button" class="btn_upload" id="upBtn">Upload a file</button> -->
 
                 <input  type="file" name="business_photos[]" id="photos"
-                    class="form-control imageUpload" multiple>
+                    class="form-control imageUpload" style="padding-bottom: 33.75;" multiple>
 
             </div>
             <!-- <input name="" id="photo" type="file" class="dropify-frrr" > -->
@@ -510,7 +495,7 @@
 
         <div class="col-md-12">
             <div class="form-group">
-                <a href="javascript:void(0);" class="add_buttonyoutube_link btn btn-warning btn-sm"
+                <a href="javascript:void(0);" class="add_buttonyoutube_link btn btn-warning btn-large"
                     title="Add field">Add More fields</a>
             </div>
         </div>
@@ -576,7 +561,7 @@ input.invalid {
 }
 
 button {
-    background-color: #2E35DA;
+    background-color: #FFA500;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -611,7 +596,10 @@ button:hover {
 
 /* Mark the steps that are finished and valid: */
 .step.finish {
-    background-color: #4CAF50;
+    background-color: #FFA500;
+}
+label{
+    color: black!important;
 }
 </style>
 
@@ -704,7 +692,7 @@ function fixStepIndicator(n) {
                 x++; //Increment field counter
                 console.log(x);
                 var fieldHTML = ' <div class="rowField' + x +
-                    '" ><div class="col-md-9"><div class="form-group"><label class="control-label">Landline</label><input type="number" name="landline[]" value="" class="form-control"> </div></div><div class="col-md-3"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button" id="' +
+                    '" ><div class="col-md-9"><div class="form-group"><label class="control-label">Landline</label><input type="number" name="landline[]" value="" class="form-control"> </div></div><div class="col-md-3"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-large remove_button" id="' +
                     x + '">Delete</a></div></div></div>'; //New input field html
     
                 $(wrapper).append(fieldHTML); //Add field html
@@ -732,7 +720,7 @@ function fixStepIndicator(n) {
                 y++; //Increment field counter
     
                 var fieldHTML_staff = ' <div class="rowField_staff' + y +
-                    '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Staff Detail <a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button_staff" id="' +
+                    '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Staff Detail <a href="javascript:void(0);" style="margin-top: 0px;" class="btn btn-danger btn-large remove_button_staff" id="' +
                     y + '">X</a> </label> <input type="text" name="staff[' + inc +
                     '][staff_name]"  value="" placeholder="Name" class="my-3 form-control"><input type="text" name="staff[' +
                     inc +
@@ -746,7 +734,7 @@ function fixStepIndicator(n) {
                     inc +
                     '][staff_about]"   placeholder="About" class="my-3 form-control" ></textarea><input type="file" name="staff[' +
                     inc +
-                    '][staff_profile]"   value="" placeholder="Profile" accept="image/*" class="my-3 form-control"> </div></div></div>'; //New input field html
+                    '][staff_profile]" style="padding-bottom: 33.75;"  value="" placeholder="Profile" accept="image/*" class="my-3 form-control"> </div></div></div>'; //New input field html
     
                 $(wrapper_staff).append(fieldHTML_staff); //Add field html
                 inc++;
@@ -1029,9 +1017,9 @@ function fixStepIndicator(n) {
                 x++; //Increment field counter
                 console.log(x);
                 var fieldHTML = ' <div class="rowField1' + x +
-                    '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Website</label><input type="text" name="website[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button1" id="' +
+                    '" ><div class="col-md-12"><div class="form-group"><label class="control-label">YouTube Link</label><input type="text" name="youtubelink[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-large remove_button1" id="' +
                     x + '">Delete</a></div></div></div>'; //New input field html
-    
+    staff[1][staff_profile]
                 $(wrapper).append(fieldHTML); //Add field html
             }
         });
@@ -1063,7 +1051,7 @@ function fixStepIndicator(n) {
                 x++; //Increment field counter
                 console.log(x);
                 var fieldHTML = ' <div class="rowField2' + x +
-                    '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Email</label><input type="email" name="email[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button2" id="' +
+                    '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Email</label><input type="email" name="email[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-large remove_button2" id="' +
                     x + '">Delete</a></div></div></div>'; //New input field html
     
                 $(wrapper).append(fieldHTML); //Add field html
@@ -1099,7 +1087,7 @@ function fixStepIndicator(n) {
                 x++; //Increment field counter
                 console.log(x);
                 var fieldHTML = ' <div class="rowField1' + x +
-                    '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Website</label><input type="text" name="youtube_video[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_buttonyoutube_link" id="' +
+                    '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Youtube Link</label><input type="text" name="youtube_video[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-large remove_buttonyoutube_link" id="' +
                     x + '">Delete</a></div></div></div>'; //New input field html
     
                 $(wrapper).append(fieldHTML); //Add field html
