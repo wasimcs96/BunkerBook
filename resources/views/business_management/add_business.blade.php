@@ -128,6 +128,7 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
+                                <label class="control-label">Country</label>
                                     <select name="country" id="country" class="srs-in rounded"
                                         style="width: -webkit-fill-available;border: solid 1px #ccc;padding: .375rem .75rem;"
                                         placeholder="Search Any Country .....">
@@ -182,12 +183,13 @@
                         </div>
 
                         <div class="row">
-                            <div class="fancy-checkbox m-auto col-md-1">
+                            <div class="fancy-checkbox col-md-6" style="display: flex;align-items: flex-end;">
                                 <label><input type="checkbox"  id="chkPassport" onclick="myFunction()" name="business_time"
-                                        value="1"><span>24/7</span></label>
+                                        value="1" style="width: 20px; height: 20px;"><span style="font-size: 15px;margin-left: 6px;color: black;">24/7</span></label>
                             </div>
                         </div>
                         <div id="uniname">
+                        <div class="row" >
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">Operating Hours Start</label>
@@ -196,13 +198,14 @@
                                 </div>
                             </div>
     
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">Operating Hours End</label>
                                     <input type="time" name="end_time" id="end_time" value="" class="form-control">
                                     <span class="msg_alert_class" id="end_timeMsg"></span>
                                 </div>
                             </div>
+                        <div>
                       
 
                               
@@ -574,7 +577,7 @@ $(document).ready(function() {
             y++; //Increment field counter
 
             var fieldHTML_staff = ' <div class="rowField_staff' + y +
-                '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Staff Detail <a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button_staff" id="' +
+                '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Staff Detail <a href="javascript:void(0);" style="margin-top: 0px;" class="btn btn-danger btn-sm remove_button_staff" id="' +
                 y + '">X</a> </label> <input type="text" name="staff[' + inc +
                 '][staff_name]"  value="" placeholder="Name" class="my-3 form-control"><input type="text" name="staff[' +
                 inc +
@@ -941,7 +944,7 @@ $(document).ready(function() {
             x++; //Increment field counter
             console.log(x);
             var fieldHTML = ' <div class="rowField1' + x +
-                '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Website</label><input type="text" name="youtube_video[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_buttonyoutube_link" id="' +
+                '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Youtube Link</label><input type="text" name="youtube_video[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_buttonyoutube_link" id="' +
                 x + '">Delete</a></div></div></div>'; //New input field html
 
             $(wrapper).append(fieldHTML); //Add field html

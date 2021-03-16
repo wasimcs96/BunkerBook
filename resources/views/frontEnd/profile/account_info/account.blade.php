@@ -31,7 +31,7 @@
 											</div>
 											<!-- <span class="alert alert-error"></span> -->
 										</div>
-										<input  class="my-5 rounded d-flex m-auto" name="image" accept="image/*" value="" type="file" style="border: solid 1px #ccc">
+										<input  class="my-5 rounded d-flex m-auto" name="image" accept="image/*" value="" type="file" style="border: solid 1px #ccc;padding: 3px;">
 										<div class="form-group">
 											<label for="name">First Name</label>
 											{{-- {{dd()}} --}}
@@ -73,6 +73,7 @@
 										
 											
 												<div class="form-group">
+												<label for="name">Country</label>
 													<select name="country" id="country" class="rounded srs-in" style="width: -webkit-fill-available;border: solid 1px #ccc;padding: .375rem .75rem;" placeholder="Search Any Country .....">
 														<?php $country=App\Models\Country::all(); ?>
 														@foreach($country as $count)
@@ -84,7 +85,7 @@
 										</div>
 									<!-- </div> -->
 									<div class="col-md-12 text-center">
-									<button class="btn btn-primary btn-lg" type="submit" style="font-size: 20px;">Save</button>
+									<button class="btn btn-primary btn-lg" type="submit" style="font-size: 20px;border: #FFA500;background: #FFA500;">Save</button>
 										{{-- <button type="submit" id="submit">Save</button> --}}
 										<!-- Alert Message -->
 										{{-- <div class="alert-notification">
@@ -97,5 +98,14 @@
 						</div>
 					</div>
   </div>
+
+@section('per_page_style')
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<style>
+label{
+	color:black;
+}
+</style>
+@endsection
     @endsection
 	
