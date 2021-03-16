@@ -18,7 +18,7 @@
         <div class="card">
             <div class="body" style="margin-top: 88px;">
                 <p class="lead">Create an account</p>
-                <form class="form-auth-small m-t-20" method="POST" action="{{ route('register') }}">
+                <form class="form-auth-small m-t-20" id="registerForm" method="POST" >
                     @csrf
 
                     <div class="form-group">
@@ -126,9 +126,9 @@
                             </button>
 
                 </form>
-                <div class="separator-linethrough"><span>OR</span></div>
+                {{-- <div class="separator-linethrough"><span>OR</span></div>
                 <button class="btn btn-round btn-signin-social"><i class="fa fa-facebook-official facebook-color"></i> Sign in with Facebook</button>
-                <button class="btn btn-round btn-signin-social"><i class="fa fa-twitter twitter-color"></i> Sign in with Twitter</button>
+                <button class="btn btn-round btn-signin-social"><i class="fa fa-twitter twitter-color"></i> Sign in with Twitter</button> --}}
                 <span>Already have an account? <a href="{{ route('login') }}">Login</a></span>
             </div>
         </div>

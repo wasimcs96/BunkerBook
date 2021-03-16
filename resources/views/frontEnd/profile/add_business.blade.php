@@ -5,7 +5,7 @@
 
 @section('content')
 
-<form id="regForm" action="{{ route('front.business.add.create') }}" method="POST">
+<form id="regForm" action="{{ route('front.business.add.create') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <h3>Basic Details</h3>
     <!-- One "tab" for each step in the form: -->

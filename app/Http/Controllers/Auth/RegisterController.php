@@ -12,7 +12,7 @@ class RegisterController extends Controller
 {
     use RegistersUsers;
 
-    protected $redirectTo = 'front';
+    protected $redirectTo = 'index';
 
     public function __construct()
     {
@@ -21,22 +21,24 @@ class RegisterController extends Controller
 
     protected function validator(array $data)
     {
+        // dd($data);
+
         return Validator::make($data, [
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-             'role' => ['required'],
+            //  'role' => ['required'],
              'mobile' => ['required','min:6','unique:users'],
         ]);
     }
 
     protected function create(array $data)
     {
-
-        $role = $data['role'];
+        // dd($data); 
+        // $role = $data['role'];
         // dd($role);
-       if($role==3){
+    //    if($role==3){
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
@@ -44,7 +46,7 @@ class RegisterController extends Controller
             'mobile' => $data['mobile'],
             'password' => Hash::make($data['password']),
         ])->assignRole('client');
-       }
+    //    }
     //    if($role==2){
     //     return User::create([
     //         'first_name' => $data['first_name'],
@@ -63,6 +65,7 @@ class RegisterController extends Controller
     //         'password' => Hash::make($data['password']),
     //     ])->assignRole('consultant');
     //    }
+    // return redirect()->route();
     }
 
     public function showRegistrationForm()
