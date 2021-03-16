@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Feedback;
 class FeedbackController extends Controller
 {
-    public function index() {
+    public function index() 
+    {
 
         return view('frontEnd.feedback.feedback');
     }
@@ -30,6 +31,6 @@ class FeedbackController extends Controller
             'attachment'=>$attachment,
         ]);
 
-        return view('frontEnd.feedback.feedback')->with('success');
+        return redirect()->back()->with('success','Feedback Sent Successfully');
     }
 }

@@ -16,10 +16,10 @@ class BookmarkController extends Controller
     $business=[];
     foreach($bookmark as $book){
        array_push($business,$book->business);
-        $success = $business;
+        // $success = $business;
 //    dd($business);
     }
-        return $this->sendResponse($success,'Bookmark Find');
+        return $this->sendResponse($business,'Bookmark Find');
     }
 
     public function postBookmark(Request $request){

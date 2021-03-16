@@ -23,8 +23,8 @@ class BookmarkFrontController extends Controller
             'business_id'=>$request->media_id,
         ]);
         return response()->json([
-            'success' => 'bookmark added successfully!'
-        ]);
+            'success' => 'Bookmark added successfully!'
+        ])->with('success','Bookmark Added Successfully');
     }
 
     public function deletebookmark(Request $request)
@@ -34,7 +34,7 @@ class BookmarkFrontController extends Controller
        $delete = Bookmark::where('user_id',auth()->user()->id)->where('business_id',$request->media_id);
        $delete->delete();
         return response()->json([
-            'success' => 'bookmark added successfully!'
-        ]);
+            'success' => 'Bookmark Added Successfully'
+        ])->with('danger','Bookmark Deleted Successfully');
     }
 }

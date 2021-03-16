@@ -33,7 +33,7 @@ class BusinessFrontController extends Controller
             'rating_number'=>$request->rating,
             'business_id'=>$id,
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success','Rating Added  Successfully');;
     }
     public function create(){
         return view('frontEnd.profile.add_business');
@@ -136,10 +136,13 @@ foreach($request->staff as $key2 => $value)
 
 {
 
-    if(isset($value['staff_profile']) || $request->file($value['staff_profile']))
+    
+    $stfpro = $value['staff_profile'] ?? '';
+    
+    if($stfpro != '' || $request->file($stfpro))
     {
-        $staff_profile=$value['staff_profile'];
-// dd()
+        // dd($value);
+        $staff_profile=$stfpro;
         // $staff_profile = $request->profile
         $staff_profile_new_name = time() . $staff_profile->getClientOriginalName();
         $staff_profile->move('uploads/business_staffProfile',$staff_profile_new_name);
@@ -185,7 +188,7 @@ foreach($request->staff as $key2 => $value)
                         }
         
 
-                        return redirect()->back();
+                        return redirect()->back()->with('success','Business Added Successfully');
 
      
     }

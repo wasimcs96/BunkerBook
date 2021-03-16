@@ -92,6 +92,14 @@ class UserController extends Controller
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
         }
+        $banner='';
+        if($request->hasFile('image'))
+        {
+         $banner_image=$request->image;
+         $banner_name= time().$banner_image->getClientOriginalName();
+         $banner_image->move('uploads/userimage',$banner_name);
+         $banner = 'uploads/userimage/'.$banner_name;
+        }
 
         $userData=$request->user();
         $updateUser = $userData->update([
@@ -103,7 +111,7 @@ class UserController extends Controller
          'job_title'=>$request->job_title,
          'city'=>$request->city,
          'address'=>$request->address,
-
+        'image'=>$banner,
         ]);
 
         return $this->sendResponse($userData, 'User Update successfully.');
@@ -136,7 +144,7 @@ class UserController extends Controller
         }else{
             return $this->sendError('Validation Error.', '', "The current password is not match with old password.");
         }
-        return $this->sendResponse(array(), 'Password successfully updated');
+        return $this->sendResponse(array(), 'Password Updated Successfully');
 
     }
 

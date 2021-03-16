@@ -19,7 +19,7 @@ class FeedbackController extends Controller
 
     public function postFeedback(Request $request){
         $validator = Validator::make($request->all(), [
-            'feedback_id' => 'required',
+            // 'feedback_id' => 'required',
             // 'user_id' => 'required',
             'subject' => 'required',
             'message' => 'required',

@@ -61,7 +61,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add News Feed</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit News Feed</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -125,7 +125,7 @@
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Youtube Link:</label>
-            <input type="text" class="form-control" id="youtube_link" name="youtube_link" required>
+            <input type="text" class="form-control" id="youtube_link" name="youtube_link" >
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Image:</label>

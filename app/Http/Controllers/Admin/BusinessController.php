@@ -118,10 +118,12 @@ foreach($request->staff as $key2 => $value)
 
 {
     
-    if(isset($value['staff_profile']) || $request->file($value['staff_profile']))
+    $stfpro = $value['staff_profile'] ?? '';
+    
+    if($stfpro != '' || $request->file($stfpro))
     {
         // dd($value);
-        $staff_profile=$value['staff_profile'];
+        $staff_profile=$stfpro;
         // dd($staff_profile);
         // $staff_profile = $request->profile
         $staff_profile_new_name = time() . $staff_profile->getClientOriginalName();
@@ -312,9 +314,13 @@ foreach($request->staff as $key2 => $value)
         
         {
  
-     if(isset($value['staff_profile']) || $request->file($value['staff_profile']))
-     {
-         $staff_profile=$value['staff_profile'];
+    
+            $stfpro = $value['staff_profile'] ?? '';
+    
+            if($stfpro != '' || $request->file($stfpro))
+            {
+                // dd($value);
+                $staff_profile=$stfpro;
  // dd()
          // $staff_profile = $request->profile
          $staff_profile_new_name = time() . $staff_profile->getClientOriginalName();

@@ -23,6 +23,12 @@
             
               
                     <div class="form-group">
+                        <label>File Name</label>
+                        
+                        <input type="name" name="file_name" maxlength="150" class="form-control"  required>
+                    </div>
+
+                    <div class="form-group">
                         <label>Upload PDF</label>
                         
                         <input type="file" name="file[]" accept="application/pdf" class="form-control" style="padding-bottom: 33px;" multiple required>

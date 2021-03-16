@@ -42,10 +42,11 @@
     <div class="clearfix"></div>
 
 	<main class="main">
-
+       
         @yield('content')
 
     </main>
+    
 <div class="clearfix"></div>
 <!--  data-background=" {{ asset('frontEnd/assets/img/footer/ftr-2-bg.jpg')}}" -->
 <footer class="footer-2 footer-shape">

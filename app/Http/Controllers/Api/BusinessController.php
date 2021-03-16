@@ -92,7 +92,7 @@ class BusinessController extends Controller
         $categorycoming=$request->category_id;
         $data=[];
 
-        $business=Business::whereRaw("find_in_set('$categorycoming',category)")->select('id','name','email','business_profile','category_name','mobile')->with(['businessRating'])->get();
+        $business=Business::whereRaw("find_in_set('$categorycoming',category)")->select('id','name','email','address','business_profile','category_name','mobile')->with(['businessRating'])->get();
 
 
         foreach($business as $buisnes){
@@ -119,7 +119,7 @@ class BusinessController extends Controller
     public function getlimitbusiness(){
 
         
-        $business = Business::select('name','id','business_profile')->get();
+        $business = Business::select('name','id','business_profile','address')->get();
         return $this->sendResponse($business,'Business limited data fetched');
     }
 
