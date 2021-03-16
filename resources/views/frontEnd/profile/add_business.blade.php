@@ -622,9 +622,9 @@ function showTab(n) {
         document.getElementById("prevBtn").style.display = "inline";
     }
     if (n == (x.length - 1)) {
-        document.getElementById("nextBtn").html = '<button class"btn btn-danger"></button>';
+        document.getElementById("nextBtn").style.display = "none";
     } else {
-        document.getElementById("nextBtn").innerHTML = "Next";
+        document.getElementById("nextBtn").style.display = "inline";
     }
     //... and run a function that will display the correct step indicator:
     fixStepIndicator(n)
@@ -711,45 +711,47 @@ function fixStepIndicator(n) {
     
     
         var add_staff_button = $('.add_staff_button');
-        var wrapper_staff = $('.field_wrapper_staff');
-        var y = 1;
-        var inc = 1;
-        $(add_staff_button).click(function() {
-            //Check maximum number of input fields
-            if (y < maxField) {
-                y++; //Increment field counter
-    
-                var fieldHTML_staff = ' <div class="rowField_staff' + y +
-                    '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Staff Detail <a href="javascript:void(0);" style="margin-top: 0px;" class="btn btn-danger btn-large remove_button_staff" id="' +
-                    y + '">X</a> </label> <input type="text" name="staff[' + inc +
-                    '][staff_name]"  value="" placeholder="Name" class="my-3 form-control"><input type="text" name="staff[' +
-                    inc +
-                    '][staff_job_title]"  value="" placeholder="Job title" class="my-3 form-control"><input type="text" name="staff[' +
-                    inc +
-                    '][staff_email]"  value="" placeholder="Email" class="my-3 form-control"><input type="number" name="staff[' +
-                    inc +
-                    '][staff_mobile]"  value="" placeholder="Mobile" class="my-3 form-control"><input type="text" name="staff[' +
-                    inc +
-                    '][staff_skype]"  value="" placeholder="Skype Id" class="my-3 form-control"><textarea name="staff[' +
-                    inc +
-                    '][staff_about]"   placeholder="About" class="my-3 form-control" ></textarea><input type="file" name="staff[' +
-                    inc +
-                    '][staff_profile]" style="padding-bottom: 33.75;"  value="" placeholder="Profile" accept="image/*" class="my-3 form-control"> </div></div></div>'; //New input field html
-    
-                $(wrapper_staff).append(fieldHTML_staff); //Add field html
-                inc++;
-            }
-        });
-    
-        //Once remove button is clicked
-        $(wrapper_staff).on('click', '.remove_button_staff', function(e) {
-            e.preventDefault();
-            var current_id = $(this).attr('id');
-            console.log(current_id);
-    
-            $('.rowField_staff' + current_id).remove(); //Remove field html
-            x--; //Decrement field counter
-        });
+    var wrapper_staff = $('.field_wrapper_staff');
+    var y = 1;
+    var inc = 1;
+    var maxFieldstaff=100;
+    $(add_staff_button).click(function() {
+        //Check maximum number of input fields
+        if (y < maxFieldstaff) {
+            y++; //Increment field counter
+
+            var fieldHTML_staff = ' <div class="rowField_staff' + y +
+                '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Staff Detail <a href="javascript:void(0);" style="margin-top: 0px;" class="btn btn-danger btn-sm remove_button_staff" id="' +
+                y + '">X</a> </label> <input type="text" name="staff[' + inc +
+                '][staff_name]"  value="" placeholder="Name" class="my-3 form-control"><input type="text" name="staff[' +
+                inc +
+                '][staff_job_title]"  value="" placeholder="Job title" class="my-3 form-control"><input type="text" name="staff[' +
+                inc +
+                '][staff_email]"  value="" placeholder="Email" class="my-3 form-control"><input type="number" name="staff[' +
+                inc +
+                '][staff_mobile]"  value="" placeholder="Mobile" class="my-3 form-control"><input type="text" name="staff[' +
+                inc +
+                '][staff_skype]"  value="" placeholder="Skype Id" class="my-3 form-control"><textarea name="staff[' +
+                inc +
+                '][staff_about]"   placeholder="About" class="my-3 form-control" ></textarea><input type="file" name="staff[' +
+                inc +
+                '][staff_profile]"   value="" placeholder="Profile" accept="image/*" class="my-3 form-control"> </div></div></div>'; //New input field html
+
+            $(wrapper_staff).append(fieldHTML_staff); //Add field html
+            inc++;
+        }
+    });
+
+    //Once remove button is clicked
+    $(wrapper_staff).on('click', '.remove_button_staff', function(e) {
+        e.preventDefault();
+        var current_id = $(this).attr('id');
+        console.log(current_id);
+
+        $('.rowField_staff' + current_id).remove(); //Remove field html
+        x--; //Decrement field counter
+    });
+
     
     });
     
@@ -1017,9 +1019,9 @@ function fixStepIndicator(n) {
                 x++; //Increment field counter
                 console.log(x);
                 var fieldHTML = ' <div class="rowField1' + x +
-                    '" ><div class="col-md-12"><div class="form-group"><label class="control-label">YouTube Link</label><input type="text" name="youtubelink[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-large remove_button1" id="' +
+                    '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Website</label><input type="text" name="website[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-large remove_button1" id="' +
                     x + '">Delete</a></div></div></div>'; //New input field html
-    staff[1][staff_profile]
+            
                 $(wrapper).append(fieldHTML); //Add field html
             }
         });

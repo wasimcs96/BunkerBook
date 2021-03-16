@@ -29,6 +29,7 @@ $files = $request->file;
         Pdfdocs::create([
 
             'file'=>$storeimg,
+            'file_name'=>$request->file_name,
             ]);
         }
             return redirect()->back()->with('success','Document Uploaded Successfully');

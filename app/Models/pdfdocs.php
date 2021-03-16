@@ -8,5 +8,5 @@ class Pdfdocs extends Model
 {
     protected $table = 'pdf_docs';
 
-    protected $fillable = ['file'];
+    protected $fillable = ['file','file_name'];
 }

@@ -72,9 +72,9 @@
                                     <li class="nav-item"><a class="nav-link" href="404.html">404 Page</a></li>
                                 </ul>
                             </li> -->
-                            <li class="nav-item"><a class="nav-link" href="{{route('country.bussiness')}}">Country</a></li>
+                            {{-- <li class="nav-item"><a class="nav-link" href="{{route('country.bussiness')}}">Country</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{route('category.view')}}">Category</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{route('feedback.index')}}">Feedback</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('feedback.index')}}">Feedback</a></li> --}}
                             <!-- <li class="nav-item dropdown">
                                 <a class="nav-link" href="#">Courses <i class="caret ti-plus"></i></a>
                                 <ul class="navbar-nav">
@@ -85,9 +85,9 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="{{route('newsfeed.view')}}">Newsfeed </a>
                     </li>
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link" href="{{route('event.front.index')}}">Event </a>
-                </li>
+                </li> --}}
                 <li class="nav-item"><a class="nav-link" href="{{route('about_us')}}">About Us</a></li>
                 <!-- <i class="caret ti-plus"></i> -->
                 <!-- <ul class="navbar-nav">
@@ -107,6 +107,28 @@
                             </li> -->
                 <!-- <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li> -->
                 @if(auth()->user())
+                          <li class="nav-item"><a class="nav-link" href="{{route('country.bussiness')}}">Country</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('category.view')}}">Category</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('feedback.index')}}">Feedback</a></li>
+                            {{-- <li class="nav-item"><a class="nav-link" href="{{route('document.index')}}">Documents</a></li> --}}
+                             <li class="nav-item dropdown">
+                    <a class="nav-link" href="{{route('event.front.index')}}">Event </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#">Documents</a>
+                    <ul class="navbar-nav">
+                        <?php  $files= App\Models\Pdfdocs::orderBy('created_at','DESC')->get();?>
+                        @if(isset($files)&&$files->count() > 0)
+                        @foreach($files as $key=>$file)
+                        <li class="nav-item"><a class="nav-link" href="{{asset($file->file ?? '')}}" target="_blank">{{$file->file_name ?? 'N/A'}}</a></li>
+                       @endforeach
+                       @else
+                       <li class="nav-item"><a class="nav-link" >Currently Unavailable</a></li>
+                       @endif
+
+                    </ul>
+                </li>
+                @if(!auth()->user()->isAdmin())
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#">Profile</a>
                     <ul class="navbar-nav">
@@ -117,6 +139,7 @@
 
                     </ul>
                 </li>
+                @endif
                 @endif
             </ul>
             <!-- <div class="header-serarch-btn ab un-srs">
@@ -130,3 +153,5 @@
         </div>
     </div>
 </div>
+
+@include('includes.alert')

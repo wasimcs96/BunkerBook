@@ -30,6 +30,7 @@
                         <thead>
                             <tr>
                                 <th class="col-lg-1">#</th>
+                                
                                 <th class="col-lg-2">File Name</th>
                                 {{-- <th class="col-lg-2">Title</th> --}}
                                 <th class="col-lg-2">Actions</th>
@@ -37,13 +38,13 @@
                         </thead>
                      
                         <tbody>
-                      <?php  $files= App\Models\Pdfdocs::all();?>
+                      <?php  $files= App\Models\Pdfdocs::orderBy('created_at','DESC')->get();?>
                           @foreach($files as $key=>$file)
                             <tr>
                                 <td class=" ">{{$key+1}}</td>
                              
                   
-                                <td class="">@if(isset($file->file)&&file_exists($file->file)){{$file->file ?? ''}}@else N/A @endif</td>
+                                <td class="">{{$file->file_name ?? 'N/A'}}</td>
                                 <td class=""><a href="{{asset($file->file ?? '')}}" target="_blank"  class="btn btn-sm btn-warning" style="color: white;" ><span class="btn-label">
                                         <i class="fa fa-eye"></i>
                                         </span></a>

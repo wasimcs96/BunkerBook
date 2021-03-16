@@ -390,3 +390,5 @@ Route::post('/bookmark/delete','FrontEndController\BookmarkFrontController@delet
 Route::get('feedback/create','FrontEndController\FeedbackController@index')->name('feedback.index');
 
 Route::post('feedback/store','FrontEndController\FeedbackController@store')->name('feedback.store');
+
+Route::get('pdf/documents','FrontEndController\FeedbackController@pdf')->name('document.index');

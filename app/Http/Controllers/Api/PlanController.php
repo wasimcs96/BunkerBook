@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\PlanInfo;
 use App\Models\Transaction;
+use App\Models\Pdfdocs;
 use Validator;
 
 class PlanController extends Controller
