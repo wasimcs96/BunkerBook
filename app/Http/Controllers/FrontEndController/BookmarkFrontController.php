@@ -24,7 +24,7 @@ class BookmarkFrontController extends Controller
         ]);
         return response()->json([
             'success' => 'Bookmark added successfully!'
-        ])->with('success','Bookmark Added Successfully');
+        ]);
     }
 
     public function deletebookmark(Request $request)
@@ -35,6 +35,6 @@ class BookmarkFrontController extends Controller
        $delete->delete();
         return response()->json([
             'success' => 'Bookmark Added Successfully'
-        ])->with('danger','Bookmark Deleted Successfully');
+        ]);
     }
 }

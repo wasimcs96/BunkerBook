@@ -32,7 +32,7 @@
                         @if(isset($books)&& $books->count() < 1)
                         <div class="qwe" style="text-align: center;">
                             <i class="fas fa-bookmark fa-4x"></i>
-                            <Br></Br>
+                            <br><br>
                             <h3>Oops! No Bookmark Added</h3>
                         </div>
                         @endif
@@ -49,24 +49,29 @@
                                         @endif
                                         <div class="course-pic-content">
                                             <div class="course-rating">
-                                            @if(auth()->user())
-                                            <?php  $bbid= '' ;if(isset($book->business->id)&& $book->business->id != null){$bbid = $book->business->id;} $mark=App\Models\Bookmark::where('business_id',$bbid)->where('user_id',auth()->user()->id)->first();?>
-                                            @if(isset($mark->business_id) && $mark->business_id == $book->id && $mark->user_id == auth()->user()->id)
-                                                <span><i class="fa fa-heart rounded-circle bookremove" custom2="{{$book->id ?? ''}}" aria-hidden="true" style="
-															background: white;
-                                                           
-															padding: 5px;
-															border: 5px;"></i></span>
-                                                            @else
-                                                            <span><i class=" bookadd fa fa-heart rounded-circle"  custom2="{{$book->id ?? ''}}"aria-hidden="true" style="
-															background: white;
-                                                            color: black;
-															padding: 5px;
-															border: 5px;"></i></span>
-                                            @endif
-@endif
 
-                                            </div>                                            
+                                                @if(auth()->user())
+                                                <?php $bookmark=App\Models\Bookmark::where('business_id',$book->business->id)->where('user_id',auth()->user()->id)->first();?>
+                                                <span class="bookid" customid="{{$bus->id ?? ''}}">
+                                                @if(isset($bookmark->business_id) && $bookmark->business_id == $book->business->id && $bookmark->user_id == auth()->user()->id)
+                                                   
+                                                <i class="fas fa fa-heart rounded-circle"  id="save-icon-{{$book->business->id ?? ''}}"  check="0"  custom2="{{$book->business->id ?? ''}}" aria-hidden="true" style="
+                                                    background: white;
+                                                    color: red;
+                                                    padding: 5px;
+                                                    border: 5px;"></i>
+                                                                @else
+                                                                <i class="fas fa fa-heart rounded-circle" id="save-icon-{{$book->business->id ?? ''}}" check="1" custom2="{{$book->business->id ?? ''}}" aria-hidden="true" style="
+                                                                    background: white;
+                                                                   
+                                                                    padding: 5px;
+                                                                    border: 5px;"></i>
+                                                                
+                                                @endif
+                                            </span>
+    @endif
+    
+                                                </div>                                               
                                             <div class="course-author-time">
                                                 <div class="course-author-pic">
                                                 @if(isset($book->business->business_profile)&& file_exists($book->business->business_profile))
@@ -196,4 +201,146 @@
 				<a href="#">View All Courses <i class="ti ti-arrow-right"></i></a>
 			</div> -->
 </div>
+@endsection
+@section('per_page_script')
+<script>
+var media_id=""
+// var user_id = 
+
+$('.bookid').on('click',function(){
+    // console.log('sdsd');
+    var id= $(this).attr('customid');
+    var saveEl = document.getElementById("save-icon");
+    var iconType = $("#save-icon-"+id).attr('check');
+//   console.log(iconType);
+    if ( iconType == 1 ) {
+        //  console.log('sds000');
+        $.ajaxSetup({
+         headers: {
+         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+            });
+            $.ajax({
+                type: "post",
+                url: "{{route('bookmark.create')}}",
+                data: {media_id: id, "_token": "{{ csrf_token() }}"},
+                success: function (result) {
+                    console.log('success');
+                    $("#save-icon-"+id).attr('check',0);
+                    $("#save-icon-"+id).css('color', 'red');
+                }
+            });
+            // .done(function (response) {
+
+            // })
+            // .fail(function () {
+            //     console.log('failure');
+            // });
+
+        } else {
+    // console.log('sdsdelse');
+
+            $.ajaxSetup({
+             headers: {
+             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+                });
+                $.ajax({
+                    type: "post",
+                    url: "{{route('bookmark.remove')}}",
+                    data: {media_id: id, "_token": "{{ csrf_token() }}"},
+                    success: function (result) {
+                        // console.log('success');
+                        $("#save-icon-"+id).attr('check',1);
+                    $("#save-icon-"+id).css('color', 'gold');
+                    }
+                });
+    
+        }
+
+});
+ </script>
+{{-- 
+ <script>
+    var media_id=""
+    // var user_id = 
+    
+    
+    $('.bookremove').on('click',function(){
+        console.log('ddfdfdf');
+        var media_id = $(this).attr('custom2');
+        $(this).css('color', 'black');
+   
+    // document.getElementById(media_id).style.display="none";
+    // console.log(media_id);
+            $.ajaxSetup({
+             headers: {
+             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+                });
+                $.ajax({
+                    type: "post",
+                    url: "{{route('bookmark.remove')}}",
+                    data: {media_id: media_id, "_token": "{{ csrf_token() }}"},
+                    success: function (result) {
+                        console.log('success');
+    // document.getElementsByClassName('bookdone').css('background-color', 'red');
+                    }
+                });
+    
+    
+    
+    });
+     </script> --}}
+{{-- <script>
+    $('#bookid').on('click',function(){
+        console.log('sds11111d');
+    var saveEl = document.getElementById("save-icon");
+    var iconType = $(this).attr('check');
+    var media_id = $(this).attr('custom2');
+
+     if ( iconType === 0 ) {
+         console.log('sdsd');
+        $.ajaxSetup({
+         headers: {
+         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+            });
+            $.ajax({
+                type: "post",
+                url: "{{route('bookmark.create')}}",
+                data: {media_id: media_id, "_token": "{{ csrf_token() }}"},
+                success: function (result) {
+                    console.log('success');
+// document.getElementsByClassName('bookdone').css('background-color', 'red');
+
+                }
+            });
+            // .done(function (response) {
+            //     document.getElementById("save-icon").classList.add("far");
+            //     document.getElementById("save").innerHTML="Save";
+            // })
+            // .fail(function () {
+            //     console.log('failure');
+            // });
+
+        } else {
+            $.ajaxSetup({
+             headers: {
+             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+                });
+                $.ajax({
+                    type: "post",
+                    url: "{{route('bookmark.remove')}}",
+                    data: {media_id: media_id, "_token": "{{ csrf_token() }}"},
+                    success: function (result) {
+                        console.log('success');
+    // document.getElementsByClassName('bookdone').css('background-color', 'red');
+                    }
+                });
+    
+        }
+    });
+            </script> --}}
 @endsection
