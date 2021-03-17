@@ -531,7 +531,8 @@
          ===============================================*/
         $(window).on('load', function() {
             // Animate loader off screen
-            $(".se-pre-con").fadeOut("slow");
+            // var pre = document.getElementById("contentpre")
+            $(".se-pre-con").fadeOut("fast");
         });
         
 		

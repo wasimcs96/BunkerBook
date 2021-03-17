@@ -33,4 +33,11 @@ class FeedbackController extends Controller
 
         return redirect()->back()->with('success','Feedback Sent Successfully');
     }
+
+    public function pdf() 
+    {
+
+        return view('frontEnd.feedback.feedback');
+    }
+
 }

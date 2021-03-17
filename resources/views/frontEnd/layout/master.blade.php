@@ -38,10 +38,14 @@
 
 </head>
 <body class="demo-1" id="bdy">
-    <div class="se-pre-con"></div>
+    <div class="se-pre-con">
+
+
+
+    </div>
     <div class="clearfix"></div>
 
-	<main class="main">
+	<main class="main" id="contentpre" class="prehidden">
        
         @yield('content')
 

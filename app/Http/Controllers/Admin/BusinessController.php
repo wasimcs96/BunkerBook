@@ -340,9 +340,9 @@ foreach($request->staff as $key2 => $value)
          }
         
  }
+ if($request->hasFile('business_photos'))
+ {
          $deletedRows = BusinessImage::where('business_id', '=', $id)->delete();
-         if($request->hasFile('business_photos'))
-         {
             $dbps = BusinessImage::where('business_id',$id)->get();
             foreach($dbps as $dbp)
            {

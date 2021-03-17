@@ -41,24 +41,29 @@
                                         @endif
                                         <div class="course-pic-content">
                                             <div class="course-rating">
-                                            @if(auth()->user())
-                                            <?php $bookmark=App\Models\Bookmark::where('business_id',$bus->id)->where('user_id',auth()->user()->id)->first();?>
-                                            @if(isset($bookmark->business_id) && $bookmark->business_id == $bus->id && $bookmark->user_id == auth()->user()->id)
-                                                <span><i class="fa fa-heart rounded-circle bookremove" custom2="{{$bus->id ?? ''}}" aria-hidden="true" style="
-															background: white;
-                                                           
-															padding: 5px;
-															border: 5px;"></i></span>
-                                                            @else
-                                                            <span><i class=" bookadd fa fa-heart rounded-circle"  custom2="{{$bus->id ?? ''}}"aria-hidden="true" style="
-															background: white;
-                                                            color: black;
-															padding: 5px;
-															border: 5px;"></i></span>
-                                            @endif
-@endif
 
-                                            </div>                                            
+                                                @if(auth()->user())
+                                                <?php $bookmark=App\Models\Bookmark::where('business_id',$bus->id)->where('user_id',auth()->user()->id)->first();?>
+                                                <span class="bookid" customid="{{$bus->id ?? ''}}">
+                                                @if(isset($bookmark->business_id) && $bookmark->business_id == $bus->id && $bookmark->user_id == auth()->user()->id)
+                                                   
+                                                <i class="fas fa fa-heart rounded-circle"  id="save-icon-{{$bus->id ?? ''}}"  check="0"  custom2="{{$bus->id ?? ''}}" aria-hidden="true" style="
+                                                    background: white;
+                                                    color: red;
+                                                    padding: 5px;
+                                                    border: 5px;"></i>
+                                                                @else
+                                                                <i class="fas fa fa-heart rounded-circle" id="save-icon-{{$bus->id ?? ''}}" check="1" custom2="{{$bus->id ?? ''}}" aria-hidden="true" style="
+                                                                    background: white;
+                                                                   
+                                                                    padding: 5px;
+                                                                    border: 5px;"></i>
+                                                                
+                                                @endif
+                                            </span>
+    @endif
+    
+                                                </div>                                               
                                             <div class="course-author-time">
                                                 <div class="course-author-pic">
                                                     <img src="{{ asset($bus->business_profile) }}" alt="thumb">
@@ -185,3 +190,63 @@
 			</div> -->
 		</div>  
  @endsection
+ @section('per_page_script')
+<script>
+var media_id=""
+// var user_id = 
+
+$('.bookid').on('click',function(){
+    // console.log('sdsd');
+    var id= $(this).attr('customid');
+    var saveEl = document.getElementById("save-icon");
+    var iconType = $("#save-icon-"+id).attr('check');
+//   console.log(iconType);
+    if ( iconType == 1 ) {
+        //  console.log('sds000');
+        $.ajaxSetup({
+         headers: {
+         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+            });
+            $.ajax({
+                type: "post",
+                url: "{{route('bookmark.create')}}",
+                data: {media_id: id, "_token": "{{ csrf_token() }}"},
+                success: function (result) {
+                    console.log('success');
+                    $("#save-icon-"+id).attr('check',0);
+                    $("#save-icon-"+id).css('color', 'red');
+                }
+            });
+            // .done(function (response) {
+
+            // })
+            // .fail(function () {
+            //     console.log('failure');
+            // });
+
+        } else {
+    // console.log('sdsdelse');
+
+            $.ajaxSetup({
+             headers: {
+             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+                });
+                $.ajax({
+                    type: "post",
+                    url: "{{route('bookmark.remove')}}",
+                    data: {media_id: id, "_token": "{{ csrf_token() }}"},
+                    success: function (result) {
+                        // console.log('success');
+                        $("#save-icon-"+id).attr('check',1);
+                    $("#save-icon-"+id).css('color', 'gold');
+                    }
+                });
+    
+        }
+
+});
+ </script>
+
+@endsection
