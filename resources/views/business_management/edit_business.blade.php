@@ -16,7 +16,7 @@
                         <div class="col-md-12">
                         <div class="col-md-12">
                         <label>Select Plan</label>
-                            <select class="form-select" name="plan" aria-label="Default select example" style="width: -webkit-fill-available;border: solid 1px #ccc;padding: .375rem .75rem;" required>
+                            <select class="form-select" name="plan" value="{{ $business->plan }}" aria-label="Default select example" style="width: -webkit-fill-available;border: solid 1px #ccc;padding: .375rem .75rem;" required>
                             <option value="">-- Select Type --</option>
                                 <option value="0">Standard</option>
                                 <option value="1">Premium</option>
@@ -29,7 +29,7 @@
                                 <div class="form-group">
                                    <label class="control-label">Name</label>
 
-                                    <input type="text" name="name" placeholder="Name *" value="{{$business->name ?? ''}}" class="form-control" required>
+                                    <input type="text" name="name" placeholder="Name *" value="{{ $business->name ?? ''}}" class="form-control" required>
                                 </div>
                             </div>
 
@@ -56,7 +56,7 @@
                                 <label>Select Category</label>
                                 <div class="multiselect_div">
                                 <?php $category= App\Models\Category::all(); ?>
-                                    <select id="multiselect1" name="category[]"  class="selectpicker" multiple data-live-search="true">
+                                    <select id="multiselect1" name="category[]" value="{{ $business->category }}" class="selectpicker" multiple data-live-search="true">
                                         @foreach($category as $cat)
                                         <option value="{{ $cat->id ?? '' }}">{{ $cat->name ?? ''}}</option>
                                        @endforeach
@@ -68,7 +68,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                     <label class="control-label">Website</label>
-                                    <input type="text" name="website"class="form-control">
+                                    <input type="text" name="website" value="{{ $business->website }}" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
                                 <div class="col-md-12">
                                    <div class="form-group">
                                       <label class="control-label">Landline</label>
-                                      <input type="number" name="landline[]"  value="" class="form-control">
+                                      <input type="number" name="landline[]"  value="{{ $business->landline }}" class="form-control">
                                    </div>
                                 </div>
                               </div>
@@ -109,7 +109,7 @@
 
                              <div class="col-md-12">
                                 <div class="form-group">
-                                    <select name="country" id="country" class="rounded srs-in" style="width: -webkit-fill-available;border: solid 1px #ccc;padding: .375rem .75rem;" placeholder="Search Any Country .....">
+                                    <select name="country" id="country" value="{{ $business->country }}" class="rounded srs-in" style="width: -webkit-fill-available;border: solid 1px #ccc;padding: .375rem .75rem;" placeholder="Search Any Country .....">
                                         <?php $country=App\Models\Country::all(); ?>
                                         @foreach($country as $count)
                                         <option value="{{ $count->id ?? '' }}" @if(isset($business->country)&&$business->country == $count->id) selected @endif>{{ $count->name ?? ''}}</option>
@@ -119,7 +119,7 @@
                              </div>
                              <div class="fancy-checkbox col-md-1" style="margin: auto;">
                                 {{-- <label class="control-label">Operating Hours Start</label> --}}
-                                <label><input type="checkbox" name="business_time" value="1"><span>24/7</span></label>
+                                <label><input type="checkbox" name="business_time" value="1" checked><span>24/7</span></label>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -140,7 +140,7 @@
                              <div class="col-md-12 my-3">
                                 <div class="form-group">
                                    <label class="control-label">Bussiness Profile</label>
-                                   <input type="file" name="business_profile"  accept="image/*" class="form-control">
+                                   <input type="file" name="business_profile" value="{{ $business->business_profile }}"  accept="image/*" class="form-control">
 
                                 </div>
                                 @if(isset($business->business_profile))
@@ -151,7 +151,7 @@
                              <div class="col-md-12 my-3">
                                 <div class="form-group">
                                    <label class="control-label">Featured Banner Image</label>
-                                   <input type="file" name="featured_banner_image" accept="image/*" class="form-control">
+                                   <input type="file" name="featured_banner_image" value="{{ $business->featured_banner_image }}" accept="image/*" class="form-control">
                                 </div>
                                 @if(isset($business->featured_banner_image))
 
@@ -272,14 +272,14 @@
                                         <div class="col-md-6">
                                          <div class="form-group">
                                             <label class="control-label">Hours Start</label>
-                                            <input type="time" name="tuesday_start_time" id="tuesday_start_time" value="" class="form-control">
+                                            <input type="time" name="tuesday_start_time" id="tuesday_start_time" value="{{$business->tuesday_start_time ?? ''}}" class="form-control">
 
                                          </div>
                                       </div>
                                       <div class="col-md-6">
                                          <div class="form-group">
                                             <label class="control-label">Hours End</label>
-                                            <input type="time" name="tuesday_end_time" id="tuesday_end_time" value="" class="form-control">
+                                            <input type="time" name="tuesday_end_time" id="tuesday_end_time" value="{{$business->tuesday_end_time ?? ''}}" class="form-control">
 
                                          </div>
                                       </div>
@@ -308,14 +308,14 @@
                                         <div class="col-md-6">
                                          <div class="form-group">
                                             <label class="control-label">Hours Start</label>
-                                            <input type="time" name="wednesday_start_time" id="wednesday_start_time" value="" class="form-control">
+                                            <input type="time" name="wednesday_start_time" id="wednesday_start_time" value="{{$business->wednesday_start_time ?? ''}}" class="form-control">
 
                                          </div>
                                       </div>
                                       <div class="col-md-6">
                                          <div class="form-group">
                                             <label class="control-label">Hours End</label>
-                                            <input type="time" name="wednesday_end_time" id="wednesday_end_time" value="" class="form-control">
+                                            <input type="time" name="wednesday_end_time" id="wednesday_end_time" value="{{$business->wednesday_end_time ?? ''}}" class="form-control">
 
                                          </div>
                                       </div>
@@ -344,14 +344,14 @@
                                         <div class="col-md-6">
                                          <div class="form-group">
                                             <label class="control-label">Hours Start</label>
-                                            <input type="time" name="thursday_start_time" id="thursday_start_time" value="" class="form-control">
+                                            <input type="time" name="thursday_start_time" id="thursday_start_time" value="{{$business->thursday_start_time ?? ''}}" class="form-control">
 
                                          </div>
                                       </div>
                                       <div class="col-md-6">
                                          <div class="form-group">
                                             <label class="control-label">Hours End</label>
-                                            <input type="time" name="thursday_end_time" id="thursday_end_time" value="" class="form-control">
+                                            <input type="time" name="thursday_end_time" id="thursday_end_time" value="{{$business->thursday_end_time ?? ''}}" class="form-control">
 
                                          </div>
                                       </div>
@@ -379,14 +379,14 @@
                                         <div class="col-md-6">
                                          <div class="form-group">
                                             <label class="control-label">Hours Start</label>
-                                            <input type="time" name="friday_start_time" id="friday_start_time" value="" class="form-control">
+                                            <input type="time" name="friday_start_time" id="friday_start_time" value="{{$business->friday_start_time ?? ''}}" class="form-control">
 
                                          </div>
                                       </div>
                                       <div class="col-md-6">
                                          <div class="form-group">
                                             <label class="control-label">Hours End</label>
-                                            <input type="time" name="friday_end_time" id="friday_end_time" value="" class="form-control">
+                                            <input type="time" name="friday_end_time" id="friday_end_time" value="{{$business->friday_end_time ?? ''}}" class="form-control">
 
                                          </div>
                                       </div>
@@ -401,7 +401,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">Saturday</label>
-                                    <select name="sunday" id="sunday" class="form-control">
+                                    <select name="saturday" id="saturday" class="form-control">
                                         <option value="open">Open</option>
                                         <option value="close">Close</option>
 
@@ -415,14 +415,14 @@
                                         <div class="col-md-6">
                                          <div class="form-group">
                                             <label class="control-label">Hours Start</label>
-                                            <input type="time" name="sunday_start_time" id="sunday_start_time" value="" class="form-control">
+                                            <input type="time" name="saturday_start_time" id="saturday_start_time" value="{{$business->saturday_start_time ?? ''}}" class="form-control">
 
                                          </div>
                                       </div>
                                       <div class="col-md-6">
                                          <div class="form-group">
                                             <label class="control-label">Hours End</label>
-                                            <input type="time" name="sunday_end_time" id="sunday_end_time" value="" class="form-control">
+                                            <input type="time" name="saturday_end_time" id="saturday_end_time" value="{{$business->saturday_end_time ?? ''}}" class="form-control">
 
                                          </div>
                                       </div>
@@ -432,18 +432,43 @@
                     </fieldset>
 
                     <h3>Personal Detail</h3>
+                    <?php $staffedit = App\Models\BusinessRating::where('business_id',$business->id)->get();?>
+                    @foreach($staffedit as $stfedit)
                     <fieldset>
                         <div class="field_wrapper_staff">
                             <div class="col-md-12">
                                 <div class="form-group">
                                    <label class="control-label">Staff Detail</label>
-                                   <input type="text" name="staff[0][staff_name]" value="" placeholder="Name" class="form-control my-3">
-                                   <input type="text" name="staff[0][staff_job_title]" value="" placeholder="Job title" class="form-control my-3">
-                                   <input type="text" name="staff[0][staff_email]" value="" placeholder="Email" class="form-control my-3">
-                                   <input type="number" name="staff[0][staff_mobile]" value="" placeholder="Mobile" class="form-control my-3">
-                                   <input type="text" name="staff[0][staff_skype]" value="" placeholder="Skype Id" class="form-control my-3">
-                                   <textarea name="staff[0][staff_about]" placeholder="About" class="form-control my-3"></textarea>
-                                   <input type="file" name="staff[0][staff_profile]" value="" placeholder="Profile" accept="image/*" class="form-control my-3">
+                                   <input type="text" name="staff[0][staff_name]" value="{{$business->staff_name ?? ''}}" placeholder="Name" class="form-control my-3">
+                                   <input type="text" name="staff[0][staff_job_title]" value="{{$business->staff_job_title ?? ''}}" placeholder="Job title" class="form-control my-3">
+                                   <input type="text" name="staff[0][staff_email]" value="{{$business->staff_email ?? ''}}" placeholder="Email" class="form-control my-3">
+                                   <input type="number" name="staff[0][staff_mobile]" value="{{$business->staff_mobile ?? ''}}" placeholder="Mobile" class="form-control my-3">
+                                   <input type="text" name="staff[0][staff_skype]" value="{{$business->staff_skype ?? ''}}" placeholder="Skype Id" class="form-control my-3">
+                                   <textarea name="staff[0][staff_about]" placeholder="About" class="form-control my-3">{{$business->staff_about ?? ''}}</textarea>
+                                   <input type="file" name="staff[0][staff_profile]" value="{{$business->staff_profile ?? ''}}" placeholder="Profile" accept="image/*" class="form-control my-3">
+     
+                                </div>
+                             </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                               <a href="javascript:void(0);" class="add_staff_button btn btn-warning btn-sm" title="Add field">Add More Staff</a>
+                            </div>
+                         </div>
+                     </div>
+                    </fieldset>
+                    @endforeach
+                    <fieldset>
+                        <div class="field_wrapper_staff">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                   <label class="control-label">Staff Detail</label>
+                                   <input type="text" name="staff[0][staff_name]" value="{{$business->staff_name ?? ''}}" placeholder="Name" class="form-control my-3">
+                                   <input type="text" name="staff[0][staff_job_title]" value="{{$business->staff_job_title ?? ''}}" placeholder="Job title" class="form-control my-3">
+                                   <input type="text" name="staff[0][staff_email]" value="{{$business->staff_email ?? ''}}" placeholder="Email" class="form-control my-3">
+                                   <input type="number" name="staff[0][staff_mobile]" value="{{$business->staff_mobile ?? ''}}" placeholder="Mobile" class="form-control my-3">
+                                   <input type="text" name="staff[0][staff_skype]" value="{{$business->staff_skype ?? ''}}" placeholder="Skype Id" class="form-control my-3">
+                                   <textarea name="staff[0][staff_about]" placeholder="About" class="form-control my-3">{{$business->staff_about ?? ''}}</textarea>
+                                   <input type="file" name="staff[0][staff_profile]" value="{{$business->staff_profile ?? ''}}" placeholder="Profile" accept="image/*" class="form-control my-3">
      
                                 </div>
                              </div>
@@ -464,7 +489,7 @@
 
                                 <!-- <button type="button" class="btn_upload" id="upBtn">Upload a file</button> -->
 
-                                <input type="file" name="business_photos[]" id="photos" class="form-control imageUpload" multiple>
+                                <input type="file" name="business_photos[]" id="photos" value="{{$business->business_photos ?? ''}}" class="form-control imageUpload" multiple>
 
                             </div>
                       
@@ -486,7 +511,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                 <label class="control-label">Youtube Link</label>
-                                <input type="text" name="youtube_video[]" value="" class="form-control">
+                                <input type="text" name="youtube_video[]" value="{{$business->youtube_video ?? ''}}" class="form-control">
                                 </div>
                             </div>
                         </div>
