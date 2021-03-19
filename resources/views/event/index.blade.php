@@ -23,7 +23,7 @@
                                 <th class="col-lg-1">#</th>
                                 <th class="col-lg-2">Image</th>
                                 <th class="col-lg-2">Title</th>
-                                <th class="col-lg-3">Description</th>
+                                <th class="col-lg-3" style="text-align: center;">Description</th>
                                 <th class="col-lg-2">Youtube Link</th>
                                 <th class="col-lg-2">Actions</th>
                             </tr>
@@ -36,18 +36,11 @@
                                 <td class=" ">{{$key+1}}</td>
                                 <td>@if(isset($event->image)&&file_exists($event->image))<a href="{{asset($event->image)}}" target="_blank" ><img src="{{ asset($event->image)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
                                 <td>@if(isset($event->title)){{ $event->title ?? '' }}@else N/A @endif</td>
-                                <td class="col-lg-3">       
-                                 <div class="comment more">
-                                 <?php $aRoom= $event->description ?>
-            @if(strlen($aRoom) > 100)
-            {{substr($aRoom,0,100)}}
-            <span class="read-more-show hide_content"><span class="btn btn-warning btn-sm">More<i class="fa fa-angle-down"></i></span></span>
-            <span class="read-more-content"> <?php $reamm = substr($aRoom,100,strlen($aRoom)) ?> {!! $reamm!!}
-            <span class="read-more-hide hide_content"><span class="btn btn-warning btn-sm">Less <i class="fa fa-angle-up"></i></span></span> </span>
-            @else
-            {!!$aRoom !!}
-            @endif</td>
-                                <td>@if(isset($event->youtube_link)){{ $event->youtube_link ?? '' }}@else N/A @endif</td>
+                                <td class="col-lg-3" style="text-align: center;">       
+                                  <a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#descModal-{{$event->id ?? ''}}" class="btn btn-sm btn-warning" style="color: white;" ><span class="btn-label">
+                                    <i class="fa fa-eye"></i>
+                                    </span></a></td>
+                                    <td class="">@if(isset($event->youtube_link))<a href=" {{$event->youtube_link ?? ''}}" target="_blank">Visit</a>@else N/A @endif</td>
                                 <td class=""><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#editModal-{{$event->id ?? ''}}" class="btn btn-sm btn-warning" style="color: white;" ><span class="btn-label">
                                         <i class="fa fa-edit"></i>
                                         </span></a>
@@ -60,7 +53,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add News Feed</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit {{$event->title ?? ''}} </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -94,7 +87,40 @@
     </div>
   </div>
 </div>
+{{-- ##########################description --}}
+                  
+<div class="modal fade" id="descModal-{{$event->id ?? ''}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> {{$event->title ?? ''}} </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{{route('event.update',$event->id)}}" method="post" enctype="multipart/form-data">
+         @csrf
+         
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">DESCRIPTION:</label>
+            {{-- <textarea class="form-control summernote" id="description" name="description"></textarea> --}}
+            <div class="container">
+              {!! $event->description!!}
+            </div>
+          </div>
 
+        
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      
+      </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+{{-- ####################Description --}}
                             @endforeach
                         </tbody>
                     </table>
@@ -157,7 +183,7 @@
         background: url('../assets/images/details_close.png') no-repeat center center;
     }
 
-    <style type="text/css">
+    /* <style type="text/css"> */
     .read-more-show{
       cursor:pointer;
       color: #ed8323;
@@ -171,7 +197,7 @@
       display: none;
     }
 </style>
-</style>
+{{-- </style> --}}
 <style>
     .icons-list div {line-height: 40px;white-space: nowrap;cursor: default;position: relative;z-index: 1;padding: 5px;border-right: 1px solid #252a33;}
     .icons-list div i {display: inline-block;width: 40px;margin: 0;text-align: center;vertical-align: middle;-webkit-transition: font-size 0.2s; -moz-transition: font-size 0.2s; transition: font-size 0.2s;}

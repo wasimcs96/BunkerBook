@@ -23,7 +23,7 @@
                                 <th class="col-lg-1">#</th>
                                 <th class="col-lg-2">Image</th>
                                 <th class="col-lg-2">Title</th>
-                                <th class="col-lg-3">Description</th>
+                                <th class="col-lg-3" style="text-align: center;">Description</th>
                                 <th class="col-lg-2">Youtube Link</th>
                                 <th class="col-lg-2">Actions</th>
                             </tr>
@@ -37,18 +37,11 @@
                                 <!-- <td class=""><img src="{{asset($new->image ?? '')}}" width="100px;"></td> -->
                                 <td>@if(isset($new->image)&&file_exists($new->image))<a href="{{asset($new->image)}}" target="_blank" ><img src="{{ asset($new->image)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
                                 <td class="">@if(isset($new->title)){{$new->title ?? ''}}@else N/A @endif</td>
-                                <td class="col-lg-3">       
-                                 <div class="comment more">
-                                 <?php $aRoom= $new->description ?>
-            @if(strlen($aRoom) > 100)
-            {{substr($aRoom,0,100)}}
-            <span class="read-more-show hide_content"><span class="btn btn-warning btn-sm">More<i class="fa fa-angle-down"></i></span></span>
-            <span class="read-more-content"> <?php $reamm = substr($aRoom,100,strlen($aRoom)) ?> {!! $reamm!!}
-            <span class="read-more-hide hide_content"><span class="btn btn-warning btn-sm">Less <i class="fa fa-angle-up"></i></span></span> </span>
-            @else
-            {!!$aRoom !!}
-            @endif</td>
-                                <td class="">@if(isset($new->youtube_link)){{$new->youtube_link ?? ''}}@else N/A @endif</td>
+                                <td class="col-lg-3" style="text-align: center;">       
+                                  <a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#descModal-{{$new->id ?? ''}}" class="btn btn-sm btn-warning" style="color: white;" ><span class="btn-label">
+                                    <i class="fa fa-eye"></i>
+                                    </span></a></td>
+                                <td class="">@if(isset($new->youtube_link))<a href=" {{$new->youtube_link ?? ''}}" target="_blank">Visit</a>@else N/A @endif</td>
                                 <td class=""><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#editModal-{{$new->id ?? ''}}" class="btn btn-sm btn-warning" style="color: white;" ><span class="btn-label">
                                         <i class="fa fa-edit"></i>
                                         </span></a>
@@ -95,7 +88,39 @@
     </div>
   </div>
 </div>
+{{-- ##########################description --}}
+                  
+<div class="modal fade" id="descModal-{{$new->id ?? ''}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> {{$new->title ?? ''}} </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{-- <form action="{{route('event.update',$new->id)}}" method="post" enctype="multipart/form-data"> --}}
+         {{-- @csrf --}}
+              <div class="mb-3">
+            <label for="message-text" class="col-form-label">DESCRIPTION:</label>
+            {{-- <textarea class="form-control summernote" id="description" name="description"></textarea> --}}
+            <div class="container">
+              {!! $new->description!!}
+            </div>
+          </div>
 
+        
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      
+      </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+{{-- ####################Description --}}
                             @endforeach
                         </tbody>
                     </table>
@@ -158,7 +183,7 @@
         background: url('../assets/images/details_close.png') no-repeat center center;
     }
 
-    <style type="text/css">
+    /* <style type="text/css"> */
     .read-more-show{
       cursor:pointer;
       color: #ed8323;
