@@ -17,12 +17,12 @@
                             <div class="col-md-12">
                                 <div class="col-md-12">
                                     <label>Select Plan</label>
-                                    <select class="form-select" name="plan" aria-label="Default select example"
+                                    <select class="form-select" name="plan"  aria-label="Default select example"
                                         style="width: -webkit-fill-available;border: solid 1px #ccc;padding: .375rem .75rem;"
                                         required>
                                         <option value="">-- Select Type --</option>
-                                        <option value="0">Standard</option>
-                                        <option value="1">Premium</option>
+                                        <option value="0" @if(isset($buisness->plan_type) && $buisness->plan_type==0)selected @endif>Standard</option>
+                                        <option value="1" @if(isset($buisness->plan_type)&& $buisness->plan_type==1)selected @endif>Premium</option>
                                     </select>
                                 </div>
                             </div>
@@ -31,21 +31,37 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input type="text" name="name" placeholder="Name *" class="form-control"
+                                        <input type="text" name="name" placeholder="Name *" value="{{ $buisness->name ?? ''  }}" class="form-control"
                                             required>
                                     </div>
                                 </div>
                             </div>
 
+                            <?php 
+                                $emails = explode(',',$buisness->email);
+                            ?>
+                            @foreach ($emails as $email)
                             <div class="custm">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="text" name="email[]" placeholder="Email *" value="{{ $email }}" class="form-control"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+
+                            @endforeach
+
+                            {{-- <div class="custm">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input type="text" name="email[]" placeholder="Email *" class="form-control"
+                                        <input type="text" name="email[]" placeholder="Email *" value class="form-control"
                                             required>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
 
                             <div class="col-md-12">
@@ -57,30 +73,37 @@
 
 
 
-
+                            <?php 
+                                $categories = explode(',',$buisness->category);
+                            ?>
+                            
                             <div class="col-md-12 my-3">
                                 <label>Select Category</label>
                                 <div class="multiselect_div">
                                     <?php $category= App\Models\Category::all(); ?>
-                                    <select id="multiselect1" name="category[]" class="selectpicker" multiple
+                                    <select id="multiselect1" name="category[]" value="{{ $buisness->category, }}" class="selectpicker" multiple
                                         data-live-search="true">
                                         @foreach($category as $cat)
-                                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                        <option value="{{ $cat->id }}" @if(in_array($cat->id,$categories))selected @endif>{{ $cat->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
 
 
-
+                            <?php 
+                            $website = explode(',',$buisness->website);
+                        ?>
+                         @foreach ($website as $web)
                             <div class="field_wrapper1">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label">Website</label>
-                                        <input type="text" name="website[]" value="" class="form-control">
+                                        <input type="text" name="website[]" value="{{ $web }}" class="form-control">
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
 
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -97,14 +120,22 @@
                                     </div>
                                 </div>
                             </div> -->
+
+                            <?php 
+                                $landline = explode(',',$buisness->landline);
+                            ?>
+                            @foreach ($landline as $line)
+                                
                             <div class="field_wrapper">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label">Landline</label>
-                                        <input type="number" name="landline[]" value="" class="form-control">
+                                        <input type="number" name="landline[]" value="{{ $line }}" class="form-control">
                                     </div>
                                 </div>
                             </div>
+                            
+                            @endforeach
 
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -116,7 +147,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="control-label">Address</label>
-                                    <input type="text" name="address" id="address" value=""
+                                    <input type="text" name="address" id="address" value="{{ $buisness->address ?? ''  }}"
                                         class="form-control geocomplete pac-target-input" placeholder="Enter a location"
                                         autocomplete="off">
                                     <input type="hidden" id="lat" name="lat" value="">
@@ -129,7 +160,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                 <label class="control-label">Country</label>
-                                    <select name="country" id="country" class="srs-in rounded"
+                                    <select name="country" id="country" class="srs-in rounded" value="{{ $buisness->country ?? ''  }}"
                                         style="width: -webkit-fill-available;border: solid 1px #ccc;padding: .375rem .75rem;"
                                         placeholder="Search Any Country .....">
                                         <?php $country=App\Models\Country::all(); ?>
@@ -150,14 +181,16 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="control-label">Bussiness Profile</label>
-                                    <input type="file" name="business_profile" accept="image/*" class="form-control">
+                                    <input type="file" name="business_profile" accept="image/*"  class="form-control">
                                 </div>
                             </div>
-
+                            <div class="container">
+                                <img src="{{ $buisness->business_profile ?? ''  }}" alt="">
+                            </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="control-label">Featured Banner Image</label>
-                                    <input type="file" name="featured_banner_image" accept="image/*"
+                                    <input type="file" name="featured_banner_image" value="{{ $buisness->featured_banner_image ?? ''  }}" accept="image/*"
                                         class="form-control">
                                 </div>
                             </div>
@@ -171,14 +204,14 @@
                             <div class="form-group">
                                 <label class="control-label">About Us</label>
 
-                                <textarea name="about" class="form-control"></textarea>
+                                <textarea name="about" class="form-control">{{ $buisness->about }}</textarea>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label class="control-label">Ports of Operation</label>
 
-                                <textarea name="ports_of_operation" class="form-control"></textarea>
+                                <textarea name="ports_of_operation" class="form-control">{{ $buisness->ports_of_operation }}</textarea>
                             </div>
                         </div>
 
@@ -193,7 +226,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">Operating Hours Start</label>
-                                    <input type="time" name="start_time" id="start_time" value="" class="form-control">
+                                    <input type="time" name="start_time" id="start_time" value="{{ $buisness->start_time }}" class="form-control">
                                     <span class="msg_alert_class" id="start_timeMsg"></span>
                                 </div>
                             </div>
@@ -201,7 +234,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">Operating Hours End</label>
-                                    <input type="time" name="end_time" id="end_time" value="" class="form-control">
+                                    <input type="time" name="end_time" id="end_time" value="{{ $buisness->end_time }}" class="form-control">
                                     <span class="msg_alert_class" id="end_timeMsg"></span>
                                 </div>
                             </div>
@@ -219,8 +252,8 @@
                 <div class="form-group">
                     <label class="control-label">Sunday</label>
                     <select name="sunday" id="sunday" class="form-control">
-                        <option value="open">Open</option>
-                        <option value="close">Close</option>
+                        <option value="open" @if(isset($buisness->sunday) && $buisness->sunday=='open')selected @endif>Open</option>
+                        <option value="close" @if(isset($buisness->sunday) && $buisness->sunday=='close')selected @endif>Close</option>
                     </select>
                 </div>
             </div>
@@ -229,13 +262,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours Start</label>
-                        <input type="time" name="sunday_start_time" id="sunday_start_time" value=""class="form-control">
+                        <input type="time" name="sunday_start_time" id="sunday_start_time" value="{{ $buisness->sunday_start_time }}"class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours End</label>
-                        <input type="time" name="sunday_end_time" id="sunday_end_time" value=""class="form-control">
+                        <input type="time" name="sunday_end_time" id="sunday_end_time" value="{{ $buisness->sunday_end_time }}"class="form-control">
                     </div>
                 </div>
             </div>
@@ -246,8 +279,8 @@
                 <div class="form-group">
                     <label class="control-label">Monday</label>
                     <select name="monday" id="monday" class="form-control">
-                        <option value="open">Open</option>
-                        <option value="close">Close</option>
+                        <option value="open" @if(isset($buisness->monday) && $buisness->monday=='open')selected @endif>Open</option>
+                        <option value="close" @if(isset($buisness->monday) && $buisness->monday=='close')selected @endif>Close</option>
                     </select>
                 </div>
             </div>
@@ -255,13 +288,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours Start</label>
-                        <input type="time"name="monday_start_time"id="monday_start_time" value=""class="form-control">
+                        <input type="time"name="monday_start_time"id="monday_start_time" value="{{ $buisness->monday_start_time }}"class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours End</label>
-                        <input type="time" name="monday_end_time" id="monday_end_time" value=""class="form-control">
+                        <input type="time" name="monday_end_time" id="monday_end_time" value="{{ $buisness->monday_end_time }}"class="form-control">
                     </div>
                 </div>
             </div>
@@ -271,8 +304,8 @@
                 <div class="form-group">
                     <label class="control-label">Tuesday</label>
                     <select name="tuesday" id="tuesday" class="form-control">
-                        <option value="open">Open</option>
-                        <option value="close">Close</option>
+                        <option value="open" @if(isset($buisness->tuesday) && $buisness->tuesday=='open')selected @endif>Open</option>
+                        <option value="close" @if(isset($buisness->tuesday) && $buisness->tuesday=='close')selected @endif>Close</option>
                     </select>
                 </div>
             </div>
@@ -281,13 +314,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours Start</label>
-                        <input type="time" name="tuesday_start_time" id="tuesday_start_time"value="" class="form-control">
+                        <input type="time" name="tuesday_start_time" id="tuesday_start_time"value="{{ $buisness->tuesday_start_time }}" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours End</label>
-                        <input type="time" name="tuesday_end_time" id="tuesday_end_time" value=""class="form-control">
+                        <input type="time" name="tuesday_end_time" id="tuesday_end_time" value="{{ $buisness->tuesday_end_time }}"class="form-control">
                     </div>
                 </div>
             </div>
@@ -297,8 +330,8 @@
                 <div class="form-group">
                     <label class="control-label">Wednesday</label>
                     <select name="wednesday" id="wednesday" class="form-control">
-                        <option value="open">Open</option>
-                        <option value="close">Close</option>
+                        <option value="open" @if(isset($buisness->wednesday) && $buisness->wednesday=='open')selected @endif>Open</option>
+                        <option value="close" @if(isset($buisness->wednesday) && $buisness->wednesday=='close')selected @endif>Close</option>
                     </select>
                 </div>
             </div>
@@ -307,13 +340,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours Start</label>
-                        <input type="time"name="wednesday_start_time"id="wednesday_start_time"value="" class="form-control">
+                        <input type="time"name="wednesday_start_time"id="wednesday_start_time"value="{{ $buisness->wednesday_start_time }}" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6"> 
                     <div class="form-group">
                         <label class="control-label">Hours End</label>
-                        <input type="time" name="wednesday_end_time" id="wednesday_end_time"value="" class="form-control">
+                        <input type="time" name="wednesday_end_time" id="wednesday_end_time"value="{{ $buisness->wednesday_end_time }}" class="form-control">
                     </div>
                 </div>
             </div>
@@ -323,8 +356,8 @@
                 <div class="form-group">
                     <label class="control-label">Thursday</label>
                     <select name="thursday" id="thursday" class="form-control">
-                        <option value="open">Open</option>
-                        <option value="close">Close</option>
+                        <option value="open" @if(isset($buisness->thursday) && $buisness->thursday=='open')selected @endif>Open</option>
+                        <option value="close" @if(isset($buisness->thursday) && $buisness->thursday=='close')selected @endif>Close</option>
                     </select>
                 </div>
             </div>
@@ -333,13 +366,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours Start</label>
-                        <input type="time" name="thursday_start_time" id="thursday_start_time"value="" class="form-control">
+                        <input type="time" name="thursday_start_time" id="thursday_start_time"value="{{ $buisness->thursday_start_time }}" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours End</label>
-                        <input type="time" name="thursday_end_time" id="thursday_end_time" value=""class="form-control">
+                        <input type="time" name="thursday_end_time" id="thursday_end_time" value="{{ $buisness->thursday_end_time }}"class="form-control">
                     </div>
                 </div>
             </div>
@@ -349,8 +382,8 @@
                 <div class="form-group">
                     <label class="control-label">Friday</label>
                     <select name="friday" id="friday" class="form-control">
-                        <option value="open">Open</option>
-                        <option value="close">Close</option>
+                        <option value="open" @if(isset($buisness->friday) && $buisness->friday=='open')selected @endif>Open</option>
+                        <option value="close" @if(isset($buisness->friday) && $buisness->friday=='close')selected @endif>Close</option>
                     </select>
                 </div>
             </div>
@@ -359,13 +392,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours Start</label>
-                        <input type="time" name="friday_start_time" id="friday_start_time" value=""class="form-control">
+                        <input type="time" name="friday_start_time" id="friday_start_time" value="{{ $buisness->friday_start_time }}"class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours End</label>
-                        <input type="time" name="friday_end_time" id="friday_end_time" value=""class="form-control">
+                        <input type="time" name="friday_end_time" id="friday_end_time" value="{{ $buisness->friday_end_time }}"class="form-control">
                     </div>
                 </div>
             </div>
@@ -375,8 +408,8 @@
                 <div class="form-group">
                     <label class="control-label">Saturday</label>
                     <select name="Saturday" id="Saturday" class="form-control">
-                        <option value="open">Open</option>
-                        <option value="close">Close</option>
+                        <option value="open" @if(isset($buisness->saturday) && $buisness->saturday=='open')selected @endif>Open</option>
+                        <option value="close" @if(isset($buisness->saturday) && $buisness->saturday=='open')selected @endif>Close</option>
                     </select>
                 </div>
             </div>
@@ -384,13 +417,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours Start</label>
-                        <input type="time" name="Saturday_start_time" id="Saturday_start_time"value="" class="form-control">
+                        <input type="time" name="Saturday_start_time" id="Saturday_start_time"value="{{ $buisness->saturday_start_time }}" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours End</label>
-                        <input type="time" name="Saturday_end_time" id="sunday_end_time" value=""class="form-control">
+                        <input type="time" name="Saturday_end_time" id="sunday_end_time" value="{{ $buisness->saturday_end_time }}"class="form-control">
                     </div>
                     </div>
                 </div>
@@ -400,30 +433,34 @@
 
                     <h3>Personal Detail</h3>
 
+                    
+                    @foreach ($buisness->businessStaff as $staff)
                     <fieldset>
                         <div class="field_wrapper_ my-3">
                             <div class="col-md-12">
                                 <div class="field_wrapper_staff">
                                     <div class="form-group">
                                         <label class="control-label">Staff Detail</label>
-                                        <input type="text" name="staff[0][staff_name]" value="" placeholder="Name"
+                                        <input type="text" name="staff[0][staff_name]" value="{{ $staff->staff_name }}" placeholder="Name"
                                             class="form-control my-3">
-                                        <input type="text" name="staff[0][staff_job_title]" value=""
+                                        <input type="text" name="staff[0][staff_job_title]" value="{{ $staff->staff_job_title }}"
                                             placeholder="Job title" class="form-control my-3">
-                                        <input type="text" name="staff[0][staff_email]" value="" placeholder="Email"
+                                        <input type="text" name="staff[0][staff_email]" value="{{ $staff->staff_email }}" placeholder="Email"
                                             class="form-control my-3">
-                                        <input type="mobile" name="staff[0][staff_mobile]" value="" placeholder="Mobile"
+                                        <input type="mobile" name="staff[0][staff_mobile]" value="{{ $staff->staff_mobile }}" placeholder="Mobile"
                                             class="form-control my-3">
-                                        <input type="text" name="staff[0][staff_skype]" value="" placeholder="Skype Id"
+                                        <input type="text" name="staff[0][staff_skype]" value="{{ $staff->staff_skype }}" placeholder="Skype Id"
                                             class="form-control my-3">
                                         <textarea name="staff[0][staff_about]" placeholder="About"
-                                            class="form-control my-3"></textarea>
-                                        <input type="file" name="staff[0][staff_profile]" value="" placeholder="Profile"
+                                            class="form-control my-3">{{ $staff->staff_about }}</textarea>
+                                        <input type="file" name="staff[0][staff_profile]" value="{{ $staff->profile }}" placeholder="Profile"
                                             accept="image/*" class="form-control my-3">
                                     </div>
 
                                 </div>
                             </div>
+                            
+                    @endforeach
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <a href="javascript:void(0);" class="add_staff_button btn btn-warning btn-sm"
@@ -434,41 +471,48 @@
                     </fieldset>
 
                     <h3>Photos</h3>
+                    
                     <fieldset>
+                        <label class=" form-control-label">Photos</label><br>
+                        <input type="file" name="business_photos[]" id="photos" class="form-control imageUpload"
+                        multiple>
+                        @foreach($buisness->businessImage as $photo)
                         <div class="form-group">
-                            <label class=" form-control-label">Photos </label><br>
+                            <label class=" form-control-label">Photos</label><br>
 
                             <div class="upload-btn-wrapper">
 
                                 <!-- <button type="button" class="btn_upload" id="upBtn">Upload a file</button> -->
 
-                                <input type="file" name="business_photos[]" id="photos" class="form-control imageUpload"
-                                    multiple>
+                               
 
                             </div>
                             <!-- <input name="" id="photo" type="file" class="dropify-frrr" > -->
 
                             <div id="preview" class="col-md-12">
 
+                                <img src="{{ $photo }}" style="width:200px; height: 200px;" alt="">
 
                             </div>
 
 
 
                         </div>
+                        @endforeach
                     </fieldset>
 
                     <h3>Videos</h3>
                     <fieldset>
-
+                        @foreach($buisness->businessVideo as $video)
                         <div class="field_wrapperyoutube_link">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="control-label">Youtube Link</label>
-                                    <input type="text" name="youtube_video[]" value="" class="form-control">
+                                    <input type="text" name="youtube_video[]" value="{{ $video->video }}" class="form-control">
                                 </div>
                             </div>
                         </div>
+                        @endforeach
 
                         <div class="col-md-12">
                             <div class="form-group">

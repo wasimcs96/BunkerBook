@@ -36,7 +36,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12">
                                 <div class="body">
                                     <label for="title">Category</label>
-                                    <select id="optgroup" class="category[]" multiple="multiple" required>
+                                    <select id="optgroup" name="category[]" class="ms" multiple="multiple" required>
                                         <option value="">--- Select Category ---</option>
                                         @foreach ($categories  as $category)
                                                 <option value="{{ $category->id ?? '' }}">{{ $category->name ?? '' }}</option>
@@ -126,8 +126,7 @@
 <script src="{{ asset('assets/js/pages/tables/jquery-datatable.js') }}"></script>
 
 
-{{-- sfs --}}
-@section('page-script')
+
 <script src="{{ asset('assets/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js') }}"></script><!-- Bootstrap Colorpicker Js --> 
 <script src="{{ asset('assets/vendor/jquery-inputmask/jquery.inputmask.bundle.js') }}"></script><!-- Input Mask Plugin Js --> 
 <script src="{{ asset('assets/vendor/jquery.maskedinput/jquery.maskedinput.min.js') }}"></script>
@@ -139,7 +138,6 @@
 
 <script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
 <script src="{{ asset('assets/js/pages/forms/advanced-form-elements.js') }}"></script>
-@stop
 
 <script>
     function makeFeature(ID)
