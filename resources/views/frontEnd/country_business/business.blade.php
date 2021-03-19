@@ -14,13 +14,15 @@
             <form action="{{ route('country.filter') }}" method="POST">
                 <!-- <input type="text" class="srs-in" placeholder="Search Any Country ....."> -->
                 @csrf
-                <select name="country" id="country" class="srs-in" placeholder="Search Any Country .....">
-                <?php $country=App\Models\Country::all(); ?>
-                    <option value="">Select Country</option>
-                    @foreach($country as $count)
-                    <option value="{{ $count->id ?? '' }}" @if(isset($filtcon)&& $count->id == $filtcon)selected @endif>{{ $count->name ?? ''}}</option>
-                    @endforeach
-                </select>
+                <div class="srs-in">
+                    <select name="country" id="country" class="srs-in" placeholder="Search Any Country ....." style="width: 80%;border: none; height: -webkit-fill-available;">
+                        <?php $country=App\Models\Country::all(); ?>
+                            <option value="">Select Country</option>
+                            @foreach($country as $count)
+                            <option value="{{ $count->id ?? '' }}" @if(isset($filtcon)&& $count->id == $filtcon)selected @endif>{{ $count->name ?? ''}}</option>
+                            @endforeach
+                        </select>
+                </div>
                 <button type="submit" class="srs-bt">Search</button>
             </form>
         </div>
@@ -204,6 +206,18 @@
 }
 .fa-star-0{
     color: black;
+}
+
+select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+  
+  /* font-family: 'Courier New', Courier, monospace; */
+}
+select option {
+    padding: 10px 0;
 }
 </style>
 @endsection

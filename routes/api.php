@@ -11,9 +11,15 @@ Route::get('/banner/get','Api\BannerController@getbanner')->name('banner.get');
 
 Route::get('/business/limit','Api\BusinessController@getlimitbusiness')->name('business.limit');
 
-Route::post('/forgotPassword', 'Api\UserController@forgotPassword')->name('forgotPassword');
+// Route::post('/forgotPassword', 'Api\UserController@forgotPassword')->name('forgotPassword');
 
 Route::post('/reset/email/sent','Api\ResetEmailController@forgotPassword')->name('reset.email.sent');
+
+    // Password Reset Routes...
+    Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
+    Route::post('/forgotPassword', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+    Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
+    Route::post('password/reset', 'ResetPasswordController@reset');
 
 
 Route::middleware('auth:api')->group(function () {

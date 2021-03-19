@@ -92,11 +92,13 @@ class BusinessController extends Controller
         $categorycoming=$request->category_id;
         $data=[];
 
-        $business=Business::whereRaw("find_in_set('$categorycoming',category)")->select('id','name','email','address','business_profile','category_name','mobile')->with(['businessRating'])->get();
+        $business=Business::whereRaw("find_in_set('$categorycoming',category)")->select('id','name','email','address','business_profile','category_name','mobile')->get();
 
 
         foreach($business as $buisnes){
-        
+
+            $buisnes['rating'] = BusinessRating::where('business_id',$buisnes->id)->average('rating_number');
+
             $book = Bookmark::where('user_id',$request->user()->id)->where('business_id',$buisnes->id)->count();
             $buisnes['category']=explode(',',$buisnes->category_name) ;
             if($book > 0)
@@ -125,13 +127,14 @@ class BusinessController extends Controller
 
     public function findbusiness(Request $request){
         $data=[];
-        $business = Business::where('id',$request->id)->with(['businessImage','businessVideo','businessRating','businessRequest','businessStaff'])->first();
+        $business = Business::where('id',$request->id)->with(['businessImage','businessVideo','businessRequest','businessStaff'])->first();
 
         $business['category']=explode(',',$business->category_name) ;
         // dd($category);
         // dd($business);
 
         // foreach($business as $buisnes){
+         $business['rating'] = BusinessRating::where('business_id',$business->id)->average('rating_number');
         
             $book = Bookmark::where('user_id',$request->user()->id)->where('business_id',$business->id)->count();
              
