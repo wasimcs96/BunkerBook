@@ -212,9 +212,9 @@ foreach($request->staff as $key2 => $value)
 
     public function editBusiness($id)
     {
-        $business = Business::find($id);
-        
-        return view('business_management.edit_business', compact('business'));
+        $buisness = Business::find($id);
+        // dd($buisness);
+        return view('business_management.edit_business', compact('buisness'));
     }
 
     public function updateBusiness(Request $request ,$id)
