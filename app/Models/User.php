@@ -78,4 +78,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Bookmark::class,'user_id');
     }
+
+    public function businessRequest()
+    {
+        return $this->hasMany(businessRequest::class,'user_id');
+    }
 }

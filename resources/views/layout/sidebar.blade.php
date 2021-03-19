@@ -44,14 +44,14 @@
                     </ul>
                 </li> --}}
                 <li class="{{ Request::segment(2) === 'panel' ? 'active open' : null }}"><a href="{{route('admin.panel')}}"><i class="icon-speedometer"></i><span>Dashboard</span></a></li>
-                <li class="{{ Request::segment(2) === 'user' ? 'active open' : null }}"><a href="{{route('users.index')}}"><i class="icon-user"></i><span>User Management</span></a>
+                <li class="{{ Request::segment(3) === 'index' ? 'active open' : null }}"><a href="{{route('users.index')}}"><i class="icon-user"></i><span>User Management</span></a>
                     <ul>
                     <li class="{{ Request::segment(3) === 'index' ? 'active' : null }}"><a href="{{route('users.index')}}">Users list</a></li>
                     </ul>
                 </li>
                 <li class="{{ Request::segment(2) === 'category' ? 'active open' : null }}"><a href="{{route('category.index')}}"><i class="icon-basket-loaded"></i><span>Category Management</span></a>
                     <ul>
-                    <li class="{{ Request::segment(3) === 'category' ? 'active' : null }}"><a href="{{route('category.index')}}">Category list</a></li>
+                    <li class="{{ Request::segment(2) === 'category' ? 'active' : null }}"><a href="{{route('category.index')}}">Category list</a></li>
                     </ul>
                 </li>
                 {{-- <li class="{{ Request::segment(2) === 'plan' ? 'active open' : null }}"><a href="{{route('plan.index')}}"><i class="icon-cursor"></i><span>Plan Management</span></a></li> --}}
@@ -72,15 +72,21 @@
                     </ul>
                 </li>
 
+                <li class="{{ Request::segment(3) === 'contact' ? 'active open' : null }}"><a href="{{route('business.contact')}}"><i class="icon-list"></i><span>Contact Management</span></a>
+                    <ul>
+                    <li class="{{ Request::segment(3) === 'contact' ? 'active' : null }}"><a href="{{route('business.contact')}}">Business Contact list</a></li>
+                    </ul>
+                </li>
+
                 <!-- <li class="{{ Request::segment(2) === 'contact' ? 'active open' : null }}"><a href="javascript:void(0)"><i class="icon-bubbles"></i><span>Contact Management</span></a>
                     <ul>
                     <li class="{{ Request::segment(2) === 'normal' ? 'active' : null }}"><a href="{{route('tables.normal')}}">Business Contact History</a></li>
                     </ul>
                 </li> -->
 
-                <li class="{{ Request::segment(1) === 'feedback' ? 'active open' : null }}"><a href="{{route('admin.feedback')}}"><i class="icon-list"></i><span>Feedback</span></a>
+                <li class="{{ Request::segment(2) === 'feedback' ? 'active open' : null }}"><a href="{{route('admin.feedback')}}"><i class="icon-list"></i><span>Feedback</span></a>
                     <ul>
-                    <li class="{{ Request::segment(2) === 'all' ? 'active' : null }}"><a href="{{route('admin.feedback')}}">User Feedback History</a></li>
+                    <li class="{{ Request::segment(3) === 'all' ? 'active' : null }}"><a href="{{route('admin.feedback')}}">User Feedback History</a></li>
                     </ul>
                 </li>
 
@@ -89,7 +95,7 @@
                     <li class="{{ Request::segment(1) === 'transaction' ? 'active' : null }}"><a href="{{route('transaction.index')}}">Plan History</a></li>
                     </ul>
                 </li> --}}
-                <li class="{{ Request::segment(2) === 'admin' ? 'active open' : null }}"><a href="{{route('admin.pdf.index')}}"><i class="icon-paper-clip"></i><span>Upload Pdf</span></a></li>
+                <li class="{{ Request::segment(2) === 'pdf.index' ? 'active open' : null }}"><a href="{{route('admin.pdf.index')}}"><i class="icon-paper-clip"></i><span>Upload Pdf</span></a></li>
 
                 <!-- <li class="header">HR, Project & Job</li> -->
                 <!-- <li class="{{ Request::segment(1) === 'projects' ? 'active open' : null }}">

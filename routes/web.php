@@ -252,6 +252,9 @@ Route::post('business/reject/model/{id}', 'Admin\BusinessController@rejectBusine
 Route::get('business/view/{id}', 'Admin\BusinessController@viewBusiness')->name('business.view');
 Route::get('business/delete/{id}', 'Admin\BusinessController@destroyBusiness')->name('business.delete');
 
+Route::get('/business/contact', 'Admin\BusinessController@contactBusiness')->name('business.contact');
+
+
 
 // users.....
 Route::get('/user/index', 'Admin\AdminUserController@index')->name('users.index');

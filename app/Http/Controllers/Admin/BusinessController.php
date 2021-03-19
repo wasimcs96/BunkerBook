@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Config;
 use App\Models\BusinessImage;
 use App\Models\Category;
 use App\Models\BusinessVideo;
-use DB;
-// use App\Models\Category;
 use App\Models\BusinessRequest;
+use DB;
+
 class BusinessController extends Controller
 {
     public function addBusiness()
@@ -435,6 +435,12 @@ foreach($request->staff as $key2 => $value)
 
     public function importStore(){
         return view('business_management.import_business');
+    }
+
+    public function contactBusiness()
+    {
+        $contacts = BusinessRequest::all();
+        return view('business_management.contact',compact('contacts')); 
     }
 }
 
