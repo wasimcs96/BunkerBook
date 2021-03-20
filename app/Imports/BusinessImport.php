@@ -20,10 +20,11 @@ class BusinessImport implements ToModel, WithStartRow,  WithHeadingRow
   public $category;
 
 
-  public function  __construct($category, $country)
+  public function  __construct($category, $country, $time)
   {
      $this->category=$category;
      $this->country=$country;
+     $this->business_time=$time;
   }
 
   public function startRow(): int
@@ -45,7 +46,7 @@ class BusinessImport implements ToModel, WithStartRow,  WithHeadingRow
             $catim = null;
             // if($request->has('category')){
             $category = $this->category;
-            // $cat = explode(',',$category);
+            $cat = explode(',',$category);
             $catfinds = Category::where('id',$category)->pluck('name');
             
             $catim =collect($catfinds)->implode(',');  
@@ -85,6 +86,7 @@ class BusinessImport implements ToModel, WithStartRow,  WithHeadingRow
             'category' =>$this->category,
             'category_name'=> $catim,
             'country' => $this->country,
+            'business_time' => $this->business_time,
             'status' => 1,
             'user_id' => auth()->user()->id,
             'website' =>$row['business_website'],

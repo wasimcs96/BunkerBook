@@ -480,23 +480,11 @@
                         <div class="form-group">
                             <label class=" form-control-label">Photos</label><br>
 
-                            <div class="upload-btn-wrapper">
-
-                                <!-- <button type="button" class="btn_upload" id="upBtn">Upload a file</button> -->
-
-                               
-
-                            </div>
-                            <!-- <input name="" id="photo" type="file" class="dropify-frrr" > -->
-
                             <div id="preview" class="col-md-12">
 
                                 <img src="{{ $photo }}" style="width:200px; height: 200px;" alt="">
 
                             </div>
-
-
-
                         </div>
                         @endforeach
                     </fieldset>

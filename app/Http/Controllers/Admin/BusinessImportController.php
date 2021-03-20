@@ -31,11 +31,13 @@ class BusinessImportController extends Controller
     public function import(Request $request)
     {
         // dd($request->all());
-        $category = $request->category;
+        $catg = implode(',' ,$request->category);
+        $category = $catg;
         $country = $request->country;
+        $time = $request->business_time;
         // $type = $request->type;
-        Excel::import(new BusinessImport($category,$country),request()->file('file'));
+        Excel::import(new BusinessImport($category,$country,$time),request()->file('file'));
 
-        return redirect()->back()->with('success','Course Uploaded Successfully');
+        return redirect()->back()->with('success','Business Uploaded Successfully');
     }
 }
