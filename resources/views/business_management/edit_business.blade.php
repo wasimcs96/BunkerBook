@@ -41,7 +41,7 @@
                                 $emails = explode(',',$buisness->email);
                             ?>
                             @foreach ($emails as $email)
-                         
+                            <div class="custm">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Email</label>
@@ -49,10 +49,9 @@
                                             required>
                                     </div>
                                 </div>
-                        
-                            @endforeach
-                            <div class="custm">
                             </div>
+                            @endforeach
+
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <a href="javascript:void(0);" class="add_button2 btn btn-warning btn-sm"
@@ -82,15 +81,15 @@
                             $website = explode(',',$buisness->website);
                             ?>
                          @foreach($website as $web)
+                            <div class="field_wrapper1">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label">Website</label>
                                         <input type="text" name="website[]" value="{{ $web }}" class="form-control">
                                     </div>
                                 </div>
-                            @endforeach
-                            <div class="field_wrapper1">
                             </div>
+                            @endforeach
 
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -111,15 +110,15 @@
                                 $landline = explode(',',$buisness->landline);
                             ?>
                             @foreach($landline as $line)
+                            <div class="field_wrapper">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label">Landline</label>
                                         <input type="number" name="landline[]" value="{{ $line }}" class="form-control">
                                     </div>
                                 </div>
-                            @endforeach
-                            <div class="field_wrapper">
                             </div>
+                            @endforeach
 
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -205,7 +204,7 @@
 
                         <div class="row">
                             <div class="fancy-checkbox col-md-6" style="display: flex;align-items: flex-end;">
-                                <label><input type="checkbox" @if(isset($buisness->business_time)&& $buisness->business_time == 1) checked @endif id="chkPassport" onclick="myFunction()" name="business_time"
+                                <label><input type="checkbox"  id="chkPassport" onclick="myFunction()" name="business_time"
                                         value="1" style="width: 20px; height: 20px;"><span style="font-size: 15px;margin-left: 6px;color: black;">24/7</span></label>
                             </div>
                         </div>
@@ -334,7 +333,7 @@
                 <div class="col-md-6"> 
                     <div class="form-group">
                         <label class="control-label">Hours End</label>
-                        <input type="time" name="wednesday_end_time" id="wednesday_end_time" value="{{ $buisness->wednesday_end_time }}" class="form-control">
+                        <input type="time" name="wednesday_end_time" id="wednesday_end_time" value="" class="form-control">
                     </div>
                 </div>
             </div>
@@ -344,8 +343,8 @@
                 <div class="form-group">
                     <label class="control-label">Thursday</label>
                     <select name="thursday" id="thursday" class="form-control">
-                        <option value="open" @if(isset($buisness->thursday) && $buisness->thursday=='open')selected @endif>Open</option>
-                        <option value="close" @if(isset($buisness->thursday) && $buisness->thursday=='close')selected @endif>Close</option>
+                        <option value="open">Open</option>
+                        <option value="close">Close</option>
                     </select>
                 </div>
             </div>
@@ -354,13 +353,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours Start</label>
-                        <input type="time" name="thursday_start_time" id="thursday_start_time" value="{{ $buisness->thursday_start_time }}" class="form-control">
+                        <input type="time" name="thursday_start_time" id="thursday_start_time"value="" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours End</label>
-                        <input type="time" name="thursday_end_time" id="thursday_end_time" value="{{ $buisness->thursday_end_time }}" class="form-control">
+                        <input type="time" name="thursday_end_time" id="thursday_end_time" value=""class="form-control">
                     </div>
                 </div>
             </div>
@@ -370,8 +369,8 @@
                 <div class="form-group">
                     <label class="control-label">Friday</label>
                     <select name="friday" id="friday" class="form-control">
-                        <option value="open" @if(isset($buisness->friday) && $buisness->friday=='open')selected @endif>Open</option>
-                        <option value="close" @if(isset($buisness->friday) && $buisness->friday=='close')selected @endif>Close</option>
+                        <option value="open">Open</option>
+                        <option value="close">Close</option>
                     </select>
                 </div>
             </div>
@@ -380,13 +379,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours Start</label>
-                        <input type="time" name="friday_start_time" id="friday_start_time" value="{{ $buisness->friday_start_time }}" class="form-control">
+                        <input type="time" name="friday_start_time" id="friday_start_time" value=""class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours End</label>
-                        <input type="time" name="friday_end_time" id="friday_end_time" value="{{ $buisness->friday_end_time }}" class="form-control">
+                        <input type="time" name="friday_end_time" id="friday_end_time" value=""class="form-control">
                     </div>
                 </div>
             </div>
@@ -396,8 +395,8 @@
                 <div class="form-group">
                     <label class="control-label">Saturday</label>
                     <select name="Saturday" id="Saturday" class="form-control">
-                        <option value="open" @if(isset($buisness->saturday) && $buisness->saturday=='open')selected @endif>Open</option>
-                        <option value="close" @if(isset($buisness->saturday) && $buisness->saturday=='open')selected @endif>Close</option>
+                        <option value="open">Open</option>
+                        <option value="close">Close</option>
                     </select>
                 </div>
             </div>
@@ -405,13 +404,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours Start</label>
-                        <input type="time" name="Saturday_start_time" id="Saturday_start_time" value="{{ $buisness->saturday_start_time }}" class="form-control">
+                        <input type="time" name="Saturday_start_time" id="Saturday_start_time"value="" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours End</label>
-                        <input type="time" name="Saturday_end_time" id="sunday_end_time" value="{{ $buisness->saturday_end_time }}" class="form-control">
+                        <input type="time" name="Saturday_end_time" id="sunday_end_time" value=""class="form-control">
                     </div>
                     </div>
                 </div>
@@ -422,34 +421,29 @@
                     <h3>Personal Detail</h3>
 
                     <fieldset>
-                        @foreach ($buisness->businessStaff as $staff)
                         <div class="field_wrapper_ my-3">
                             <div class="col-md-12">
+                                <div class="field_wrapper_staff">
                                     <div class="form-group">
                                         <label class="control-label">Staff Detail</label>
-                                        <input type="text" name="staff[0][staff_name]" value="{{ $staff->staff_name }}" placeholder="Name"
+                                        <input type="text" name="staff[0][staff_name]" value="" placeholder="Name"
                                             class="form-control my-3">
-                                        <input type="text" name="staff[0][staff_job_title]" value="{{ $staff->staff_job_title }}"
+                                        <input type="text" name="staff[0][staff_job_title]" value=""
                                             placeholder="Job title" class="form-control my-3">
-                                        <input type="text" name="staff[0][staff_email]" value="{{ $staff->staff_email }}" placeholder="Email"
+                                        <input type="text" name="staff[0][staff_email]" value="" placeholder="Email"
                                             class="form-control my-3">
-                                        <input type="mobile" name="staff[0][staff_mobile]" value="{{ $staff->staff_mobile }}" placeholder="Mobile"
+                                        <input type="mobile" name="staff[0][staff_mobile]" value="" placeholder="Mobile"
                                             class="form-control my-3">
-                                        <input type="text" name="staff[0][staff_skype]" value="{{ $staff->staff_skype }}" placeholder="Skype Id"
+                                        <input type="text" name="staff[0][staff_skype]" value="" placeholder="Skype Id"
                                             class="form-control my-3">
                                         <textarea name="staff[0][staff_about]" placeholder="About"
-                                            class="form-control my-3">{{ $staff->staff_about }}</textarea>
+                                            class="form-control my-3"></textarea>
                                         <input type="file" name="staff[0][staff_profile]" value="" placeholder="Profile"
                                             accept="image/*" class="form-control my-3">
-                                        <img src="{{ $staff->profile ?? ''  }}" style="width:160px; height:80px;" alt="">
-
                                     </div>
 
+                                </div>
                             </div>
-                            @endforeach
-                            <div class="field_wrapper_staff">
-                            </div>
-
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <a href="javascript:void(0);" class="add_staff_button btn btn-warning btn-sm"
@@ -461,34 +455,39 @@
 
                     <h3>Photos</h3>
                     <fieldset>
-                        <label class=" form-control-label">Photos</label><br>
-                        <input type="file" name="business_photos[]" id="photos" class="form-control imageUpload"
-                        multiple>
-                        @foreach($buisness->businessImage as $photo)
                         <div class="form-group">
-                            <label class=" form-control-label">Photos</label><br>
+                            <label class=" form-control-label">Photos </label><br>
+
+                            <div class="upload-btn-wrapper">
+
+                                <!-- <button type="button" class="btn_upload" id="upBtn">Upload a file</button> -->
+
+                                <input type="file" name="business_photos[]" id="photos" class="form-control imageUpload"
+                                    multiple>
+
+                            </div>
+                            <!-- <input name="" id="photo" type="file" class="dropify-frrr" > -->
 
                             <div id="preview" class="col-md-12">
 
-                                <img src="{{ $photo }}" style="width:200px; height: 200px;" alt="">
 
                             </div>
+
+
+
                         </div>
-                        @endforeach
                     </fieldset>
 
                     <h3>Videos</h3>
                     <fieldset>
 
-                        @foreach($buisness->businessVideo as $video)
+                        <div class="field_wrapperyoutube_link">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="control-label">Youtube Link</label>
-                                    <input type="text" name="youtube_video[]" value="{{ $video->video }}" class="form-control">
+                                    <input type="text" name="youtube_video[]" value="" class="form-control">
                                 </div>
                             </div>
-                        @endforeach
-                        <div class="field_wrapperyoutube_link">
                         </div>
 
                         <div class="col-md-12">
@@ -498,7 +497,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary float-right">Update</button>
+                        <button type="submit" class="btn btn-primary float-right">Submit</button>
                     </fieldset>
 
                 </form>
