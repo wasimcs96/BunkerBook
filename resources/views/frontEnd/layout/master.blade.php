@@ -27,6 +27,46 @@
 	<link href="{{ asset('frontEnd/assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('frontEnd/assets/css/responsive.css') }}" rel="stylesheet" />
     @yield('per_page_style')
+    <style>
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: #ffa500;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #111;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
 	<!-- ========== End Stylesheet ========== -->
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -38,6 +78,22 @@
 
 </head>
 <body class="demo-1" id="bdy">
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+ <div class="my-5" style="width:fit-content;margin: auto">
+ <a href="#">Dashboard</a>
+  <a href="#">Home</a>
+  <a href="#">Newsfeed</a>
+  <a href="#">About Us</a>
+  <a href="#">Country</a>
+  <a href="#">Category</a>
+  <a href="#">Feedback</a>
+  <a href="#">Event</a>
+  <a href="#">Documents</a>
+ </div>
+</div>
+
     <div class="se-pre-con">
 
 
@@ -143,6 +199,15 @@
 
   <!-- jQuery Frameworks
 ============================================= -->
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
 
 <script src="{{ asset('frontEnd/assets/js/jquery-1.12.4.min.js')}}"></script>
 <script src="{{ asset('frontEnd/assets/js/bootstrap.min.js')}}"></script>
