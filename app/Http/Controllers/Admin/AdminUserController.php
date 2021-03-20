@@ -31,12 +31,13 @@ class AdminUserController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        
         $this->validate($request,[
             'first_name' => 'required',
             'last_name' => 'required',
             'profile' => 'required',
-            'mobile' => 'required',
-            'email' => 'required',
+            'mobile' => 'required|unique:users',
+            'email' => 'required|unique:users',
             'password' => 'required',
             // 'address' => 'required',
             // 'plan' => 'required',
@@ -91,6 +92,11 @@ class AdminUserController extends Controller
 
         $user->image = 'uploads/usersProfile/' . $featured_new_name;
         }
+        $validated = $request->validate([
+            'mobile' => 'required|unique:users,mobile,'.$id,
+            'email' => 'required|unique:users,email,'.$id,
+            ]);
+
     
 
       
