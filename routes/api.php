@@ -16,10 +16,10 @@ Route::get('/business/limit','Api\BusinessController@getlimitbusiness')->name('b
 Route::post('/reset/email/sent','Api\ResetEmailController@forgotPassword')->name('reset.email.sent');
 
     // Password Reset Routes...
-    Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
-    Route::post('/forgotPassword', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-    Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
-    Route::post('password/reset', 'ResetPasswordController@reset');
+    Route::get('password/reset', 'Api\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+    Route::post('/forgotPassword', 'Api\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+    Route::get('password/reset/{token}', 'Api\ResetPasswordController@showResetForm')->name('password.reset');
+    Route::post('password/reset', 'Api\ResetPasswordController@reset');
 
 
 Route::middleware('auth:api')->group(function () {
