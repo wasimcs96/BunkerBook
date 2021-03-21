@@ -1,3 +1,5 @@
+
+
 <div class="header-top">
     <div class="header-1">
         <div class="container">
@@ -44,7 +46,7 @@
             <img src="{{asset('frontEnd\assets\img\header\processed.png')}}" alt="logo" style="width: 120px;">
             <!-- <h1>Logo</h1> -->
         </a>
-        <button class="navbar-toggler toggler-spring"><span class="navbar-toggler-icon"></span></button>
+        <button class="navbar-toggler" onclick="openNav()"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse justify-content-sm-end">
             <ul class="navbar-nav navbar-mobile ml-auto">
                 <li class="nav-item">
