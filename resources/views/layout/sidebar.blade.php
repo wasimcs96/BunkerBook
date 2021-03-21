@@ -56,11 +56,11 @@
                 </li>
                 {{-- <li class="{{ Request::segment(2) === 'plan' ? 'active open' : null }}"><a href="{{route('plan.index')}}"><i class="icon-cursor"></i><span>Plan Management</span></a></li> --}}
 
-                <li class="{{ Request::segment(2) === 'news' ? 'active open' : null }}"><a href="{{route('news.index')}}"><i class="icon-globe"></i><span>News Feed</span></a></li>
+                <li class="{{ Request::segment(2) === 'news' ? 'active open' : null }}"><a href="{{route('news.index')}}"><i class="fa fa-bomb"></i><span>News Feed</span></a></li>
 
                 <li class="{{ Request::segment(2) === 'event' ? 'active open' : null }}"><a href="{{route('event.index')}}"><i class="icon-globe"></i><span>Events</span></a></li>
 
-                <li class="{{ Request::segment(2) === 'banner' ? 'active open' : null }}"><a href="{{route('banner.index')}}"><i class="icon-globe"></i><span>Banner</span></a></li>
+                <li class="{{ Request::segment(2) === 'banner' ? 'active open' : null }}"><a href="{{route('banner.index')}}"><i class="fa fa-file-image-o"></i><span>Banner</span></a></li>
 
                 <li class="{{ Request::segment(2) === 'business' ? 'active open' : null }}"><a href="javascript:void(0)"><i class="icon-map"></i><span>Business Management</span></a>
                     <ul>
@@ -72,7 +72,7 @@
                     </ul>
                 </li>
 
-                <li class="{{ Request::segment(3) === 'contact' ? 'active open' : null }}"><a href="{{route('business.contact')}}"><i class="icon-list"></i><span>Contact Management</span></a>
+                <li class="{{ Request::segment(3) === 'contact' ? 'active open' : null }}"><a href="{{route('business.contact')}}"><i class="fa fa-comment"></i><span>Contact Management</span></a>
                     <ul>
                     <li class="{{ Request::segment(3) === 'contact' ? 'active' : null }}"><a href="{{route('business.contact')}}">Business Contact list</a></li>
                     </ul>
