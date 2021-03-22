@@ -13,7 +13,7 @@
 
     <!-- Start Breadcrumb
 		============================================= -->
-    <div class="site-breadcrumb" style="background: url({{asset('frontEnd/assets/img/team/ship.jpg')}})">
+    <div class="site-breadcrumb" style="background: url('{{asset($business->featured_banner_image)}}')">
         <div class="">
             <!-- <img src="{{asset('frontEnd/assets/img/header/header-shape-2.png')}}" class="hero-circle-1" alt="thumb"> -->
         </div>
@@ -157,6 +157,10 @@
                                 role="tab" aria-controls="nav-contact" aria-selected="false">
                                 Review
                             </a>
+                            <a class="nav-item nav-link" id="nav-staff-tab" data-toggle="tab" href="#nav-staff"
+                                role="tab" aria-controls="nav-staff" aria-selected="false">
+                                Staff Details
+                            </a>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
@@ -165,88 +169,7 @@
                             <div class="course-syl-con">
                                 <div class="course-syl-con-bottom">
 							{{ $business->about ?? '' }}
-                                    <!-- <ul class="course-li-1">
-                                        <li>
-                                            <i class="fas fa-check"></i>
-                                            <span>
-                                                Fugiat suspendisse maxime excepteur cillum hic cum labore cenas. Invent
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-check"></i>
-                                            <span>
-                                                Fugiat suspendisse maxime excepteur cillum hic cum labore cenas. Invent
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-check"></i>
-                                            <span>
-                                                Fugiat suspendisse maxime excepteur cillum hic cum labore cenas. Invent
-                                            </span>
-                                        </li>
-                                    </ul> -->
-                                    <!-- <div class="course-syl-imgs mt-40 grid-2">
-                                        <img src="assets/img/details-page/img-1.jpg" alt="thumb">
-                                        <img src="assets/img/details-page/img-2.jpg" alt="thumb">
-                                    </div> -->
-                                    <!-- <div class="course-syl-text mt-40">
-                                        <p>
-                                            Perferendis lacinia non, est distinctio ut eveniet, posuere mus nostrum eget
-                                            itaque, irure illo leo. Est! Numquam autem ipsa! Dolores eiusmod, impedit
-                                            bibendum porro! Error! Magna quia. Quia officia non? Lectus corporis
-                                            laudantium cursus voluptas eveniet
-                                        </p>
-                                        <p class="mb-0">
-                                            Perferendis, voluptatum. Exercitation justo aliquip? Convallis ligula aptent
-                                            aute ab? Sit necessitatibus error, quaerat curae tristique tempore velit,
-                                            nascetur ullam metus molestie, etiam sapien cupiditate magni do ut,
-                                            consequuntur doloribus ea fusce recusandae eros, minim dolore magnis
-                                        </p>
-                                    </div> -->
-                                    <!-- <ul class="course-li-1 li-2 mt-30 mb-30">
-                                        <li>
-                                            <i class="fas fa-check"></i>
-                                            <span>
-                                                Fugiat suspendisse maxime excepteu
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-check"></i>
-                                            <span>
-                                                Fugiat suspendisse maxime excepteu
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-check"></i>
-                                            <span>
-                                                Fugiat suspendisse maxime excepteu
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-check"></i>
-                                            <span>
-                                                Fugiat suspendisse maxime excepteu
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-check"></i>
-                                            <span>
-                                                Fugiat suspendisse maxime excepteu
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-check"></i>
-                                            <span>
-                                                Fugiat suspendisse maxime excepteu
-                                            </span>
-                                        </li>
-                                    </ul> -->
-                                    <!-- <p class="mb-0">
-                                        Perferendis lacinia non, est distinctio ut eveniet, posuere mus nostrum eget
-                                        itaque, irure illo leo. Est! Numquam autem ipsa! Dolores eiusmod, impedit
-                                        bibendum porro! Error! Magna quia. Quia officia non? Lectus corporis laudantium
-                                        cursus voluptas eveniet
-                                    </p> -->
+                                   
                                 </div>
                             </div>
                         </div>
@@ -271,6 +194,72 @@
                                         
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-staff" role="tabpanel"               aria-labelledby="nav-staff-tab">
+                            <div class="course-accordion" style="display: flex;flex-wrap: wrap;justify-content:center;">
+                                <div class="course-accordion-header mb-30">
+                                    <!-- <h2 class="course-content-title">Course Tutorials</h2> -->
+                                    <!-- <p class="mb-0">
+                                        lacing assured be if removed it besides on. Far shed each high read are men over
+                                        day. Afraid we praise lively he suffer family estate is. Ample order up in of in
+                                        ready. Timed blind had now those ought set often which. Or snug dull he show
+                                        more true wish. No at many deny away miss evil. On in so indeed spirit an
+                                        mother. Amounted old strictly but marianne admitted. People former is remove
+                                        remain as.
+                                    </p> -->
+                                </div>
+                                {{-- <div class="ask">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        @foreach ($business->businessStaff as $staff)
+                                            <div class="panel panel-default panel-active">
+                                                Staff Name:   {{ $staff->staff_name ?? '' }}
+                                            </div>
+                                            <div class="panel panel-default panel-active">
+                                                Job Title:   {{ $staff->staff_job_title ?? '' }}
+                                            </div>
+                                            <div class="panel panel-default panel-active">
+                                                Email:   {{ $staff->staff_email ?? '' }}
+                                            </div>
+                                            <div class="panel panel-default panel-active">
+                                                Mobile:   {{ $staff->staff_mobile ?? '' }}
+                                            </div>
+                                            <div class="panel panel-default panel-active">
+                                                Skype:   {{ $staff->staff_skype ?? '' }}
+                                            </div>
+                                            <div class="panel panel-default panel-active">
+                                                About:   {{ $staff->staff_about ?? '' }}
+                                            </div>
+                                            <div class="panel panel-default panel-active">
+                                                Profile:   <img src="{{ $staff->profile ?? '' }}" style="width:80px; height:80px;" alt="">
+                                            </div>
+                                        @endforeach
+                                        
+                                    </div>
+                                </div> --}}
+                                @foreach ($business->businessStaff as $staff)
+                                <div class="wh-box col-md-3 col-sm-12 m-3">
+                                    <div class="wh-pic">
+                                        @if(isset($staff->profile)&& file_exists($staff->profile))
+                                        <img src="{{ asset($staff->profile) }}" class="course-img" alt="thumb"style="height: 220px;">
+                                        @else
+                                        <img src="{{ asset('images/staff.png') }}" alt="" style="height: 220px">
+                                        @endif
+                                    </div>
+                                    <div class="wh-content">
+                                        <div class="wh-cate">
+                                            <span>{{ $staff->staff_name ?? '' }}</span>
+                                            <span>{{ $staff->staff_job_title ?? '' }}</span>
+                                            <span>{{ $staff->staff_email ?? '' }}</span>
+                                            <span>{{ $staff->staff_mobile ?? '' }}</span>
+                                            <span>{{ $staff->staff_skype ?? '' }}</span>
+                                            <span>{{ $staff->staff_about ?? '' }}</span>
+                                        </div>
+                       
+                                    </div>
+                                    {{-- <img src="{{asset('assets/img/choose/choose-icon.png')}}" class="wh-icon-float" alt="thumb"> --}}
+                                </div>
+                                @endforeach
                             </div>
                         </div>
                         <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
@@ -336,6 +325,113 @@
                     </div>
                 </div>
             </div>
+
+            <div class="container my-3">
+                <h4>Business Image</h4>
+            </div>
+                <div class="container"  style="
+                display: flex;
+                justify-content: end;
+            ">
+                @foreach ($business->businessImage as $image)
+                    
+               
+                <div class="panel panel-default my-2" style="
+                padding-right: 10px;
+            ">
+                   <img src="{{ asset($image->image) }}"style="width:120px; height:100px;" alt=""> 
+                </div>
+                @endforeach
+            
+            </div>
+
+            <div class="container my-3">
+                <h4>Business Video</h4>
+            </div>
+                <div class="container">
+                @foreach ($business->businessVideo as $video)
+                    
+               
+                <div class="panel panel-default my-2">
+                    <a href="{{ $video->video ?? '' }}" style="color: blue;" target="_blank">Video Link</a> 
+                    <hr>
+                </div>
+                @endforeach
+            </div>
+
+            <div class="container my-3">
+                <h4>Working Hours</h4>
+
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                                <th>
+                                    Working Days
+                                </th>
+                              <th>
+                                  status  
+                              </th>
+                              <th>
+                                    Start Time
+                              </th>
+                              <th>
+                                    End Time
+                              </th>
+                        </thead>
+                        <tbody>
+                         
+                            
+                                    <tr>
+                                          <td>Sunday</td>
+                                          <td>{{ $business->sunday ?? 'N/A'}}</td>
+                                          <td>{{ $business->sunday_start_time ?? 'N/A' }}</td>
+                                          <td>{{ $business->sunday_end_time ?? 'N/A' }}</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Monday</td>
+                                          <td>{{ $business->monday ?? 'N/A'}}</td>
+                                          <td>{{ $business->monday_start_time ?? 'N/A' }}</td>
+                                          <td>{{ $business->monday_end_time ?? 'N/A' }}</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Tuesday</td>
+                                          <td>{{ $business->tuesday ?? 'N/A'}}</td>
+                                          <td>{{ $business->tuesday_start_time ?? 'N/A' }}</td>
+                                          <td>{{ $business->tuesday_end_time ?? 'N/A' }}</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Wednesday</td>
+                                          <td>{{ $business->wednesday ?? 'N/A'}}</td>
+                                          <td>{{ $business->wednesday_start_time ?? 'N/A' }}</td>
+                                          <td>{{ $business->wednesday_end_time ?? 'N/A' }}</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Thursday</td>
+                                          <td>{{ $business->thursday ?? 'N/A'}}</td>
+                                          <td>{{ $business->thursday_start_time ?? 'N/A' }}</td>
+                                          <td>{{ $business->thursday_end_time ?? 'N/A' }}</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Friday</td>
+                                          <td>{{ $business->friday ?? 'N/A'}}</td>
+                                          <td>{{ $business->friday_start_time ?? 'N/A' }}</td>
+                                          <td>{{ $business->friday_end_time ?? 'N/A' }}</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Saturday</td>
+                                          <td>{{ $business->saturday ?? 'N/A'}}</td>
+                                          <td>{{ $business->saturday_start_time ?? 'N/A' }}</td>
+                                          <td>{{ $business->saturday_end_time ?? 'N/A' }}</td>
+                                    </tr>
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+                
+            </div>
+
+
         </div>
     </div>
     </div>

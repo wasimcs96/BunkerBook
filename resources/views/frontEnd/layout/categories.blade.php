@@ -9,8 +9,38 @@
                 </div>
             </div>
         </div>
-        <div class="cat-wrapper grid-4">
-            <div class="cat-box">
+        {{-- <div class="cat-wrapper grid-4"> --}}
+            		<div class="cat-wrapper grid-4" style="display: flex;
+                    justify-content: center;">
+			<?php $category=App\Models\Category::get();?>
+			@foreach($category as $cat)
+					<div class="cat-box" style="
+					height: 235px;
+				">
+						<div class="cat-pic">
+							<div>
+							<img src="{{asset($cat->icon)}}" alt="thumb" style="
+							height: 195px;
+							width: 100%;
+						">
+					</div>
+						<div class="cat-badge">
+							<span>  <?php  $business=DB::table("business")
+								->whereRaw("find_in_set('$cat->id',category)")->count();
+								?> {{$business}}</span>
+						</div>
+					</div>
+					<div class="cat-title" style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+						{{-- <div class="row"> --}}
+						<a href="{{route('category.business',$cat->id)}}" style="margin: auto;"><h5>{{$cat->name ?? ''}}</h5>
+						</a>
+					{{-- </div> --}}
+
+					</div>
+				</div>
+			@endforeach	
+			{{-- </div> --}}
+            {{-- <div class="cat-box">
                 <div class="cat-pic">
                     <img src="{{ asset('frontEnd/assets/img/categories/1.jpg') }}" alt="thumb">
                     <div class="cat-badge">
@@ -21,7 +51,7 @@
                     <h5>Bunker Broker</h5>
                     <span><i class="ti ti-arrow-right"></i></span>
                 </div>
-            </div>
+            </div> --}}
             <!-- <div class="cat-box">
                 <div class="cat-pic">
                     <img src="assets/img/categories/2.jpg" alt="thumb">
@@ -34,7 +64,7 @@
                     <span><i class="ti ti-arrow-right"></i></span>
                 </div>
             </div> -->
-            <div class="cat-box">
+            {{-- <div class="cat-box">
                 <div class="cat-pic">
                     <img src="{{ asset('frontEnd/assets/img/categories/1.jpg') }}" alt="thumb">
                     <div class="cat-badge">
@@ -45,8 +75,8 @@
                     <h5>Bunker Supplier </h5>
                     <span><i class="ti ti-arrow-right"></i></span>
                 </div>
-            </div>
-            <div class="cat-box">
+            </div> --}}
+            {{-- <div class="cat-box">
                 <div class="cat-pic">
                     <img src="{{ asset('frontEnd/assets/img/categories/4.jpg') }}" alt="thumb">
                     <div class="cat-badge">
@@ -57,8 +87,8 @@
                     <h5>Bunker Trader </h5>
                     <span><i class="ti ti-arrow-right"></i></span>
                 </div>
-            </div>
-            <div class="cat-box">
+            </div> --}}
+            {{-- <div class="cat-box">
                 <div class="cat-pic">
                     <img src="{{ asset('frontEnd/assets/img/categories/5.jpg') }}" alt="thumb">
                     <div class="cat-badge">
@@ -69,8 +99,8 @@
                     <h5>Bunker Surveyor & Testing </h5>
                     <span><i class="ti ti-arrow-right"></i></span>
                 </div>
-            </div>
-            <div class="cat-box">
+            </div> --}}
+            {{-- <div class="cat-box">
                 <div class="cat-pic">
                     <img src="{{ asset('frontEnd/assets/img/categories/6.jpg') }}" alt="thumb">
                     <div class="cat-badge">
@@ -81,7 +111,7 @@
                     <h5>Marine Oil and Lubricants </h5>
                     <span><i class="ti ti-arrow-right"></i></span>
                 </div>
-            </div>
+            </div> --}}
             </div>
         </div>
     </div>
