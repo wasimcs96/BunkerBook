@@ -281,35 +281,45 @@
                                     @csrf
                                     <div class="form-group">
                                         <div class="row">
-                                            <label for="rating" style="font-size: 16px;margin: 17px;">Add
+                                            <label for="rating" style="font-size: 16px;margin: 12px;">Add
                                                 Ratings</label>
                                             <div class="rat">
 
                                                 {{-- <label for="rating">Add Rating</label> --}}
 
-                                                <label>
+                                                <label style="
+    font-size: x-large;
+">
                                                     <input type="radio" name="rating" value="1" checked />
                                                     <span class="icn">★</span>
                                                 </label>
-                                                <label>
+                                                <label style="
+    font-size: x-large;
+">
                                                     <input type="radio" name="rating" value="2" />
                                                     <span class="icn">★</span>
                                                     <span class="icn">★</span>
                                                 </label>
-                                                <label>
+                                                <label style="
+    font-size: x-large;
+">
                                                     <input type="radio" name="rating" value="3" />
                                                     <span class="icn">★</span>
                                                     <span class="icn">★</span>
                                                     <span class="icn">★</span>
                                                 </label>
-                                                <label>
+                                                <label style="
+    font-size: x-large;
+">
                                                     <input type="radio" name="rating" value="4" />
                                                     <span class="icn">★</span>
                                                     <span class="icn">★</span>
                                                     <span class="icn">★</span>
                                                     <span class="icn">★</span>
                                                 </label>
-                                                <label>
+                                                <label style="
+    font-size: x-large;
+">
                                                     <input type="radio" name="rating" value="5" />
                                                     <span class="icn">★</span>
                                                     <span class="icn">★</span>
