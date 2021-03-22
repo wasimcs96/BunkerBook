@@ -127,8 +127,13 @@
                                 border-color: #fdb719;
                                 color: black;
                                 font-weight: 500;
-                          font-family: sans-serif;"  class="btn btn-primary accept"  id="add_document3">OK</button>
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</a>
+                          font-family: sans-serif;"  class="btn btn-primary accept"  id="add_document3">OK</a>
+                          <button type="button" style="border-radius: 62px;
+                          background-color: #fdb719;
+                          border-color: #fdb719;
+                          color: black;
+                          font-weight: 500;
+                    font-family: sans-serif;" class="btn btn-secondary" data-dismiss="modal">Close</button>
                           </form>
                               </div>
                               </div>
