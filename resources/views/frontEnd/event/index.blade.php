@@ -20,9 +20,14 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-12 d-flex flex-wrap justify-content-center">
         @foreach($events as $event)
-        <div class="event-area grid-2">
-            <div class="event-box">
+        <!-- <div class="event-card"> -->
+            <div class="col-md-5 m-2" style="
+    border: 5px solid #FFA500;
+    border-radius: 10px;
+    padding: 0;
+">
                 <div class="event-pic">
                     <img src="{{asset('frontEnd/assets/img/event/event-1.jpg') }}" alt="thumb">
                      <div class="event-date">
@@ -49,8 +54,19 @@
                     </div>
                 </div>
             </div>
-    @endforeach
+        <!-- </div> -->
+        @endforeach
         </div>
     </div>
 </div>
+ @endsection
+ @section('per_page_style')
+ <style>
+     @media(max-width: 768px){
+        .event-desc h4 {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+}
+     }
+ </style>
  @endsection
