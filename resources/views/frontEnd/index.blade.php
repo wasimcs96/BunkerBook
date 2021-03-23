@@ -45,6 +45,7 @@
 
 		<!-- Start Categories
 		============================================= -->
+
 		@include('frontEnd.layout.categories')
 		<!-- End Categories-->
 

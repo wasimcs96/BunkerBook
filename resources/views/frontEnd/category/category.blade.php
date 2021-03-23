@@ -17,15 +17,15 @@
 				</div>
 				<div class="cat-wrapper grid-4">
 				@foreach($category as $cat)
-					<div class="cat-box" style="
-					height: 235px;
-				">
-						<div class="cat-pic">
-							<div>
-							<img src="{{asset($cat->icon)}}" alt="thumb" style="
-							height: 195px;
-							width: 100%;
-						">
+						<div class="cat-box" style="
+						height: 235px;
+					">
+							<div class="cat-pic">
+								<div>
+								<img src="{{asset($cat->icon)}}" alt="thumb" style="
+								height: 195px;
+								width: 100%;
+							">
 						</div>
 							<div class="cat-badge">
 								<span>  <?php  $business=DB::table("business")
