@@ -51,10 +51,25 @@ class BusinessImport implements ToModel, WithStartRow,  WithHeadingRow
             
             $catim =collect($catfinds)->implode(',');  
             // }
-
+            $start_date= null ;
+            $end_date= null ;
+            $Sunday_start_date= null ;
+            $Sunday_end_date= null ;
+            $Monday_start_date= null ;
+            $Monday_end_date= null ;
+            $Tuesday_start_date= null ;
+            $Tuesday_end_date= null ;
+            $Wednesday_start_date= null ;
+            $Wednesday_end_date= null ;
+            $Thrusday_start_date= null ;
+            $Thrusday_end_date= null ;
+            $Friday_start_date= null ;
+            $Friday_end_date= null ;
+            $Saturday_start_date= null ;
+            $Saturday_end_date= null ;
+            if($this->business_time != 1){
         $start_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['business_start_time']))->format('H:i:s');
         $end_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['business_end_time']))->format('H:i:s');
-
         $Sunday_start_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['sunday_start_time']))->format('H:i:s');
         $Sunday_end_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['sunday_end_time']))->format('H:i:s');
 
@@ -75,7 +90,7 @@ class BusinessImport implements ToModel, WithStartRow,  WithHeadingRow
 
         $Saturday_start_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['saturday_start_time']))->format('H:i:s');
         $Saturday_end_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['saturday_end_time']))->format('H:i:s');
-
+}
         // $start_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['business_start_time']))->format('H:i:s');
         // $end_date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['business_end_time']))->format('H:i:s');
 
@@ -83,6 +98,7 @@ class BusinessImport implements ToModel, WithStartRow,  WithHeadingRow
             return new Business([
             'name' => $row['business_name'],
             'email' =>$row['business_email'],
+            'plan_type'=>$row['plan_type'],
             'category' =>$this->category,
             'category_name'=> $catim,
             'country' => $this->country,
