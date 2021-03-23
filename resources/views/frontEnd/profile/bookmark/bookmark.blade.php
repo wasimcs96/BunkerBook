@@ -52,7 +52,7 @@
 
                                                 @if(auth()->user())
                                                 <?php $bookmark=App\Models\Bookmark::where('business_id',$book->business->id)->where('user_id',auth()->user()->id)->first();?>
-                                                <span class="bookid" customid="{{$bus->id ?? ''}}">
+                                                <span class="bookid" customid="{{$book->id ?? ''}}">
                                                 @if(isset($bookmark->business_id) && $bookmark->business_id == $book->business->id && $bookmark->user_id == auth()->user()->id)
                                                    
                                                 <i class="fas fa fa-heart rounded-circle"  id="save-icon-{{$book->business->id ?? ''}}"  check="0"  custom2="{{$book->business->id ?? ''}}" aria-hidden="true" style="
@@ -208,8 +208,9 @@ var media_id=""
 // var user_id = 
 
 $('.bookid').on('click',function(){
-    // console.log('sdsd');
+    console.log('sdsd');
     var id= $(this).attr('customid');
+    console.log(id);
     var saveEl = document.getElementById("save-icon");
     var iconType = $("#save-icon-"+id).attr('check');
 //   console.log(iconType);

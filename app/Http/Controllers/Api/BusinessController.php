@@ -129,9 +129,12 @@ class BusinessController extends Controller
         $data=[];
         $business = Business::where('id',$request->id)->with(['businessImage','businessVideo','businessRequest','businessStaff'])->first();
 
-        $business['category']=explode(',',$business->category_name) ;
+        $business['category']=explode(',',$business->category_name);
         // dd($category);
         // dd($business);
+                $business['landline']=explode(',',$business->landline);
+        $business['email']=explode(',',$business->email);
+
 
         // foreach($business as $buisnes){
          $business['rating'] = BusinessRating::where('business_id',$business->id)->average('rating_number');
