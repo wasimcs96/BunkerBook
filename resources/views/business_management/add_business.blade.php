@@ -170,7 +170,7 @@
                             <div class="form-group">
                                 <label class="control-label">About Us</label>
 
-                                <textarea name="about" class="form-control"></textarea>
+                                <textarea name="about" maxlength="150" minlength="140" class="form-control" required></textarea>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -275,7 +275,7 @@
                     </select>
                 </div>
             </div>
-            <div class="row" id="sundayDiv" >
+            <div class="row" id="tuesdayDiv" >
 
                 <div class="col-md-6">
                     <div class="form-group">
@@ -301,7 +301,7 @@
                     </select>
                 </div>
             </div>
-            <div class="row" id="sundayDiv" >
+            <div class="row" id="wednesdayDiv" >
 
                 <div class="col-md-6">
                     <div class="form-group">
@@ -327,7 +327,7 @@
                     </select>
                 </div>
             </div>
-            <div class="row" id="sundayDiv" >
+            <div class="row" id="thursdayDiv" >
 
                 <div class="col-md-6">
                     <div class="form-group">
@@ -353,7 +353,7 @@
                     </select>
                 </div>
             </div>
-            <div class="row" id="sundayDiv" >
+            <div class="row" id="fridayDiv" >
 
                 <div class="col-md-6">
                     <div class="form-group">
@@ -373,13 +373,13 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label class="control-label">Saturday</label>
-                    <select name="Saturday" id="Saturday" class="form-control">
+                    <select name="Saturday" id="saturday" class="form-control">
                         <option value="open">Open</option>
                         <option value="close">Close</option>
                     </select>
                 </div>
             </div>
-            <div class="row" id="sundayDiv" >
+            <div class="row" id="saturdayDiv" >
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours Start</label>
@@ -641,59 +641,8 @@ $(document).ready(function() {
 
 });
 
-jQuery(function() {
-
-    jQuery(document).on("change", "#photos", function()
-
-        {
-            var total_file = document.getElementById("photos").files.length;
-
-            var divimage = jQuery("#preview img").length;
 
 
-
-            for (var i = 0; i < total_file; i++) {
-
-                k = divimage + 1;
-
-                $('#preview').append('<div class="img_div col-md-3" id="cancel' + k +
-                    '"><span style="cursor:pointer;background: red;color: white;border-radius: 10px;padding: 5px;" class="cancel_cls" onclick="removeImg(' +
-                    k + ')">X</span><img style="width: 200px;height: 150px;"  src=' + URL
-                    .createObjectURL(event.target.files[i]) +
-                    '><br><input type="file" name="photos_orignal[]" class="form-control imageUpload" id="photos_orignal' +
-                    k + '" accept="image/*" style="display:none;"></div>');
-
-
-                document.querySelector("#photos_orignal" + k).files = document.querySelector("#photos")
-                    .files;
-
-            }
-
-            jQuery('#upBtn').html('Add New');
-
-        });
-
-});
-
-
-
-function removeImg(i) {
-
-    var divimage = jQuery("#preview img").length;
-
-
-
-    if (divimage <= 1) {
-
-        jQuery('#upBtn').html('Upload a file');
-
-    }
-
-    jQuery('#cancel' + i).remove();
-
-
-
-}
 
 
 jQuery(function() {

@@ -33,43 +33,39 @@
 			<div class="container">
 				<div class="row">
 					<div class="">
-
-		
-						<div class="single-blog">
+						<div class="col-md-12 d-flex flex-wrap justify-content-center">
 						@foreach($blogs as $blog)
-							<div class="single-content">
-								<div class="single-page-meta-content">
-									<ul>
-										
-										<li>
-											<div class="single-meta-box single-meta-date">
-												<i class="fas fa-calendar-alt"></i>
-												<div class="single-admin-bio">
-													<h5> @if(isset($blog->updated_at)&&$blog->updated_at != null){{$blog->updated_at->format('j-m-Y')}} @endif</h5>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="single-meta-box single-meta-comments">
-												{{-- <i class="far fa-comment"></i> --}}
-												{{-- <div class="single-admin-bio">
-													<h5>Comments: 2</h5>
-												</div> --}}
-											</div>
-										</li>
-									</ul>
-								</div>
-								<div class="single-page-img">
+							<div class="col-md-5 m-2"  style="border: 5px solid #FFA500;border-radius: 10px;padding: 20px;">
+							<div class="single-page-img">
+								
+									<a href="single.html"><h5 class="single-content-title m-4">{{$blog->title ?? ''}}</h5></a>
 									<img src="{{asset('frontEnd/assets/img/singlepost/single.jpg')}}" alt="thumb">
 								</div>
-								<a href="single.html"><h2 class="single-content-title">{{$blog->title ?? ''}}</h2></a>
 								{{-- <div class="single-content-text">
 									<p class="mb-0">
 										{!! $blog->description !!}
 									</p>
 								</div> --}}
-								<div class="blog-single-btn">
+								<div class="hro-btn d-flex justify-content-between"  style="margin-top: 25px;">
 									<a href="{{route('newsfeed.detail',$blog->id)}}" class="theme-btn">Read </a>
+										<ul>
+											
+											<li>
+												<!-- <div class="single-meta-box single-meta-date"> -->
+													<div class="single-admin-bio">
+														<h5  style="color: currentcolor;font-size: 15px;" class="fas fa-calendar-alt" > @if(isset($blog->updated_at)&&$blog->updated_at != null){{$blog->updated_at->format('j-m-Y')}} @endif</h5>
+													</div>
+												<!-- </div> -->
+											</li>
+											<li>
+												<div class="single-meta-box single-meta-comments">
+													{{-- <i class="far fa-comment"></i> --}}
+													{{-- <div class="single-admin-bio">
+														<h5>Comments: 2</h5>
+													</div> --}}
+												</div>
+											</li>
+										</ul>
 								</div>
 							</div>
 							@endforeach

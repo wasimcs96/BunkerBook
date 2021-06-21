@@ -184,19 +184,19 @@ foreach($request->staff as $key2 => $value)
 
     public function upcomingBusiness()
     {
-        $business_list = Business::where('status',0)->orderBy('created_at', 'DESC')->get();
+        $business_list = Business::where('status',0)->orderBy('updated_at', 'DESC')->get();
         return view('business_management.upcoming_business_list',compact('business_list'));
     }
 
     public function activeBusiness()
     {
-        $business_list = Business::where('status',1)->orderBy('created_at', 'DESC')->get();
+        $business_list = Business::where('status',1)->orderBy('updated_at', 'DESC')->get();
         return view('business_management.active_business',compact('business_list'));
     }
 
     public function rejectBusiness()
     {
-        $business_list = Business::where('status',2)->orderBy('created_at', 'DESC')->get();
+        $business_list = Business::where('status',2)->orderBy('updated_at', 'DESC')->get();
         // dd( $reject_business);
         return view('business_management.reject_business', compact('business_list'));
     }
@@ -342,13 +342,7 @@ foreach($request->staff as $key2 => $value)
  }
  if($request->hasFile('business_photos'))
  {
-         $deletedRows = BusinessImage::where('business_id', '=', $id)->delete();
-            $dbps = BusinessImage::where('business_id',$id)->get();
-            foreach($dbps as $dbp)
-           {
-                $dbp->delete();
-           }
-
+        
              $images=collect($request->business_photos);
                  foreach($images as $image){
                  $businessimage_name= time().$image->getClientOriginalName();
@@ -416,7 +410,7 @@ foreach($request->staff as $key2 => $value)
         // dd($request->all());
         $business= Business::find($id);
         $business->status = $request->reject;
-        $business->reject_reason = $request->reject_reason;
+     
         $business->save();
 
         // $busre = BusinessRequest::create([

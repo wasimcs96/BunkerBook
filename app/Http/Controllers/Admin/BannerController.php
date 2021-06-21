@@ -14,7 +14,11 @@ class BannerController extends Controller
     }
 
     public function create(Request $request)
-    { $banner = '';
+    { 
+        $validated = $request->validate([
+            'position' => 'required|unique:banners',
+            ]);
+        $banner = '';
  
    
         if($request->hasFile('image'))
@@ -27,7 +31,7 @@ class BannerController extends Controller
 
         Banner::create([
             'image'=>$banner,
-            'url'=>$request->url,
+            // 'url'=>$request->url,
             'position'=>$request->position,
             'business_id'=>$request->business
         ]);
@@ -45,7 +49,12 @@ class BannerController extends Controller
         
         // $banner = '';
  
-        
+        $validated = $request->validate([
+            'position' => 'required|unique:banners,position,'.$id,
+            
+            ]);
+
+      
                 $edit = Banner::find($id);
    
         if($request->hasFile('image'))
@@ -55,7 +64,7 @@ class BannerController extends Controller
          $banner_image->move('uploads/bannerimage',$banner_name);
          $edit->image = 'uploads/bannerimage/'.$banner_name;
         }
-        $edit->url = $request->url;
+        // $edit->url = $request->url;
         $edit->position = $request->position;
         // $edit->image = $banner;
         $edit->save();

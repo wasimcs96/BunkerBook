@@ -127,7 +127,12 @@
                                 color: black;
                                 font-weight: 500;
                           font-family: sans-serif;" type="submit" class="btn btn-primary accept"  id="add_document3">OK</button>
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button"  style="border-radius: 62px;
+                          background-color: #fdb719;
+                          border-color: #fdb719;
+                          color: black;
+                          font-weight: 500;
+                    font-family: sans-serif;"  class="btn btn-secondary" data-dismiss="modal">Close</button>
                           </form>
                               </div>
                               </div>
@@ -140,28 +145,60 @@
                       
                             <!-- Modal content-->
                             <div class="modal-content">
-                              <div class="modal-header">
-                                <h4 class="modal-title">Reject Reason</h4>
-                                <button type="button" class="close" data-dismiss="modal">×</button>
-                            
+                        
+                              <div class="modal-body" style="
+                              text-align:center;
+                              padding: 0px;
+                              ">
+                                  <div style="
+                                  padding: 0px;
+                                  background-color: #fdb719;
+                              ">
+                                  <img  style=" width: 122px;margin-top: 18px;margin-bottom: 18px"; src="{{asset('frontEnd/assets/images/error.png')}}">
+                                  </div>
+                        
+                                  <div style="
+                                  background-color: white;
+                                  color: #585550;
+                                  font-family: sans-serif;
+                              ">
+                                      <h1>Are You Sure  ! </h1>
+                                      <h4 style="
+                        
+                                      margin: 0px; 
+                                      font-size: large;
+                                      "
+                                  >You Want To Reject Selected Business</h4>
+                                  </div>
                               </div>
-                              <form method="post" action="{{route('business.request.reject',['id'=>$business->id])}}">
-                                @csrf
-                              <div class="modal-body">
-                      
-                               <div class="form-group">
-                                   <label>Reject reason</label>
-                                   <textarea class="form-control" name="reject_reason" required=""></textarea>
-                                   <input type="hidden" name="reject" value="2">
-                                   <input type="hidden" name="user_id" value="{{$business->user_id}}">
-                               </div>
+                              <div class="modal-footer"  style="
+                              padding: 0px;
+                              border: 0px;
+                              justify-content: center;
+                              background-color: white;
+                          ">
+                                {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
+                                {{-- <button type= class="btn btn-primary">Submit</button> --}}
+                                <form method="post"  action="{{route('business.request.reject',['id'=>$business->id])}}">
+                                  @csrf
+                                  <input type="hidden" name="reject" value="2">
+                                  {{-- <input type="hidden" name="business_id" value="{{$business->id ?? ''}}"> --}}
+
+                                <button style="border-radius: 62px;
+                                background-color: #fdb719;
+                                border-color: #fdb719;
+                                color: black;
+                                font-weight: 500;
+                          font-family: sans-serif;" type="submit" class="btn btn-primary accept"  id="add_document3">OK</button>
+                          <button type="button"  style="border-radius: 62px;
+                          background-color: #fdb719;
+                          border-color: #fdb719;
+                          color: black;
+                          font-weight: 500;
+                    font-family: sans-serif;"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          </form>
                               </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                 <button type="submit" class="btn btn-info">Submit</button>
                               </div>
-                            </form>
-                            </div>
                       
                           </div>
                         </div>

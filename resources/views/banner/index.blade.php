@@ -24,7 +24,7 @@
                                 <th class="col-lg-2" style="width: 128px;">Image</th>
                                 <th class="col-lg-2">Business Name</th>
 
-                                <th class="col-lg-2">URL</th>
+                                {{-- <th class="col-lg-2">URL</th> --}}
                                 {{-- <th class="col-lg-3">Description</th> --}}
                                 <th class="col-lg-2" style="width: 128px;">Position</th>
                                 <th class="col-lg-2">Actions</th>
@@ -40,7 +40,7 @@
                                 <td>@if(isset($banner->image)&&file_exists($banner->image))<a href="{{asset($banner->image)}}" target="_blank" ><img src="{{ asset($banner->image)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
                                 <td class="">{{$banner->business->name ?? 'N/A'}}</td>
 
-                                <td class=""><a href=" {{$banner->url ?? 'N/A'}}" >Visit</td>
+                                {{-- <td class=""><a href=" {{$banner->url ?? 'N/A'}}" >Visit</td> --}}
                   
                                 <td class="">@if(isset($banner->position)){{$banner->position?? ''}}@else N/A @endif</td>
                                 <td class=""><a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#editModal-{{$banner->id ?? ''}}" class="btn btn-sm btn-warning" style="color: white;" ><span class="btn-label">
@@ -75,18 +75,22 @@
           </select>
       
   </div>
-         <div class="mb-3">
-          <label for="recipient-name" class="col-form-label">Image:</label>
-          <input type="file" class="form-control" id="image" name="image" required>
-        </div>
-          <div class="mb-3">
+        
+          {{-- <div class="mb-3">
             <label for="recipient-name" class="col-form-label">URL:</label>
             <input type="text" class="form-control" value="{{$banner->url ?? ''}}" id="title" name="url" required>
-          </div>
+          </div> --}}
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Position:</label>
-            <input type="text" class="form-control" value="{{$banner->position ?? ''}}" id="title" name="position" required>
+            <input type="number" class="form-control" min="1" value="{{$banner->position ?? ''}}" id="title" name="position" required>
           </div>
+
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Image:</label>
+            <input type="file" class="form-control" id="image" name="image" required>
+          </div>
+
+          
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -135,13 +139,13 @@
           <label for="recipient-name" class="col-form-label">Image:</label>
           <input type="file" class="form-control" id="image" name="image" required>
         </div>
-          <div class="mb-3">
+          {{-- <div class="mb-3">
             <label for="recipient-name" class="col-form-label">URL:</label>
             <input type="text" class="form-control" id="title" name="url" required>
-          </div>
+          </div> --}}
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Position:</label>
-            <input type="number" class="form-control" id="title" name="position" required>
+            <input type="number" class="form-control" min="1" id="title" name="position" required>
           </div>
           {{-- <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Youtube Link:</label>
