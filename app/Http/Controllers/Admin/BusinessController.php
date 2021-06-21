@@ -179,7 +179,7 @@ foreach($request->staff as $key2 => $value)
         //     $businessvideo->move('uploads/businessvideo',$businessvideo_name);
         //    $business_videos= 'uploads/businessvideo/'.$businessvideo_name;
         //   }
-  return redirect()->route('business.active')->with('success','Business details added successfully');
+  return redirect()->route('business.active')->with('success','Business Details Added Successfully');
     }
 
     public function upcomingBusiness()
@@ -379,7 +379,7 @@ foreach($request->staff as $key2 => $value)
                         }
  
  
-        return redirect()->route('business.active')->with('info','business updated successfully');
+        return redirect()->route('business.active')->with('info','Business Updated Successfully');
     }
 
     public function viewBusiness($id)
@@ -393,7 +393,7 @@ foreach($request->staff as $key2 => $value)
     {
         $delete_business = Business::find($id);
         $delete_business->delete($id);
-        return redirect()->back()->with('danger','Business deleted successfully');
+        return redirect()->back()->with('danger','Business Deleted Successfully');
     }
 
     public function status(Request $request , $id){
@@ -403,7 +403,7 @@ foreach($request->staff as $key2 => $value)
         $business->status = 1;
         $business->save();
         
-        return redirect()->back()->with('success','Business Approved successfully');
+        return redirect()->back()->with('success','Business Approved Successfully');
     }
 
     public function reject(Request $request , $id){
@@ -437,15 +437,19 @@ foreach($request->staff as $key2 => $value)
         return view('business_management.contact',compact('contacts')); 
     }
 
-        public function imagedelete(Request $request){
-            $id=$request->media_id;
-            // dd($id);
-
-                BusinessImage::find($id)->delete();
-               
-                return response()->json([
-                    'success' => 'image deleted successfully!'
-                ]);
+    public function mediadestroy(Request $request)
+    {
+        $id = $request->media_id;
+        // dd($id);
+        $contacts = BusinessImage::find($id);
+        // return view('business_management.contact',compact('contacts'));
+        $contacts->delete();
+          return response()->json([
+        'success' => 'image deleted successfully!'
+    ]);
     }
+
+    
 }
+
 

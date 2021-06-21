@@ -396,4 +396,4 @@ Route::post('feedback/store','FrontEndController\FeedbackController@store')->nam
 
 Route::get('pdf/documents','FrontEndController\FeedbackController@pdf')->name('document.index');
 
-Route::post('business/image/delete','Admin\BusinessController@imagedelete')->name('businessimage.destroy');
+Route::post('/image/delete','Admin\BusinessController@mediadestroy')->name('media.destroy');

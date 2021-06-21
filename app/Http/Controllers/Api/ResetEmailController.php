@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use App\Notifications\ResetPassword ;
 use Illuminate\Validation\Rule;
 use Validator;
-// use App\Notifications\ResetPassword as ResetPasswordNotification;
+use App\Notifications\ResetPassword as ResetPasswordNotification;
 
 
 class ResetEmailController extends Controller

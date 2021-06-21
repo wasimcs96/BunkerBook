@@ -8,7 +8,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="card">
             <div class="body wizard_validation">
-                <form id="wizard_with_validation" action="{{route('business.store')}}" method="POST"
+                <form id="wizard_with_validation"  action="{{route('business.store')}}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     <h3>Basic Details</h3>
@@ -101,12 +101,11 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label">Landline</label>
-                                        <input type="number" name="landline[]" value="" class="form-control">
+                                        <input type="number" id="phoneNumber" maxlength="16" name="landline[]" value="" placeholder="1234567890" class="form-control">
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-md-12">
+                             <div class="col-md-12">
                                 <div class="form-group">
                                     <a href="javascript:void(0);" class="add_button btn btn-warning btn-sm"
                                         title="Add field">Add More fields</a>
@@ -384,13 +383,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours Start</label>
-                        <input type="time" name="Saturday_start_time" id="Saturday_start_time"value="" class="form-control">
+                        <input type="time" name="Saturday_start_time" id="Saturday_start_time" value="" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Hours End</label>
-                        <input type="time" name="Saturday_end_time" id="sunday_end_time" value=""class="form-control">
+                        <input type="time" name="Saturday_end_time" id="Saturday_end_time" value=""class="form-control">
                     </div>
                     </div>
                 </div>
@@ -406,18 +405,25 @@
                                 <div class="field_wrapper_staff">
                                     <div class="form-group">
                                         <label class="control-label">Staff Detail</label>
+                                         <label>Name</label>
                                         <input type="text" name="staff[0][staff_name]" value="" placeholder="Name"
                                             class="form-control my-3">
+                                             <label>Job Title</label>
                                         <input type="text" name="staff[0][staff_job_title]" value=""
                                             placeholder="Job title" class="form-control my-3">
+                                             <label>Email</label>
                                         <input type="text" name="staff[0][staff_email]" value="" placeholder="Email"
                                             class="form-control my-3">
+                                             <label>Mobile</label>
                                         <input type="mobile" name="staff[0][staff_mobile]" value="" placeholder="Mobile"
                                             class="form-control my-3">
+                                            <label>Skype Id</label>
                                         <input type="text" name="staff[0][staff_skype]" value="" placeholder="Skype Id"
                                             class="form-control my-3">
+                                             <label>About</label>
                                         <textarea name="staff[0][staff_about]" placeholder="About"
                                             class="form-control my-3"></textarea>
+                                             <label>Profile</label>
                                         <input type="file" name="staff[0][staff_profile]" value="" placeholder="Profile"
                                             accept="image/*" class="form-control my-3">
                                     </div>
@@ -477,7 +483,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary float-right">Submit</button>
+                        <button type="submit" class="btn btn-primary mt-5 float-right">Submit</button>
                     </fieldset>
 
                 </form>
@@ -485,10 +491,13 @@
         </div>
     </div>
 </div>
-
+<!--<div id="pageloader">-->
+<!--   <img src="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif" alt="processing..." />-->
+<!--</div>-->
 @stop
 
 @section('page-styles')
+
 <link rel="stylesheet" href="{{ asset('assets/vendor/jquery-steps/jquery.steps.css') }}">
 {{-- <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css') }}"> --}}
 <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}">
@@ -501,7 +510,25 @@
 <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
-
+ <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+   />
+<style>
+#form-overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+</style>
 @stop
 
 @section('page-script')
@@ -535,7 +562,11 @@
 <script src="{{ asset('assets/js/pages/forms/dropify.js') }}"></script>
 
 <script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
 <script type="text/javascript">
+
+
 $(document).ready(function() {
     var maxField = 10; //Input fields increment limitation
     var addButton = $('.add_button'); //Add button selector
@@ -549,8 +580,8 @@ $(document).ready(function() {
             x++; //Increment field counter
             console.log(x);
             var fieldHTML = ' <div class="rowField' + x +
-                '" ><div class="col-md-9"><div class="form-group"><label class="control-label">Landline</label><input type="number" name="landline[]" value="" class="form-control"> </div></div><div class="col-md-3"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button" id="' +
-                x + '">Delete</a></div></div></div>'; //New input field html
+                '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Landline</label><input type="number" name="landline[]" value="" placeholder="1234567890"  class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button float-right" id="' +
+                x + '"><i class="fa fa-times"></i></a></div></div></div>'; //New input field html
 
             $(wrapper).append(fieldHTML); //Add field html
         }
@@ -579,17 +610,17 @@ $(document).ready(function() {
             var fieldHTML_staff = ' <div class="rowField_staff' + y +
                 '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Staff Detail <a href="javascript:void(0);" style="margin-top: 0px;" class="btn btn-danger btn-sm remove_button_staff" id="' +
                 y + '">X</a> </label> <input type="text" name="staff[' + inc +
-                '][staff_name]"  value="" placeholder="Name" class="my-3 form-control"><input type="text" name="staff[' +
+                '][staff_name]"  value="" placeholder="Name" class="my-3 form-control"> <label>Job Title</label><input type="text" name="staff[' +
                 inc +
-                '][staff_job_title]"  value="" placeholder="Job title" class="my-3 form-control"><input type="text" name="staff[' +
+                '][staff_job_title]"  value="" placeholder="Job title" class="my-3 form-control">                                         <label>Email</label><input type="text" name="staff[' +
                 inc +
-                '][staff_email]"  value="" placeholder="Email" class="my-3 form-control"><input type="number" name="staff[' +
+                '][staff_email]"  value="" placeholder="Email" class="my-3 form-control"> <label>Mobile</label><input type="number" name="staff[' +
                 inc +
-                '][staff_mobile]"  value="" placeholder="Mobile" class="my-3 form-control"><input type="text" name="staff[' +
+                '][staff_mobile]"  value="" placeholder="Mobile" class="my-3 form-control"><label>Skype Id</label><input type="text" name="staff[' +
                 inc +
-                '][staff_skype]"  value="" placeholder="Skype Id" class="my-3 form-control"><textarea name="staff[' +
+                '][staff_skype]"  value="" placeholder="Skype Id" class="my-3 form-control"> <label>About</label><textarea name="staff[' +
                 inc +
-                '][staff_about]"   placeholder="About" class="my-3 form-control" ></textarea><input type="file" name="staff[' +
+                '][staff_about]"   placeholder="About" class="my-3 form-control" ></textarea> <label>Profile</label><input type="file" name="staff[' +
                 inc +
                 '][staff_profile]"   value="" placeholder="Profile" accept="image/*" class="my-3 form-control"> </div></div></div>'; //New input field html
 
@@ -708,13 +739,11 @@ jQuery(function() {
 
         if (sunday == 'close') {
             $('#sundayDiv').css('display', 'none');
-            //$("#sunday_start_time").attr(" ", false);
-            //$("#sunday_end_time").attr(" ", false);
+
 
         } else {
             $('#sundayDiv').css('display', 'block');
-            // $("#sunday_start_time").attr(" ", true);
-            //$("#sunday_end_time").attr(" ", true);
+           
         }
     });
 
@@ -798,17 +827,7 @@ jQuery(function() {
 
 
 <script>
-//     $(document).ready(function() {
 
-//        $(".chosen").chosen();
-//        $('.chosen-toggle').each(function(index) {
-//       console.log(index);
-//           $(this).on('click', function(){
-//           console.log($(this).parent().find('option').text());
-//                $(this).parent().find('option').prop('selected', $(this).hasClass('select')).parent().trigger('chosen:updated');
-//           });
-//   });
-//   });
 
 $(document).ready(function() {
     var maxField = 2; //Input fields increment limitation
@@ -823,8 +842,8 @@ $(document).ready(function() {
             x++; //Increment field counter
             console.log(x);
             var fieldHTML = ' <div class="rowField1' + x +
-                '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Website</label><input type="text" name="website[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button1" id="' +
-                x + '">Delete</a></div></div></div>'; //New input field html
+                '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Website</label><input type="text" name="website[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm float-right remove_button1" id="' +
+                x + '"><i class="fa fa-times"></i></a></div></div></div>'; //New input field html
 
             $(wrapper).append(fieldHTML); //Add field html
         }
@@ -845,7 +864,7 @@ $(document).ready(function() {
 
 });
 $(document).ready(function() {
-    var maxField = 2; //Input fields increment limitation
+    var maxField = 4; //Input fields increment limitation
     var addButton = $('.add_button2'); //Add button selector
     var wrapper = $('.custm'); //Input field wrapper
     var x = 1; //Initial field counter is 1
@@ -857,8 +876,8 @@ $(document).ready(function() {
             x++; //Increment field counter
             console.log(x);
             var fieldHTML = ' <div class="rowField2' + x +
-                '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Email</label><input type="email" name="email[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_button2" id="' +
-                x + '">Delete</a></div></div></div>'; //New input field html
+                '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Email</label><input type="email" name="email[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm float-right remove_button2" id="' +
+                x + '"><i class="fa fa-times"></i></a></div></div></div>'; //New input field html
 
             $(wrapper).append(fieldHTML); //Add field html
         }
@@ -881,20 +900,20 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    var maxField = 2; //Input fields increment limitation
+    var maxField = 5; //Input fields increment limitation
     var addButton = $('.add_buttonyoutube_link'); //Add button selector
     var wrapper = $('.field_wrapperyoutube_link'); //Input field wrapper
     var x = 1; //Initial field counter is 1
 
-    //Once add button is clicked
+    //Once add button is clickedhttps://www.youtube.com/watch?v=ZIsdbVOQJNc
     $(addButton).click(function() {
         //Check maximum number of input fields
         if (x < maxField) {
             x++; //Increment field counter
             console.log(x);
             var fieldHTML = ' <div class="rowField1' + x +
-                '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Youtube Link</label><input type="text" name="youtube_video[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm remove_buttonyoutube_link" id="' +
-                x + '">Delete</a></div></div></div>'; //New input field html
+                '" ><div class="col-md-12"><div class="form-group"><label class="control-label">Youtube Link</label><input type="text" name="youtube_video[]" value="" class="form-control"> </div></div><div class="col-md-12"><div class="form-group"><a href="javascript:void(0);" style="margin-top: 28px;" class="btn btn-danger btn-sm float-right remove_buttonyoutube_link" id="' +
+                x + '"><i class="fa fa-times"></i></a></div></div></div>'; //New input field html
 
             $(wrapper).append(fieldHTML); //Add field html
         }
@@ -961,5 +980,69 @@ text.style.display = "block";
 }
 }
 </script>
+<!--<script src"https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.7/js/intlTelInput.js"></script>-->
+<script>
+$(document).ready(function(){
+    
+  $("#wizard_with_validation").on("submit", function(){
+      console.log('formsubmited');
+     document.getElementById("form-overlay").style.display = "block";
+     
+  });//submit
+});//document ready
+</script>
 
+<script src="{{ asset('build/js/intlTelInput.js')}}"></script>
+  <script>
+  const isNumericInput = (event) => {
+    const key = event.keyCode;
+    return ((key >= 48 && key <= 57) || // Allow number line
+        (key >= 96 && key <= 105) // Allow number pad
+    );
+};
+
+const isModifierKey = (event) => {
+    const key = event.keyCode;
+    return (event.shiftKey === true || key === 35 || key === 36) || // Allow Shift, Home, End
+        (key === 8 || key === 9 || key === 13 || key === 46) || // Allow Backspace, Tab, Enter, Delete
+        (key > 36 && key < 41) || // Allow left, up, right, down
+        (
+            // Allow Ctrl/Command + A,C,V,X,Z
+            (event.ctrlKey === true || event.metaKey === true) &&
+            (key === 65 || key === 67 || key === 86 || key === 88 || key === 90)
+        )
+};
+
+const enforceFormat = (event) => {
+    // Input must be of a valid number format or a modifier key, and not longer than ten digits
+    if(!isNumericInput(event) && !isModifierKey(event)){
+        event.preventDefault();
+    }
+};
+
+const formatToPhone = (event) => {
+    if(isModifierKey(event)) {return;}
+
+    const input = event.target.value.replace(/\D/g,'').substring(0,10); // First ten digits of input only
+    const areaCode = input.substring(0,3);
+    const middle = input.substring(3,6);
+    const last = input.substring(6,10);
+
+    if(input.length > 6){event.target.value = `(${areaCode}) ${middle} - ${last}`;}
+    else if(input.length > 3){event.target.value = `(${areaCode}) ${middle}`;}
+    else if(input.length > 0){event.target.value = `(${areaCode}`;}
+};
+
+const inputElement = document.getElementById('phoneNumber');
+inputElement.addEventListener('keydown',enforceFormat);
+inputElement.addEventListener('keyup',formatToPhone);
+  </script>
+<script>
+setTimeout(function(){ 
+    
+   var x = document.querySelector(".actions").lastChild.lastChild.remove();
+
+}, 3000);
+
+</script>
 @stop
