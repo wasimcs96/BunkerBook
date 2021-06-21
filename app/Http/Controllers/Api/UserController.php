@@ -16,7 +16,7 @@ class UserController extends Controller
             'last_name' => 'required',
             'mobile' => 'required|unique:users',
             'password' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:users',
             'company_name' => 'required',
             'job_title' => 'required',
             'address' => 'required',
@@ -48,7 +48,7 @@ class UserController extends Controller
         ]);
         $success = $user;
         $success['token'] =  $user->createToken('MyApp')->accessToken;
-        return $this->sendResponse($success, 'User register successfully.');
+        return $this->sendResponse($success, 'User registered successfully.');
     }
 
     public function login (Request $request) {
@@ -62,10 +62,10 @@ class UserController extends Controller
                  $user->save();
                 return $this->sendResponse($success, 'User has been logged in successfully.');
             } else {
-                return $this->sendError('Password missmatch');
+                return $this->sendError('Invalid Password!');
             }
         } else {
-            return $this->sendError('User does not exist');
+            return $this->sendError('Invalid Email.');
         }
     }
 
@@ -73,7 +73,7 @@ class UserController extends Controller
         $token = $request->user()->token();
         $token->revoke();
         $success = [];
-        return $this->sendResponse($success, 'You have been successfully logged out!');
+        return $this->sendResponse($success, 'You has been successfully logged out.');
     }
 
     public function getUser (Request $request){
@@ -114,7 +114,7 @@ class UserController extends Controller
         'image'=>$banner,
         ]);
 
-        return $this->sendResponse($userData, 'User Update successfully.');
+        return $this->sendResponse($userData, 'Profile update successfully.');
     }
 
     public function checkMobileNumberExits(Request $request){
@@ -144,7 +144,7 @@ class UserController extends Controller
         }else{
             return $this->sendError('Validation Error.', '', "The current password is not match with old password.");
         }
-        return $this->sendResponse(array(), 'Password Updated Successfully');
+        return $this->sendResponse(array(), 'Password updated successfully');
 
     }
 

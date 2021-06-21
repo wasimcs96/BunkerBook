@@ -15,7 +15,7 @@ class CountryController extends Controller
 
         foreach($countries as $country){
         
-            $book = Business::where('country',$country->id)->count();
+            $book = Business::where('status',1)->where('country',$country->id)->count();
              $country['count']=$book;
             array_push($data,$country);
          
@@ -26,7 +26,7 @@ class CountryController extends Controller
 
     public function getbusinesscount(Request $request){
 
-        $count = Business::where('country',$request->id)->count();
+        $count = Business::where('status',1)->where('country',$request->id)->count();
 
         return $this->sendResponse($count,'business count Find');
 
@@ -35,7 +35,7 @@ class CountryController extends Controller
     Public function getcountrybusiness(Request $request)
     {
         $data=[];
-        $business = Business::where('country',$request->id)->select('id','name','email','business_profile','category_name','mobile')->get();
+        $business = Business::where('status',1)->where('country',$request->id)->select('id','name','email','business_profile','category_name','mobile')->get();
 
         foreach($business as $buisnes){
         

@@ -34,10 +34,10 @@
                             aria-label="Email: activate to sort column ascending" style="width: 153px;">Email</th>
                           <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                             aria-label="Mobile: activate to sort column ascending" style="width: 96px;">Mobile</th>
-                          <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                            aria-label="Address: activate to sort column ascending" style="width: 66px;">Address</th>
-                          <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                            aria-label="Category: activate to sort column ascending" style="width: 57px;">Category</th>
+                          <!--<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"-->
+                          <!--  aria-label="Address: activate to sort column ascending" style="width: 66px;">Address</th>-->
+                          <!--<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"-->
+                          <!--  aria-label="Category: activate to sort column ascending" style="width: 57px;">Category</th>-->
                           <th style="width: 60px;" class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                             aria-label="Action: activate to sort column ascending">Action</th>
                         </tr>
@@ -68,11 +68,11 @@
                               src="{{asset($business->business_profile)}}">
                             </td> -->
                             <td>@if(isset($business->business_profile)&&file_exists($business->business_profile))<a href="{{asset($business->business_profile)}}" target="_blank" ><img src="{{ asset($business->business_profile)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('images/no_image/noimage.png')}}" style="width: 100px;"> @endif</td>
-                            <td>@if(isset($business->name)){{$business->name}}@else N/A @endif</td>
+                            <td><a href="{{route('business.edit', $business->id)}}">@if(isset($business->name)){{$business->name}}@else N/A @endif</a></td>
                             <td>@if(isset($business->email)){{$business->email}}@else N/A @endif</td>
                             <td>@if(isset($business->mobile)){{$business->mobile}}@else N/A @endif</td>
-                            <td>@if(isset($business->address)){{$business->address}}@else N/A @endif</td>
-                            <td>@if(isset($business->category_name)){{$business->category_name ?? ''}}@else N/A @endif</td>
+                            <!--<td>@if(isset($business->address)){{$business->address}}@else N/A @endif</td>-->
+                            <!--<td>@if(isset($business->category_name)){{$business->category_name ?? ''}}@else N/A @endif</td>-->
                             <td>
                               <a href="{{route('business.edit', $business->id)}}" class="btn btn-warning btn-sm">Edit</a>
                               <a href="javascript:void(0)" data-toggle="modal" class="btn btn-danger" data-target="#mdlerror{{$business->id ?? ''}}">Delete</a>

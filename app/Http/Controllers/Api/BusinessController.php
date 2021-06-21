@@ -84,7 +84,7 @@ class BusinessController extends Controller
             'saturday_end_time'=>$request->saturday_end_time,
 
         ]);
-        return $this->sendResponse($business, 'Business Created successfully.');
+        return $this->sendResponse($business, 'Your Listing Has Been Send To The Admin For Approval.');
     }
     
     public function getBusinessCategory(Request $request)
@@ -92,7 +92,7 @@ class BusinessController extends Controller
         $categorycoming=$request->category_id;
         $data=[];
 
-        $business=Business::whereRaw("find_in_set('$categorycoming',category)")->select('id','name','email','address','business_profile','category_name','mobile')->get();
+        $business=Business::whereRaw("find_in_set('$categorycoming',category)")->where('status',1)->select('id','name','email','address','business_profile','category_name','mobile')->get();
 
 
         foreach($business as $buisnes){
@@ -121,7 +121,7 @@ class BusinessController extends Controller
     public function getlimitbusiness(){
 
         
-        $business = Business::select('name','id','business_profile','address')->get();
+        $business = Business::where('status',1)->select('name','id','business_profile','address')->orderBy('created_at','DESC')->get();
         return $this->sendResponse($business,'Business limited data fetched');
     }
 
@@ -129,9 +129,12 @@ class BusinessController extends Controller
         $data=[];
         $business = Business::where('id',$request->id)->with(['businessImage','businessVideo','businessRequest','businessStaff'])->first();
 
-        $business['category']=explode(',',$business->category_name) ;
+        $business['category']=explode(',',$business->category_name);
         // dd($category);
         // dd($business);
+                $business['landline']=explode(',',$business->landline);
+        $business['email']=explode(',',$business->email);
+
 
         // foreach($business as $buisnes){
          $business['rating'] = BusinessRating::where('business_id',$business->id)->average('rating_number');
@@ -168,7 +171,7 @@ class BusinessController extends Controller
             'business_id'=>$request->business_id,
             'rating_number'=>$request->rating_number,
         ]);
-        return $this->sendResponse($rating, 'Business Rating Created successfully.');
+        return $this->sendResponse($rating, 'Business Rating Added Successfully.');
     }
     public function businessrating(Request $request)
     {
@@ -189,7 +192,7 @@ class BusinessController extends Controller
    
 
         ]);
-        return $this->sendResponse($business, 'Request added successfully.');
+        return $this->sendResponse($business, 'Request Sent Successfully.');
         }
        
     

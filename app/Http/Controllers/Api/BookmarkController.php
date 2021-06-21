@@ -14,12 +14,15 @@ class BookmarkController extends Controller
 
     $bookmark = Bookmark::where('user_id',$request->user()->id)->get();
     $business=[];
-    foreach($bookmark as $book){
-       array_push($business,$book->business);
-        // $success = $business;
-//    dd($business);
+    foreach($bookmark as $key=>$book){
+        // dd($book->business->category_name);
+        $business[$key] = $book->business;
+        
+         $cat = explode(',',$book->business->category_name);
+         $business[$key]['category'] = $cat;
+      
     }
-        return $this->sendResponse($business,'Bookmark Find');
+        return $this->sendResponse($business,'Bookmark list found.');
     }
 
     public function postBookmark(Request $request){
@@ -37,7 +40,7 @@ class BookmarkController extends Controller
             // 'bookmark_id'=>$request->bookmark_id,
             'business_id'=>$request->business_id,
         ]);
-        return $this->sendResponse($bookmark, 'Bookmark Created successfully.');
+        return $this->sendResponse($bookmark, 'Added to Bookmark.');
     }
 
     public function deleteBookmark(Request $request)
@@ -46,7 +49,7 @@ class BookmarkController extends Controller
         // dd($book);
         $book->delete();
 
-        return $this->sendResponse($book, 'Bookmark Deleted successfully.');
+        return $this->sendResponse($book, 'Removed from Bookmark.');
 
 
     }
